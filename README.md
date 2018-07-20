@@ -235,10 +235,7 @@ You will be invited to provide feedback about all your teammates, their attitude
 
 Примерна форма за кораб : IMG/img01
 
-
 Примерна форма за враг, който изстрелва снаряд : IMG/img01
-
- 
 
 Примерна игрова сцена : IMG/img01
 
