@@ -169,7 +169,8 @@ You will be invited to provide feedback about all your teammates, their attitude
 3. LifeSim_V01_01 - Contains the current under-dev. application.
       - Common - All enums
       - Contracts - All Interfaces that are common for the all project, not for small part of it.
-          * IReadable - provides I for readin from file 
+          * IReadable - provides I for readin from file ( this function may be used in the future by the global user )
+          * IDisplayable - expose line of text to the user ( this function may be used in the future by the global user )
       - Engine - the main engine of app.
         - Engine.Core - the core part of engine
         - Menu - the menu part that works with Engine
@@ -177,8 +178,7 @@ You will be invited to provide feedback about all your teammates, their attitude
             * MDErrorMessages - all const values for errors displayed by menu
             * MDMessages - menu messages ( not errors )
             * MenuSettings - Contains all menu build in display settings
-          * Contracts
-            * IDisplayable - expose line of text to the user
+          * Contracts           
           * Start.Menu - All neaded for providing start menu
             * Logo - folder that stores the logo image
             * StartMenuLauncher - When it's called it's displays start menu ( NOTE: it must return some valu?)
@@ -191,7 +191,7 @@ You will be invited to provide feedback about all your teammates, their attitude
 NOTE: The Contracts and Factories folders (namespaces) must be saved for more "global" purposes. I'give an example-> I'm working on menu, so i will create Contracts folder in my menu folder. Separete all in different folder.
 NOTE: ALL THIS IS OPTIONAL, ADD SOME TY
 NOTE: Add your changes and new futures to this list.
-
+MAP : - global user - programmer
 ** ** 
 
 **Конзолна игра** ( first idea but not accepted by team )
