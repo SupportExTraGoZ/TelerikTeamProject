@@ -4,7 +4,8 @@ using System.Text;
 
 namespace LifeSim.Core.Contracts
 {
-    interface IReadable
+    public interface IReadable
     {
+        IList<string> ReadFile(string path);
     }
 }

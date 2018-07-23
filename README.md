@@ -194,7 +194,7 @@ You will be invited to provide feedback about all your teammates, their attitude
       - WorkFunctions - stores all common functions that are used in app work
             * FileReader - Implements IReadable - read file from specific path and return List of strings.
             * OutputDisplayer - displays lines from List-string
-4. LifeSim_V01_01.Tests - Optionaly, some test on current application.
+4. (OPTIONAL)LifeSim_V01_01.Tests - Optionaly, some test on current application.
 
 NOTE: The Contracts and Factories folders (namespaces) must be saved for more "global" purposes. I'give an example-> I'm working on menu, so i will create Contracts folder in my menu folder. Separete all in different folder.
 NOTE: ALL THIS IS OPTIONAL, ADD SOME TY

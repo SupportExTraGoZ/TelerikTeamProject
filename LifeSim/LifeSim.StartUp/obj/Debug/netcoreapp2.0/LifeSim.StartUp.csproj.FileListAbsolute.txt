@@ -1,0 +1,11 @@
+H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.StartUp\bin\Debug\netcoreapp2.0\LifeSim.StartUp.deps.json
+H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.StartUp\bin\Debug\netcoreapp2.0\LifeSim.StartUp.runtimeconfig.json
+H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.StartUp\bin\Debug\netcoreapp2.0\LifeSim.StartUp.runtimeconfig.dev.json
+H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.StartUp\bin\Debug\netcoreapp2.0\LifeSim.StartUp.dll
+H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.StartUp\bin\Debug\netcoreapp2.0\LifeSim.StartUp.pdb
+H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.csprojResolveAssemblyReference.cache
+H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.csproj.CoreCompileInputs.cache
+H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.AssemblyInfoInputs.cache
+H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.AssemblyInfo.cs
+H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.dll
+H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.pdb

@@ -6,11 +6,10 @@
 
   <ItemGroup>
     <Folder Include="Engine\Engine.Core\" />
-    <Folder Include="Engine\Menu\Start.Menu\" />
+    <Folder Include="Engine\Menu\Contracts\" />
     <Folder Include="Models\" />
     <Folder Include="Common\" />
     <Folder Include="Factories\" />
-    <Folder Include="Contracts\" />
   </ItemGroup>
 
 </Project>

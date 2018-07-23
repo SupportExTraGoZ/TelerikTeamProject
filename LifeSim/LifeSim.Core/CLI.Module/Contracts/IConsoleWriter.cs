@@ -4,7 +4,8 @@ using System.Text;
 
 namespace LifeSim.Core.CLI.Module.Contracts
 {
-    interface IConsoleWriter
+    public interface IConsoleWriter
     {
+        void WhriteOnConsole(string line);
     }
 }

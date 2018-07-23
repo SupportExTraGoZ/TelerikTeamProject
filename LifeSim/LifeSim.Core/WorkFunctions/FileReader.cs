@@ -8,6 +8,11 @@ namespace LifeSim.Core.WorkFunctions
 {
     public class FileReader : IReadable
     {
+        /// <summary>
+        /// Read file from file system
+        /// </summary>
+        /// <param name="path">Path to current file to read</param>
+        /// <returns></returns>
         public IList<string> ReadFile(string path)
         {
             var strLines = new List<string>();

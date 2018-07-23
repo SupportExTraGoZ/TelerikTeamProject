@@ -4,7 +4,8 @@ using System.Text;
 
 namespace LifeSim.Core.CLI.Module.Contracts
 {
-    class IConsoleReader
+    public interface IConsoleReader
     {
+        string ReadFromConsole();
     }
 }

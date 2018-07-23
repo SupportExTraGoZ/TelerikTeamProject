@@ -4,7 +4,11 @@ using System.Text;
 
 namespace LifeSim.Core.Contracts
 {
-    interface IDisplayable
+    /// <summary>
+    /// Gives ability to display line of text (string) to the user.
+    /// </summary>
+    public interface IDisplayable
     {
+        void DisplayLine(IList<string> content);
     }
 }

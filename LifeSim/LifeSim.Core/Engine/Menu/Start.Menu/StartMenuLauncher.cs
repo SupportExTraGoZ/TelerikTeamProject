@@ -4,7 +4,8 @@ using System.Text;
 
 namespace LifeSim.Core.Engine.Menu.Start.Menu
 {
-    class StartMenuLauncher
+    public class StartMenuLauncher
     {
+        private IList<string> logo;
     }
 }
