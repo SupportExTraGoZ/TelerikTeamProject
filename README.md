@@ -176,6 +176,7 @@ You will be invited to provide feedback about all your teammates, their attitude
           * Const 
             * MDErrorMessages - all const values for errors displayed by menu
             * MDMessages - menu messages ( not errors )
+            * MenuSettings - Contains all menu build in display settings
           * Contracts
             * IDisplayable - expose line of text to the user
           * Start.Menu - All neaded for providing start menu
