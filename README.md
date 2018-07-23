@@ -97,12 +97,12 @@ You will be invited to provide feedback about all your teammates, their attitude
 | --- | --- | --- | --- |
 | **Schedule** | **Consider all team members free/ work time to find the best time for work** |   |   |
 | **Ideas Gathering** | **Let&#39;s all team members add more ideas** | **19/7** |   |
-| **The idea** | **Chose the best idea from the ideas sheet or a new one** |   |   |
-| **1. 1) **Getting Requirements** | **Getting requirements from TA course** |   |   |
-| **1.2) Getting requirements for project** | **Finding requirements for current project** |   |   |
-| **1. 2) **Plan** | **Planning development of the project** |   |   |
-| **1. 3) **Design** | **Design the project** |   |   |
-| **1. 4) **Develop** | **Developing the project** |   |   |
+| **The idea** | **Chose the best idea from the ideas sheet or a new one** | 23/7  |   |
+| **1. 1) **Getting Requirements** | **Getting requirements from TA course** | 20/7  |   |
+| **1.2) Getting requirements for project** | **Finding requirements for current project** |19/7   |   |
+| **1. 2) **Plan** | **Planning development of the project** | 19/7  |   |
+| **1. 3) **Design** | **Design the project** |  19/7 |   |
+| **1. 4) **Develop** | **Developing the project** |  from 19/7 |   |
 | **1. 5) **Release** | **Releasing project as completed IF THERE IS NO TIME LEFT FOR STEP 6)** |   |   |
 | **1. 6) **Extend** | **Extend project and do step 5)** |   |   |
 
@@ -155,7 +155,7 @@ You will be invited to provide feedback about all your teammates, their attitude
 
 # Ideas List
 
-**Конзолна игра**
+**Конзолна игра** ( first idea but not accepted by team )
 
 Вашата задача е да направите програма, която наподобява стари аркадни игри като [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders) и [Space Impact](http://nokia.wikia.com/wiki/Space_Impact). Играта ще се играе от конзолния интерфейс, а фигурите в играта ще се чертаят като ASCII символи. Чертането на фигурите ще се случва на кадри, като всеки кадър е матрица със символи, представящи състоянието на играта в текущия момент. Всеки кадър има известна продължителност, преди да се смени със следващия. Като това време зависи от трудността на играта,която ще се избира при пускане на програмата. Вие трябва да прецените колко време ще протича всеки кадър, за всяка от трудностите. Няма ограничение върху продължителността играта. Тя приключва, когато играчът загуби всичките си животи. Играта пази резултат, който се базира на броя убити врагове.
 
@@ -239,4 +239,28 @@ You will be invited to provide feedback about all your teammates, their attitude
 
 Примерна игрова сцена : IMG/img01
 
- 
+**Life Simulator** ( second idea - accepted by team )
+
+**IDEA OVERWIEW**
+
+------------- HERE WE MUST DESCRIBE ALL THINGS -----------
+
+**Project Structure**
+
+1. Solution
+** ** 
+- LifeSim.CLI - Contain the start point of Console Application Clien.
+- LifeSim_V01_01 - Contains the current under-dev. application.
+      - Common - All enums
+      - Contracts - All Interfaces that are common for the all project, not for small part of it.
+      - Engine - the main engine of app.
+      - Engine.Core - the core part of engine
+      - Menu - the menu part that works with Engine
+      - Factories - optional for all factories connected to global parts of project.
+      - Models - all global classes that represent part of the app 
+- LifeSim_V01_01.Tests - Optionaly, some test on current application.
+
+NOTE: ALL THIS IS OPTIONAL, ADD SOME TY
+NOTE: Add your changes and new futures to this list.
+
+** ** 
