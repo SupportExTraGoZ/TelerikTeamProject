@@ -169,6 +169,7 @@ You will be invited to provide feedback about all your teammates, their attitude
 3. LifeSim_V01_01 - Contains the current under-dev. application.
       - Common - All enums
       - Contracts - All Interfaces that are common for the all project, not for small part of it.
+          * IReadable - provides I for readin from file 
       - Engine - the main engine of app.
         - Engine.Core - the core part of engine
         - Menu - the menu part that works with Engine
@@ -177,6 +178,9 @@ You will be invited to provide feedback about all your teammates, their attitude
             * MDMessages - menu messages ( not errors )
           * Contracts
             * IDisplayable - expose line of text to the user
+          * Start.Menu - All neaded for providing start menu
+            * Logo - folder that stores the logo image
+            * StartMenuLauncher - When it's called it's displays start menu ( NOTE: it must return some valu?)
       - Factories - optional for all factories connected to global parts of project.
       - Models - all global classes that represent part of the app 
 4. LifeSim_V01_01.Tests - Optionaly, some test on current application.
