@@ -1,6 +1,9 @@
 ﻿namespace LifeSim.Core.Engine.Menu.Const
 {
-    public static class MenuDisplayErrors
+    /// <summary>
+    /// Menu Display Errors Constant Strings
+    /// </summary>
+    public static class MDErrorMessages
     {
     }
 }
