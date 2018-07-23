@@ -167,6 +167,13 @@ You will be invited to provide feedback about all your teammates, their attitude
 ** ** 
 2. LifeSim.CLI - Contain the start point of Console Application Clien.
 3. LifeSim_V01_01 - Contains the current under-dev. application.
+      - CLI.Module - All functions for console application
+          * Contracts
+            - IConsoleReader 
+            - IConsoleWriter
+          * Modules - All functions that are used in CLI
+            - ConsoleRead - read line from console
+            - ConsoleWriter - write line to console
       - Common - All enums
       - Contracts - All Interfaces that are common for the all project, not for small part of it.
           * IReadable - provides I for readin from file ( this function may be used in the future by the global user )
@@ -186,6 +193,7 @@ You will be invited to provide feedback about all your teammates, their attitude
       - Models - all global classes that represent part of the app
       - WorkFunctions - stores all common functions that are used in app work
             * FileReader - Implements IReadable - read file from specific path and return List of strings.
+            * OutputDisplayer - displays lines from List-string
 4. LifeSim_V01_01.Tests - Optionaly, some test on current application.
 
 NOTE: The Contracts and Factories folders (namespaces) must be saved for more "global" purposes. I'give an example-> I'm working on menu, so i will create Contracts folder in my menu folder. Separete all in different folder.
