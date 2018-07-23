@@ -162,7 +162,7 @@ You will be invited to provide feedback about all your teammates, their attitude
 ------------- HERE WE MUST DESCRIBE ALL THINGS -----------
 
 **Project Structure**
-
+**DOCUMENTATION**
 1. Solution
 ** ** 
 2. LifeSim.CLI - Contain the start point of Console Application Clien.
