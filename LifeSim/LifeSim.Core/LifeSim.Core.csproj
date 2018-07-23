@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Engine\Engine.Core\" />
-    <Folder Include="Engine\Menu\" />
     <Folder Include="Models\" />
     <Folder Include="Common\" />
     <Folder Include="Factories\" />

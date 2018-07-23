@@ -172,6 +172,11 @@ You will be invited to provide feedback about all your teammates, their attitude
       - Engine - the main engine of app.
         - Engine.Core - the core part of engine
         - Menu - the menu part that works with Engine
+          * Const 
+            * MDErrorMessages - all const values for errors displayed by menu
+            * MDMessages - menu messages ( not errors )
+          * Contracts
+            * IDisplayable - expose line of text to the user
       - Factories - optional for all factories connected to global parts of project.
       - Models - all global classes that represent part of the app 
 4. LifeSim_V01_01.Tests - Optionaly, some test on current application.
