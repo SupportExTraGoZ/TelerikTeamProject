@@ -176,6 +176,7 @@ You will be invited to provide feedback about all your teammates, their attitude
       - Models - all global classes that represent part of the app 
 4. LifeSim_V01_01.Tests - Optionaly, some test on current application.
 
+NOTE: The Contracts and Factories folders (namespaces) must be saved for more "global" purposes. I'give an example-> I'm working on menu, so i will create Contracts folder in my menu folder. Separete all in different folder.
 NOTE: ALL THIS IS OPTIONAL, ADD SOME TY
 NOTE: Add your changes and new futures to this list.
 
