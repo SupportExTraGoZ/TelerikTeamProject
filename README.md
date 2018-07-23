@@ -155,6 +155,32 @@ You will be invited to provide feedback about all your teammates, their attitude
 
 # Ideas List
 
+# Life Simulator ( second idea - accepted by team )
+
+**IDEA OVERWIEW**
+
+------------- HERE WE MUST DESCRIBE ALL THINGS -----------
+
+**Project Structure**
+
+1. Solution
+** ** 
+2. LifeSim.CLI - Contain the start point of Console Application Clien.
+3. LifeSim_V01_01 - Contains the current under-dev. application.
+      - Common - All enums
+      - Contracts - All Interfaces that are common for the all project, not for small part of it.
+      - Engine - the main engine of app.
+        - Engine.Core - the core part of engine
+        - Menu - the menu part that works with Engine
+      - Factories - optional for all factories connected to global parts of project.
+      - Models - all global classes that represent part of the app 
+4. LifeSim_V01_01.Tests - Optionaly, some test on current application.
+
+NOTE: ALL THIS IS OPTIONAL, ADD SOME TY
+NOTE: Add your changes and new futures to this list.
+
+** ** 
+
 **Конзолна игра** ( first idea but not accepted by team )
 
 Вашата задача е да направите програма, която наподобява стари аркадни игри като [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders) и [Space Impact](http://nokia.wikia.com/wiki/Space_Impact). Играта ще се играе от конзолния интерфейс, а фигурите в играта ще се чертаят като ASCII символи. Чертането на фигурите ще се случва на кадри, като всеки кадър е матрица със символи, представящи състоянието на играта в текущия момент. Всеки кадър има известна продължителност, преди да се смени със следващия. Като това време зависи от трудността на играта,която ще се избира при пускане на програмата. Вие трябва да прецените колко време ще протича всеки кадър, за всяка от трудностите. Няма ограничение върху продължителността играта. Тя приключва, когато играчът загуби всичките си животи. Играта пази резултат, който се базира на броя убити врагове.
@@ -238,29 +264,3 @@ You will be invited to provide feedback about all your teammates, their attitude
 Примерна форма за враг, който изстрелва снаряд : IMG/img01
 
 Примерна игрова сцена : IMG/img01
-
-**Life Simulator** ( second idea - accepted by team )
-
-**IDEA OVERWIEW**
-
-------------- HERE WE MUST DESCRIBE ALL THINGS -----------
-
-**Project Structure**
-
-1. Solution
-** ** 
-- LifeSim.CLI - Contain the start point of Console Application Clien.
-- LifeSim_V01_01 - Contains the current under-dev. application.
-      - Common - All enums
-      - Contracts - All Interfaces that are common for the all project, not for small part of it.
-      - Engine - the main engine of app.
-      - Engine.Core - the core part of engine
-      - Menu - the menu part that works with Engine
-      - Factories - optional for all factories connected to global parts of project.
-      - Models - all global classes that represent part of the app 
-- LifeSim_V01_01.Tests - Optionaly, some test on current application.
-
-NOTE: ALL THIS IS OPTIONAL, ADD SOME TY
-NOTE: Add your changes and new futures to this list.
-
-** ** 
