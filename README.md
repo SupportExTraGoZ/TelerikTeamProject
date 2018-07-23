@@ -182,7 +182,8 @@ You will be invited to provide feedback about all your teammates, their attitude
             * Logo - folder that stores the logo image
             * StartMenuLauncher - When it's called it's displays start menu ( NOTE: it must return some valu?)
       - Factories - optional for all factories connected to global parts of project.
-      - Models - all global classes that represent part of the app 
+      - Models - all global classes that represent part of the app
+      - WorkFunctions - stores all common functions that are used in app work
 4. LifeSim_V01_01.Tests - Optionaly, some test on current application.
 
 NOTE: The Contracts and Factories folders (namespaces) must be saved for more "global" purposes. I'give an example-> I'm working on menu, so i will create Contracts folder in my menu folder. Separete all in different folder.
