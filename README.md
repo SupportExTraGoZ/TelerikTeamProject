@@ -188,7 +188,7 @@ You will be invited to provide feedback about all your teammates, their attitude
           * Contracts           
           * Start.Menu - All neaded for providing start menu
             * Logo - folder that stores the logo image
-            * StartMenuLauncher - When it's called it's displays start menu ( NOTE: it must return some valu?)
+            * MenuLauncher - When it's called it's displays all menu ( NOTE: it must return some valu?)
       - Factories - optional for all factories connected to global parts of project.
       - Models - all global classes that represent part of the app
       - WorkFunctions - stores all common functions that are used in app work

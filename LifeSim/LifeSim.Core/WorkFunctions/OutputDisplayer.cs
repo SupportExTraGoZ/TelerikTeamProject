@@ -19,7 +19,7 @@ namespace LifeSim.Core.WorkFunctions
         {
             foreach (var line in content)
             {
-                this.writer.WhriteOnConsole(line);
+                this.writer.WhriteOnConsole(content);
             }
         }
     }

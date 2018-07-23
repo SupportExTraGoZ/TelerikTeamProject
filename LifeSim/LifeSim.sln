@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LifeSim_V01_01", "LifeSim_V
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Core", "LifeSim.Core\LifeSim.Core.csproj", "{30847968-C2D4-408D-A63D-B2F8D7B665E9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LifeSim_V01_01.Tests", "LifeSim_V01_01.Tests", "{7B3A7819-8A0E-47EF-B5A0-F6199BB8C9D3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

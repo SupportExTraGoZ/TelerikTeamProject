@@ -6,6 +6,6 @@ namespace LifeSim.Core.CLI.Module.Contracts
 {
     public interface IConsoleWriter
     {
-        void WhriteOnConsole(string line);
+        void WhriteOnConsole(IList<string> line);
     }
 }

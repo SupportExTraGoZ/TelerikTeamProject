@@ -7,9 +7,12 @@ namespace LifeSim.Core.CLI.Module.Modules
 {
     public class ConsoleWriter : IConsoleWriter
     {
-        public void WhriteOnConsole(string line)
+        public void WhriteOnConsole(IList<string> content)
         {
-            Console.WriteLine(line);
+            foreach (var line in content)
+            {
+                Console.WriteLine(content);
+            }
         }
     }
 }
