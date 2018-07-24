@@ -176,8 +176,10 @@ You will be invited to provide feedback about all your teammates, their attitude
             - ConsoleWriter - write line to console
       - Common - All enums
       - Contracts - All Interfaces that are common for the all project, not for small part of it.
-          * IReadable - provides I for readin from file ( this function may be used in the future by the global user )
-          * IDisplayable - expose line of text to the user ( this function may be used in the future by the global user )
+          * IO - Input / Output Interfaces
+              * IReadable - provides I for readin from file ( this function may be used in the future by the global user )
+              * IDisplayable - expose line of text to the user ( this function may be used in the future by the global user )
+              * CLI.Module.Connection - permenent function --
       - Engine - the main engine of app.
         - Engine.Core - the core part of engine
         - Menu - the menu part that works with Engine
@@ -192,8 +194,9 @@ You will be invited to provide feedback about all your teammates, their attitude
       - Factories - optional for all factories connected to global parts of project.
       - Models - all global classes that represent part of the app
       - WorkFunctions - stores all common functions that are used in app work
-            * FileReader - Implements IReadable - read file from specific path and return List of strings.
-            * OutputDisplayer - displays lines from List-string
+            * IO - Input / Output functions
+                * FileReader - Implements IReadable - read file from specific path and return List of strings.
+                * OutputDisplayer - displays lines from List-string
 4. (OPTIONAL)LifeSim_V01_01.Tests - Optionaly, some test on current application.
 
 NOTE: The Contracts and Factories folders (namespaces) must be saved for more "global" purposes. I'give an example-> I'm working on menu, so i will create Contracts folder in my menu folder. Separete all in different folder.

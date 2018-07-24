@@ -1,6 +1,7 @@
 ﻿using LifeSim.Core.CLI.Module.Contracts;
 using LifeSim.Core.Contracts;
-using LifeSim.Core.WorkFunctions;
+using LifeSim.Core.Contracts.IO;
+using LifeSim.Core.WorkFunctions.IO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +20,7 @@ namespace LifeSim.Core.Engine.Menu.Start.Menu
         {
             this.reader = reader;
             this.display = display;
-            this.fileReader = new FileReader();
+            //this.fileReader = new FileReader();
         }
 
         public void DisplayContent(string path)
