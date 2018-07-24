@@ -8,6 +8,7 @@ namespace LifeSim.Core.WorkFunctions
 {
     public class OutputDisplayer : IDisplayable
     {
+        // Used for CLI
         private IIOConsole writer;
 
         public OutputDisplayer()
@@ -23,7 +24,7 @@ namespace LifeSim.Core.WorkFunctions
         {
             foreach (var line in content)
             {
-                this.writer.WhriteOnConsole(content);
+                this.writer.Whrite(content);
             }
         }
     }

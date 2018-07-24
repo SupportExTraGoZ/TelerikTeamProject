@@ -14,20 +14,24 @@ namespace LifeSim.Core.Engine.Menu.Start.Menu
     {
         // private IList<string> logo;
 
-        private IConsoleReader consoleReader;
-        private IConsoleWriter consoleDisplay;
-        private IReadable fileReader;
+        private IIOConsole consoleReader;
+        private IIOConsole consoleDisplay;
 
-        public MenuLauncher(IConsoleReader reader, IConsoleWriter display)
+        private IReadable fileReader;
+        private IDisplayable fileDisplayer;
+
+        public MenuLauncher(IIOConsole reader, IIOConsole display, 
+            IReadable fileReader, IDisplayable fileDisplayer)
         {
             this.consoleReader = reader;
             this.consoleDisplay = display;
-            
+            this.fileReader = fileReader;
+            this.fileDisplayer = fileDisplayer;
         }
 
         public void DisplayContent(string path)
         {
-            this.consoleDisplay.WhriteOnConsole(this.fileReader.ReadFile(path));
+            this.consoleDisplay.Whrite(this.fileReader.ReadFile(path));
         }
     }
 }
