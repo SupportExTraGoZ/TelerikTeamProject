@@ -196,6 +196,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "LifeSim.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/LifeSim.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LifeSim.Core.dll": {}
+        }
       }
     }
   },
@@ -656,33 +666,37 @@
         "netstandard.library.2.0.0.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "LifeSim.Core/1.0.0": {
+      "type": "project",
+      "path": "../LifeSim.Core/LifeSim.Core.csproj",
+      "msbuildProject": "../LifeSim.Core/LifeSim.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "LifeSim.Core >= 1.0.0",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\X\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Mikasa\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\TAP_01\\TelerikTeamProject\\LifeSim\\LifeSim.StartUp\\LifeSim.StartUp.csproj",
+      "projectUniqueName": "A:\\TelerikTeamProject\\LifeSim\\LifeSim.StartUp\\LifeSim.StartUp.csproj",
       "projectName": "LifeSim.StartUp",
-      "projectPath": "H:\\TAP_01\\TelerikTeamProject\\LifeSim\\LifeSim.StartUp\\LifeSim.StartUp.csproj",
-      "packagesPath": "C:\\Users\\X\\.nuget\\packages\\",
-      "outputPath": "H:\\TAP_01\\TelerikTeamProject\\LifeSim\\LifeSim.StartUp\\obj\\",
+      "projectPath": "A:\\TelerikTeamProject\\LifeSim\\LifeSim.StartUp\\LifeSim.StartUp.csproj",
+      "packagesPath": "C:\\Users\\Mikasa\\.nuget\\packages\\",
+      "outputPath": "A:\\TelerikTeamProject\\LifeSim\\LifeSim.StartUp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\X\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mikasa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
@@ -695,7 +709,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "A:\\TelerikTeamProject\\LifeSim\\LifeSim.Core\\LifeSim.Core.csproj": {
+              "projectPath": "A:\\TelerikTeamProject\\LifeSim\\LifeSim.Core\\LifeSim.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -8,9 +8,13 @@ namespace LifeSim.Core.WorkFunctions
 {
     public class OutputDisplayer : IDisplayable
     {
-        private IConsoleWriter writer;
+        private IIOConsole writer;
 
-        public OutputDisplayer(IConsoleWriter writer)
+        public OutputDisplayer()
+        {
+        }
+
+        public OutputDisplayer(IIOConsole writer)
         {
             this.writer = writer;
         }

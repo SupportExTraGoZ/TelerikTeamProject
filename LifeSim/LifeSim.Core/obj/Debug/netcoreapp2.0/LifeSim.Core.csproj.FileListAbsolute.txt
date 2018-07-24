@@ -7,3 +7,12 @@ H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.Core\obj\Debug\netcoreapp2.0\LifeSi
 H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.Core\obj\Debug\netcoreapp2.0\LifeSim.Core.AssemblyInfo.cs
 H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.Core\obj\Debug\netcoreapp2.0\LifeSim.Core.dll
 H:\TAP_01\TelerikTeamProject\LifeSim\LifeSim.Core\obj\Debug\netcoreapp2.0\LifeSim.Core.pdb
+A:\TelerikTeamProject\LifeSim\LifeSim.Core\obj\Debug\netcoreapp2.0\LifeSim.Core.csprojResolveAssemblyReference.cache
+A:\TelerikTeamProject\LifeSim\LifeSim.Core\obj\Debug\netcoreapp2.0\LifeSim.Core.csproj.CoreCompileInputs.cache
+A:\TelerikTeamProject\LifeSim\LifeSim.Core\obj\Debug\netcoreapp2.0\LifeSim.Core.AssemblyInfoInputs.cache
+A:\TelerikTeamProject\LifeSim\LifeSim.Core\obj\Debug\netcoreapp2.0\LifeSim.Core.AssemblyInfo.cs
+A:\TelerikTeamProject\LifeSim\LifeSim.Core\obj\Debug\netcoreapp2.0\LifeSim.Core.dll
+A:\TelerikTeamProject\LifeSim\LifeSim.Core\obj\Debug\netcoreapp2.0\LifeSim.Core.pdb
+A:\TelerikTeamProject\LifeSim\LifeSim.Core\bin\Debug\netcoreapp2.0\LifeSim.Core.deps.json
+A:\TelerikTeamProject\LifeSim\LifeSim.Core\bin\Debug\netcoreapp2.0\LifeSim.Core.dll
+A:\TelerikTeamProject\LifeSim\LifeSim.Core\bin\Debug\netcoreapp2.0\LifeSim.Core.pdb

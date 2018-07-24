@@ -171,6 +171,7 @@ You will be invited to provide feedback about all your teammates, their attitude
           * Contracts
             - IConsoleReader 
             - IConsoleWriter
+            - IIOConsole - Implements IConsoleReader and IConsoleWriter and expose Console Functions out
           * Modules - All functions that are used in CLI
             - ConsoleRead - read line from console
             - ConsoleWriter - write line to console
@@ -178,8 +179,7 @@ You will be invited to provide feedback about all your teammates, their attitude
       - Contracts - All Interfaces that are common for the all project, not for small part of it.
           * IO - Input / Output Interfaces
               * IReadable - provides I for readin from file ( this function may be used in the future by the global user )
-              * IDisplayable - expose line of text to the user ( this function may be used in the future by the global user )
-              * CLI.Module.Connection - permenent function --
+              * IDisplayable - expose line of text to the user ( this function may be used in the future by the global user 
       - Engine - the main engine of app.
         - Engine.Core - the core part of engine
         - Menu - the menu part that works with Engine
