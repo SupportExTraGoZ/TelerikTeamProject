@@ -179,7 +179,8 @@ You will be invited to provide feedback about all your teammates, their attitude
       - Contracts - All Interfaces that are common for the all project, not for small part of it.
           * IO - Input / Output Interfaces
               * IReadable - provides I for readin from file ( this function may be used in the future by the global user )
-              * IDisplayable - expose line of text to the user ( this function may be used in the future by the global user 
+              * IDisplayable - expose line of text to the user ( this function may be used in the future by the global user
+              * IInputOutput - : IIOConsole - connects CLI.Module
       - Engine - the main engine of app.
         - Engine.Core - the core part of engine
         - Menu - the menu part that works with Engine
@@ -187,7 +188,8 @@ You will be invited to provide feedback about all your teammates, their attitude
             * MDErrorMessages - all const values for errors displayed by menu
             * MDMessages - menu messages ( not errors )
             * MenuSettings - Contains all menu build in display settings
-          * Contracts           
+          * Contracts
+            * IMunuLauncher - functions for MenuLauncher          
           * Start.Menu - All neaded for providing start menu
             * Logo - folder that stores the logo image
             * MenuLauncher - When it's called it's displays all menu ( NOTE: it must return some valu?)

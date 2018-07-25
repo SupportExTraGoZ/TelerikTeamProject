@@ -1,5 +1,6 @@
 ﻿using LifeSim.Core.CLI.Module.Contracts;
 using LifeSim.Core.Contracts;
+using LifeSim.Core.Contracts.IO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,14 +9,14 @@ namespace LifeSim.Core.WorkFunctions
 {
     public class OutputDisplayer : IDisplayable
     {
-        // Used for CLI
-        private IIOConsole writer;
+        
+        private IInputOutput writer;
 
         public OutputDisplayer()
         {
         }
 
-        public OutputDisplayer(IIOConsole writer)
+        public OutputDisplayer(IInputOutput writer)
         {
             this.writer = writer;
         }

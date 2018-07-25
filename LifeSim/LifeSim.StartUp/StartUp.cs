@@ -17,13 +17,13 @@ namespace LifeSim.StartUp
             Console.WriteLine("LifeSim is still under development!");
 
             //Stefan = Hire i'm testing menu ... 
-            IReadable fileReader = new FileReader();
-            IDisplayable fileWriter = new OutputDisplayer();
+        //    IReadable fileReader = new FileReader();
+        //    IDisplayable fileWriter = new OutputDisplayer();
 
-            IConsoleReader consoleReader = new ConsoleRead();
-            IConsoleWriter consoleWriter = new ConsoleWriter();
+        //    IConsoleReader consoleReader = new ConsoleRead();
+        //    IConsoleWriter consoleWriter = new ConsoleWriter();
 
-            //MenuLauncher menu = new MenuLauncher(consoleWriter, consoleReader,fileReader,fileWriter);
+        //    MenuLauncher menu = new MenuLauncher(consoleReader, consoleWriter, fileReader,fileWriter);
         }
     }
 }
