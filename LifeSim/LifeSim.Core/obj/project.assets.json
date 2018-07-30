@@ -664,31 +664,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mikasa\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
+    "/Users/danailgrozdanov/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\TelerikTeamProject\\LifeSim\\LifeSim.Core\\LifeSim.Core.csproj",
+      "projectUniqueName": "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Core/LifeSim.Core.csproj",
       "projectName": "LifeSim.Core",
-      "projectPath": "A:\\TelerikTeamProject\\LifeSim\\LifeSim.Core\\LifeSim.Core.csproj",
-      "packagesPath": "C:\\Users\\Mikasa\\.nuget\\packages\\",
-      "outputPath": "A:\\TelerikTeamProject\\LifeSim\\LifeSim.Core\\obj\\",
+      "projectPath": "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Core/LifeSim.Core.csproj",
+      "packagesPath": "/Users/danailgrozdanov/.nuget/packages/",
+      "outputPath": "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Core/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Mikasa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "/Users/danailgrozdanov/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -708,7 +705,7 @@
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.0.0, )",
+            "version": "2.0",
             "autoReferenced": true
           }
         },
