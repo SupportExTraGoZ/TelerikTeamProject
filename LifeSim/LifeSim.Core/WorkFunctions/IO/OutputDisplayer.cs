@@ -9,7 +9,6 @@ namespace LifeSim.Core.WorkFunctions
 {
     public class OutputDisplayer : IDisplayable
     {
-        
         private IInputOutput writer;
 
         public OutputDisplayer()
@@ -25,7 +24,7 @@ namespace LifeSim.Core.WorkFunctions
         {
             foreach (var line in content)
             {
-                this.writer.Whrite(content);
+                this.writer.Write(content);
             }
         }
     }

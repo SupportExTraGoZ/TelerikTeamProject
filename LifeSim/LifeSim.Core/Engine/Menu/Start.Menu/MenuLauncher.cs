@@ -12,7 +12,7 @@ namespace LifeSim.Core.Engine.Menu.Start.Menu
     /// <summary>
     /// Still in dev
     /// </summary>
-    public class MenuLauncher : IMunuLauncher
+    public class MenuLauncher : IMenuLauncher
     {
         IInputOutput fileReader;
         IInputOutput displayer;

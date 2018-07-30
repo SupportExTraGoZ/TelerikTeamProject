@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LifeSim.CLI", "LifeSim.CLI", "{5D0A6272-AB05-4DE5-8E7F-88271A04A878}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.StartUp", "LifeSim.StartUp\LifeSim.StartUp.csproj", "{04BFFEEE-1980-446F-8BF4-F62CD1FDA1BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.StartUp", "LifeSim.StartUp\LifeSim.StartUp.csproj", "{04BFFEEE-1980-446F-8BF4-F62CD1FDA1BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LifeSim_V01_01", "LifeSim_V01_01", "{E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Core", "LifeSim.Core\LifeSim.Core.csproj", "{30847968-C2D4-408D-A63D-B2F8D7B665E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Core", "LifeSim.Core\LifeSim.Core.csproj", "{30847968-C2D4-408D-A63D-B2F8D7B665E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

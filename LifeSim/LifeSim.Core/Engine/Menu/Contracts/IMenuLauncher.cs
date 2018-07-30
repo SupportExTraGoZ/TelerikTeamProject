@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LifeSim.Core.Engine.Menu.Contracts
 {
-    public interface IMunuLauncher
+    public interface IMenuLauncher
     {
         void DisplayContent(string path);
 

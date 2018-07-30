@@ -10,7 +10,8 @@ namespace LifeSim.Core.Contracts.IO
     /// To use it with other clients add "CLIENT".Module structure and implement 
     /// connection with this client here
     /// </summary>
-    public interface IInputOutput : IIOConsole
+    public interface IInputOutput : IOConsole
     {
+
     }
 }
