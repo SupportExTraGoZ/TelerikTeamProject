@@ -20,3 +20,17 @@ A:\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.St
 A:\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.AssemblyInfo.cs
 A:\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.dll
 A:\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.pdb
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\bin\Debug\netcoreapp2.0\LifeSim.StartUp.deps.json
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\bin\Debug\netcoreapp2.0\LifeSim.StartUp.runtimeconfig.json
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\bin\Debug\netcoreapp2.0\LifeSim.StartUp.runtimeconfig.dev.json
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\bin\Debug\netcoreapp2.0\LifeSim.StartUp.dll
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\bin\Debug\netcoreapp2.0\LifeSim.StartUp.pdb
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\bin\Debug\netcoreapp2.0\LifeSim.Core.dll
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\bin\Debug\netcoreapp2.0\LifeSim.Core.pdb
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.csprojAssemblyReference.cache
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.csproj.CoreCompileInputs.cache
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.AssemblyInfoInputs.cache
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.AssemblyInfo.cs
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.csproj.CopyComplete
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.dll
+D:\GitLab\TelerikTeamProject\LifeSim\LifeSim.StartUp\obj\Debug\netcoreapp2.0\LifeSim.StartUp.pdb

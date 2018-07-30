@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v2.0": {
       "LifeSim.StartUp/1.0.0": {
+        "dependencies": {
+          "LifeSim.Core": "1.0.0"
+        },
         "runtime": {
           "LifeSim.StartUp.dll": {}
+        }
+      },
+      "LifeSim.Core/1.0.0": {
+        "runtime": {
+          "LifeSim.Core.dll": {}
         }
       }
     }
   },
   "libraries": {
     "LifeSim.StartUp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LifeSim.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
