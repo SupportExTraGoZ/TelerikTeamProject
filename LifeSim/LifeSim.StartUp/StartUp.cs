@@ -12,18 +12,21 @@ namespace LifeSim.StartUp
     /// </summary>
     public class StartUp
     {
+        /// <summary>
+        /// The entry point of the program, where the program control starts and ends.
+        /// </summary>
         public static void Main()
         {
             Console.WriteLine("LifeSim is still under development!");
 
             //Stefan = Hire i'm testing menu ... 
-        //    IReadable fileReader = new FileReader();
-        //    IDisplayable fileWriter = new OutputDisplayer();
+            //IReadable fileReader = new FileReader();
+            //IDisplayable fileWriter = new OutputDisplayer();
 
-        //    IConsoleReader consoleReader = new ConsoleRead();
-        //    IConsoleWriter consoleWriter = new ConsoleWriter();
+            //IConsoleReader consoleReader = new ConsoleRead();
+            //IConsoleWriter consoleWriter = new ConsoleWriter();
 
-        //    MenuLauncher menu = new MenuLauncher(consoleReader, consoleWriter, fileReader,fileWriter);
+            //MenuLauncher menu = new MenuLauncher(consoleReader, consoleWriter, fileReader,fileWriter);
         }
     }
 }
