@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using LifeSim.Core.IO.Contracts;
 
 namespace LifeSim.Core.WorkFunctions
 {
