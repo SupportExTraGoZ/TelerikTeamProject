@@ -3,6 +3,7 @@ using LifeSim.Core.CLI.Module.Modules;
 using LifeSim.Core.Contracts;
 using LifeSim.Core.Engine.Menu.Start.Menu;
 using LifeSim.Core.WorkFunctions;
+using LifeSim.Player;
 using System;
 
 namespace LifeSim.StartUp
@@ -18,6 +19,8 @@ namespace LifeSim.StartUp
         public static void Main()
         {
             Console.WriteLine("LifeSim is still under development!");
+
+            Player.Player player = new Player.Player();
 
             //Stefan = Hire i'm testing menu ... 
             //IReadable fileReader = new FileReader();

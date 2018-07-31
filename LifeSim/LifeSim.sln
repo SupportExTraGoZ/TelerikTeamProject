@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Core", "LifeSim.Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Establishments", "LifeSim.Establishments\LifeSim.Establishments.csproj", "{D24721B4-68C2-427A-99D9-C9CCEFCE222A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Player", "LifeSim.Player\LifeSim.Player.csproj", "{6CC3F442-4AE8-4007-8E91-5DFD88D00176}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandler", "ExceptionHandler\ExceptionHandler.csproj", "{6763EE9F-6447-4737-B3AC-9E99E2FD77CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,10 +31,21 @@ Global
 		{30847968-C2D4-408D-A63D-B2F8D7B665E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30847968-C2D4-408D-A63D-B2F8D7B665E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30847968-C2D4-408D-A63D-B2F8D7B665E9}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< Updated upstream
 		{D24721B4-68C2-427A-99D9-C9CCEFCE222A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D24721B4-68C2-427A-99D9-C9CCEFCE222A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D24721B4-68C2-427A-99D9-C9CCEFCE222A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D24721B4-68C2-427A-99D9-C9CCEFCE222A}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{6CC3F442-4AE8-4007-8E91-5DFD88D00176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CC3F442-4AE8-4007-8E91-5DFD88D00176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CC3F442-4AE8-4007-8E91-5DFD88D00176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CC3F442-4AE8-4007-8E91-5DFD88D00176}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6763EE9F-6447-4737-B3AC-9E99E2FD77CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6763EE9F-6447-4737-B3AC-9E99E2FD77CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6763EE9F-6447-4737-B3AC-9E99E2FD77CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6763EE9F-6447-4737-B3AC-9E99E2FD77CF}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> Stashed changes
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,7 +53,12 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{04BFFEEE-1980-446F-8BF4-F62CD1FDA1BF} = {5D0A6272-AB05-4DE5-8E7F-88271A04A878}
 		{30847968-C2D4-408D-A63D-B2F8D7B665E9} = {E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}
+<<<<<<< Updated upstream
 		{D24721B4-68C2-427A-99D9-C9CCEFCE222A} = {E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}
+=======
+		{6CC3F442-4AE8-4007-8E91-5DFD88D00176} = {E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}
+		{6763EE9F-6447-4737-B3AC-9E99E2FD77CF} = {E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}
+>>>>>>> Stashed changes
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE917D71-070B-4E13-A545-1FACE75697AF}
