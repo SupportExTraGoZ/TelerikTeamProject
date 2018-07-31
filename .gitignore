@@ -701,3 +701,23 @@ LifeSim/packages/xunit\.extensibility\.execution\.2\.4\.0/lib/netstandard1\.1/xu
 LifeSim/packages/xunit\.extensibility\.execution\.2\.4\.0/lib/netstandard2\.0/xunit\.execution\.dotnet\.dll
 
 LifeSim/packages/xunit\.extensibility\.execution\.2\.4\.0/lib/netstandard2\.0/xunit\.execution\.dotnet\.xml
+
+LifeSim/LifeSim\.Core/obj/
+
+LifeSim/LifeSim\.StartUp/obj/
+
+LifeSim/LifeSim\.Player/obj/
+
+LifeSim/LifeSim\.ExceptionHandler/obj/
+
+LifeSim/LifeSim\.Establishments/bin/
+
+LifeSim/LifeSim\.Core/bin/
+
+LifeSim/LifeSim\.StartUp/bin/
+
+LifeSim/LifeSim\.Player/bin/
+
+LifeSim/LifeSim\.ExceptionHandler/bin/
+
+LifeSim/LifeSim\.Establishments/bin/
