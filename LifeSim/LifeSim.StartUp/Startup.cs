@@ -6,12 +6,12 @@ using LifeSim.Core.WorkFunctions;
 using LifeSim.Player;
 using System;
 
-namespace LifeSim.StartUp
+namespace LifeSim.Startup
 {
     /// <summary>
     /// Console Client start point of "Life Simulator"
     /// </summary>
-    public class StartUp
+    public class Startup
     {
         /// <summary>
         /// The entry point of the program, where the program control starts and ends.
@@ -20,7 +20,7 @@ namespace LifeSim.StartUp
         {
             Console.WriteLine("LifeSim is still under development!");
 
-            Player.Player player = new Player.Player();
+            //Player.Player player = new Player.Player();
 
             //Stefan = Hire i'm testing menu ... 
             //IReadable fileReader = new FileReader();

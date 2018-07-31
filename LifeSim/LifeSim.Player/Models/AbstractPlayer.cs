@@ -3,7 +3,7 @@ using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
 namespace LifeSim.Player.Models
 {
-    public class AbstractPlayer : IPlayer
+    public abstract class AbstractPlayer : IPlayer
     {
         private string firstname;
         private string lastname;

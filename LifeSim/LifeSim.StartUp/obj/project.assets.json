@@ -731,45 +731,38 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Angel\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/danailgrozdanov/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitLab\\TelerikTeamProject\\LifeSim\\LifeSim.StartUp\\LifeSim.StartUp.csproj",
-      "projectName": "LifeSim.StartUp",
-      "projectPath": "D:\\GitLab\\TelerikTeamProject\\LifeSim\\LifeSim.StartUp\\LifeSim.StartUp.csproj",
-      "packagesPath": "C:\\Users\\Angel\\.nuget\\packages\\",
-      "outputPath": "D:\\GitLab\\TelerikTeamProject\\LifeSim\\LifeSim.StartUp\\obj\\",
+      "projectUniqueName": "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Startup/LifeSim.Startup.csproj",
+      "projectName": "LifeSim.Startup",
+      "projectPath": "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Startup/LifeSim.Startup.csproj",
+      "packagesPath": "/Users/danailgrozdanov/.nuget/packages/",
+      "outputPath": "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Startup/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/danailgrozdanov/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-<<<<<<< Updated upstream
-            "D:\\GitLab\\TelerikTeamProject\\LifeSim\\LifeSim.Core\\LifeSim.Core.csproj": {
-              "projectPath": "D:\\GitLab\\TelerikTeamProject\\LifeSim\\LifeSim.Core\\LifeSim.Core.csproj"
-=======
             "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Core/LifeSim.Core.csproj": {
               "projectPath": "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Core/LifeSim.Core.csproj"
             },
             "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Player/LifeSim.Player.csproj": {
               "projectPath": "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Player/LifeSim.Player.csproj"
->>>>>>> Stashed changes
             }
           }
         }
@@ -784,12 +777,9 @@
       "netcoreapp2.1": {
         "dependencies": {
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
-<<<<<<< Updated upstream
-            "version": "[2.0.0, )",
-=======
             "version": "2.1.0",
->>>>>>> Stashed changes
             "autoReferenced": true
           }
         },

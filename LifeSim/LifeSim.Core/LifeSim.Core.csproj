@@ -4,18 +4,4 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Engine\Engine.Core\" />
-    <Folder Include="Models\" />
-    <Folder Include="Common\" />
-    <Folder Include="Factories\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="LifeSim.Player\Abstract\Person.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="LifeSim.Player\.DS_Store" />
-    <None Remove="LifeSim.Player\obj\Debug\netcoreapp2.1\LifeSim.Player.assets.cache" />
-  </ItemGroup>
 </Project>
