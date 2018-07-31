@@ -51,5 +51,35 @@ namespace LifeSim.Player.Models
             this.Gender = gender;
             this.Birthplace = birthplace;
         }
+
+        public string GetGender()
+        {
+            switch (this.Gender)
+            {
+                case GenderType.Male:
+                    return "Male";
+                case GenderType.Female:
+                    return "Female";
+                default:
+                    return "Invalid Gender.";
+            }
+        }
+
+        public string GetBirthplace()
+        {
+            switch (this.Birthplace)
+            {
+                case Birthplaces.Chicago:
+                    return "Chicago";
+                case Birthplaces.LosAngeles:
+                    return "Los Angeles";
+                case Birthplaces.Miami:
+                    return "Miami";
+                case Birthplaces.NewYork:
+                    return "New York";
+                default:
+                    return "Invalid Birthplace.";
+            }
+        }
     }
 }
