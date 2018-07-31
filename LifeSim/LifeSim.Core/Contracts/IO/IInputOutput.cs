@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using LifeSim.Core.IO.Contracts;
 
 namespace LifeSim.Core.Contracts.IO
 {
@@ -10,7 +11,7 @@ namespace LifeSim.Core.Contracts.IO
     /// To use it with other clients add "CLIENT".Module structure and implement 
     /// connection with this client here
     /// </summary>
-    public interface IInputOutput : IOConsole
+    public interface IInputOutput : IOCLIProvider, IReadable
     {
 
     }

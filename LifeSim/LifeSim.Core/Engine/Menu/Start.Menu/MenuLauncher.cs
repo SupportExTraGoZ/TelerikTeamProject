@@ -2,6 +2,7 @@
 using LifeSim.Core.Contracts;
 using LifeSim.Core.Contracts.IO;
 using LifeSim.Core.Engine.Menu.Contracts;
+using LifeSim.Core.CLI.Module.Modules;
 using LifeSim.Core.WorkFunctions;
 using System;
 using System.Collections.Generic;
