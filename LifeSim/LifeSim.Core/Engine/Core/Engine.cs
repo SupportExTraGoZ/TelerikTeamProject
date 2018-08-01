@@ -31,12 +31,11 @@ namespace LifeSim.Core.Engine.Core
             this.reader = new ConsoleReader();
             this.fileReader = new FileReader();
             this.menuServices = new MenuLauncher(this.writer, this.reader, this.fileReader);
-            this.menuServices.DisplayContent(START_MENU_PATH);
             //End of Menu display functions
 
             this.familyGenerator = new FamilyGenerator();
-            this.playerProgress = PlayerProgress.NewBorn;            
-            
+            this.playerProgress = PlayerProgress.NewBorn;
+
         }
 
         public static Engine Instance
@@ -75,6 +74,7 @@ namespace LifeSim.Core.Engine.Core
                     default:
                         break;
                 }
+                this.writer.ClearConsole();
             }
         }
     }
