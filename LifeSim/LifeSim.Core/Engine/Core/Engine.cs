@@ -24,6 +24,7 @@ namespace LifeSim.Core.Engine.Core
         private readonly IConsoleCleaner cleaner;
         private readonly IReadable fileReader;
         private readonly IMenuLauncher menuServices;
+        private readonly IConsoleReadKey keyReader;
         private readonly IFamilyGenerator familyGenerator;
         private PlayerProgress playerProgress;
 
@@ -37,6 +38,7 @@ namespace LifeSim.Core.Engine.Core
 
             this.menuServices = new MenuLauncher(this.writer, this.reader, this.fileReader);
             //End of Menu display functions
+            this.keyReader = new ConsoleKeyReader();
 
             this.familyGenerator = new FamilyGenerator();
             this.playerProgress = PlayerProgress.NewBorn;
@@ -61,6 +63,7 @@ namespace LifeSim.Core.Engine.Core
             while (true)
             {
                 this.writer.PrintLogo();
+                var command = this.keyReader.ReadKey();
                 switch (playerProgress)
                 {
                     case PlayerProgress.NewBorn:

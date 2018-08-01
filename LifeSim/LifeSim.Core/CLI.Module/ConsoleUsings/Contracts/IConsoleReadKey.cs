@@ -4,7 +4,8 @@ using System.Text;
 
 namespace LifeSim.Core.CLI.Module.ConsoleUsings.Contracts
 {
-    interface IConsoleReadKey
+    public interface IConsoleReadKey
     {
+        ConsoleKeyInfo ReadKey();
     }
 }
