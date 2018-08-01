@@ -4,15 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LifeSim.Establishments.Education.Primary.School
+namespace LifeSim.Establishments.Education.PrimarySchool
 {
     public class PrimarySchool : EducationalInstitute, IPrimarySchool
     {
 
-        public PrimarySchool(string name) :base(name)
+        public PrimarySchool(string name) : base(name)
         {
 
         }
-        
+
     }
 }

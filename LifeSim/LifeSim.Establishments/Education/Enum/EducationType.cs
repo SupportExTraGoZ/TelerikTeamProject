@@ -6,8 +6,8 @@ namespace LifeSim.Establishments.Education.Enum
 {
     public enum EducationType
     {
-        Primary_School,
-        High_School,
+        PrimarySchool,
+        HighSchool,
         University
     }
 }
