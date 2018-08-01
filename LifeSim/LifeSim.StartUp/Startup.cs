@@ -15,7 +15,7 @@ namespace LifeSim.Startup
         /// </summary>
         public static void Main()
         {
-            Console.WriteLine("LifeSim is still under development!");
+            //Console.WriteLine("LifeSim is still under development!");
 
             var firstInstance = Engine.Instance;
             firstInstance.Start();
