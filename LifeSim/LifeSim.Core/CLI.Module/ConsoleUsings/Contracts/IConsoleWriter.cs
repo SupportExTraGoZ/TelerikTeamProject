@@ -9,6 +9,6 @@ namespace LifeSim.Core.CLI.Module.ConsoleUsings.Contracts
     {
         void WriteLine(string line);
         void ClearConsole();
-        void PrintLogo(IMenuLauncher launcher, string path);
+        void PrintLogo();
     }
 }

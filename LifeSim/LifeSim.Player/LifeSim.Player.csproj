@@ -13,9 +13,9 @@
     <Folder Include="Randomizer\Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExceptionHandler\ExceptionHandler.csproj" />
+    <Compile Remove="Contracts\IFamily.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Contracts\IFamily.cs" />
+    <ProjectReference Include="..\LifeSim.Exceptions\LifeSim.Exceptions.csproj" />
   </ItemGroup>
 </Project>

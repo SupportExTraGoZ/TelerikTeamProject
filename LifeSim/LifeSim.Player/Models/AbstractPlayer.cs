@@ -1,6 +1,8 @@
 ﻿using System;
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
+using LifeSim.Exceptions;
+
 namespace LifeSim.Player.Models
 {
     public abstract class AbstractPlayer : IPlayer
@@ -16,9 +18,9 @@ namespace LifeSim.Player.Models
             set
             {
                 if (value.Length < 4)
-                    throw new Exception(ExceptionHandler.Exceptions.FirstNameTooShort);
+                    throw new ArgumentOutOfRangeException(Exceptions.Exceptions.FirstNameTooShort);
                 if (value.Length > 15)
-                    throw new Exception(ExceptionHandler.Exceptions.FirstNameTooLong);
+                    throw new ArgumentOutOfRangeException(Exceptions.Exceptions.FirstNameTooLong);
 
                 this.firstname = value;
             }
@@ -32,9 +34,9 @@ namespace LifeSim.Player.Models
             set
             {
                 if (value.Length < 4)
-                    throw new Exception(ExceptionHandler.Exceptions.LastNameTooShort);
+                    throw new ArgumentOutOfRangeException(Exceptions.Exceptions.LastNameTooShort);
                 if (value.Length > 15)
-                    throw new Exception(ExceptionHandler.Exceptions.LastNameTooLong);
+                    throw new ArgumentOutOfRangeException(Exceptions.Exceptions.LastNameTooLong);
 
                 this.lastname = value;
             }
