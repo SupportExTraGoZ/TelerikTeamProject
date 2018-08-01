@@ -60,6 +60,22 @@ namespace LifeSim.Core.Engine.Core
 
         public void Start()
         {
+            string firstName, lastName;
+            GenderType gender;
+            Birthplaces birthplace;
+            // Read Data
+            Console.WriteLine("Enter your First Name:");
+            firstName = Console.ReadLine();
+
+            Console.WriteLine("Enter your Last Name:");
+            lastName = Console.ReadLine();
+
+            Console.WriteLine("Choose Gender (Male/Female):");
+            gender = (GenderType)Enum.Parse(typeof(GenderType), Console.ReadLine());
+
+            Console.WriteLine("Choose Birthplace: [New York, Los Angeles, Chicago, Miami]");
+            birthplace = (Birthplaces)Enum.Parse(typeof(Birthplaces), Console.ReadLine().Replace(" ", ""));
+
             while (true)
             {
                 this.writer.PrintLogo();
@@ -72,18 +88,6 @@ namespace LifeSim.Core.Engine.Core
                             // Prompt the player to enter it again
                             // INFO: Pseudo Code
                             // string[] firstName lastName, Gender, Birthplace
-                            /*string firstName, lastName;
-                            GenderType gender;
-                            Birthplaces birthplace;
-                            // Read Data
-                            Console.WriteLine("Enter your First Name:");
-                            firstName = Console.ReadLine();
-                            this.menuServices.DisplayContent(path);
-                            this.writer.ClearConsole();
-                            Console.WriteLine("Enter your Last Name:");
-                            lastName = Console.ReadLine();
-                            this.menuServices.DisplayContent(path);
-                            this.writer.ClearConsole();*/
 
                             // If Data is valid and everything is successful
                             // Change the stage of life;
