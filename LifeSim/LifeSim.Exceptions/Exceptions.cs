@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LifeSim.Exceptions
+﻿namespace LifeSim.Exceptions
 {
     public class Exceptions
     {

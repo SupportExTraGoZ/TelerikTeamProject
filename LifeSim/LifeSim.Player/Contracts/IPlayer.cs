@@ -1,5 +1,6 @@
 ﻿using System;
 using LifeSim.Player.Enums;
+
 namespace LifeSim.Player.Contracts
 {
     public interface IPlayer

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LifeSim.Establishments.Job.Enums
+﻿namespace LifeSim.Establishments.Job.Enums
 {
     public enum ProfessionType
     {
@@ -11,7 +7,5 @@ namespace LifeSim.Establishments.Job.Enums
         Plumber,
         PoliceOfficer,
         Firefighter
-
     }
-
 }

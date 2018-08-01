@@ -1,5 +1,5 @@
-﻿using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
-using System;
+﻿using System;
+using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
 
 namespace LifeSim.Core.CLI.Module.ConsoleUsings.Functions
 {

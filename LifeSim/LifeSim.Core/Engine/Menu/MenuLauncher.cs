@@ -1,24 +1,21 @@
-﻿using LifeSim.Core.CLI.Module.ConsoleUsings;
-using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
-using LifeSim.Core.CLI.Module.ConsoleUsings.Functions;
-using LifeSim.Core.IO.Contracts;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
+using LifeSim.Core.IO.Contracts;
 
 namespace LifeSim.Core.Engine.Menu
 {
     /// <summary>
-    /// Still in dev
+    ///     Still in dev
     /// </summary>
     public class MenuLauncher : IMenuLauncher
     {
-        private readonly IConsoleWriter writer;
-        private readonly IConsoleReader reader;
         private readonly IReadable fileReader;
+        private readonly IConsoleReader reader;
+        private readonly IConsoleWriter writer;
 
         public MenuLauncher(IConsoleWriter writer, IConsoleReader reader, IReadable fileReader)
         {
-            //VALIDATE THIS
             this.writer = writer;
             this.reader = reader;
             this.fileReader = fileReader;
@@ -29,9 +26,7 @@ namespace LifeSim.Core.Engine.Menu
             var content = LoadDisplays(path);
 
             foreach (var line in content)
-            {
                 writer.WriteLine(line);
-            }
         }
 
         public IList<string> LoadDisplays(string path)
@@ -44,7 +39,5 @@ namespace LifeSim.Core.Engine.Menu
         {
             throw new NotImplementedException();
         }
-
-     
     }
 }

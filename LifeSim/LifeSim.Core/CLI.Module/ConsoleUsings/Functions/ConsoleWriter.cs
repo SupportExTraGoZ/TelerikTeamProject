@@ -1,6 +1,5 @@
-﻿using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
-using System;
-using LifeSim.Core.Engine.Menu;
+﻿using System;
+using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
 using LifeSim.Core.Engine.Menu.Logo;
 
 namespace LifeSim.Core.CLI.Module.ConsoleUsings.Functions
@@ -21,7 +20,5 @@ namespace LifeSim.Core.CLI.Module.ConsoleUsings.Functions
         {
             Console.WriteLine(Logo.GetLogo());
         }
-
-
     }
 }

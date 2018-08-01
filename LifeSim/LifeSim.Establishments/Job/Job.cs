@@ -1,8 +1,6 @@
-﻿using LifeSim.Establishments.Job.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using LifeSim.Establishments.Job.Companies;
+using LifeSim.Establishments.Job.Enums;
 
 namespace LifeSim.Establishments.Job
 {
@@ -12,7 +10,7 @@ namespace LifeSim.Establishments.Job
         private int monthSalary;
         private int workHoursPerDay;
 
-        public Job(ProfessionType profession,string companyName, int monthSalary,int workHoursPerDay)
+        public Job(ProfessionType profession, string companyName, int monthSalary, int workHoursPerDay)
         {
             Profession = profession;
             company = new Company(companyName);
@@ -20,8 +18,22 @@ namespace LifeSim.Establishments.Job
             WorkHoursPerDay = workHoursPerDay;
         }
 
-        public double MonthSalary { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int WorkHoursPerDay { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public ProfessionType Profession { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public double MonthSalary
+        {
+            get => throw new NotImplementedException();
+            set => throw new NotImplementedException();
+        }
+
+        public int WorkHoursPerDay
+        {
+            get => throw new NotImplementedException();
+            set => throw new NotImplementedException();
+        }
+
+        public ProfessionType Profession
+        {
+            get => throw new NotImplementedException();
+            set => throw new NotImplementedException();
+        }
     }
 }

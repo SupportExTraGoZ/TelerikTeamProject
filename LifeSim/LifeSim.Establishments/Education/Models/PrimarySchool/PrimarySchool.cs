@@ -1,18 +1,11 @@
-﻿using LifeSim.Establishments.Education.Enum;
-using LifeSim.Establishments.Education.PrimarySchool.Contract;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LifeSim.Establishments.Education.PrimarySchool.Contract;
 
 namespace LifeSim.Establishments.Education.PrimarySchool
 {
     public class PrimarySchool : EducationalInstitute, IPrimarySchool
     {
-
         public PrimarySchool(string name) : base(name)
         {
-
         }
-
     }
 }

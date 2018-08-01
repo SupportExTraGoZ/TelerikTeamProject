@@ -7,7 +7,7 @@ namespace LifeSim.Core.CLI.Module.ConsoleUsings.Functions
     {
         public ConsoleKeyInfo ReadKey()
         {
-            ConsoleKeyInfo cki = Console.ReadKey();
+            var cki = Console.ReadKey();
 
             return cki;
         }

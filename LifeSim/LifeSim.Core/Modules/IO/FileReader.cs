@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using LifeSim.Core.IO.Contracts;
 
 namespace LifeSim.Core.WorkFunctions
@@ -9,7 +7,7 @@ namespace LifeSim.Core.WorkFunctions
     public class FileReader : IReadable
     {
         /// <summary>
-        /// Read file from file system
+        ///     Read file from file system
         /// </summary>
         /// <param name="path">Path to current file to read</param>
         /// <returns></returns>
@@ -17,10 +15,10 @@ namespace LifeSim.Core.WorkFunctions
         {
             var strLines = new List<string>();
 
-            StreamReader reader = new StreamReader(path);
+            var reader = new StreamReader(path);
             using (reader)
             {
-                string line = reader.ReadLine();
+                var line = reader.ReadLine();
 
                 while (line != null)
                 {

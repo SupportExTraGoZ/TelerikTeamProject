@@ -1,7 +1,6 @@
 ﻿using System;
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
-using LifeSim.Exceptions;
 
 namespace LifeSim.Player.Models
 {
@@ -9,12 +8,18 @@ namespace LifeSim.Player.Models
     {
         private string firstname;
         private string lastname;
+
+        public AbstractPlayer(string firstname, string lastname, GenderType gender, Birthplaces birthplace)
+        {
+            FirstName = firstname;
+            LastName = lastname;
+            Gender = gender;
+            Birthplace = birthplace;
+        }
+
         public string FirstName
         {
-            get
-            {
-                return this.firstname;
-            }
+            get => firstname;
             set
             {
                 if (value.Length < 4)
@@ -22,15 +27,13 @@ namespace LifeSim.Player.Models
                 if (value.Length > 15)
                     throw new ArgumentOutOfRangeException(Exceptions.Exceptions.FirstNameTooLong);
 
-                this.firstname = value;
+                firstname = value;
             }
         }
+
         public string LastName
         {
-            get
-            {
-                return this.lastname;
-            }
+            get => lastname;
             set
             {
                 if (value.Length < 4)
@@ -38,25 +41,18 @@ namespace LifeSim.Player.Models
                 if (value.Length > 15)
                     throw new ArgumentOutOfRangeException(Exceptions.Exceptions.LastNameTooLong);
 
-                this.lastname = value;
+                lastname = value;
             }
         }
+
         public int Age { get; set; }
         public GenderType Gender { get; set; }
         public Birthplaces Birthplace { get; set; }
         public DateTime BirthDate { get; set; } = DateTime.Now;
 
-        public AbstractPlayer(string firstname, string lastname, GenderType gender, Birthplaces birthplace)
-        {
-            this.FirstName = firstname;
-            this.LastName = lastname;
-            this.Gender = gender;
-            this.Birthplace = birthplace;
-        }
-
         public string GetGender()
         {
-            switch (this.Gender)
+            switch (Gender)
             {
                 case GenderType.Male:
                     return "Male";
@@ -69,7 +65,7 @@ namespace LifeSim.Player.Models
 
         public string GetBirthplace()
         {
-            switch (this.Birthplace)
+            switch (Birthplace)
             {
                 case Birthplaces.Chicago:
                     return "Chicago";

@@ -1,5 +1,4 @@
-﻿using System;
-namespace LifeSim.Core.Engine.Menu.Logo
+﻿namespace LifeSim.Core.Engine.Menu.Logo
 {
     public static class Logo
     {

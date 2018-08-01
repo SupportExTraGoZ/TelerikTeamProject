@@ -2,7 +2,6 @@
 {
     public interface IConsoleCleaner
     {
-         void ClearConsole();
-      
+        void ClearConsole();
     }
 }
