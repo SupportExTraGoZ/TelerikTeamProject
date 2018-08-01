@@ -1,6 +1,8 @@
 ﻿namespace LifeSim.Core.CLI.Module.ConsoleUsings.Contracts
 {
-    public class IConsoleCleane
+    public interface IConsoleCleaner
     {
+         void ClearConsole();
+      
     }
 }

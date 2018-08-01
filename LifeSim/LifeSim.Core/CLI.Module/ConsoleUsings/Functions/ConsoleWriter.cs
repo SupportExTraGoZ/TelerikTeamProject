@@ -11,10 +11,7 @@ namespace LifeSim.Core.CLI.Module.ConsoleUsings.Functions
             Console.WriteLine(line);
         }
 
-        public void ClearConsole()
-        {
-            Console.Clear();
-        }
+       
 
         public void PrintLogo(IMenuLauncher launcher, string path)
         {

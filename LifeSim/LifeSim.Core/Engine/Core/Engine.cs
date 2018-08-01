@@ -19,6 +19,7 @@ namespace LifeSim.Core.Engine.Core
 
         private readonly IConsoleWriter writer;
         private readonly IConsoleReader reader;
+        private readonly IConsoleCleaner cleaner;
         private readonly IReadable fileReader;
         private readonly IMenuLauncher menuServices;
         private readonly IFamilyGenerator familyGenerator;
@@ -30,6 +31,8 @@ namespace LifeSim.Core.Engine.Core
             this.writer = new ConsoleWriter();
             this.reader = new ConsoleReader();
             this.fileReader = new FileReader();
+            this.cleaner = new ConsoleCleaner();
+
             this.menuServices = new MenuLauncher(this.writer, this.reader, this.fileReader);
             //End of Menu display functions
 
@@ -55,7 +58,7 @@ namespace LifeSim.Core.Engine.Core
         {
             while (true)
             {
-                var path = Environment.CurrentDirectory + "/Logo/startLogo.txt";
+                var path = Environment.CurrentDirectory + "../../../Logo/startLogo.txt";
                 this.menuServices.DisplayContent(path);
                 switch (playerProgress)
                 {
@@ -74,7 +77,7 @@ namespace LifeSim.Core.Engine.Core
                     default:
                         break;
                 }
-                this.writer.ClearConsole();
+                this.cleaner.ClearConsole();
             }
         }
     }
