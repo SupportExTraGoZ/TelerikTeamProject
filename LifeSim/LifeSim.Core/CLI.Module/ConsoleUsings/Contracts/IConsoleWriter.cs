@@ -8,7 +8,7 @@ namespace LifeSim.Core.CLI.Module.ConsoleUsings.Contracts
     public interface IConsoleWriter
     {
         void WriteLine(string line);
-        
-        void PrintLogo(IMenuLauncher launcher, string path);
+        void ClearConsole();
+        void PrintLogo();
     }
 }

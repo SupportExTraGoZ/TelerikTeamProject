@@ -1,6 +1,7 @@
 ﻿using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
 using System;
 using LifeSim.Core.Engine.Menu;
+using LifeSim.Core.Engine.Menu.Logo;
 
 namespace LifeSim.Core.CLI.Module.ConsoleUsings.Functions
 {
@@ -13,9 +14,9 @@ namespace LifeSim.Core.CLI.Module.ConsoleUsings.Functions
 
        
 
-        public void PrintLogo(IMenuLauncher launcher, string path)
+        public void PrintLogo()
         {
-            launcher.DisplayContent(path);
+            Console.WriteLine(Logo.GetLogo());
         }
     }
 }

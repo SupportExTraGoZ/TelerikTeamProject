@@ -8,6 +8,8 @@ using LifeSim.Player.Enums;
 using LifeSim.Core.IO.Contracts;
 using LifeSim.Core.WorkFunctions;
 using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
+using System.IO;
+using System.Linq;
 
 namespace LifeSim.Core.Engine.Core
 {
@@ -58,8 +60,7 @@ namespace LifeSim.Core.Engine.Core
         {
             while (true)
             {
-                var path = Environment.CurrentDirectory + "../../../Logo/startLogo.txt";
-                this.menuServices.DisplayContent(path);
+                this.writer.PrintLogo();
                 switch (playerProgress)
                 {
                     case PlayerProgress.NewBorn:
@@ -68,6 +69,18 @@ namespace LifeSim.Core.Engine.Core
                             // Prompt the player to enter it again
                             // INFO: Pseudo Code
                             // string[] firstName lastName, Gender, Birthplace
+                            /*string firstName, lastName;
+                            GenderType gender;
+                            Birthplaces birthplace;
+                            // Read Data
+                            Console.WriteLine("Enter your First Name:");
+                            firstName = Console.ReadLine();
+                            this.menuServices.DisplayContent(path);
+                            this.writer.ClearConsole();
+                            Console.WriteLine("Enter your Last Name:");
+                            lastName = Console.ReadLine();
+                            this.menuServices.DisplayContent(path);
+                            this.writer.ClearConsole();*/
 
                             // If Data is valid and everything is successful
                             // Change the stage of life;
