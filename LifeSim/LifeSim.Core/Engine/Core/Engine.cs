@@ -13,8 +13,6 @@ namespace LifeSim.Core.Engine.Core
 {
     public class Engine
     {
-        //THIS CONST WILL BE MOVED TO OTHER PLACE
-        private const string START_MENU_PATH = "../../../../LifeSim.Core/Engine/Menu/Logo/logo.txt";
 
         // HM ABOUT THIS???
         private static readonly Engine engineInstance;
@@ -58,6 +56,8 @@ namespace LifeSim.Core.Engine.Core
         {
             while (true)
             {
+                var path = Environment.CurrentDirectory + "/Logo/startLogo.txt";
+                this.menuServices.DisplayContent(path);
                 switch (playerProgress)
                 {
                     case PlayerProgress.NewBorn:
@@ -66,7 +66,6 @@ namespace LifeSim.Core.Engine.Core
                             // Prompt the player to enter it again
                             // INFO: Pseudo Code
                             // string[] firstName lastName, Gender, Birthplace
-                            // Try to use something like the past Workshop's console command reading method
 
                             // If Data is valid and everything is successful
                             // Change the stage of life;
