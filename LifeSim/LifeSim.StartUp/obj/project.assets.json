@@ -207,6 +207,39 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "ExceptionHandler/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/ExceptionHandler.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ExceptionHandler.dll": {}
+        }
+      },
+      "LifeSim.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/LifeSim.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LifeSim.Core.dll": {}
+        }
+      },
+      "LifeSim.Player/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "ExceptionHandler": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LifeSim.Player.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LifeSim.Player.dll": {}
+        }
       }
     }
   },
@@ -673,43 +706,65 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "ExceptionHandler/1.0.0": {
+      "type": "project",
+      "path": "../ExceptionHandler/ExceptionHandler.csproj",
+      "msbuildProject": "../ExceptionHandler/ExceptionHandler.csproj"
+    },
+    "LifeSim.Core/1.0.0": {
+      "type": "project",
+      "path": "../LifeSim.Core/LifeSim.Core.csproj",
+      "msbuildProject": "../LifeSim.Core/LifeSim.Core.csproj"
+    },
+    "LifeSim.Player/1.0.0": {
+      "type": "project",
+      "path": "../LifeSim.Player/LifeSim.Player.csproj",
+      "msbuildProject": "../LifeSim.Player/LifeSim.Player.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "LifeSim.Core >= 1.0.0",
+      "LifeSim.Player >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mikasa\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/danailgrozdanov/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\TELERIK_TEAM_PROJECT\\Git_LAB\\TelerikTeamProject\\LifeSim\\LifeSim.Core\\LifeSim.Core.csproj",
-      "projectName": "LifeSim.Core",
-      "projectPath": "A:\\TELERIK_TEAM_PROJECT\\Git_LAB\\TelerikTeamProject\\LifeSim\\LifeSim.Core\\LifeSim.Core.csproj",
-      "packagesPath": "C:\\Users\\Mikasa\\.nuget\\packages\\",
-      "outputPath": "A:\\TELERIK_TEAM_PROJECT\\Git_LAB\\TelerikTeamProject\\LifeSim\\LifeSim.Core\\obj\\",
+      "projectUniqueName": "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Startup/LifeSim.Startup.csproj",
+      "projectName": "LifeSim.Startup",
+      "projectPath": "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Startup/LifeSim.Startup.csproj",
+      "packagesPath": "/Users/danailgrozdanov/.nuget/packages/",
+      "outputPath": "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Startup/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Mikasa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/danailgrozdanov/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Core/LifeSim.Core.csproj": {
+              "projectPath": "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Core/LifeSim.Core.csproj"
+            },
+            "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Player/LifeSim.Player.csproj": {
+              "projectPath": "/Users/danailgrozdanov/Downloads/GitLab Team Project/TelerikTeamProject/LifeSim/LifeSim.Player/LifeSim.Player.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -724,7 +779,7 @@
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.1.0, )",
+            "version": "2.1.0",
             "autoReferenced": true
           }
         },
@@ -735,13 +790,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file A:\\TELERIK_TEAM_PROJECT\\Git_LAB\\TelerikTeamProject\\LifeSim\\LifeSim.Core\\obj\\LifeSim.Core.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
