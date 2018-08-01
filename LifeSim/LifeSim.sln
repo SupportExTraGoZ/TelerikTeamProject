@@ -1,4 +1,3 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
@@ -7,15 +6,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LifeSim.CLI", "LifeSim.CLI"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LifeSim", "LifeSim", "{E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Establishments", "LifeSim.Establishments\LifeSim.Establishments.csproj", "{D24721B4-68C2-427A-99D9-C9CCEFCE222A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Establishments", "LifeSim.Establishments\LifeSim.Establishments.csproj", "{D24721B4-68C2-427A-99D9-C9CCEFCE222A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Player", "LifeSim.Player\LifeSim.Player.csproj", "{6CC3F442-4AE8-4007-8E91-5DFD88D00176}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Player", "LifeSim.Player\LifeSim.Player.csproj", "{6CC3F442-4AE8-4007-8E91-5DFD88D00176}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandler", "ExceptionHandler\ExceptionHandler.csproj", "{6763EE9F-6447-4737-B3AC-9E99E2FD77CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionHandler", "ExceptionHandler\ExceptionHandler.csproj", "{6763EE9F-6447-4737-B3AC-9E99E2FD77CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Startup", "LifeSim.Startup\LifeSim.Startup.csproj", "{0C64FE24-FB0E-479D-BE46-8D2E9CAFCEA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Startup", "LifeSim.Startup\LifeSim.Startup.csproj", "{0C64FE24-FB0E-479D-BE46-8D2E9CAFCEA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Core", "LifeSim.Core\LifeSim.Core.csproj", "{DE51433D-43D8-4CCD-A100-3D0B837E64FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Core", "LifeSim.Core\LifeSim.Core.csproj", "{DE51433D-43D8-4CCD-A100-3D0B837E64FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +22,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D24721B4-68C2-427A-99D9-C9CCEFCE222A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D24721B4-68C2-427A-99D9-C9CCEFCE222A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D24721B4-68C2-427A-99D9-C9CCEFCE222A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D24721B4-68C2-427A-99D9-C9CCEFCE222A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6CC3F442-4AE8-4007-8E91-5DFD88D00176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6CC3F442-4AE8-4007-8E91-5DFD88D00176}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CC3F442-4AE8-4007-8E91-5DFD88D00176}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,8 +38,6 @@ Global
 		{0C64FE24-FB0E-479D-BE46-8D2E9CAFCEA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C64FE24-FB0E-479D-BE46-8D2E9CAFCEA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C64FE24-FB0E-479D-BE46-8D2E9CAFCEA6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D24721B4-68C2-427A-99D9-C9CCEFCE222A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D24721B4-68C2-427A-99D9-C9CCEFCE222A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE51433D-43D8-4CCD-A100-3D0B837E64FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DE51433D-43D8-4CCD-A100-3D0B837E64FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE51433D-43D8-4CCD-A100-3D0B837E64FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -46,9 +47,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{D24721B4-68C2-427A-99D9-C9CCEFCE222A} = {E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}
 		{6CC3F442-4AE8-4007-8E91-5DFD88D00176} = {E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}
 		{6763EE9F-6447-4737-B3AC-9E99E2FD77CF} = {E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}
-		{D24721B4-68C2-427A-99D9-C9CCEFCE222A} = {E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}
 		{0C64FE24-FB0E-479D-BE46-8D2E9CAFCEA6} = {5D0A6272-AB05-4DE5-8E7F-88271A04A878}
 		{DE51433D-43D8-4CCD-A100-3D0B837E64FE} = {E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}
 	EndGlobalSection

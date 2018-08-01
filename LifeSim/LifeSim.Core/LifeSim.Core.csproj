@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="CLI.Module\Contracts\" />
+    <Folder Include="CLI.Module\Modules\" />
+    <Folder Include="Contracts\" />
+  </ItemGroup>
+
 </Project>
