@@ -10,6 +10,7 @@ using LifeSim.Core.WorkFunctions;
 using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
 using System.IO;
 using System.Linq;
+using LifeSim.Player.Contracts;
 
 namespace LifeSim.Core.Engine.Core
 {
@@ -27,6 +28,7 @@ namespace LifeSim.Core.Engine.Core
         private readonly IConsoleReadKey keyReader;
         private readonly IFamilyGenerator familyGenerator;
         private PlayerProgress playerProgress;
+        private IPlayer Player;
 
         private Engine()
         {
@@ -60,25 +62,35 @@ namespace LifeSim.Core.Engine.Core
 
         public void Start()
         {
+            this.writer.PrintLogo();
             string firstName, lastName;
+            string[] tempString;
             GenderType gender;
             Birthplaces birthplace;
             // Read Data
-            Console.WriteLine("Enter your First Name:");
-            firstName = Console.ReadLine();
+            Console.Write("Enter your First Name: ");
+            tempString = Console.ReadLine().Split(": ");
+            firstName = tempString[0];
 
-            Console.WriteLine("Enter your Last Name:");
-            lastName = Console.ReadLine();
+            Console.Write("Enter your Last Name: ");
+            tempString = Console.ReadLine().Split(": ");
+            lastName = tempString[0];
 
-            Console.WriteLine("Choose Gender (Male/Female):");
-            gender = (GenderType)Enum.Parse(typeof(GenderType), Console.ReadLine());
+            Console.Write("Choose Gender (Male/Female): ");
+            tempString = Console.ReadLine().Split(": ");
+            gender = (GenderType)Enum.Parse(typeof(GenderType), tempString[0]);
 
             Console.WriteLine("Choose Birthplace: [New York, Los Angeles, Chicago, Miami]");
             birthplace = (Birthplaces)Enum.Parse(typeof(Birthplaces), Console.ReadLine().Replace(" ", ""));
 
+            Player = new Player.Models.Player(firstName, lastName, gender, birthplace, familyGenerator);
+
+            this.cleaner.ClearConsole();
+
             while (true)
             {
                 this.writer.PrintLogo();
+                Console.WriteLine($"{Player.FirstName} {Player.LastName} | Age: {Player.Age} | Gender: {Player.Gender}");
                 var command = this.keyReader.ReadKey();
                 switch (playerProgress)
                 {
