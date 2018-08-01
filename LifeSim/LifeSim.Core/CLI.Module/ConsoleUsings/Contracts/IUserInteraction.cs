@@ -2,7 +2,6 @@
 {
     public interface IUserInteraction
     {
-         string AskUser(string message);
-       
+        string AskUser(string message, bool sameLine);
     }
 }

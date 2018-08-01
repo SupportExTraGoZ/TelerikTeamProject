@@ -16,17 +16,17 @@ namespace LifeSim.Core.Engine.Core
 {
     public class Engine
     {
-
-        // HM ABOUT THIS???
-        private static readonly Engine engineInstance;
+        private static Engine engineInstance;
 
         private readonly IConsoleWriter writer;
         private readonly IConsoleReader reader;
         private readonly IConsoleCleaner cleaner;
+        private readonly IConsoleReadKey keyReader;
+        private readonly IUserInteraction userInteraction;
         private readonly IReadable fileReader;
         private readonly IMenuLauncher menuServices;
-        private readonly IConsoleReadKey keyReader;
         private readonly IFamilyGenerator familyGenerator;
+
         private PlayerProgress playerProgress;
         private IPlayer Player;
 
@@ -37,6 +37,7 @@ namespace LifeSim.Core.Engine.Core
             this.reader = new ConsoleReader();
             this.fileReader = new FileReader();
             this.cleaner = new ConsoleCleaner();
+            this.userInteraction = new UserInteraction(this.writer, this.reader);
 
             this.menuServices = new MenuLauncher(this.writer, this.reader, this.fileReader);
             //End of Menu display functions
@@ -53,7 +54,7 @@ namespace LifeSim.Core.Engine.Core
             {
                 if (engineInstance == null)
                 {
-                    return new Engine();
+                    engineInstance = new Engine();
                 }
 
                 return engineInstance;
@@ -62,27 +63,31 @@ namespace LifeSim.Core.Engine.Core
 
         public void Start()
         {
+            // Show Game Logo
             this.writer.PrintLogo();
+
+            // Declaring temporary variables
             string firstName, lastName;
             string[] tempString;
             GenderType gender;
             Birthplaces birthplace;
+
             // Read Data
-            Console.Write("Enter your First Name: ");
-            tempString = Console.ReadLine().Split(": ");
+            tempString = this.userInteraction.AskUser("Enter your First Name: ", true).Split(": ");
             firstName = tempString[0];
 
-            Console.Write("Enter your Last Name: ");
-            tempString = Console.ReadLine().Split(": ");
+            tempString = this.userInteraction.AskUser("Enter your Last Name: ", true).Split(": ");
             lastName = tempString[0];
 
-            Console.Write("Choose Gender (Male/Female): ");
-            tempString = Console.ReadLine().Split(": ");
+            tempString = this.userInteraction.AskUser("Choose Gender (Male/Female): ", true).Split(": ");
             gender = (GenderType)Enum.Parse(typeof(GenderType), tempString[0]);
 
-            Console.WriteLine("Choose Birthplace: [New York, Los Angeles, Chicago, Miami]");
-            birthplace = (Birthplaces)Enum.Parse(typeof(Birthplaces), Console.ReadLine().Replace(" ", ""));
+            birthplace = (Birthplaces)Enum.Parse(typeof(Birthplaces),
+                                                 this.userInteraction.
+                                                 AskUser("Choose Birthplace: [New York, Los Angeles, Chicago, Miami]",
+                                                                              false).Split("]")[0].Replace(" ", ""));
 
+            // Player Init/Creation
             Player = new Player.Models.Player(firstName, lastName, gender, birthplace, familyGenerator);
 
             this.cleaner.ClearConsole();
