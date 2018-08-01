@@ -21,7 +21,7 @@ namespace LifeSim.Core.Engine.Core
             this.writer = new ConsoleWriter();
             this.reader = new ConsoleReader();
 
-            this.menuServices = new MenuLauncher(this.writer, this.reader);
+            //this.menuServices = new MenuLauncher(this.writer, this.reader);
             this.menuServices.DisplayContent(START_MENU_PATH);
         }
 

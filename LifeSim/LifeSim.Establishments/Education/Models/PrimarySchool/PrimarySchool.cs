@@ -1,5 +1,5 @@
 ﻿using LifeSim.Establishments.Education.Enum;
-using LifeSim.Establishments.Education.Primary.School.Contract;
+using LifeSim.Establishments.Education.PrimarySchool.Contract;
 using System;
 using System.Collections.Generic;
 using System.Text;
