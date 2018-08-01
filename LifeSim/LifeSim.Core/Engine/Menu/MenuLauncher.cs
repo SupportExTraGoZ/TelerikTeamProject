@@ -13,7 +13,6 @@ namespace LifeSim.Core.Engine.Menu
         private readonly IConsoleUsageProvider writer = new ConsoleWriter();
         private readonly IConsoleUsageProvider reader = new ConsoleReader();
 
-
         public MenuLauncher(IConsoleUsageProvider writer, IConsoleUsageProvider reader)
         {
             //VALIDATE THIS
