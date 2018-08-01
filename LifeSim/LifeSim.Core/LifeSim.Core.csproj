@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="CLI.Module\Console\Functions\" />
     <Folder Include="Contracts\" />
   </ItemGroup>
 
