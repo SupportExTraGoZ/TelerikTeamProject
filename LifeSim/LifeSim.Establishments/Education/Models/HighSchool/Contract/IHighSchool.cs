@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LifeSim.Establishments.Education.High.School.Contract
+namespace LifeSim.Establishments.Education.HighSchool.Contract
 {
     public interface IHighSchool : IEducationalInstitute
     {

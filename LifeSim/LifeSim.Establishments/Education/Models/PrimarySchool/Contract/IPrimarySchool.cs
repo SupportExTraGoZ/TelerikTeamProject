@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LifeSim.Establishments.Education.Primary.School.Contract
+namespace LifeSim.Establishments.Education.PrimarySchool.Contract
 {
     public interface IPrimarySchool : IEducationalInstitute
     {
-        
+
     }
 }

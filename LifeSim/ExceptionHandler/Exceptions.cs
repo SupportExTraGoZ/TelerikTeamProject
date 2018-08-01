@@ -2,7 +2,7 @@
 
 namespace ExceptionHandler
 {
-    public static class Exceptions
+    public class Exceptions
     {
         public const string FirstNameTooShort = "First Name is too short.";
         public const string LastNameTooShort = "Last Name is too short.";
