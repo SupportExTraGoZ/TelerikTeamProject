@@ -90,6 +90,7 @@ namespace LifeSim.Core.Engine.Core
             // Player Init/Creation
             Player = new Player.Models.Player(firstName, lastName, gender, birthplace, familyGenerator);
 
+            // Clears Console
             this.cleaner.ClearConsole();
 
             while (true)
