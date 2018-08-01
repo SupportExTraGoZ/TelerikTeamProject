@@ -8,4 +8,7 @@
     <Folder Include="Contracts\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LifeSim.Player\LifeSim.Player.csproj" />
+  </ItemGroup>
 </Project>
