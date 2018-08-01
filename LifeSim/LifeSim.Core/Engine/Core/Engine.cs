@@ -5,31 +5,40 @@ using LifeSim.Player.Randomizer.Contracts;
 using LifeSim.Player.Randomizer.Models;
 using System;
 using LifeSim.Player.Enums;
+using LifeSim.Core.IO.Contracts;
+using LifeSim.Core.WorkFunctions;
+using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
 
 namespace LifeSim.Core.Engine.Core
 {
     public class Engine
     {
         //THIS CONST WILL BE MOVED TO OTHER PLACE
-        private const string START_MENU_PATH = "startMenu.txt";
+        private const string START_MENU_PATH = "../../../../LifeSim.Core/Engine/Menu/Logo/logo.txt";
 
         // HM ABOUT THIS???
         private static readonly Engine engineInstance;
 
-        private readonly IConsoleUsageProvider writer;
-        private readonly IConsoleUsageProvider reader;
+        private readonly IConsoleWriter writer;
+        private readonly IConsoleReader reader;
+        private readonly IReadable fileReader;
         private readonly IMenuLauncher menuServices;
         private readonly IFamilyGenerator familyGenerator;
         private PlayerProgress playerProgress;
 
         private Engine()
         {
+            // Menu display set-up's
             this.writer = new ConsoleWriter();
             this.reader = new ConsoleReader();
-            this.familyGenerator = new FamilyGenerator();
-            this.playerProgress = PlayerProgress.NewBorn;
-            //this.menuServices = new MenuLauncher(this.writer, this.reader);
+            this.fileReader = new FileReader();
+            this.menuServices = new MenuLauncher(this.writer, this.reader, this.fileReader);
             this.menuServices.DisplayContent(START_MENU_PATH);
+            //End of Menu display functions
+
+            this.familyGenerator = new FamilyGenerator();
+            this.playerProgress = PlayerProgress.NewBorn;            
+            
         }
 
         public static Engine Instance

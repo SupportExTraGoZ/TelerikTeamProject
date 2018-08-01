@@ -1,9 +1,11 @@
-﻿namespace LifeSim.Core.Engine.Menu
+﻿using System.Collections.Generic;
+
+namespace LifeSim.Core.Engine.Menu
 {
     public interface IMenuLauncher
     {
         void DisplayContent(string path);
-        void LoadDisplays(string path);
+        IList<string> LoadDisplays(string path);
         void UserSelector();
     }
 }
