@@ -13,7 +13,7 @@ namespace LifeSim.Player.Randomizer.Models
         {
             string fatherName, motherName;
             fatherName = FatherNames[GetRandom.Next(0, FatherNames.Length - 1)];
-            motherName = MotherNames[GetRandom.Next(0, FatherNames.Length - 1)];
+            motherName = MotherNames[GetRandom.Next(0, MotherNames.Length - 1)];
             return new string[] { fatherName, motherName };
         }
 
