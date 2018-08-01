@@ -1,7 +1,4 @@
-﻿using LifeSim.Core.CLI.Module.Contracts;
-using LifeSim.Core.CLI.Module.Modules;
-using LifeSim.Core.Contracts;
-using LifeSim.Core.Engine.Menu.Start.Menu;
+﻿using LifeSim.Core.Engine.Menu.Start.Menu;
 using LifeSim.Core.WorkFunctions;
 using LifeSim.Player.Models;
 using System;
@@ -21,7 +18,7 @@ namespace LifeSim.Startup
             Console.WriteLine("LifeSim is still under development!");
 
             // Working Player Creation - To be continued...
-            Player.Models.Player player = new Player.Models.Player("Danail", "Grozdanov", Player.Enums.GenderType.Male, Player.Enums.Birthplaces.Miami);
+            //Player.Models.Player player = new Player.Models.Player("Danail", "Grozdanov", Player.Enums.GenderType.Male, Player.Enums.Birthplaces.Miami);
 
             //Stefan = Hire i'm testing menu ...
             //IReadable fileReader = new FileReader();

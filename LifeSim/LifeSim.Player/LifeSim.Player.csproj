@@ -9,6 +9,8 @@
     <Folder Include="Enums\" />
     <Folder Include="Models\" />
     <Folder Include="Randomizer\" />
+    <Folder Include="Randomizer\Contracts\" />
+    <Folder Include="Randomizer\Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExceptionHandler\ExceptionHandler.csproj" />
