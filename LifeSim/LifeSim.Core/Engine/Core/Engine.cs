@@ -15,6 +15,8 @@ using LifeSim.Core.Engine.Core.UserQuestion.Models;
 using LifeSim.Core.Engine.Menu.Logo;
 using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
 using LifeSim.Core.Engine.Core.UserQuestion.Constants;
+using LifeSim.Core.Engine.Core.UserStatusDisplay;
+using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
 
 namespace LifeSim.Core.Engine.Core
 {
@@ -29,6 +31,7 @@ namespace LifeSim.Core.Engine.Core
         private readonly IUserInteraction userInteraction;
         private readonly IOptionsContainer optionsContainer;
         private readonly IQuestionAction questionAction;
+        private readonly IUserStatus userStatusDisplayer;
 
         private readonly IConsoleWriter writer;
         private readonly IGamePlayerFactory playerFactory;
@@ -47,7 +50,7 @@ namespace LifeSim.Core.Engine.Core
             this.keyReader = new ConsoleKeyReader();
             this.optionsContainer = new OptionsContainer();
             this.questionAction = new QuestionAction(ConstQuestions.Questions, userInteraction);
-
+            this.userStatusDisplayer = new UserStatus(this.writer);
             // Player Creation Setup
             this.familyGenerator = new FamilyGenerator();
             this.playerFactory = new GamePlayerFactory();
@@ -85,12 +88,8 @@ namespace LifeSim.Core.Engine.Core
                 //writer.SetCenterCursorPosition(Logo.GetLogo());
                 writer.PrintLogo();
 
-                writer.WriteLine($"{new string('=', 30)} Stats {new string('=', 30)}");
-                writer.WriteLine($"Father: {player.Father.FirstName} {player.Father.LastName} | Age: {player.Father.Age} | Birthplace: {player.Father.GetBirthplace()}");
-                writer.WriteLine($"Mother: {player.Mother.FirstName} {player.Mother.LastName} | Age: {player.Father.Age} | Birthplace: {player.Mother.GetBirthplace()}");
-                writer.WriteLine(
-                    $"You: {player.FirstName} {player.LastName} | Age: {player.Age} | Gender: {player.Gender} | Birthplace: {player.GetBirthplace()}");
-                writer.WriteLine($"{new string('=', 67)}");
+                this.userStatusDisplayer.WriteStatus(player);
+       
 
                 menuServices.PrintMenu(playerProgress, optionsContainer);
                 var command = keyReader.ReadKey();
