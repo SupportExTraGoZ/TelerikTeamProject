@@ -11,9 +11,8 @@ using LifeSim.Player.Randomizer.Contracts;
 using LifeSim.Player.Randomizer.Models;
 using LifeSim.Player.Options.Contracts;
 using LifeSim.Player.Options;
-using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
 using LifeSim.Core.Engine.Core.UserQuestion.Models;
-using LifeSim.Core.Engine.Core.UserQuestion.Constants;
+using LifeSim.Core.Engine.Menu.Logo;
 
 namespace LifeSim.Core.Engine.Core
 {
@@ -80,7 +79,10 @@ namespace LifeSim.Core.Engine.Core
 
             while (true)
             {
+                //Set Console cursor position at center and print Logo
+                //writer.SetCenterCursorPosition(Logo.GetLogo());
                 writer.PrintLogo();
+
                 writer.WriteLine($"{new string('=', 30)} Stats {new string('=', 30)}");
                 writer.WriteLine($"Father: {player.Father.FirstName} {player.Father.LastName} | Age: {player.Father.Age} | Birthplace: {player.Father.GetBirthplace()}");
                 writer.WriteLine($"Mother: {player.Mother.FirstName} {player.Mother.LastName} | Age: {player.Father.Age} | Birthplace: {player.Mother.GetBirthplace()}");

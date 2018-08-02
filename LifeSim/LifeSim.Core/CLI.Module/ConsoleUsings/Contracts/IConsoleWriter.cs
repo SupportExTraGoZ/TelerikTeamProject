@@ -7,5 +7,8 @@
         void Write(string line);
 
         void PrintLogo();
+
+        void SetCenterCursorPosition(string name);
+
     }
 }

@@ -20,5 +20,10 @@ namespace LifeSim.Core.CLI.Module.ConsoleUsings.Functions
         {
             Console.WriteLine(Logo.GetLogo());
         }
+
+        public void SetCenterCursorPosition(string name)
+        {
+            Console.SetCursorPosition((Console.WindowWidth - name.Length) / 2, Console.CursorTop);
+        }
     }
 }
