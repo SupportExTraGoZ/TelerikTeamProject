@@ -5,6 +5,6 @@
         string Answer { get; set; }
         string Text { get; set; }
 
-        bool IsValid(string answer);
+        //bool IsValid(string answer);
     }
 }
