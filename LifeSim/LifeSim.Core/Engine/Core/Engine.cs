@@ -33,14 +33,13 @@ namespace LifeSim.Core.Engine.Core
             // Menu display set-up's
             this.writer = new ConsoleWriter();
             this.reader = new ConsoleReader();
-            //this.fileReader = new FileReader();
             this.cleaner = new ConsoleCleaner();
             this.userInteraction = new UserInteraction(writer, reader);
-            
+
             this.menuServices = new MenuLauncher(writer, reader);
-           //End of Menu display functions
+            //End of Menu display functions
             this.keyReader = new ConsoleKeyReader();
-          
+
             this.familyGenerator = new FamilyGenerator();
             this.playerFactory = new GamePlayerFactory();
             this.playerProgress = PlayerProgress.NewBorn;
@@ -76,15 +75,15 @@ namespace LifeSim.Core.Engine.Core
             lastName = tempString[0];
 
             tempString = userInteraction.AskUser("Choose Gender (Male/Female): ", true).Split(": ");
-            gender = (GenderType) Enum.Parse(typeof(GenderType), tempString[0]);
+            gender = (GenderType)Enum.Parse(typeof(GenderType), tempString[0]);
 
-            birthplace = (Birthplaces) Enum.Parse(typeof(Birthplaces),
+            birthplace = (Birthplaces)Enum.Parse(typeof(Birthplaces),
                 userInteraction.AskUser("Choose Birthplace: [New York, Los Angeles, Chicago, Miami]",
                     false).Split("]")[0].Replace(" ", ""));
 
             // Player Init/Creation
             this.player = playerFactory.CreatePlayer(firstName, lastName, gender, birthplace, familyGenerator);
-            
+
 
             // Clears Console
             cleaner.ClearConsole();
@@ -92,22 +91,23 @@ namespace LifeSim.Core.Engine.Core
             while (true)
             {
                 writer.PrintLogo();
-                Console.WriteLine(
+                writer.WriteLine($"");
+                writer.WriteLine(
                     $"{player.FirstName} {player.LastName} | Age: {player.Age} | Gender: {player.Gender} | Birthplace: {player.Birthplace}");
                 var command = keyReader.ReadKey();
                 switch (playerProgress)
                 {
                     case PlayerProgress.NewBorn:
-                    {
-                        // Validate player input data, and if it's invalid
-                        // Prompt the player to enter it again
-                        // INFO: Pseudo Code
-                        // string[] firstName lastName, Gender, Birthplace
+                        {
+                            // Validate player input data, and if it's invalid
+                            // Prompt the player to enter it again
+                            // INFO: Pseudo Code
+                            // string[] firstName lastName, Gender, Birthplace
 
-                        // If Data is valid and everything is successful
-                        // Change the stage of life;
-                        playerProgress = PlayerProgress.Baby;
-                    }
+                            // If Data is valid and everything is successful
+                            // Change the stage of life;
+                            playerProgress = PlayerProgress.Baby;
+                        }
                         break;
                     default:
                         break;
