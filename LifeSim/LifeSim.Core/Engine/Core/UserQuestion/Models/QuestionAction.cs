@@ -1,6 +1,7 @@
 ﻿using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
 using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LifeSim.Core.Engine.Core.UserQuestion.Models
 {
@@ -20,7 +21,7 @@ namespace LifeSim.Core.Engine.Core.UserQuestion.Models
             foreach (var question in this.questions)
             {
                 var sendQuestion = this.userInteraction.AskUser(question.Text, question.SameLine);
-                question.Answer = sendQuestion;
+                question.Answer = sendQuestion.First().ToString().ToUpper() + sendQuestion.Substring(1);
             }
 
             return this.questions;
