@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
 using LifeSim.Player.Enums;
-using LifeSim.Player.PlayerOptions;
+using LifeSim.Player.Options;
+using LifeSim.Player.Options.Contracts;
 
 namespace LifeSim.Core.Engine.Menu
 {
@@ -19,20 +20,14 @@ namespace LifeSim.Core.Engine.Menu
             this.writer = writer;
             this.reader = reader;
         }
-        
-        public void PrintMenu(PlayerProgress playerProgress)
+
+        public void PrintMenu(PlayerProgress playerProgress, IOptionsContainer optionsContainer)
         {
-            OptionsContainer options = new OptionsContainer();
-
-            List<string> currOptinons = options.CurrentStageOptions(playerProgress);
-
-            foreach (var elem  in currOptinons)
+            foreach (var elem in optionsContainer.CurrentStageOptions(playerProgress))
             {
                 writer.WriteLine(elem);
             }
-  
         }
-        
 
         public void UserSelector()
         {

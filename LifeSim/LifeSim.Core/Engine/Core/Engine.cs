@@ -9,6 +9,8 @@ using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Randomizer.Contracts;
 using LifeSim.Player.Randomizer.Models;
+using LifeSim.Player.Options.Contracts;
+using LifeSim.Player.Options;
 
 namespace LifeSim.Core.Engine.Core
 {
@@ -21,6 +23,7 @@ namespace LifeSim.Core.Engine.Core
         private readonly IMenuLauncher menuServices;
         private readonly IConsoleReader reader;
         private readonly IUserInteraction userInteraction;
+        private readonly IOptionsContainer optionsContainer;
 
         private readonly IConsoleWriter writer;
         private readonly IGamePlayerFactory playerFactory;
@@ -35,14 +38,13 @@ namespace LifeSim.Core.Engine.Core
             this.reader = new ConsoleReader();
             this.cleaner = new ConsoleCleaner();
             this.userInteraction = new UserInteraction(writer, reader);
-
             this.menuServices = new MenuLauncher(writer, reader);
-            //End of Menu display functions
             this.keyReader = new ConsoleKeyReader();
+            this.optionsContainer = new OptionsContainer();
 
+            // Player Creation Setup
             this.familyGenerator = new FamilyGenerator();
             this.playerFactory = new GamePlayerFactory();
-
             this.playerProgress = PlayerProgress.NewBorn;
         }
 
@@ -97,9 +99,9 @@ namespace LifeSim.Core.Engine.Core
                 writer.WriteLine(
                     $"You: {player.FirstName} {player.LastName} | Age: {player.Age} | Gender: {player.Gender} | Birthplace: {player.GetBirthplace()}");
                 writer.WriteLine($"{new string('=', 67)}");
-                var command = keyReader.ReadKey();
 
-                menuServices.PrintMenu(playerProgress);
+                menuServices.PrintMenu(playerProgress, optionsContainer);
+                var command = keyReader.ReadKey();
 
                 cleaner.ClearConsole();
             }
