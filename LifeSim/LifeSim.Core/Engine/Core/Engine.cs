@@ -33,7 +33,6 @@ namespace LifeSim.Core.Engine.Core
             // Menu display set-up's
             this.writer = new ConsoleWriter();
             this.reader = new ConsoleReader();
-            //this.fileReader = new FileReader();
             this.cleaner = new ConsoleCleaner();
             this.userInteraction = new UserInteraction(writer, reader);
             

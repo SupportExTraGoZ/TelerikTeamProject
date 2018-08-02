@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
+using LifeSim.Player.Enums;
 
 namespace LifeSim.Core.Engine.Menu
 {
@@ -9,7 +10,6 @@ namespace LifeSim.Core.Engine.Menu
     /// </summary>
     public class MenuLauncher : IMenuLauncher
     {
-        //private readonly IReadable fileReader;
         private readonly IConsoleReader reader;
         private readonly IConsoleWriter writer;
 
@@ -17,9 +17,14 @@ namespace LifeSim.Core.Engine.Menu
         {
             this.writer = writer;
             this.reader = reader;
-            //this.fileReader = fileReader;
         }
-       
+        
+        public void PrintMenu(PlayerProgress progress)
+        {
+
+        }
+        
+
         public void UserSelector()
         {
             throw new NotImplementedException();
