@@ -1,6 +1,8 @@
 ﻿using System;
 using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
 using LifeSim.Core.CLI.Module.ConsoleUsings.Functions;
+using LifeSim.Core.Engine.Factories;
+using LifeSim.Core.Engine.Factories.Contracts;
 using LifeSim.Core.Engine.Menu;
 using LifeSim.Core.IO.Contracts;
 using LifeSim.Core.WorkFunctions;
@@ -23,25 +25,27 @@ namespace LifeSim.Core.Engine.Core
         private readonly IUserInteraction userInteraction;
 
         private readonly IConsoleWriter writer;
-        private IPlayer Player;
+        private readonly IGamePlayerFactory playerFactory;
+        private IPlayer player;
 
         private PlayerProgress playerProgress;
 
         private Engine()
         {
             // Menu display set-up's
-            writer = new ConsoleWriter();
-            reader = new ConsoleReader();
-            fileReader = new FileReader();
-            cleaner = new ConsoleCleaner();
-            userInteraction = new UserInteraction(writer, reader);
-
-            menuServices = new MenuLauncher(writer, reader, fileReader);
-            //End of Menu display functions
-            keyReader = new ConsoleKeyReader();
-
-            familyGenerator = new FamilyGenerator();
-            playerProgress = PlayerProgress.NewBorn;
+            this.writer = new ConsoleWriter();
+            this.reader = new ConsoleReader();
+            this.fileReader = new FileReader();
+            this.cleaner = new ConsoleCleaner();
+            this.userInteraction = new UserInteraction(writer, reader);
+            
+            this.menuServices = new MenuLauncher(writer, reader, fileReader);
+           //End of Menu display functions
+            this.keyReader = new ConsoleKeyReader();
+          
+            this.familyGenerator = new FamilyGenerator();
+            this.playerFactory = new GamePlayerFactory();
+            this.playerProgress = PlayerProgress.NewBorn;
         }
 
         public static Engine Instance
@@ -81,7 +85,8 @@ namespace LifeSim.Core.Engine.Core
                     false).Split("]")[0].Replace(" ", ""));
 
             // Player Init/Creation
-            Player = new Player.Models.Player(firstName, lastName, gender, birthplace, familyGenerator);
+            this.player = playerFactory.CreatePlayer(firstName, lastName, gender, birthplace, familyGenerator);
+            
 
             // Clears Console
             cleaner.ClearConsole();
@@ -90,7 +95,7 @@ namespace LifeSim.Core.Engine.Core
             {
                 writer.PrintLogo();
                 Console.WriteLine(
-                    $"{Player.FirstName} {Player.LastName} | Age: {Player.Age} | Gender: {Player.Gender} | Birthplace: {Player.Birthplace}");
+                    $"{player.FirstName} {player.LastName} | Age: {player.Age} | Gender: {player.Gender} | Birthplace: {player.Birthplace}");
                 var command = keyReader.ReadKey();
                 switch (playerProgress)
                 {
