@@ -85,17 +85,11 @@ namespace LifeSim.Core.Engine.Core
             }
             catch (ArgumentException)
             {
-                Writer.WriteLine("Invalid input data.");
+                SupressException("Invalid input data.");
             }
             catch (CustomException e)
             {
-                Writer.WriteLine(e.Message);
-            }
-            finally
-            {
-                Writer.WriteLine("Press any key to start again...");
-                Console.ReadKey();
-                this.Start();
+                SupressException(e.Message);
             }
 
             // Clears Console
@@ -147,5 +141,12 @@ namespace LifeSim.Core.Engine.Core
             //this.Writer.WriteLine(executionResult);
         }
 
+        private void SupressException(string message)
+        {
+            Writer.WriteLine(message);
+            Writer.WriteLine("Press any key to start again...");
+            Console.ReadKey();
+            this.Start();
+        }
     }
 }
