@@ -3,6 +3,7 @@
     public enum PlayerProgress
     {
         NewBorn = 0,
-        Baby = 1
+        Baby = 1,
+
     }
 }

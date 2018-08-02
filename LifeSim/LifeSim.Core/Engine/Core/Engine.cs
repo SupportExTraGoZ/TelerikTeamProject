@@ -5,8 +5,6 @@ using LifeSim.Core.Engine.Core.Contracts;
 using LifeSim.Core.Engine.Factories;
 using LifeSim.Core.Engine.Factories.Contracts;
 using LifeSim.Core.Engine.Menu;
-using LifeSim.Core.IO.Contracts;
-using LifeSim.Core.WorkFunctions;
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Randomizer.Contracts;
@@ -19,7 +17,6 @@ namespace LifeSim.Core.Engine.Core
         private static IEngine engineInstance;
         private readonly IConsoleCleaner cleaner;
         private readonly IFamilyGenerator familyGenerator;
-        private readonly IReadable fileReader;
         private readonly IConsoleReadKey keyReader;
         private readonly IMenuLauncher menuServices;
         private readonly IConsoleReader reader;
@@ -36,11 +33,11 @@ namespace LifeSim.Core.Engine.Core
             // Menu display set-up's
             this.writer = new ConsoleWriter();
             this.reader = new ConsoleReader();
-            this.fileReader = new FileReader();
+            //this.fileReader = new FileReader();
             this.cleaner = new ConsoleCleaner();
             this.userInteraction = new UserInteraction(writer, reader);
             
-            this.menuServices = new MenuLauncher(writer, reader, fileReader);
+            this.menuServices = new MenuLauncher(writer, reader);
            //End of Menu display functions
             this.keyReader = new ConsoleKeyReader();
           
