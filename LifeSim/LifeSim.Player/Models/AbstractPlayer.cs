@@ -23,9 +23,9 @@ namespace LifeSim.Player.Models
             set
             {
                 if (value.Length < 4)
-                    throw new ArgumentOutOfRangeException(Exceptions.Exceptions.FirstNameTooShort);
+                    throw new Exceptions.Models.CustomException(Exceptions.Models.Exceptions.FirstNameTooShort);
                 if (value.Length > 15)
-                    throw new ArgumentOutOfRangeException(Exceptions.Exceptions.FirstNameTooLong);
+                    throw new Exceptions.Models.CustomException(Exceptions.Models.Exceptions.FirstNameTooLong);
 
                 firstname = value;
             }
@@ -37,9 +37,9 @@ namespace LifeSim.Player.Models
             set
             {
                 if (value.Length < 4)
-                    throw new ArgumentOutOfRangeException(Exceptions.Exceptions.LastNameTooShort);
+                    throw new Exceptions.Models.CustomException(Exceptions.Models.Exceptions.LastNameTooShort);
                 if (value.Length > 15)
-                    throw new ArgumentOutOfRangeException(Exceptions.Exceptions.LastNameTooLong);
+                    throw new Exceptions.Models.CustomException(Exceptions.Models.Exceptions.LastNameTooLong);
 
                 lastname = value;
             }

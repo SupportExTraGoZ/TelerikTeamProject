@@ -16,6 +16,7 @@ using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
 using LifeSim.Core.Engine.Core.UserQuestion.Constants;
 using LifeSim.Core.Engine.Core.UserStatusDisplay;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
+using LifeSim.Exceptions.Models;
 
 namespace LifeSim.Core.Engine.Core
 {
@@ -68,22 +69,44 @@ namespace LifeSim.Core.Engine.Core
 
         public void Start()
         {
+            // Clear Game Console
+            Cleaner.ClearConsole();
+
             // Show Game Logo
             Writer.PrintLogo();
 
-            // Ask Questions
-            var questionAnswers = QuestionAction.GetUserAnswers();
+            try
+            {
+                // Ask Questions
+                var questionAnswers = QuestionAction.GetUserAnswers();
 
-            // Player Init/Creation
-            this.Player = PlayerFactory.CreatePlayer(questionAnswers[0].Answer.Split(": ")[0], questionAnswers[1].Answer.Split(": ")[0], (GenderType)Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]), (Birthplaces)Enum.Parse(typeof(Birthplaces), questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), FamilyGenerator);
+                // Player Init/Creation
+                this.Player = PlayerFactory.CreatePlayer(questionAnswers[0].Answer.Split(": ")[0], questionAnswers[1].Answer.Split(": ")[0], (GenderType)Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]), (Birthplaces)Enum.Parse(typeof(Birthplaces), questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), FamilyGenerator);
+            }
+            catch (ArgumentException)
+            {
+                Writer.WriteLine("Invalid input data.");
+            }
+            catch (CustomException e)
+            {
+                Writer.WriteLine(e.Message);
+            }
+            finally
+            {
+                Writer.WriteLine("Press any key to start again...");
+                Console.ReadKey();
+                this.Start();
+            }
 
             // Clears Console
             Cleaner.ClearConsole();
 
             while (true)
             {
-                // Print Logo & Show User HUD
+                // Print Logo
                 Writer.PrintLogo();
+
+                // Show User's HUD
                 this.UserStatus.WriteStatus(Player);
 
                 // Show User's available options

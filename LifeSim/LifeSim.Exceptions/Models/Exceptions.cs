@@ -1,4 +1,4 @@
-﻿namespace LifeSim.Exceptions
+﻿namespace LifeSim.Exceptions.Models
 {
     public class Exceptions
     {
