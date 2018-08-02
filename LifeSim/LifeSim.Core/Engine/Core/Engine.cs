@@ -98,23 +98,9 @@ namespace LifeSim.Core.Engine.Core
                     $"You: {player.FirstName} {player.LastName} | Age: {player.Age} | Gender: {player.Gender} | Birthplace: {player.GetBirthplace()}");
                 writer.WriteLine($"{new string('=', 67)}");
                 var command = keyReader.ReadKey();
-                switch (playerProgress)
-                {
-                    case PlayerProgress.NewBorn:
-                        {
-                            // Validate player input data, and if it's invalid
-                            // Prompt the player to enter it again
-                            // INFO: Pseudo Code
-                            // string[] firstName lastName, Gender, Birthplace
 
-                            // If Data is valid and everything is successful
-                            // Change the stage of life;
-                            playerProgress = PlayerProgress.Baby;
-                        }
-                        break;
-                    default:
-                        break;
-                }
+                menuServices.PrintMenu(playerProgress);
+
                 cleaner.ClearConsole();
             }
         }

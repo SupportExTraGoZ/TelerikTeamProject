@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
 using LifeSim.Player.Enums;
+using LifeSim.Player.PlayerOptions;
 
 namespace LifeSim.Core.Engine.Menu
 {
@@ -19,9 +20,17 @@ namespace LifeSim.Core.Engine.Menu
             this.reader = reader;
         }
         
-        public void PrintMenu(PlayerProgress progress)
+        public void PrintMenu(PlayerProgress playerProgress)
         {
+            OptionsContainer options = new OptionsContainer();
 
+            List<string> currOptinons = options.CurrentStageOptions(playerProgress);
+
+            foreach (var elem  in currOptinons)
+            {
+                writer.WriteLine(elem);
+            }
+  
         }
         
 
