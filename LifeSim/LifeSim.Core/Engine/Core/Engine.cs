@@ -42,6 +42,7 @@ namespace LifeSim.Core.Engine.Core
 
             this.familyGenerator = new FamilyGenerator();
             this.playerFactory = new GamePlayerFactory();
+
             this.playerProgress = PlayerProgress.NewBorn;
         }
 
@@ -84,16 +85,18 @@ namespace LifeSim.Core.Engine.Core
             // Player Init/Creation
             this.player = playerFactory.CreatePlayer(firstName, lastName, gender, birthplace, familyGenerator);
 
-
             // Clears Console
             cleaner.ClearConsole();
 
             while (true)
             {
                 writer.PrintLogo();
-                writer.WriteLine($"");
+                writer.WriteLine($"{new string('=', 30)} Stats {new string('=', 30)}");
+                writer.WriteLine($"Father: {player.Father.FirstName} {player.Father.LastName} | Age: {player.Father.Age} | Birthplace: {player.Father.GetBirthplace()}");
+                writer.WriteLine($"Mother: {player.Mother.FirstName} {player.Mother.LastName} | Age: {player.Father.Age} | Birthplace: {player.Mother.GetBirthplace()}");
                 writer.WriteLine(
-                    $"{player.FirstName} {player.LastName} | Age: {player.Age} | Gender: {player.Gender} | Birthplace: {player.Birthplace}");
+                    $"You: {player.FirstName} {player.LastName} | Age: {player.Age} | Gender: {player.Gender} | Birthplace: {player.GetBirthplace()}");
+                writer.WriteLine($"{new string('=', 67)}");
                 var command = keyReader.ReadKey();
                 switch (playerProgress)
                 {

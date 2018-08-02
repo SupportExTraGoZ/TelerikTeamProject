@@ -49,19 +49,8 @@ namespace LifeSim.Player.Models
         public GenderType Gender { get; set; }
         public Birthplaces Birthplace { get; set; }
         public DateTime BirthDate { get; set; } = DateTime.Now;
-
-        public string GetGender()
-        {
-            switch (Gender)
-            {
-                case GenderType.Male:
-                    return "Male";
-                case GenderType.Female:
-                    return "Female";
-                default:
-                    return "Invalid Gender.";
-            }
-        }
+        public Parent Father { get; set; }
+        public Parent Mother { get; set; }
 
         public string GetBirthplace()
         {

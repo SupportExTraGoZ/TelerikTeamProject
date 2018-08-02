@@ -18,7 +18,6 @@ namespace LifeSim.Player.Models
                 familyGenerator);
         }
 
-        public Parent Father { get; }
-        public Parent Mother { get; }
+
     }
 }

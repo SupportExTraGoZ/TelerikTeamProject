@@ -17,14 +17,15 @@ namespace LifeSim.Player.Randomizer.Models
         public string[] ChooseParentNames()
         {
             string fatherName, motherName;
-            fatherName = FatherNames[GetRandom.Next(0, FatherNames.Length - 1)];
-            motherName = MotherNames[GetRandom.Next(0, MotherNames.Length - 1)];
-            return new[] {fatherName, motherName};
+            int num = GetRandom.Next(0, FatherNames.Length - 1);
+            fatherName = FatherNames[num];
+            motherName = MotherNames[num];
+            return new[] { fatherName, motherName };
         }
 
         public Birthplaces ChooseBirthplace()
         {
-            return (Birthplaces) GetRandom.Next(0, 3);
+            return (Birthplaces)GetRandom.Next(0, 3);
         }
 
         public int ChooseAge()
