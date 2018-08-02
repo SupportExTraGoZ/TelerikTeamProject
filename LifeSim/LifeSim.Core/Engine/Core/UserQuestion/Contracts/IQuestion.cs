@@ -1,10 +1,9 @@
-﻿namespace LifeSim.Core.Engine.Core.UserQuestion
+﻿namespace LifeSim.Core.Engine.Core.UserQuestion.Contracts
 {
     public interface IQuestion
     {
         string Answer { get; set; }
         string Text { get; set; }
-
-        //bool IsValid(string answer);
+        bool SameLine { get; set; }
     }
 }

@@ -11,6 +11,9 @@ using LifeSim.Player.Randomizer.Contracts;
 using LifeSim.Player.Randomizer.Models;
 using LifeSim.Player.Options.Contracts;
 using LifeSim.Player.Options;
+using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
+using LifeSim.Core.Engine.Core.UserQuestion.Models;
+using LifeSim.Core.Engine.Core.UserQuestion.Constants;
 
 namespace LifeSim.Core.Engine.Core
 {
@@ -24,6 +27,7 @@ namespace LifeSim.Core.Engine.Core
         private readonly IConsoleReader reader;
         private readonly IUserInteraction userInteraction;
         private readonly IOptionsContainer optionsContainer;
+        private readonly IQuestionAction questionAction;
 
         private readonly IConsoleWriter writer;
         private readonly IGamePlayerFactory playerFactory;
@@ -41,6 +45,7 @@ namespace LifeSim.Core.Engine.Core
             this.menuServices = new MenuLauncher(writer, reader);
             this.keyReader = new ConsoleKeyReader();
             this.optionsContainer = new OptionsContainer();
+            this.questionAction = new QuestionAction(ConstQuestions.Questions, userInteraction);
 
             // Player Creation Setup
             this.familyGenerator = new FamilyGenerator();
@@ -64,28 +69,11 @@ namespace LifeSim.Core.Engine.Core
             // Show Game Logo
             writer.PrintLogo();
 
-            // Declaring temporary variables
-            string firstName, lastName;
-            string[] tempString;
-            GenderType gender;
-            Birthplaces birthplace;
-
-            // Read Data
-            tempString = userInteraction.AskUser("Enter your First Name: ", true).Split(": ");
-            firstName = tempString[0];
-
-            tempString = userInteraction.AskUser("Enter your Last Name: ", true).Split(": ");
-            lastName = tempString[0];
-
-            tempString = userInteraction.AskUser("Choose Gender (Male/Female): ", true).Split(": ");
-            gender = (GenderType)Enum.Parse(typeof(GenderType), tempString[0]);
-
-            birthplace = (Birthplaces)Enum.Parse(typeof(Birthplaces),
-                userInteraction.AskUser("Choose Birthplace: [New York, Los Angeles, Chicago, Miami]",
-                    false).Split("]")[0].Replace(" ", ""));
+            // Ask Questions
+            var questionAnswers = questionAction.GetUserAnswers();
 
             // Player Init/Creation
-            this.player = playerFactory.CreatePlayer(firstName, lastName, gender, birthplace, familyGenerator);
+            this.player = playerFactory.CreatePlayer(questionAnswers[0].Answer.Split(": ")[0], questionAnswers[1].Answer.Split(": ")[0], (GenderType)Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]), (Birthplaces)Enum.Parse(typeof(Birthplaces), questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), familyGenerator);
 
             // Clears Console
             cleaner.ClearConsole();
