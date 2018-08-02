@@ -13,7 +13,7 @@ using LifeSim.Player.Randomizer.Models;
 
 namespace LifeSim.Core.Engine.Core
 {
-    public class Engine
+    public sealed class Engine
     {
         private static Engine engineInstance;
         private readonly IConsoleCleaner cleaner;
