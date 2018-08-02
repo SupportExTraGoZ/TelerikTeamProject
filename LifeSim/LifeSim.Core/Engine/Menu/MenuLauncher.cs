@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Options;
 using LifeSim.Player.Options.Contracts;

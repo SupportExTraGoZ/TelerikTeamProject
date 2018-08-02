@@ -1,4 +1,4 @@
-﻿namespace LifeSim.Core.CLI.Module.ConsoleUsings.Contracts
+﻿namespace LifeSim.Core.CLI.Module.ConsoleManagement.Contracts
 {
     public interface IUserInteraction
     {

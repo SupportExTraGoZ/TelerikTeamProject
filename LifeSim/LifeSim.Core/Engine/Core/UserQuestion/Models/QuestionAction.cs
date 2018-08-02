@@ -1,4 +1,4 @@
-﻿using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
+﻿using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
 using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
 using System.Collections.Generic;
 

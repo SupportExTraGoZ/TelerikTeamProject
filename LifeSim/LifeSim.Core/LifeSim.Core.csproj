@@ -15,4 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\LifeSim.Player\LifeSim.Player.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="CLI.Module\ConsoleUsings\Functions\ConsoleKeyReader.cs" />
+  </ItemGroup>
 </Project>
