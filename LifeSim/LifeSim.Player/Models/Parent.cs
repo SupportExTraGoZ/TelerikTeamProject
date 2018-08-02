@@ -7,9 +7,9 @@ namespace LifeSim.Player.Models
     public class Parent : AbstractPlayer
     {
         public Parent(string firstname, string lastname, GenderType gender, Birthplaces birthplace,
-            IFamilyGenerator familyGenerator) : base(firstname, lastname, gender, birthplace)
+            int age) : base(firstname, lastname, gender, birthplace)
         {
-            Age = familyGenerator.ChooseAge();
+            Age = age;
             BirthDate = DateTime.Now.AddYears(-Age);
         }
     }

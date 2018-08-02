@@ -7,5 +7,6 @@ namespace LifeSim.Player.Randomizer.Contracts
         string[] ChooseParentNames();
         Birthplaces ChooseBirthplace();
         int ChooseAge();
+        int ChooseAge(int end);
     }
 }

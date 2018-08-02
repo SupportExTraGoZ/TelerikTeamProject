@@ -8,6 +8,9 @@ namespace LifeSim.Player.Randomizer.Models
     {
         private readonly Random GetRandom = new Random();
 
+        private const int minParentAge = 25;
+        private const int maxParentAge = 55;
+
         private readonly string[] FatherNames =
             {"John Doesh", "Vasilis Petrovich", "Ivan Kitukovich", "Pedro Lamas", "Gosho Toshov"};
 
@@ -30,7 +33,12 @@ namespace LifeSim.Player.Randomizer.Models
 
         public int ChooseAge()
         {
-            return GetRandom.Next(30, 50);
+            return GetRandom.Next(minParentAge, maxParentAge);
+        }
+
+        public int ChooseAge(int end)
+        {
+            return GetRandom.Next(minParentAge, end);
         }
     }
 }
