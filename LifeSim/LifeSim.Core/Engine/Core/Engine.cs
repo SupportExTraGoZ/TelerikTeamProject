@@ -1,6 +1,7 @@
 ﻿using System;
 using LifeSim.Core.CLI.Module.ConsoleUsings.Contracts;
 using LifeSim.Core.CLI.Module.ConsoleUsings.Functions;
+using LifeSim.Core.Engine.Core.Contracts;
 using LifeSim.Core.Engine.Factories;
 using LifeSim.Core.Engine.Factories.Contracts;
 using LifeSim.Core.Engine.Menu;
@@ -13,9 +14,9 @@ using LifeSim.Player.Randomizer.Models;
 
 namespace LifeSim.Core.Engine.Core
 {
-    public sealed class Engine
+    public sealed class Engine : IEngine
     {
-        private static Engine engineInstance;
+        private static IEngine engineInstance;
         private readonly IConsoleCleaner cleaner;
         private readonly IFamilyGenerator familyGenerator;
         private readonly IReadable fileReader;
@@ -48,7 +49,7 @@ namespace LifeSim.Core.Engine.Core
             this.playerProgress = PlayerProgress.NewBorn;
         }
 
-        public static Engine Instance
+        public static IEngine Instance
         {
             get
             {
