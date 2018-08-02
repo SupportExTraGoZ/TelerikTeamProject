@@ -13,12 +13,13 @@ namespace LifeSim.Player.Options
 
         public OptionsContainer()
         {
-            options = new Dictionary<string, PlayerProgress>();
-
-            options.Add("1. Age Up", PlayerProgress.NewBorn);
-            options.Add("2. Test+", PlayerProgress.NewBorn);
-            options.Add("3. TestPlus", PlayerProgress.NewBorn);
-            options.Add("4. TestMinus", PlayerProgress.NewBorn);
+            options = new Dictionary<string, PlayerProgress>
+            {
+                { "1. Age Up", PlayerProgress.NewBorn },
+                { "2. Test+", PlayerProgress.NewBorn },
+                { "3. TestPlus", PlayerProgress.NewBorn },
+                { "4. TestMinus", PlayerProgress.NewBorn }
+            };
         }
 
         public IEnumerable<string> CurrentStageOptions(PlayerProgress playerProgress)
