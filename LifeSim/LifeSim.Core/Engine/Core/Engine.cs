@@ -17,6 +17,8 @@ using LifeSim.Core.Engine.Core.UserQuestion.Constants;
 using LifeSim.Core.Engine.Core.UserStatusDisplay;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
 using LifeSim.Exceptions.Models;
+using LifeSim.Logger.Contracts;
+using LifeSim.Logger.Models;
 
 namespace LifeSim.Core.Engine.Core
 {
@@ -31,6 +33,7 @@ namespace LifeSim.Core.Engine.Core
             this.Writer = new ConsoleWriter();
             this.Reader = new ConsoleReader();
             this.Cleaner = new ConsoleCleaner();
+            this.Logger = new Logger.Models.Logger();
             this.UserInteraction = new UserInteraction(Writer, Reader);
             this.MenuLauncher = new MenuLauncher(Writer, Reader);
             this.OptionsContainer = new OptionsContainer();
@@ -57,6 +60,7 @@ namespace LifeSim.Core.Engine.Core
         public IConsoleReader Reader { get; set; }
         public IConsoleWriter Writer { get; set; }
         public IConsoleCleaner Cleaner { get; set; }
+        public ILogger Logger { get; set; }
         public IFamilyGenerator FamilyGenerator { get; set; }
         public IMenuLauncher MenuLauncher { get; set; }
         public IUserInteraction UserInteraction { get; set; }
@@ -93,12 +97,12 @@ namespace LifeSim.Core.Engine.Core
             }
 
             // Clears Console
-            Cleaner.ClearConsole();
+            this.Cleaner.ClearConsole();
 
             while (true)
             {
                 // Print Logo
-                Writer.PrintLogo();
+                this.Writer.PrintLogo();
 
                 // Show User's HUD
                 this.UserStatus.WriteStatus(Player);
@@ -115,23 +119,31 @@ namespace LifeSim.Core.Engine.Core
                         break;
                     }
 
-                    this.ProcessCommand(commandAsString);
+                    // TODO: If process command doesn't go thru, show the options again...
+                    if (!this.ProcessCommand(commandAsString))
+                    {
+
+                    }
+
                 }
                 catch (Exception ex)
                 {
-                    this.Writer.WriteLine(ex.Message);
+                    this.Writer.WriteLine("An unexpected error has occured and has been logged.");
+                    this.Logger.GetLogger.Error(ex.Message);
                 }
 
                 // Clear Console
-                Cleaner.ClearConsole();
+                this.Cleaner.ClearConsole();
             }
         }
 
-        private void ProcessCommand(string commandAsString)
+        private bool ProcessCommand(string commandAsString)
         {
             if (string.IsNullOrWhiteSpace(commandAsString))
             {
-                throw new ArgumentNullException("Command cannot be null or empty.");
+                this.Writer.WriteLine(("Command cannot be null or empty."));
+                this.Logger.GetLogger.Info("Client attempted to enter an empty/null command.");
+                return false;
             }
 
             //var command = this.Parser.ParseCommand(commandAsString);
@@ -139,6 +151,8 @@ namespace LifeSim.Core.Engine.Core
 
             //var executionResult = command.Execute(parameters);
             //this.Writer.WriteLine(executionResult);
+
+            return true;
         }
 
         private void SupressException(string message)

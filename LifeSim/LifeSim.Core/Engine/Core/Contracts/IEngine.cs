@@ -10,6 +10,7 @@ using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Options.Contracts;
 using LifeSim.Player.Randomizer.Contracts;
+using LifeSim.Logger.Contracts;
 
 namespace LifeSim.Core.Engine.Core.Contracts
 {
@@ -20,6 +21,7 @@ namespace LifeSim.Core.Engine.Core.Contracts
         IConsoleReader Reader { get; set; }
         IConsoleWriter Writer { get; set; }
         IConsoleCleaner Cleaner { get; set; }
+        ILogger Logger { get; set; }
         IFamilyGenerator FamilyGenerator { get; set; }
         IMenuLauncher MenuLauncher { get; set; }
         IUserInteraction UserInteraction { get; set; }
