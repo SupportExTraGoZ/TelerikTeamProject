@@ -7,7 +7,7 @@ namespace LifeSim.Establishments.Job
     public class Job : IJob
     {
         private Company company;
-        private int monthSalary;
+        private double monthSalary;
         private int workHoursPerDay;
 
         public Job(ProfessionType profession, string companyName, int monthSalary, int workHoursPerDay)
