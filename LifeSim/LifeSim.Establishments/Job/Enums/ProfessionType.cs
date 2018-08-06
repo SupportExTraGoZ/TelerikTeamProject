@@ -2,10 +2,15 @@
 {
     public enum ProfessionType
     {
-        Programmer,
-        Lawyer,
-        Plumber,
+        SoftwareEngineer,
+        Engineer,
         PoliceOfficer,
-        Firefighter
+        Firefighter,
+        Doctor,
+        Lawyer,
+        Astronomer,
+        Actor,
+        Scientist,
+        Economist
     }
 }

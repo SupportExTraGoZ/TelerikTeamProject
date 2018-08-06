@@ -16,7 +16,7 @@ namespace LifeSim.Establishments.Job.Companies
             get => name;
             set
             {
-                if (value == null) throw new ArgumentNullException("Invalid company name.");
+                if (value == null) throw new ArgumentNullException("Company name cannot be null or empty.");
 
                 name = value;
             }

@@ -1,5 +1,4 @@
-﻿using System;
-namespace LifeSim.Logger.Contracts
+﻿namespace LifeSim.Logger.Contracts
 {
     public interface ILogger
     {

@@ -1,4 +1,5 @@
 ﻿using LifeSim.Establishments.Job.Enums;
+using System;
 
 namespace LifeSim.Establishments.Job
 {
@@ -8,6 +9,10 @@ namespace LifeSim.Establishments.Job
 
         int WorkHoursPerDay { get; set; }
 
-        ProfessionType Profession { get; set; }
+        ProfessionType Profession { get; }
+
+        DateTime StartDate { get; }
+
+        DateTime EndDate { get; }
     }
 }
