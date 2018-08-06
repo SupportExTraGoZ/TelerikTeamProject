@@ -6,6 +6,10 @@ namespace LifeSim.Establishments.Education.Contracts
     {
         string Name { get; }
 
+        int StartYear { get; set; }
+
+        int GraduateYear { get; set; }
+
         EducationType EducationType { get; set; }
     }
 }

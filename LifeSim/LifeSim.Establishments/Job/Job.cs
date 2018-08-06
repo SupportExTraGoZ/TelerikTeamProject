@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using LifeSim.Establishments.Job.Companies;
 using LifeSim.Establishments.Job.Enums;
 
@@ -7,33 +8,46 @@ namespace LifeSim.Establishments.Job
     public class Job : IJob
     {
         private Company company;
-        private int monthSalary;
+        private double monthSalary;
         private int workHoursPerDay;
+        private DateTime startDate;
+        private DateTime endDate = new DateTime(0, 0, 0);
 
-        public Job(ProfessionType profession, string companyName, int monthSalary, int workHoursPerDay)
+        public Job(ProfessionType profession, string companyName, double monthSalary, int workHoursPerDay,DateTime startDate,DateTime endDate)
         {
             Profession = profession;
             company = new Company(companyName);
             MonthSalary = monthSalary;
             WorkHoursPerDay = workHoursPerDay;
+            StartDate = startDate;
+            EndDate = endDate;
         }
 
         public double MonthSalary
         {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
+            get => monthSalary;
+            set
+            {
+                if (value < 0) throw new ArgumentOutOfRangeException("Month salary cannot be negative.");
+
+                monthSalary = value;
+            } 
         }
 
         public int WorkHoursPerDay
         {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
+            get => workHoursPerDay;
+            set
+            {
+                if (value < 0) throw new ArgumentOutOfRangeException("Hours of work per day cannot be negative.");
+
+                workHoursPerDay = value;
+            }
         }
 
-        public ProfessionType Profession
-        {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
-        }
+        public ProfessionType Profession { get; set; }
+        
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }
