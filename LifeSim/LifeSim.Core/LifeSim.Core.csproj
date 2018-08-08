@@ -10,6 +10,10 @@
     <Folder Include="Engine\Core\UserQuestion\Contracts\" />
     <Folder Include="Engine\Commands\" />
     <Folder Include="Engine\Core\Models\" />
+    <Folder Include="Engine\Commands\Actions\" />
+    <Folder Include="Engine\Menu\Models\" />
+    <Folder Include="Engine\Menu\Contracts\" />
+    <Folder Include="Engine\Core\UserStatusDisplay\Models\" />
   </ItemGroup>
 
   <ItemGroup>

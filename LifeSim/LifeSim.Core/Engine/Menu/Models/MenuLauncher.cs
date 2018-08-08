@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
+﻿using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
+using LifeSim.Core.Engine.Menu.Contracts;
 using LifeSim.Player.Enums;
-using LifeSim.Player.Options;
 using LifeSim.Player.Options.Contracts;
 
-namespace LifeSim.Core.Engine.Menu
+namespace LifeSim.Core.Engine.Menu.Models
 {
     /// <summary>
     ///     Still in dev
@@ -27,11 +25,6 @@ namespace LifeSim.Core.Engine.Menu
             {
                 writer.WriteLine(elem);
             }
-        }
-
-        public void UserSelector()
-        {
-            throw new NotImplementedException();
         }
     }
 }

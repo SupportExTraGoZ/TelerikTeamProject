@@ -46,6 +46,7 @@ namespace LifeSim.Player.Models
         }
 
         public int Age { get; set; }
+        public bool IsDead { get; set; } = false;
         public GenderType Gender { get; set; }
         public Birthplaces Birthplace { get; set; }
         public DateTime BirthDate { get; set; } = DateTime.Now;

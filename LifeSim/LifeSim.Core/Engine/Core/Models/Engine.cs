@@ -4,7 +4,6 @@ using LifeSim.Core.CLI.Module.ConsoleManagement.Functions;
 using LifeSim.Core.Engine.Core.Contracts;
 using LifeSim.Core.Engine.Factories;
 using LifeSim.Core.Engine.Factories.Contracts;
-using LifeSim.Core.Engine.Menu;
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Randomizer.Contracts;
@@ -14,12 +13,14 @@ using LifeSim.Player.Options;
 using LifeSim.Core.Engine.Core.UserQuestion.Models;
 using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
 using LifeSim.Core.Engine.Core.UserQuestion.Constants;
-using LifeSim.Core.Engine.Core.UserStatusDisplay;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
 using LifeSim.Exceptions.Models;
 using LifeSim.Logger.Contracts;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Commands.Models;
+using LifeSim.Core.Engine.Menu.Contracts;
+using LifeSim.Core.Engine.Menu.Models;
+using LifeSim.Core.Engine.Core.UserStatusDisplay.Models;
 
 namespace LifeSim.Core.Engine.Core.Models
 {
@@ -100,6 +101,12 @@ namespace LifeSim.Core.Engine.Core.Models
                 SupressException(e.Message);
             }
 
+            // Update Player's Progress to NewBorn
+            this.PlayerProgress = PlayerProgress.NewBorn;
+            this.UserInteraction.AddAction($"You are born as {this.Player.FirstName} {this.Player.LastName} in {this.Player.GetBirthplace()}.");
+            this.UserInteraction.AddAction($"Your Father is {this.Player.Father.FirstName} {this.Player.Father.LastName}");
+            this.UserInteraction.AddAction($"Your Mother is {this.Player.Mother.FirstName} {this.Player.Mother.LastName}");
+
             // Clears Console
             this.Cleaner.ClearConsole();
 
@@ -112,7 +119,7 @@ namespace LifeSim.Core.Engine.Core.Models
                 this.UserStatus.WriteStatus(Player);
 
                 // Show what the user has done, last X (ActionLogNumber) actions
-                this.Writer.WriteLines(this.UserInteraction.ActionLog, ActionLogNumber);
+                this.UserStatus.WriteActionLog(this.UserInteraction.ActionLog, ActionLogNumber);
 
                 // Show User's available options
                 MenuLauncher.PrintMenu(PlayerProgress, OptionsContainer);
@@ -160,7 +167,7 @@ namespace LifeSim.Core.Engine.Core.Models
             var parameters = this.Parser.ParseParameters(commandAsString);
 
             var executionResult = command.Execute(parameters);
-            this.UserInteraction.ActionLog.Insert(0, executionResult);
+            this.UserInteraction.AddAction(executionResult);
 
             return true;
         }

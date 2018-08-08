@@ -21,6 +21,12 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions
             }
         }
 
+        public void AddAction(string action)
+        {
+            if (action != null)
+                this.actionLog.Insert(0, action);
+        }
+
         public UserInteraction(IConsoleWriter writer, IConsoleReader consoleReader)
         {
             this.consoleWriter = writer;

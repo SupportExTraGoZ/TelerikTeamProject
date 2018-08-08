@@ -19,7 +19,8 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions
         {
             for (int i = 0; i < count; i++)
             {
-                Console.WriteLine(lines[i]);
+                if (i < lines.Count)
+                    Console.WriteLine(lines[i]);
             }
         }
 

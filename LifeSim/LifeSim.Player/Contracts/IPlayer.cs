@@ -9,6 +9,7 @@ namespace LifeSim.Player.Contracts
         string FirstName { get; set; }
         string LastName { get; set; }
         int Age { get; set; }
+        bool IsDead { get; set; }
         GenderType Gender { get; set; }
         DateTime BirthDate { get; set; }
         Birthplaces Birthplace { get; set; }

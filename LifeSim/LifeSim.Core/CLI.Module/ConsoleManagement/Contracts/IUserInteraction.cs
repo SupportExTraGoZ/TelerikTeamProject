@@ -5,5 +5,6 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Contracts
     {
         string AskUser(string message, bool sameLine);
         List<string> ActionLog { get; set; }
+        void AddAction(string action);
     }
 }

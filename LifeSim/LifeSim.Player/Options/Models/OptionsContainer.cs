@@ -15,10 +15,7 @@ namespace LifeSim.Player.Options
         {
             options = new Dictionary<string, PlayerProgress>
             {
-                { "1. Age Up", PlayerProgress.NewBorn },
-                { "2. Test+", PlayerProgress.NewBorn },
-                { "3. TestPlus", PlayerProgress.NewBorn },
-                { "4. TestMinus", PlayerProgress.NewBorn }
+                { "1. Age Up (ageup)", PlayerProgress.NewBorn }
             };
         }
 

@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
+﻿using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
 using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
 using LifeSim.Core.Engine.Factories.Contracts;
-using LifeSim.Core.Engine.Menu;
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Options.Contracts;
 using LifeSim.Player.Randomizer.Contracts;
 using LifeSim.Logger.Contracts;
 using LifeSim.Core.Engine.Commands.Contracts;
+using LifeSim.Core.Engine.Menu.Contracts;
 
 namespace LifeSim.Core.Engine.Core.Contracts
 {
