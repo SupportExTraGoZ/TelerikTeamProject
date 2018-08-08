@@ -2,8 +2,8 @@
 {
     public enum PlayerProgress
     {
-        NewBorn = 0,
-        Baby = 1,
-
+        NotBorn = 0,
+        NewBorn = 1,
+        Baby = 2
     }
 }

@@ -5,10 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
     <Folder Include="Engine\Core\UserQuestion\Constants\" />
     <Folder Include="Engine\Core\UserQuestion\Models\" />
     <Folder Include="Engine\Core\UserQuestion\Contracts\" />
+    <Folder Include="Engine\Commands\" />
+    <Folder Include="Engine\Core\Models\" />
   </ItemGroup>
 
   <ItemGroup>

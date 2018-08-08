@@ -1,4 +1,4 @@
-﻿using LifeSim.Core.Engine.Core;
+﻿using LifeSim.Core.Engine.Core.Models;
 
 namespace LifeSim.Startup
 {

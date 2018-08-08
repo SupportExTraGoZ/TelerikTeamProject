@@ -18,9 +18,10 @@ using LifeSim.Core.Engine.Core.UserStatusDisplay;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
 using LifeSim.Exceptions.Models;
 using LifeSim.Logger.Contracts;
-using LifeSim.Logger.Models;
+using LifeSim.Core.Engine.Commands.Contracts;
+using LifeSim.Core.Engine.Commands.Models;
 
-namespace LifeSim.Core.Engine.Core
+namespace LifeSim.Core.Engine.Core.Models
 {
     public sealed class Engine : IEngine
     {
@@ -32,6 +33,7 @@ namespace LifeSim.Core.Engine.Core
             // Menu Display Setup
             this.Writer = new ConsoleWriter();
             this.Reader = new ConsoleReader();
+            this.Parser = new CommandParser();
             this.Cleaner = new ConsoleCleaner();
             this.Logger = new Logger.Models.Logger();
             this.UserInteraction = new UserInteraction(Writer, Reader);
@@ -43,7 +45,7 @@ namespace LifeSim.Core.Engine.Core
             // Player Creation Setup
             this.FamilyGenerator = new FamilyGenerator();
             this.PlayerFactory = new GamePlayerFactory();
-            this.PlayerProgress = PlayerProgress.NewBorn;
+            this.PlayerProgress = PlayerProgress.NotBorn;
         }
 
         public static IEngine Instance
@@ -59,6 +61,7 @@ namespace LifeSim.Core.Engine.Core
 
         public IConsoleReader Reader { get; set; }
         public IConsoleWriter Writer { get; set; }
+        public IParser Parser { get; set; }
         public IConsoleCleaner Cleaner { get; set; }
         public ILogger Logger { get; set; }
         public IFamilyGenerator FamilyGenerator { get; set; }
@@ -135,6 +138,8 @@ namespace LifeSim.Core.Engine.Core
                 // Clear Console
                 this.Cleaner.ClearConsole();
             }
+
+            // TODO: Show End Game Screen
         }
 
         private bool ProcessCommand(string commandAsString)
@@ -146,11 +151,11 @@ namespace LifeSim.Core.Engine.Core
                 return false;
             }
 
-            //var command = this.Parser.ParseCommand(commandAsString);
-            //var parameters = this.Parser.ParseParameters(commandAsString);
+            var command = this.Parser.ParseCommand(commandAsString);
+            var parameters = this.Parser.ParseParameters(commandAsString);
 
-            //var executionResult = command.Execute(parameters);
-            //this.Writer.WriteLine(executionResult);
+            var executionResult = command.Execute(parameters);
+            this.Writer.WriteLine(executionResult);
 
             return true;
         }
