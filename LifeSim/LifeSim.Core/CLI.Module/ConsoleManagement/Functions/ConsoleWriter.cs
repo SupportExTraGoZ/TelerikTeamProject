@@ -1,11 +1,20 @@
 ﻿using System;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
 using LifeSim.Core.Engine.Menu.Logo;
+using System.Collections.Generic;
 
 namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions
 {
     public class ConsoleWriter : IConsoleWriter
     {
+        public void WriteLines(List<string> lines)
+        {
+            foreach (var line in lines)
+            {
+                Console.WriteLine(line);
+            }
+        }
+
         public void WriteLine(string line)
         {
             Console.WriteLine(line);
