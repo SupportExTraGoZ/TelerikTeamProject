@@ -6,6 +6,8 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Contracts
     {
         void WriteLines(List<string> lines);
 
+        void WriteLines(List<string> lines, int count);
+
         void WriteLine(string line);
 
         void Write(string line);

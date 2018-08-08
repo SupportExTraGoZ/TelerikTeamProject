@@ -15,6 +15,14 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions
             }
         }
 
+        public void WriteLines(List<string> lines, int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                Console.WriteLine(lines[i]);
+            }
+        }
+
         public void WriteLine(string line)
         {
             Console.WriteLine(line);

@@ -26,6 +26,7 @@ namespace LifeSim.Core.Engine.Core.Models
     public sealed class Engine : IEngine
     {
         private const string TerminationCommand = "Exit";
+        private const int ActionLogNumber = 5;
         private static IEngine engineInstance;
 
         private Engine()
@@ -36,8 +37,8 @@ namespace LifeSim.Core.Engine.Core.Models
             this.Parser = new CommandParser();
             this.Cleaner = new ConsoleCleaner();
             this.Logger = new Logger.Models.Logger();
-            this.UserInteraction = new UserInteraction(Writer, Reader);
-            this.MenuLauncher = new MenuLauncher(Writer, Reader);
+            this.UserInteraction = new UserInteraction(this.Writer, this.Reader);
+            this.MenuLauncher = new MenuLauncher(this.Writer, this.Reader);
             this.OptionsContainer = new OptionsContainer();
             this.QuestionAction = new QuestionAction(ConstQuestions.Questions, UserInteraction);
             this.UserStatus = new UserStatus(this.Writer);
@@ -110,6 +111,9 @@ namespace LifeSim.Core.Engine.Core.Models
                 // Show User's HUD
                 this.UserStatus.WriteStatus(Player);
 
+                // Show what the user has done, last X (ActionLogNumber) actions
+                this.Writer.WriteLines(this.UserInteraction.ActionLog, ActionLogNumber);
+
                 // Show User's available options
                 MenuLauncher.PrintMenu(PlayerProgress, OptionsContainer);
 
@@ -123,11 +127,12 @@ namespace LifeSim.Core.Engine.Core.Models
                     }
 
                     // TODO: If process command doesn't go thru, show the options again...
-                    if (!this.ProcessCommand(commandAsString))
+                    /*if (!this.ProcessCommand(commandAsString))
                     {
 
-                    }
+                    }*/
 
+                    this.ProcessCommand(commandAsString);
                 }
                 catch (Exception ex)
                 {
@@ -155,15 +160,15 @@ namespace LifeSim.Core.Engine.Core.Models
             var parameters = this.Parser.ParseParameters(commandAsString);
 
             var executionResult = command.Execute(parameters);
-            this.Writer.WriteLine(executionResult);
+            this.UserInteraction.ActionLog.Insert(0, executionResult);
 
             return true;
         }
 
         private void SupressException(string message)
         {
-            Writer.WriteLine(message);
-            Writer.WriteLine("Press any key to start again...");
+            this.Writer.WriteLine(message);
+            this.Writer.WriteLine("Press any key to start again...");
             Console.ReadKey();
             this.Start();
         }
