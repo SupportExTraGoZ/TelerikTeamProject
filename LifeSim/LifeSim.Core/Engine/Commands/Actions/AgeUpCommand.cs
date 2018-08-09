@@ -25,6 +25,16 @@ namespace LifeSim.Core.Engine.Commands.Actions
             if (!player.Mother.IsDead)
                 player.Mother.Age++;
 
+            switch (player.Age)
+            {
+                case 1:
+                    this.engine.PlayerProgress = Player.Enums.PlayerProgress.Baby;
+                    break;
+                case 6:
+                    this.engine.PlayerProgress = Player.Enums.PlayerProgress.Kid;
+                    break;
+            }
+
             return $"You have grown up and now you are {player.Age} years old.";
         }
     }

@@ -46,6 +46,7 @@ namespace LifeSim.Core.Engine.Core.Models
 
             // Player Creation Setup
             this.FamilyGenerator = new FamilyGenerator();
+            this.NumberGenerator = new NumberGenerator();
             this.PlayerFactory = new GamePlayerFactory();
             this.PlayerProgress = PlayerProgress.NotBorn;
         }
@@ -67,6 +68,7 @@ namespace LifeSim.Core.Engine.Core.Models
         public IConsoleCleaner Cleaner { get; set; }
         public ILogger Logger { get; set; }
         public IFamilyGenerator FamilyGenerator { get; set; }
+        public INumberGenerator NumberGenerator { get; set; }
         public IMenuLauncher MenuLauncher { get; set; }
         public IUserInteraction UserInteraction { get; set; }
         public IOptionsContainer OptionsContainer { get; set; }

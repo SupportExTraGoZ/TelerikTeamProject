@@ -15,7 +15,10 @@ namespace LifeSim.Player.Options
         {
             options = new Dictionary<string, CustomTuple>
             {
-                { "Age Up (ageup)", new CustomTuple(PlayerProgress.NewBorn, true, true, false) }
+                { "1", new CustomTuple("Age Up (ageup)", PlayerProgress.NewBorn, true, true, false) },
+
+                { "2", new CustomTuple("Age Up (ageup)", PlayerProgress.Baby, false, true, false) },
+                { "3", new CustomTuple("Go To Kindergarten (gotokindergarten)", PlayerProgress.Baby, true, false, false) }
             };
         }
 
@@ -26,18 +29,36 @@ namespace LifeSim.Player.Options
                      .Where(x => x.Value.isUnlocked)
                      .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed))
             {
-                yield return option.Key;
+                yield return option.Value.commandKey;
             }
+        }
+
+        public void ChangeCommandStatus(string commandKey, bool isUnlocked, bool canBeUsedManyTimes = false, bool isUsed = false)
+        {
+            var tempCommand = this.options.FirstOrDefault(x => x.Value.commandKey == commandKey);
+            tempCommand.Value.isUnlocked = isUnlocked;
+            tempCommand.Value.canBeUsedManyTimes = canBeUsedManyTimes;
+            tempCommand.Value.isUsed = isUsed;
+        }
+
+        public void UnlockAgeUpCommand(PlayerProgress playerProgress, bool isUnlocked = true, bool canBeUsedManyTimes = true, bool isUsed = false)
+        {
+            var tempCommand = this.options.FirstOrDefault(x => x.Value.commandKey == "Age Up (ageup)" && x.Value.playerProgress == playerProgress);
+            tempCommand.Value.isUnlocked = isUnlocked;
+            tempCommand.Value.canBeUsedManyTimes = canBeUsedManyTimes;
+            tempCommand.Value.isUsed = isUsed;
         }
     }
 
     class CustomTuple
     {
+        internal string commandKey;
         internal PlayerProgress playerProgress;
         internal bool isUnlocked, canBeUsedManyTimes, isUsed;
 
-        public CustomTuple(PlayerProgress playerProgress, bool isUnlocked, bool canBeUsedManyTimes, bool isUsed)
+        public CustomTuple(string commandKey, PlayerProgress playerProgress, bool isUnlocked, bool canBeUsedManyTimes, bool isUsed)
         {
+            this.commandKey = commandKey;
             this.playerProgress = playerProgress;
             this.isUnlocked = isUnlocked;
             this.canBeUsedManyTimes = canBeUsedManyTimes;

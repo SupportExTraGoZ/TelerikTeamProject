@@ -4,6 +4,7 @@
     {
         NotBorn = 0,
         NewBorn = 1,
-        Baby = 2
+        Baby = 2,
+        Kid = 3
     }
 }

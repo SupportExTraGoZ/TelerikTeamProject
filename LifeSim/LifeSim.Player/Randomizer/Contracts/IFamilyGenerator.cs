@@ -2,7 +2,7 @@
 
 namespace LifeSim.Player.Randomizer.Contracts
 {
-    public interface IFamilyGenerator
+    public interface IFamilyGenerator : IGenerator
     {
         string[] ChooseParentNames();
         Birthplaces ChooseBirthplace();

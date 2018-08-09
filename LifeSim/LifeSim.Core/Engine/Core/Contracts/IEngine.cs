@@ -22,6 +22,7 @@ namespace LifeSim.Core.Engine.Core.Contracts
         IConsoleCleaner Cleaner { get; set; }
         ILogger Logger { get; set; }
         IFamilyGenerator FamilyGenerator { get; set; }
+        INumberGenerator NumberGenerator { get; set; }
         IMenuLauncher MenuLauncher { get; set; }
         IUserInteraction UserInteraction { get; set; }
         IOptionsContainer OptionsContainer { get; set; }
