@@ -25,13 +25,20 @@ namespace LifeSim.Player.Options
         public IEnumerable<string> CurrentStageOptions(PlayerProgress playerProgress, bool returnKey = false)
         {
             if (!returnKey)
-                foreach (var option in options
+            {
+                var tempOptions = options
                          .Where(x => x.Value.playerProgress == playerProgress)
                          .Where(x => x.Value.isUnlocked)
-                         .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed))
+                         .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed);
+
+                if (tempOptions.Count() == 0)
+                    yield return "No commands available at this stage...";
+
+                foreach (var option in tempOptions)
                 {
                     yield return option.Value.commandDisplay;
                 }
+            }
             else
                 foreach (var option in options
                          .Where(x => x.Value.playerProgress == playerProgress)
