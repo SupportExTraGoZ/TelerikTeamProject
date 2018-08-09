@@ -15,22 +15,31 @@ namespace LifeSim.Player.Options
         {
             options = new Dictionary<string, CustomTuple>
             {
-                { "1", new CustomTuple("Age Up (ageup)", PlayerProgress.NewBorn, true, true, false) },
+                { "1", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.NewBorn, true, true, false) },
 
-                { "2", new CustomTuple("Age Up (ageup)", PlayerProgress.Baby, false, true, false) },
-                { "3", new CustomTuple("Go To Kindergarten (gotokindergarten)", PlayerProgress.Baby, true, false, false) }
+                { "2", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Baby, false, true, false) },
+                { "3", new CustomTuple("Go To Kindergarten (gotokindergarten)", "gotokindergarten", PlayerProgress.Baby, true, false, false) }
             };
         }
 
-        public IEnumerable<string> CurrentStageOptions(PlayerProgress playerProgress)
+        public IEnumerable<string> CurrentStageOptions(PlayerProgress playerProgress, bool returnKey = false)
         {
-            foreach (var option in options
-                     .Where(x => x.Value.playerProgress == playerProgress)
-                     .Where(x => x.Value.isUnlocked)
-                     .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed))
-            {
-                yield return option.Value.commandKey;
-            }
+            if (!returnKey)
+                foreach (var option in options
+                         .Where(x => x.Value.playerProgress == playerProgress)
+                         .Where(x => x.Value.isUnlocked)
+                         .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed))
+                {
+                    yield return option.Value.commandDisplay;
+                }
+            else
+                foreach (var option in options
+                         .Where(x => x.Value.playerProgress == playerProgress)
+                         .Where(x => x.Value.isUnlocked)
+                         .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed))
+                {
+                    yield return option.Value.commandKey;
+                }
         }
 
         public void ChangeCommandStatus(string commandKey, bool isUnlocked, bool canBeUsedManyTimes = false, bool isUsed = false)
@@ -43,7 +52,7 @@ namespace LifeSim.Player.Options
 
         public void UnlockAgeUpCommand(PlayerProgress playerProgress, bool isUnlocked = true, bool canBeUsedManyTimes = true, bool isUsed = false)
         {
-            var tempCommand = this.options.FirstOrDefault(x => x.Value.commandKey == "Age Up (ageup)" && x.Value.playerProgress == playerProgress);
+            var tempCommand = this.options.FirstOrDefault(x => x.Value.commandKey == "ageup" && x.Value.playerProgress == playerProgress);
             tempCommand.Value.isUnlocked = isUnlocked;
             tempCommand.Value.canBeUsedManyTimes = canBeUsedManyTimes;
             tempCommand.Value.isUsed = isUsed;
@@ -52,12 +61,13 @@ namespace LifeSim.Player.Options
 
     class CustomTuple
     {
-        internal string commandKey;
+        internal string commandDisplay, commandKey;
         internal PlayerProgress playerProgress;
         internal bool isUnlocked, canBeUsedManyTimes, isUsed;
 
-        public CustomTuple(string commandKey, PlayerProgress playerProgress, bool isUnlocked, bool canBeUsedManyTimes, bool isUsed)
+        public CustomTuple(string commandDisplay, string commandKey, PlayerProgress playerProgress, bool isUnlocked, bool canBeUsedManyTimes, bool isUsed)
         {
+            this.commandDisplay = commandDisplay;
             this.commandKey = commandKey;
             this.playerProgress = playerProgress;
             this.isUnlocked = isUnlocked;

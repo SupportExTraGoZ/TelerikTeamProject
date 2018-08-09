@@ -21,6 +21,7 @@ using LifeSim.Core.Engine.Commands.Models;
 using LifeSim.Core.Engine.Menu.Contracts;
 using LifeSim.Core.Engine.Menu.Models;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Models;
+using System.Linq;
 
 namespace LifeSim.Core.Engine.Core.Models
 {
@@ -160,8 +161,13 @@ namespace LifeSim.Core.Engine.Core.Models
         {
             if (string.IsNullOrWhiteSpace(commandAsString))
             {
-                this.Writer.WriteLine(("Command cannot be null or empty."));
+                this.UserInteraction.AddAction("Command cannot be null or empty.");
                 this.Logger.GetLogger.Info("Client attempted to enter an empty/null command.");
+                return false;
+            }
+            if (!this.OptionsContainer.CurrentStageOptions(PlayerProgress, true).Contains(commandAsString))
+            {
+                this.UserInteraction.AddAction($"You have no access to that command. ({commandAsString})");
                 return false;
             }
 

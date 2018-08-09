@@ -20,7 +20,7 @@ namespace LifeSim.Core.Engine.Commands.Actions
         public string Execute(IList<string> parameters)
         {
             // Unlock/Lock Commands
-            this.engine.OptionsContainer.ChangeCommandStatus("Go To Kindergarten (gotokindergarten)", false, false, true);
+            this.engine.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
             this.engine.OptionsContainer.UnlockAgeUpCommand(this.engine.PlayerProgress);
 
             StringBuilder stringBuilder = new StringBuilder();

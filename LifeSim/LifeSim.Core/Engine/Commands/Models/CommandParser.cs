@@ -23,7 +23,9 @@ namespace LifeSim.Core.Engine.Commands.Models
         public IList<string> ParseParameters(string fullCommand)
         {
             var commandParts = fullCommand.Split(' ').ToList();
-            commandParts.RemoveAt(0);
+
+            // Manually Removed, take caution
+            //commandParts.RemoveAt(0);
 
             if (commandParts.Count() == 0)
             {

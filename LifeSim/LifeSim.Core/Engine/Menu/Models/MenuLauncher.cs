@@ -21,7 +21,7 @@ namespace LifeSim.Core.Engine.Menu.Models
 
         public void PrintMenu(PlayerProgress playerProgress, IOptionsContainer optionsContainer)
         {
-            foreach (var elem in optionsContainer.CurrentStageOptions(playerProgress))
+            foreach (var elem in optionsContainer.CurrentStageOptions(playerProgress, false))
             {
                 writer.WriteLine(elem);
             }
