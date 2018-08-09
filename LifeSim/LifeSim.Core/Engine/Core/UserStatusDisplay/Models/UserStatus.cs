@@ -26,7 +26,7 @@ namespace LifeSim.Core.Engine.Core.UserStatusDisplay.Models
 
         public void WriteActionLog(List<string> actions, int count)
         {
-            this.writer.WriteLine($"{new string('=', 30)} Action History {new string('=', 30)}");
+            this.writer.WriteLine($"{new string('=', 30)} Action History {new string('=', 21)}");
             this.writer.WriteLines(actions, count);
             this.writer.WriteLine($"{new string('=', 67)}");
         }
