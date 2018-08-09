@@ -1,6 +1,7 @@
 ﻿using System;
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
+using System.Text;
 
 namespace LifeSim.Player.Models
 {
@@ -68,6 +69,26 @@ namespace LifeSim.Player.Models
                 default:
                     return "Invalid Birthplace.";
             }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.AppendLine($"You, {this.FirstName} {this.LastName} have lived up to the age of {this.Age}.");
+            stringBuilder.AppendLine($"But You passed away during a car accident...");
+            stringBuilder.AppendLine($"Parents:");
+            if (this.Father.IsDead)
+                stringBuilder.AppendLine($"{this.Father.FirstName} {this.Father.LastName} has passed away at the age of {this.Father.Age}");
+            else
+                stringBuilder.AppendLine($"{this.Father.FirstName} {this.Father.LastName} is living at the age of {this.Father.Age}");
+            if (this.Mother.IsDead)
+                stringBuilder.AppendLine($"{this.Mother.FirstName} {this.Mother.LastName} has passed away at the age of {this.Mother.Age}");
+            else
+                stringBuilder.AppendLine($"{this.Mother.FirstName} {this.Mother.LastName} is living at the age of {this.Mother.Age}");
+            stringBuilder.AppendLine($"More to be added...");
+
+            return stringBuilder.ToString();
         }
     }
 }

@@ -22,6 +22,7 @@ using LifeSim.Core.Engine.Menu.Contracts;
 using LifeSim.Core.Engine.Menu.Models;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Models;
 using System.Linq;
+using System.Reflection;
 
 namespace LifeSim.Core.Engine.Core.Models
 {
@@ -155,6 +156,13 @@ namespace LifeSim.Core.Engine.Core.Models
             }
 
             // TODO: Show End Game Screen
+            this.Cleaner.ClearConsole();
+
+            this.Writer.PrintLogo();
+
+            this.Writer.WriteLine(this.Player.ToString());
+
+            this.Writer.WriteLine($"Thank you for playing LifeSim Alpha {Assembly.GetExecutingAssembly().GetName().Version.ToString()}");
         }
 
         private bool ProcessCommand(string commandAsString)
@@ -165,6 +173,7 @@ namespace LifeSim.Core.Engine.Core.Models
                 this.Logger.GetLogger.Info("Client attempted to enter an empty/null command.");
                 return false;
             }
+            // Check for command access
             if (!this.OptionsContainer.CurrentStageOptions(PlayerProgress, true).Contains(commandAsString))
             {
                 this.UserInteraction.AddAction($"You have no access to that command. ({commandAsString})");
