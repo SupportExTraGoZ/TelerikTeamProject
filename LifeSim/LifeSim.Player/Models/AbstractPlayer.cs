@@ -47,6 +47,14 @@ namespace LifeSim.Player.Models
         }
 
         public int Age { get; set; }
+
+        // Specifications
+        public bool IsTakingLessons { get; set; }
+        public bool IsSuccessfulAtPrimarySchool { get; set; }
+        public bool IsSuccessfulAtHighSchool { get; set; }
+        public bool IsSuccessfulAtUniversity { get; set; }
+        // End Of Specifications
+
         public bool IsDead { get; set; } = false;
         public GenderType Gender { get; set; }
         public Birthplaces Birthplace { get; set; }

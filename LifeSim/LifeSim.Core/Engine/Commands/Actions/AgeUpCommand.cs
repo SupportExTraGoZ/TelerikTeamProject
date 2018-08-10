@@ -33,6 +33,26 @@ namespace LifeSim.Core.Engine.Commands.Actions
                 case 6:
                     this.engine.PlayerProgress = Player.Enums.PlayerProgress.Kid;
                     break;
+                case 13:
+                    {
+                        // Unfinished
+                        var tempCommand = this.engine.Parser.ParseCommand("endprimaryschool");
+                        var tempParams = this.engine.Parser.ParseParameters("endprimaryschool");
+                        tempCommand.Execute(tempParams);
+
+                        this.engine.PlayerProgress = Player.Enums.PlayerProgress.Teen;
+                    }
+                    break;
+                case 18:
+                    {
+                        // Unfinished
+                        var tempCommand = this.engine.Parser.ParseCommand("endhighschool");
+                        var tempParams = this.engine.Parser.ParseParameters("endhighschool");
+                        tempCommand.Execute(tempParams);
+
+                        this.engine.PlayerProgress = Player.Enums.PlayerProgress.HighSchoolGraduate;
+                    }
+                    break;
             }
 
             return $"You have grown up and now you are {player.Age} years old.";
