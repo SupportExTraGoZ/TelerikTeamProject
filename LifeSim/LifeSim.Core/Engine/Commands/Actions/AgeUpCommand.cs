@@ -38,7 +38,8 @@ namespace LifeSim.Core.Engine.Commands.Actions
                         // Unfinished
                         var tempCommand = this.engine.Parser.ParseCommand("endprimaryschool");
                         var tempParams = this.engine.Parser.ParseParameters("endprimaryschool");
-                        tempCommand.Execute(tempParams);
+                        var executionResult = tempCommand.Execute(tempParams);
+                        this.engine.UserInteraction.AddAction(executionResult);
 
                         this.engine.PlayerProgress = Player.Enums.PlayerProgress.Teen;
                     }
@@ -48,7 +49,8 @@ namespace LifeSim.Core.Engine.Commands.Actions
                         // Unfinished
                         var tempCommand = this.engine.Parser.ParseCommand("endhighschool");
                         var tempParams = this.engine.Parser.ParseParameters("endhighschool");
-                        tempCommand.Execute(tempParams);
+                        var executionResult = tempCommand.Execute(tempParams);
+                        this.engine.UserInteraction.AddAction(executionResult);
 
                         this.engine.PlayerProgress = Player.Enums.PlayerProgress.HighSchoolGraduate;
                     }
