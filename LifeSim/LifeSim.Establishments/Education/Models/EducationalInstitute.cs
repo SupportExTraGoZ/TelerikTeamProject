@@ -9,14 +9,13 @@ namespace LifeSim.Establishments.Education
         private int startYear;
         private int graduateYear;
 
-        protected EducationalInstitute(string name, int startYear, int graduateYear)
+        protected EducationalInstitute(int startYear, int graduateYear)
         {
-            Name = name;
             StartYear = startYear;
             GraduateYear = graduateYear;
         }
 
-        public string Name { get; }
+        public string Name { get; protected set; }
 
         public EducationType EducationType { get; set; }
         public int StartYear
