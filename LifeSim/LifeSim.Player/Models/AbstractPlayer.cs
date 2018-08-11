@@ -100,7 +100,7 @@ namespace LifeSim.Player.Models
 
             stringBuilder.AppendLine($"You have passed away with ${this.Money} in your bank account.");
 
-            if (this.HasChildren)
+            if (this.HasChildren && Money > 0)
                 stringBuilder.AppendLine("Your fortune will be passed onto your children...");
             else
                 stringBuilder.AppendLine("Your fortune will be donated to charities...");
@@ -108,8 +108,6 @@ namespace LifeSim.Player.Models
             // Successful Or Not during education period
             // TODO: Add Graduation Period for each educational institute
             if (this.IsSuccessfulAtPrimarySchool) stringBuilder.AppendLine("You were successful in Primary School.");
-            else stringBuilder.AppendLine("You weren't successful in Primary School.");
-            if (this.IsSuccessfulAtHighSchool) stringBuilder.AppendLine("You were successful in Primary School.");
             else stringBuilder.AppendLine("You weren't successful in Primary School.");
             if (this.IsSuccessfulAtHighSchool) stringBuilder.AppendLine("You were successful in High School.");
             else stringBuilder.AppendLine("You weren't successful in High School.");
