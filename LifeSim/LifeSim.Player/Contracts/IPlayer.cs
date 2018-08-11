@@ -1,4 +1,7 @@
 ﻿using System;
+using LifeSim.Establishments.Education.HighSchool;
+using LifeSim.Establishments.Education.PrimarySchool;
+using LifeSim.Establishments.Education.University;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Models;
 
@@ -13,8 +16,12 @@ namespace LifeSim.Player.Contracts
         // Specifications
         bool IsTakingLessons { get; set; }
         bool IsSuccessfulAtPrimarySchool { get; set; }
+        bool HasAttendedPrimarySchool { get; set; }
         bool IsSuccessfulAtHighSchool { get; set; }
+        bool HasAttendedHighSchool { get; set; }
         bool IsSuccessfulAtUniversity { get; set; }
+        bool HasAttendedUniversity { get; set; }
+        bool HasChildren { get; set; }
         // End Of Specifications
 
         bool IsDead { get; set; }
@@ -24,5 +31,8 @@ namespace LifeSim.Player.Contracts
         string GetBirthplace();
         Parent Father { get; set; }
         Parent Mother { get; set; }
+        PrimarySchool PrimarySchool { get; set; }
+        HighSchool HighSchool { get; set; }
+        University University { get; set; }
     }
 }

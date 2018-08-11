@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.Contracts;
 using System.Text;
+using LifeSim.Establishments.Education.PrimarySchool;
 
 namespace LifeSim.Core.Engine.Commands.Actions.Schools
 {
@@ -22,6 +23,9 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             // Unlock/Lock Commands
             this.engine.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
             this.engine.OptionsContainer.UnlockAgeUpCommand(this.engine.PlayerProgress);
+
+            this.engine.Player.PrimarySchool = new PrimarySchool(this.engine.EducationInstitutePicker.PickPrimarySchool(this.engine.Player.IsTakingLessons), this.engine.GameTime.Year);
+            this.engine.Player.HasAttendedPrimarySchool = true;
 
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("Your parents have put you in a local school near your home.");

@@ -1,41 +1,38 @@
-﻿using LifeSim.Establishments.Education.HighSchool.Contracts;
+﻿using System.Collections.Generic;
+using LifeSim.Establishments.Education.HighSchool.Contracts;
 
 namespace LifeSim.Establishments.Education.HighSchool
 {
     public class HighSchool : EducationalInstitute, IHighSchool
     {
-        public HighSchool(string name, int startYear, int graduateYear) : base(name, startYear, graduateYear)
-        {
-            EducationType = Enum.EducationType.HighSchool;
-
-            highSchoolNames = new List<string>()
+        private readonly IDictionary<string, bool> highSchools = new Dictionary<string, bool>
             {
-               "BASIS Scottsdale",
-               "BASIS Tucson North",
-               "BASIS Oro Valley",
-               "School for the Talented and Gifted",
-               "BASIS Peoria",
-               "Thomas Jefferson High School for Science and Technology",
-               "BASIS Chandler",
-               "Carnegie Vanguard High School",
-               "School of Science and Engineering",
-                "Pacific Collegiate Charter"
+                // bool = Is school prestigious or not
+                {"John Ward", true},
+                {"Edward Brooke-Charter", true},
+                {"Neshkoro Elementary", false},
+                {"Weyerhaeuser Elementary", true},
+                {"Life School McKinney", false},
+                {"St. Martin Elementary", false},
+                {"Polaris at Albert Einstein", true}
             };
 
-
-            //Check if the given name exist in our data-base
-            if (!highSchoolNames.Contains(name))
-            {
-                throw new ArgumentException("Name doesn't exist!");
-            }
-
-            base.BuildingName = name;
-
+        public HighSchool(string name, int startYear) : base(name, startYear)
+        {
+            this.Name = name;
+            this.StartYear = startYear;
         }
 
-        public IList<string> HighSchoolNames
+        /// <summary>
+        /// Gets the primary schools.
+        /// </summary>
+        /// <value>bool = Is the school prestigious.</value>
+        public IDictionary<string, bool> HighSchools
         {
-            get => new List<string>(highSchoolNames);
+            get
+            {
+                return new Dictionary<string, bool>(highSchools);
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.Contracts;
 using System.Text;
+using LifeSim.Establishments.Education.HighSchool;
 
 namespace LifeSim.Core.Engine.Commands.Actions.Schools
 {
@@ -22,6 +23,9 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             // Unlock/Lock Commands
             this.engine.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
             this.engine.OptionsContainer.UnlockAgeUpCommand(this.engine.PlayerProgress);
+
+            this.engine.Player.HighSchool = new HighSchool(this.engine.EducationInstitutePicker.PickHighSchool(this.engine.Player.IsTakingLessons), this.engine.GameTime.Year);
+            this.engine.Player.HasAttendedHighSchool = true;
 
             StringBuilder stringBuilder = new StringBuilder();
             if (this.engine.Player.IsSuccessfulAtPrimarySchool)

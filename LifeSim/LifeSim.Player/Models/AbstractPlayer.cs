@@ -2,6 +2,9 @@
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
 using System.Text;
+using LifeSim.Establishments.Education.PrimarySchool;
+using LifeSim.Establishments.Education.HighSchool;
+using LifeSim.Establishments.Education.University;
 
 namespace LifeSim.Player.Models
 {
@@ -51,8 +54,12 @@ namespace LifeSim.Player.Models
         // Specifications
         public bool IsTakingLessons { get; set; }
         public bool IsSuccessfulAtPrimarySchool { get; set; }
+        public bool HasAttendedPrimarySchool { get; set; }
         public bool IsSuccessfulAtHighSchool { get; set; }
+        public bool HasAttendedHighSchool { get; set; }
         public bool IsSuccessfulAtUniversity { get; set; }
+        public bool HasAttendedUniversity { get; set; }
+        public bool HasChildren { get; set; }
         // End Of Specifications
 
         public bool IsDead { get; set; } = false;
@@ -61,6 +68,9 @@ namespace LifeSim.Player.Models
         public DateTime BirthDate { get; set; } = DateTime.Now;
         public Parent Father { get; set; }
         public Parent Mother { get; set; }
+        public PrimarySchool PrimarySchool { get; set; }
+        public HighSchool HighSchool { get; set; }
+        public University University { get; set; }
 
         public string GetBirthplace()
         {
@@ -94,6 +104,49 @@ namespace LifeSim.Player.Models
                 stringBuilder.AppendLine($"{this.Mother.FirstName} {this.Mother.LastName} has passed away at the age of {this.Mother.Age}");
             else
                 stringBuilder.AppendLine($"{this.Mother.FirstName} {this.Mother.LastName} is living at the age of {this.Mother.Age}");
+
+            stringBuilder.AppendLine("----- WEALTH -----");
+            stringBuilder.AppendLine($"You have passed away with ${this.Money} in your bank account.");
+
+            if (this.Money > 0)
+                if (this.HasChildren)
+                    stringBuilder.AppendLine("Your fortune will be passed onto your children...");
+                else
+                    stringBuilder.AppendLine("Your fortune will be donated to charities...");
+
+            stringBuilder.AppendLine("----- FRIENDS -----");
+            stringBuilder.AppendLine($"You've made {this.Friends} new friends throughout your life.");
+
+            // Successful Or Not during education period
+            // TODO: Add Graduation Period for each educational institute
+            stringBuilder.AppendLine("----- EDUCATION -----");
+            if (this.HasAttendedPrimarySchool)
+            {
+                stringBuilder.AppendLine($"You've started Primary School at {this.PrimarySchool.Name}, on {this.PrimarySchool.StartYear}");
+                if (this.IsSuccessfulAtPrimarySchool) stringBuilder.AppendLine("You were successful in Primary School.");
+                else stringBuilder.AppendLine("You weren't successful in Primary School.");
+                stringBuilder.AppendLine($"You've graduated Primary School at {this.PrimarySchool.Name}, on {this.PrimarySchool.GraduateYear}");
+            }
+            if (this.HasAttendedHighSchool)
+            {
+                stringBuilder.AppendLine($"You've started High School at {this.HighSchool.Name}, on {this.HighSchool.StartYear}");
+                if (this.IsSuccessfulAtHighSchool) stringBuilder.AppendLine("You were successful in High School.");
+                else stringBuilder.AppendLine("You weren't successful in High School.");
+                stringBuilder.AppendLine($"You've graduated High School at {this.HighSchool.Name}, on {this.HighSchool.GraduateYear}");
+            }
+            if (this.HasAttendedUniversity)
+            {
+                stringBuilder.AppendLine($"You've started University at {this.University.Name}, on {this.University.StartYear}");
+                if (this.IsSuccessfulAtUniversity) stringBuilder.AppendLine("You were successful in University.");
+                else stringBuilder.AppendLine("You weren't successful in University.");
+                stringBuilder.AppendLine($"You've graduated University at {this.University.Name}, on {this.University.GraduateYear}");
+            }
+
+            // Was Taking Lessons?
+            if (this.IsTakingLessons) stringBuilder.AppendLine("You were taking extra private lessons.");
+            else stringBuilder.AppendLine("You weren't taking extra private lessons.");
+
+            stringBuilder.AppendLine("----- INFO -----");
             stringBuilder.AppendLine($"More to be added...");
 
             return stringBuilder.ToString();

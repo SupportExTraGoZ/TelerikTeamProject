@@ -7,11 +7,10 @@ namespace LifeSim.Establishments.Education
 {
     public abstract class EducationalInstitute : Establishment, IEducationalInstitute
     {
-        public EducationalInstitute(string name, int startYear, int graduateYear)
+        public EducationalInstitute(string name, int startYear)
         {
             Name = name;
             StartYear = startYear;
-            GraduateYear = graduateYear;
         }
 
         public string Name { get; set; }

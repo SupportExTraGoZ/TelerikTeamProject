@@ -49,6 +49,7 @@ namespace LifeSim.Core.Engine.Core.Models
             // Player Creation Setup
             this.FamilyGenerator = new FamilyGenerator();
             this.NumberGenerator = new NumberGenerator();
+            this.EducationInstitutePicker = new EducationInstitutePicker();
             this.PlayerFactory = new GamePlayerFactory();
             this.PlayerProgress = PlayerProgress.NotBorn;
         }
@@ -71,6 +72,7 @@ namespace LifeSim.Core.Engine.Core.Models
         public ILogger Logger { get; set; }
         public IFamilyGenerator FamilyGenerator { get; set; }
         public INumberGenerator NumberGenerator { get; set; }
+        public IEducationInstitutePicker EducationInstitutePicker { get; set; }
         public IMenuLauncher MenuLauncher { get; set; }
         public IUserInteraction UserInteraction { get; set; }
         public IOptionsContainer OptionsContainer { get; set; }
@@ -79,6 +81,8 @@ namespace LifeSim.Core.Engine.Core.Models
         public IGamePlayerFactory PlayerFactory { get; set; }
         public IPlayer Player { get; set; }
         public PlayerProgress PlayerProgress { get; set; }
+
+        public DateTime GameTime { get; set; }
 
         public void Start()
         {
@@ -104,6 +108,9 @@ namespace LifeSim.Core.Engine.Core.Models
             {
                 SupressException(e.Message);
             }
+
+            // Update GameTime
+            this.GameTime = DateTime.Now;
 
             // Update Player's Progress to NewBorn
             this.PlayerProgress = PlayerProgress.NewBorn;
@@ -147,7 +154,8 @@ namespace LifeSim.Core.Engine.Core.Models
                 }
                 catch (Exception ex)
                 {
-                    this.Writer.WriteLine("An unexpected error has occured and has been logged.");
+                    //this.UserInteraction.AddAction("An unexpected error has occured and has been logged.");
+                    this.UserInteraction.AddAction(ex.Message);
                     this.Logger.GetLogger.Error(ex.Message);
                 }
 
