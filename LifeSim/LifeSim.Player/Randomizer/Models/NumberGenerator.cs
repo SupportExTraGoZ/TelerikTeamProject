@@ -10,5 +10,10 @@ namespace LifeSim.Player.Randomizer.Models
         {
             return GetRandom.Next(min, max);
         }
+
+        public int RandomChance()
+        {
+            return GetRandom.Next(0, 100);
+        }
     }
 }
