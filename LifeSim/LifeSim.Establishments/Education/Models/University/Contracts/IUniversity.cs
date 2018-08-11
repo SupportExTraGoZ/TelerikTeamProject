@@ -1,10 +1,8 @@
 ﻿using LifeSim.Establishments.Education.Contracts;
-using System.Collections.Generic;
 
-namespace LifeSim.Establishments.Education.University.Contract
+namespace LifeSim.Establishments.Education.University.Contracts
 {
     public interface IUniversity : IEducationalInstitute
     {
-        IList<string> UniverityNames { get; }
     }
 }

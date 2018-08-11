@@ -1,15 +1,10 @@
-﻿using LifeSim.Establishments.Education.HighSchool.Contract;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using LifeSim.Establishments.Education.HighSchool.Contracts;
 
 namespace LifeSim.Establishments.Education.HighSchool
 {
     public class HighSchool : EducationalInstitute, IHighSchool
     {
-        private IList<string> highSchoolNames;
-
-        public HighSchool(string name, int startYear, int graduateYear) : base(startYear, graduateYear)
+        public HighSchool(string name, int startYear, int graduateYear) : base(name, startYear, graduateYear)
         {
             EducationType = Enum.EducationType.HighSchool;
 

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using LifeSim.Establishments.Education.Models.KinderGarten.Contract;
+﻿using LifeSim.Establishments.Education.Models.KinderGarten.Contracts;
 
 namespace LifeSim.Establishments.Education.Models.KinderGarten.Models
 {
-    public class KinderGarten : EducationalInstitute , IKinderGarten
+    public class KinderGarten : EducationalInstitute, IKinderGarten
     {
-        private IList<string> kinderGartenNames;
-
-        public KinderGarten(string name,int startYear, int graduateYear) : base(startYear,graduateYear)
+        public KinderGarten(string name, int startYear, int graduateYear) : base(name, startYear, graduateYear)
         {
             EducationType = Enum.EducationType.KinderGarten;
 

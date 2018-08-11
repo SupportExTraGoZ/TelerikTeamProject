@@ -1,4 +1,4 @@
-﻿using LifeSim.Establishments.Education.PrimarySchool.Contract;
+﻿using LifeSim.Establishments.Education.PrimarySchool.Contracts;
 using System.Collections.Generic;
 using System;
 
@@ -30,7 +30,19 @@ namespace LifeSim.Establishments.Education.PrimarySchool
                 throw new ArgumentException("Name doesn't exist!");
             }
 
-            base.BuildingName = name;
+            base.Name = name;
+        }
+
+        private void AddNames()
+        {
+            names.Add("John Ward");
+            names.Add("Edward Brooke-Charter");
+            names.Add("Neshkoro Elementary");
+            names.Add("Weyerhaeuser Elementary");
+            names.Add("Life School McKinney");
+            names.Add("Martin Elementary School");
+            names.Add("Challenge Elementary");
+            names.Add("Polaris at Ebert");
         }
         
         public IList<string> PrimarySchoolNames

@@ -1,10 +1,9 @@
 ﻿using LifeSim.Establishments.Education.Contracts;
-using System.Collections.Generic;
 
-namespace LifeSim.Establishments.Education.PrimarySchool.Contract
+namespace LifeSim.Establishments.Education.PrimarySchool.Contracts
 {
-    public interface IPrimarySchool : IEducationalInstitute
+    public interface IPrimarySchool
     {
-        IList<string> PrimarySchoolNames { get; }
+
     }
 }

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using LifeSim.Establishments.Education.University.Contract;
+﻿using LifeSim.Establishments.Education.University.Contracts;
 
 namespace LifeSim.Establishments.Education.University
 {
     public class University : EducationalInstitute, IUniversity
     {
-        private IList<string> universityNames;
-
-        public University(string name, int startYear, int graduateYear) : base(startYear,graduateYear)
+        public University(string name, int startYear, int graduateYear) : base(name, startYear, graduateYear)
         {
             EducationType = Enum.EducationType.University;
 
@@ -34,10 +30,5 @@ namespace LifeSim.Establishments.Education.University
 
             base.BuildingName = name;
         }
-
-        public IList<string> UniverityNames
-        {
-            get => new List<string>(universityNames);
-        }
-    } 
+    }
 }
