@@ -59,10 +59,13 @@ namespace LifeSim.Player.Options
 
         public void ChangeCommandStatus(string commandKey, bool isUnlocked, bool canBeUsedManyTimes = false, bool isUsed = false)
         {
-            var tempCommand = this.options.FirstOrDefault(x => x.Value.commandKey == commandKey);
-            tempCommand.Value.isUnlocked = isUnlocked;
-            tempCommand.Value.canBeUsedManyTimes = canBeUsedManyTimes;
-            tempCommand.Value.isUsed = isUsed;
+            // Bai Grozdan, Edo Challenge
+            this.options.Where(x => x.Value.commandKey == commandKey).ToList().ForEach(x =>
+            {
+                x.Value.isUnlocked = isUnlocked;
+                x.Value.canBeUsedManyTimes = canBeUsedManyTimes;
+                x.Value.isUsed = isUsed;
+            });
         }
 
         public void UnlockAgeUpCommand(PlayerProgress playerProgress, bool isUnlocked = true, bool canBeUsedManyTimes = true, bool isUsed = false)
