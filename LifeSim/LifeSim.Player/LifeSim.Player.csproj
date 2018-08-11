@@ -12,12 +12,12 @@
     <Folder Include="Randomizer\Contracts\" />
     <Folder Include="Randomizer\Models\" />
     <Folder Include="Options\Contracts\" />
-    <Folder Include="Options\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Contracts\IFamily.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LifeSim.Exceptions\LifeSim.Exceptions.csproj" />
+    <ProjectReference Include="..\LifeSim.Establishments\LifeSim.Establishments.csproj" />
   </ItemGroup>
 </Project>

@@ -23,7 +23,11 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             else this.engine.Player.IsSuccessfulAtHighSchool = true;
 
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("You have finished your High School.");
+            stringBuilder.AppendLine($"You have graduated {this.engine.Player.HighSchool.Name}.");
+
+            // Update Graduation Year of High School
+            this.engine.Player.HighSchool.GraduateYear = this.engine.GameTime.Year;
+
             if (this.engine.Player.IsTakingLessons)
             {
                 stringBuilder.AppendLine($"You've passed your exams with ease, {this.engine.NumberGenerator.ChooseNumber(80, 100)} percent.");
@@ -31,7 +35,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             }
             else if (examsPercent < 50)
             {
-                stringBuilder.AppendLine($"You've passed your exams with approximately {examsPercent} percent.");
+                stringBuilder.AppendLine($"You've struggled with your exams and barely passed them with approximately {examsPercent} percent.");
                 this.engine.Player.IsSuccessfulAtHighSchool = false;
             }
             else

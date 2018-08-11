@@ -25,6 +25,9 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
             if (!player.Mother.IsDead)
                 player.Mother.Age++;
 
+            // Update GameTime Year
+            this.engine.GameTime.AddYears(1);
+
             switch (player.Age)
             {
                 case 1:

@@ -9,6 +9,7 @@ using LifeSim.Player.Randomizer.Contracts;
 using LifeSim.Logger.Contracts;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Menu.Contracts;
+using System;
 
 namespace LifeSim.Core.Engine.Core.Contracts
 {
@@ -23,6 +24,7 @@ namespace LifeSim.Core.Engine.Core.Contracts
         ILogger Logger { get; set; }
         IFamilyGenerator FamilyGenerator { get; set; }
         INumberGenerator NumberGenerator { get; set; }
+        IEducationInstitutePicker EducationInstitutePicker { get; set; }
         IMenuLauncher MenuLauncher { get; set; }
         IUserInteraction UserInteraction { get; set; }
         IOptionsContainer OptionsContainer { get; set; }
@@ -32,5 +34,7 @@ namespace LifeSim.Core.Engine.Core.Contracts
         IGamePlayerFactory PlayerFactory { get; set; }
         IPlayer Player { get; set; }
         PlayerProgress PlayerProgress { get; set; }
+
+        DateTime GameTime { get; set; }
     }
 }
