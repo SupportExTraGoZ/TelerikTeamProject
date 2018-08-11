@@ -49,10 +49,12 @@ namespace LifeSim.Player.Models
         public int Age { get; set; }
 
         // Specifications
+        public int Money { get; set; } = 0;
         public bool IsTakingLessons { get; set; }
         public bool IsSuccessfulAtPrimarySchool { get; set; }
         public bool IsSuccessfulAtHighSchool { get; set; }
         public bool IsSuccessfulAtUniversity { get; set; }
+        public bool HasChildren { get; set; }
         // End Of Specifications
 
         public bool IsDead { get; set; } = false;
@@ -83,6 +85,7 @@ namespace LifeSim.Player.Models
         {
             StringBuilder stringBuilder = new StringBuilder();
 
+            // Beginning of Life History
             stringBuilder.AppendLine($"You, {this.FirstName} {this.LastName} have lived up to the age of {this.Age}.");
             stringBuilder.AppendLine($"But You passed away during a car accident...");
             stringBuilder.AppendLine($"Parents:");
@@ -94,7 +97,31 @@ namespace LifeSim.Player.Models
                 stringBuilder.AppendLine($"{this.Mother.FirstName} {this.Mother.LastName} has passed away at the age of {this.Mother.Age}");
             else
                 stringBuilder.AppendLine($"{this.Mother.FirstName} {this.Mother.LastName} is living at the age of {this.Mother.Age}");
+
+            stringBuilder.AppendLine($"You have passed away with ${this.Money} in your bank account.");
+
+            if (this.HasChildren)
+                stringBuilder.AppendLine("Your fortune will be passed onto your children...");
+            else
+                stringBuilder.AppendLine("Your fortune will be donated to charities...");
+
+            // Successful Or Not during education period
+            // TODO: Add Graduation Period for each educational institute
+            if (this.IsSuccessfulAtPrimarySchool) stringBuilder.AppendLine("You were successful in Primary School.");
+            else stringBuilder.AppendLine("You weren't successful in Primary School.");
+            if (this.IsSuccessfulAtHighSchool) stringBuilder.AppendLine("You were successful in Primary School.");
+            else stringBuilder.AppendLine("You weren't successful in Primary School.");
+            if (this.IsSuccessfulAtHighSchool) stringBuilder.AppendLine("You were successful in High School.");
+            else stringBuilder.AppendLine("You weren't successful in High School.");
+            if (this.IsSuccessfulAtUniversity) stringBuilder.AppendLine("You were successful in University.");
+            else stringBuilder.AppendLine("You weren't successful in University.");
+
+            // Was Taking Lessons?
+            if (this.IsTakingLessons) stringBuilder.AppendLine("You were taking extra private lessons.");
+            else stringBuilder.AppendLine("You weren't taking extra private lessons.");
+
             stringBuilder.AppendLine($"More to be added...");
+            // End Of Life History
 
             return stringBuilder.ToString();
         }
