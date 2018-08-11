@@ -4,8 +4,6 @@ namespace LifeSim.Establishments.Education.Contracts
 {
     public interface IEducationalInstitute
     {
-        string Name { get; }
-
         int StartYear { get; set; }
 
         int GraduateYear { get; set; }

@@ -2,6 +2,7 @@
 {
     public enum EducationType
     {
+        KinderGarten,
         PrimarySchool,
         HighSchool,
         University
