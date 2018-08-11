@@ -1,4 +1,4 @@
-﻿using LifeSim.Establishments.Education.PrimarySchool.Contract;
+﻿using LifeSim.Establishments.Education.PrimarySchool.Contracts;
 using System.Collections.Generic;
 using System;
 
@@ -21,7 +21,7 @@ namespace LifeSim.Establishments.Education.PrimarySchool
             }
 
             base.Name = name;
-         }
+        }
 
         private void AddNames()
         {
@@ -39,7 +39,7 @@ namespace LifeSim.Establishments.Education.PrimarySchool
         {
             get => new List<string>(names);
         }
-        
+
 
     }
 }

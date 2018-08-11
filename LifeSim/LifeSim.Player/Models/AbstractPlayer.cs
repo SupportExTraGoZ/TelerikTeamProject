@@ -49,6 +49,7 @@ namespace LifeSim.Player.Models
         public int Age { get; set; }
 
         // Specifications
+        public int Friends { get; set; } = 0;
         public int Money { get; set; } = 0;
         public bool IsTakingLessons { get; set; }
         public bool IsSuccessfulAtPrimarySchool { get; set; }
@@ -100,10 +101,13 @@ namespace LifeSim.Player.Models
 
             stringBuilder.AppendLine($"You have passed away with ${this.Money} in your bank account.");
 
-            if (this.HasChildren && Money > 0)
-                stringBuilder.AppendLine("Your fortune will be passed onto your children...");
-            else
-                stringBuilder.AppendLine("Your fortune will be donated to charities...");
+            if (this.Money > 0)
+                if (this.HasChildren)
+                    stringBuilder.AppendLine("Your fortune will be passed onto your children...");
+                else
+                    stringBuilder.AppendLine("Your fortune will be donated to charities...");
+
+            stringBuilder.AppendLine($"You've made {this.Friends} new friends throughout your life.");
 
             // Successful Or Not during education period
             // TODO: Add Graduation Period for each educational institute
