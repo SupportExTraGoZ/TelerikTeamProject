@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.Contracts;
 
-namespace LifeSim.Core.Engine.Commands.Actions
+namespace LifeSim.Core.Engine.Commands.Actions.General
 {
     public class AgeUpCommand : ICommand
     {

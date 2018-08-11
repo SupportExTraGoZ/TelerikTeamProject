@@ -4,15 +4,15 @@ using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.Contracts;
 using System.Text;
 
-namespace LifeSim.Core.Engine.Commands.Actions
+namespace LifeSim.Core.Engine.Commands.Actions.Kindergarten
 {
-    public class TakeLessonsCommand : ICommand
+    public class GoToKinderGartenCommand : ICommand
     {
         private const int minFriends = 5;
         private const int maxFriends = 15;
         private readonly IEngine engine;
 
-        public TakeLessonsCommand(IEngine engine)
+        public GoToKinderGartenCommand(IEngine engine)
         {
             this.engine = engine;
         }
@@ -21,13 +21,12 @@ namespace LifeSim.Core.Engine.Commands.Actions
         {
             // Unlock/Lock Commands
             this.engine.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
-
-            // Set player's status
-            this.engine.Player.IsTakingLessons = true;
+            this.engine.OptionsContainer.UnlockAgeUpCommand(this.engine.PlayerProgress);
 
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("Your parents signed you up for private lessons before school.");
-            stringBuilder.AppendLine("And now you are going to do better at your exams.");
+            stringBuilder.AppendLine("Your parents have taken you to the local kindergarten.");
+            stringBuilder.AppendLine("And now you are getting good care.");
+            stringBuilder.AppendLine($"The next day, you've made {this.engine.NumberGenerator.ChooseNumber(minFriends, maxFriends)} new friends.");
             return stringBuilder.ToString();
         }
     }
