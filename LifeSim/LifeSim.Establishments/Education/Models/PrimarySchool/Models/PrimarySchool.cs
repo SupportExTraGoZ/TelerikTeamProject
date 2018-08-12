@@ -1,6 +1,4 @@
 ﻿using LifeSim.Establishments.Education.PrimarySchool.Contracts;
-using System.Collections.Generic;
-using System;
 
 namespace LifeSim.Establishments.Education.PrimarySchool
 {
@@ -8,7 +6,6 @@ namespace LifeSim.Establishments.Education.PrimarySchool
     {
         public PrimarySchool(string name, int startYear) : base(name, startYear)
         {
-
         }
     }
 }

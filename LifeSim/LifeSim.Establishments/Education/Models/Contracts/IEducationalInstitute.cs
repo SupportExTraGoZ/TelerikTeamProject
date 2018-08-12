@@ -1,6 +1,4 @@
-﻿using LifeSim.Establishments.AbstractEstablishment.Contracts;
-
-namespace LifeSim.Establishments.Education.Contracts
+﻿namespace LifeSim.Establishments.Education.Contracts
 {
     public interface IEducationalInstitute
     {

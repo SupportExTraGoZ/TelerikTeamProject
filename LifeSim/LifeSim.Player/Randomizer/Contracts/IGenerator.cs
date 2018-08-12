@@ -1,8 +1,6 @@
-﻿using System;
-namespace LifeSim.Player.Randomizer.Contracts
+﻿namespace LifeSim.Player.Randomizer.Contracts
 {
     public interface IGenerator
     {
-
     }
 }

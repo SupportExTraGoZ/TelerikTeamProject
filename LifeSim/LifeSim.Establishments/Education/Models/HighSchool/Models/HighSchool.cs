@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using LifeSim.Establishments.Education.HighSchool.Contracts;
+﻿using LifeSim.Establishments.Education.HighSchool.Contracts;
 
 namespace LifeSim.Establishments.Education.HighSchool
 {
@@ -7,7 +6,6 @@ namespace LifeSim.Establishments.Education.HighSchool
     {
         public HighSchool(string name, int startYear) : base(name, startYear)
         {
-
         }
     }
 }

@@ -1,28 +1,28 @@
 ﻿using System;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Functions;
-using LifeSim.Core.Engine.Core.Contracts;
-using LifeSim.Core.Engine.Factories;
-using LifeSim.Core.Engine.Factories.Contracts;
-using LifeSim.Player.Contracts;
-using LifeSim.Player.Enums;
-using LifeSim.Player.Randomizer.Contracts;
-using LifeSim.Player.Randomizer.Models;
-using LifeSim.Player.Options.Contracts;
-using LifeSim.Player.Options;
-using LifeSim.Core.Engine.Core.UserQuestion.Models;
-using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
-using LifeSim.Core.Engine.Core.UserQuestion.Constants;
-using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
-using LifeSim.Exceptions.Models;
-using LifeSim.Logger.Contracts;
-using LifeSim.Core.Engine.Commands.Contracts;
-using LifeSim.Core.Engine.Commands.Models;
-using LifeSim.Core.Engine.Menu.Contracts;
-using LifeSim.Core.Engine.Menu.Models;
-using LifeSim.Core.Engine.Core.UserStatusDisplay.Models;
 using System.Linq;
 using System.Reflection;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions;
+using LifeSim.Core.Engine.Commands.Contracts;
+using LifeSim.Core.Engine.Commands.Models;
+using LifeSim.Core.Engine.Core.Contracts;
+using LifeSim.Core.Engine.Core.UserQuestion.Constants;
+using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
+using LifeSim.Core.Engine.Core.UserQuestion.Models;
+using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
+using LifeSim.Core.Engine.Core.UserStatusDisplay.Models;
+using LifeSim.Core.Engine.Factories;
+using LifeSim.Core.Engine.Factories.Contracts;
+using LifeSim.Core.Engine.Menu.Contracts;
+using LifeSim.Core.Engine.Menu.Models;
+using LifeSim.Exceptions.Models;
+using LifeSim.Logger.Contracts;
+using LifeSim.Player.Contracts;
+using LifeSim.Player.Enums;
+using LifeSim.Player.Options;
+using LifeSim.Player.Options.Contracts;
+using LifeSim.Player.Randomizer.Contracts;
+using LifeSim.Player.Randomizer.Models;
 
 namespace LifeSim.Core.Engine.Core.Models
 {
@@ -35,23 +35,23 @@ namespace LifeSim.Core.Engine.Core.Models
         private Engine()
         {
             // Menu Display Setup
-            this.Writer = new ConsoleWriter();
-            this.Reader = new ConsoleReader();
-            this.Parser = new CommandParser();
-            this.Cleaner = new ConsoleCleaner();
-            this.Logger = new Logger.Models.Logger();
-            this.UserInteraction = new UserInteraction(this.Writer, this.Reader);
-            this.MenuLauncher = new MenuLauncher(this.Writer, this.Reader);
-            this.OptionsContainer = new OptionsContainer();
-            this.QuestionAction = new QuestionAction(ConstQuestions.Questions, UserInteraction);
-            this.UserStatus = new UserStatus(this.Writer);
+            Writer = new ConsoleWriter();
+            Reader = new ConsoleReader();
+            Parser = new CommandParser();
+            Cleaner = new ConsoleCleaner();
+            Logger = new Logger.Models.Logger();
+            UserInteraction = new UserInteraction(Writer, Reader);
+            MenuLauncher = new MenuLauncher(Writer, Reader);
+            OptionsContainer = new OptionsContainer();
+            QuestionAction = new QuestionAction(ConstQuestions.Questions, UserInteraction);
+            UserStatus = new UserStatus(Writer);
 
             // Player Creation Setup
-            this.FamilyGenerator = new FamilyGenerator();
-            this.NumberGenerator = new NumberGenerator();
-            this.EducationInstitutePicker = new EducationInstitutePicker();
-            this.PlayerFactory = new GamePlayerFactory();
-            this.PlayerProgress = PlayerProgress.NotBorn;
+            FamilyGenerator = new FamilyGenerator();
+            NumberGenerator = new NumberGenerator();
+            EducationInstitutePicker = new EducationInstitutePicker();
+            PlayerFactory = new GamePlayerFactory();
+            PlayerProgress = PlayerProgress.NotBorn;
         }
 
         public static IEngine Instance
@@ -99,7 +99,11 @@ namespace LifeSim.Core.Engine.Core.Models
                 var questionAnswers = QuestionAction.GetUserAnswers();
 
                 // Player Init/Creation
-                this.Player = PlayerFactory.CreatePlayer(questionAnswers[0].Answer.Split(": ")[0], questionAnswers[1].Answer.Split(": ")[0], (GenderType)Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]), (Birthplaces)Enum.Parse(typeof(Birthplaces), questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), FamilyGenerator);
+                Player = PlayerFactory.CreatePlayer(questionAnswers[0].Answer.Split(": ")[0],
+                    questionAnswers[1].Answer.Split(": ")[0],
+                    (GenderType) Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]),
+                    (Birthplaces) Enum.Parse(typeof(Birthplaces),
+                        questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), FamilyGenerator);
             }
             catch (NullReferenceException)
             {
@@ -115,27 +119,28 @@ namespace LifeSim.Core.Engine.Core.Models
             }
 
             // Update GameTime
-            this.GameTime = DateTime.Now;
+            GameTime = DateTime.Now;
 
             // Update Player's Progress to NewBorn
-            this.PlayerProgress = PlayerProgress.NewBorn;
-            this.UserInteraction.AddAction($"You are born as {this.Player.FirstName} {this.Player.LastName} in {this.Player.GetBirthplace()}.");
-            this.UserInteraction.AddAction($"Your Father is {this.Player.Father.FirstName} {this.Player.Father.LastName}");
-            this.UserInteraction.AddAction($"Your Mother is {this.Player.Mother.FirstName} {this.Player.Mother.LastName}");
+            PlayerProgress = PlayerProgress.NewBorn;
+            UserInteraction.AddAction(
+                $"You are born as {Player.FirstName} {Player.LastName} in {Player.GetBirthplace()}.");
+            UserInteraction.AddAction($"Your Father is {Player.Father.FirstName} {Player.Father.LastName}");
+            UserInteraction.AddAction($"Your Mother is {Player.Mother.FirstName} {Player.Mother.LastName}");
 
             // Clears Console
-            this.Cleaner.ClearConsole();
+            Cleaner.ClearConsole();
 
             while (true)
             {
                 // Print Logo
-                this.Writer.PrintLogo();
+                Writer.PrintLogo();
 
                 // Show User's HUD
-                this.UserStatus.WriteStatus(Player);
+                UserStatus.WriteStatus(Player);
 
                 // Show what the user has done, last X (ActionLogNumber) actions
-                this.UserStatus.WriteActionLog(this.UserInteraction.ActionLog, ActionLogNumber);
+                UserStatus.WriteActionLog(UserInteraction.ActionLog, ActionLogNumber);
 
                 // Show User's available options
                 MenuLauncher.PrintMenu(PlayerProgress, OptionsContainer);
@@ -145,12 +150,10 @@ namespace LifeSim.Core.Engine.Core.Models
 
                 try
                 {
-                    var commandAsString = this.Reader.ReadLine();
+                    var commandAsString = Reader.ReadLine();
 
                     if (commandAsString.ToLower() == TerminationCommand.ToLower())
-                    {
                         break;
-                    }
 
                     // TODO: If process command doesn't go thru, show the options again...
                     /*if (!this.ProcessCommand(commandAsString))
@@ -158,60 +161,61 @@ namespace LifeSim.Core.Engine.Core.Models
 
                     }*/
 
-                    this.ProcessCommand(commandAsString);
+                    ProcessCommand(commandAsString);
                 }
                 catch (Exception ex)
                 {
                     // Just for now to debug, will be changed later on.
-                    this.UserInteraction.AddAction("An unexpected error has occured and has been logged.");
+                    UserInteraction.AddAction("An unexpected error has occured and has been logged.");
                     //this.UserInteraction.AddAction(ex.Message);
-                    this.Logger.GetLogger.Error(ex.Message);
+                    Logger.GetLogger.Error(ex.Message);
                 }
 
                 // Clear Console
-                this.Cleaner.ClearConsole();
+                Cleaner.ClearConsole();
             }
 
             // TODO: Show End Game Screen
-            this.Cleaner.ClearConsole();
+            Cleaner.ClearConsole();
 
-            this.Writer.PrintLogo();
+            Writer.PrintLogo();
 
-            this.Writer.WriteLine(this.Player.ToString());
+            Writer.WriteLine(Player.ToString());
 
-            this.Writer.WriteLine($"Thank you for playing LifeSim Alpha {Assembly.GetExecutingAssembly().GetName().Version.ToString()}");
+            Writer.WriteLine(
+                $"Thank you for playing LifeSim Alpha {Assembly.GetExecutingAssembly().GetName().Version}");
         }
 
         private bool ProcessCommand(string commandAsString)
         {
             if (string.IsNullOrWhiteSpace(commandAsString))
             {
-                this.UserInteraction.AddAction("Command cannot be null or empty.");
-                this.Logger.GetLogger.Info("Client attempted to enter an empty/null command.");
+                UserInteraction.AddAction("Command cannot be null or empty.");
+                Logger.GetLogger.Info("Client attempted to enter an empty/null command.");
                 return false;
             }
             // Check for command access
-            if (!this.OptionsContainer.CurrentStageOptions(PlayerProgress, true).Contains(commandAsString.Split()[0]))
+            if (!OptionsContainer.CurrentStageOptions(PlayerProgress, true).Contains(commandAsString.Split()[0]))
             {
-                this.UserInteraction.AddAction($"You have no access to that command. ({commandAsString})");
+                UserInteraction.AddAction($"You have no access to that command. ({commandAsString})");
                 return false;
             }
 
-            var command = this.Parser.ParseCommand(commandAsString);
-            var parameters = this.Parser.ParseParameters(commandAsString);
+            var command = Parser.ParseCommand(commandAsString);
+            var parameters = Parser.ParseParameters(commandAsString);
 
             var executionResult = command.Execute(parameters);
-            this.UserInteraction.AddAction(executionResult);
+            UserInteraction.AddAction(executionResult);
 
             return true;
         }
 
         private void SupressException(string message)
         {
-            this.Writer.WriteLine(message);
-            this.Writer.WriteLine("Press any key to start again...");
+            Writer.WriteLine(message);
+            Writer.WriteLine("Press any key to start again...");
             Console.ReadKey();
-            this.Start();
+            Start();
         }
     }
 }

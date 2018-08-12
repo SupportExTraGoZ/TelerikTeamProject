@@ -1,7 +1,9 @@
-﻿namespace LifeSim.Logger.Contracts
+﻿using log4net;
+
+namespace LifeSim.Logger.Contracts
 {
     public interface ILogger
     {
-        log4net.ILog GetLogger { get; }
+        ILog GetLogger { get; }
     }
 }

@@ -1,5 +1,5 @@
-﻿using LifeSim.Player.Contracts;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using LifeSim.Player.Contracts;
 
 namespace LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts
 {

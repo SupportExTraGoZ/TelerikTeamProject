@@ -1,5 +1,5 @@
-﻿using LifeSim.Establishments.Job.Enums;
-using System;
+﻿using System;
+using LifeSim.Establishments.Job.Enums;
 
 namespace LifeSim.Establishments.Job
 {

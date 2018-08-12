@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace LifeSim.Player.Randomizer.Contracts
+﻿namespace LifeSim.Player.Randomizer.Contracts
 {
     public interface IEducationInstitutePicker : IGenerator
     {

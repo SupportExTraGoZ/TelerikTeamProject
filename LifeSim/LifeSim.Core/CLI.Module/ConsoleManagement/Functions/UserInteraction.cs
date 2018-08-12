@@ -1,5 +1,5 @@
-﻿using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
 
 namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions
 {
@@ -9,29 +9,23 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions
         private readonly IConsoleWriter consoleWriter;
         private List<string> actionLog;
 
+        public UserInteraction(IConsoleWriter writer, IConsoleReader consoleReader)
+        {
+            consoleWriter = writer;
+            this.consoleReader = consoleReader;
+            ActionLog = new List<string>();
+        }
+
         public List<string> ActionLog
         {
-            get
-            {
-                return new List<string>(actionLog);
-            }
-            set
-            {
-                this.actionLog = value;
-            }
+            get => new List<string>(actionLog);
+            set => actionLog = value;
         }
 
         public void AddAction(string action)
         {
             if (action != null)
-                this.actionLog.Insert(0, action);
-        }
-
-        public UserInteraction(IConsoleWriter writer, IConsoleReader consoleReader)
-        {
-            this.consoleWriter = writer;
-            this.consoleReader = consoleReader;
-            this.ActionLog = new List<string>();
+                actionLog.Insert(0, action);
         }
 
         public string AskUser(string message, bool sameLine)
