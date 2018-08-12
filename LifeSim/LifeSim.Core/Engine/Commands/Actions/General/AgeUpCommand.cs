@@ -68,6 +68,10 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                     return $"You've passed away at the age of {player.Age}";
                 }
             }
+            if (player.Age > 20)
+            {
+                player.Friends += this.engine.NumberGenerator.ChooseNumber(20, 100);
+            }
 
             switch (player.Age)
             {
@@ -140,7 +144,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                     break;
             }
 
-            return $"You have grown up and now you are {player.Age} years old.";
+            return $"You have made new friends grown up the following year and now you are {player.Age} years old.";
         }
     }
 }

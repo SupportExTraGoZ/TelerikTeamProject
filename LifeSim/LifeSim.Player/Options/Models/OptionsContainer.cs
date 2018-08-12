@@ -81,7 +81,7 @@ namespace LifeSim.Player.Options
                     .Where(x => x.Value.isUnlocked)
                     .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed);
 
-                if (tempOptions.Count() == 0)
+                if (!tempOptions.Any())
                     yield return "No commands available at this stage...";
 
                 foreach (var option in tempOptions)
