@@ -5,9 +5,6 @@ using LifeSim.Player.Options.Contracts;
 
 namespace LifeSim.Core.Engine.Menu.Models
 {
-    /// <summary>
-    ///     Still in dev
-    /// </summary>
     public class MenuLauncher : IMenuLauncher
     {
         private readonly IConsoleReader reader;
