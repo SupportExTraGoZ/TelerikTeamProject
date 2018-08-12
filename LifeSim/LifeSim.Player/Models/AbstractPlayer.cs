@@ -50,6 +50,8 @@ namespace LifeSim.Player.Models
         }
 
         public int Age { get; set; }
+        public int Money { get; set; }
+        public int Friends { get; set; }
 
         // Specifications
         public bool IsTakingLessons { get; set; }
@@ -122,24 +124,24 @@ namespace LifeSim.Player.Models
             stringBuilder.AppendLine("----- EDUCATION -----");
             if (this.HasAttendedPrimarySchool)
             {
-                stringBuilder.AppendLine($"You've started Primary School at {this.PrimarySchool.Name}, on {this.PrimarySchool.StartYear}");
+                stringBuilder.AppendLine($"You've started Primary School at {this.PrimarySchool.BuildingName}, on {this.PrimarySchool.StartYear}");
                 if (this.IsSuccessfulAtPrimarySchool) stringBuilder.AppendLine("You were successful in Primary School.");
                 else stringBuilder.AppendLine("You weren't successful in Primary School.");
-                stringBuilder.AppendLine($"You've graduated Primary School at {this.PrimarySchool.Name}, on {this.PrimarySchool.GraduateYear}");
+                stringBuilder.AppendLine($"You've graduated Primary School at {this.PrimarySchool.BuildingName}, on {this.PrimarySchool.GraduateYear}");
             }
             if (this.HasAttendedHighSchool)
             {
-                stringBuilder.AppendLine($"You've started High School at {this.HighSchool.Name}, on {this.HighSchool.StartYear}");
+                stringBuilder.AppendLine($"You've started High School at {this.HighSchool.BuildingName}, on {this.HighSchool.StartYear}");
                 if (this.IsSuccessfulAtHighSchool) stringBuilder.AppendLine("You were successful in High School.");
                 else stringBuilder.AppendLine("You weren't successful in High School.");
-                stringBuilder.AppendLine($"You've graduated High School at {this.HighSchool.Name}, on {this.HighSchool.GraduateYear}");
+                stringBuilder.AppendLine($"You've graduated High School at {this.HighSchool.BuildingName}, on {this.HighSchool.GraduateYear}");
             }
             if (this.HasAttendedUniversity)
             {
-                stringBuilder.AppendLine($"You've started University at {this.University.Name}, on {this.University.StartYear}");
+                stringBuilder.AppendLine($"You've started University at {this.University.BuildingName}, on {this.University.StartYear}");
                 if (this.IsSuccessfulAtUniversity) stringBuilder.AppendLine("You were successful in University.");
                 else stringBuilder.AppendLine("You weren't successful in University.");
-                stringBuilder.AppendLine($"You've graduated University at {this.University.Name}, on {this.University.GraduateYear}");
+                stringBuilder.AppendLine($"You've graduated University at {this.University.BuildingName}, on {this.University.GraduateYear}");
             }
 
             // Was Taking Lessons?

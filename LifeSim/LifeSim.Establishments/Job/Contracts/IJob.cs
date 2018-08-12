@@ -5,7 +5,7 @@ namespace LifeSim.Establishments.Job
 {
     public interface IJob
     {
-        double MonthSalary { get; set; }
+        double MonthlySalary { get; set; }
 
         int WorkHoursPerDay { get; set; }
 

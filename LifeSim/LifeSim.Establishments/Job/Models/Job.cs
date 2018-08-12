@@ -9,46 +9,25 @@ namespace LifeSim.Establishments.Job
     public class Job : Establishment, IJob
     {
         private ICompany company;
-        private double monthSalary;
-        private int workHoursPerDay;
-        private DateTime startDate;
-        private DateTime endDate = new DateTime(0, 0, 0);
 
-        public Job(ProfessionType profession, string companyName, double monthSalary, int workHoursPerDay,DateTime startDate,DateTime endDate)
-            :base()
+        public Job(ProfessionType profession, string companyName, double monthlySalary, int workHoursPerDay, DateTime startDate, DateTime endDate)
+            : base(companyName)
         {
             Profession = profession;
+            // This will go - be fixed/majorly improved
             company = new Company(companyName);
-            MonthSalary = monthSalary;
+            MonthlySalary = monthlySalary;
             WorkHoursPerDay = workHoursPerDay;
             StartDate = startDate;
             EndDate = endDate;
         }
 
-        public double MonthSalary
-        {
-            get => monthSalary;
-            set
-            {
-                if (value < 0) throw new ArgumentOutOfRangeException("Month salary cannot be negative.");
+        public double MonthlySalary { get; set; }
 
-                monthSalary = value;
-            } 
-        }
-
-        public int WorkHoursPerDay
-        {
-            get => workHoursPerDay;
-            set
-            {
-                if (value < 0) throw new ArgumentOutOfRangeException("Hours of work per day cannot be negative.");
-
-                workHoursPerDay = value;
-            }
-        }
+        public int WorkHoursPerDay { get; set; }
 
         public ProfessionType Profession { get; set; }
-        
+
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
     }

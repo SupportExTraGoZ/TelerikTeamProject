@@ -18,12 +18,10 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
         public string Execute(IList<string> parameters)
         {
             var examsPercent = this.engine.NumberGenerator.RandomChance();
-            if (this.engine.Player.IsTakingLessons) this.engine.Player.IsSuccessfulAtHighSchool = true;
-            else if (examsPercent < 50) this.engine.Player.IsSuccessfulAtHighSchool = false;
-            else this.engine.Player.IsSuccessfulAtHighSchool = true;
 
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine($"You have graduated {this.engine.Player.HighSchool.Name}.");
+            stringBuilder.AppendLine($"You have graduated {this.engine.Player.HighSchool.BuildingName}.");
+            this.engine.Player.HasAttendedHighSchool = true;
 
             // Update Graduation Year of High School
             this.engine.Player.HighSchool.GraduateYear = this.engine.GameTime.Year;

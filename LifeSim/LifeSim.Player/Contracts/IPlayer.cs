@@ -12,6 +12,8 @@ namespace LifeSim.Player.Contracts
         string FirstName { get; set; }
         string LastName { get; set; }
         int Age { get; set; }
+        int Money { get; set; }
+        int Friends { get; set; }
 
         // Specifications
         bool IsTakingLessons { get; set; }

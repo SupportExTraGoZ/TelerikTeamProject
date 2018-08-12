@@ -26,19 +26,21 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                 player.Mother.Age++;
 
             // Update GameTime Year
-            this.engine.GameTime.AddYears(1);
+            this.engine.GameTime = this.engine.GameTime.AddYears(1);
+
+            // Give the player money, as of parents gifts and etc. during the year...
+            player.Money += 250;
 
             switch (player.Age)
             {
                 case 1:
                     this.engine.PlayerProgress = Player.Enums.PlayerProgress.Baby;
                     break;
-                case 6:
+                case 7:
                     this.engine.PlayerProgress = Player.Enums.PlayerProgress.Kid;
                     break;
-                case 13:
+                case 14:
                     {
-                        // Unfinished
                         var tempCommand = this.engine.Parser.ParseCommand("endprimaryschool");
                         var tempParams = this.engine.Parser.ParseParameters("endprimaryschool");
                         var executionResult = tempCommand.Execute(tempParams);
@@ -47,15 +49,30 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                         this.engine.PlayerProgress = Player.Enums.PlayerProgress.Teen;
                     }
                     break;
-                case 18:
+                case 19:
                     {
-                        // Unfinished
                         var tempCommand = this.engine.Parser.ParseCommand("endhighschool");
                         var tempParams = this.engine.Parser.ParseParameters("endhighschool");
                         var executionResult = tempCommand.Execute(tempParams);
                         this.engine.UserInteraction.AddAction(executionResult);
 
-                        this.engine.PlayerProgress = Player.Enums.PlayerProgress.HighSchoolGraduate;
+                        if (this.engine.Player.IsSuccessfulAtHighSchool)
+                            this.engine.PlayerProgress = Player.Enums.PlayerProgress.HighSchoolGraduate;
+                        else
+                            this.engine.PlayerProgress = Player.Enums.PlayerProgress.NonEmployed;
+                    }
+                    break;
+                case 24:
+                    {
+                        if (this.engine.PlayerProgress == Player.Enums.PlayerProgress.Student)
+                        {
+                            var tempCommand = this.engine.Parser.ParseCommand("enduniversity");
+                            var tempParams = this.engine.Parser.ParseParameters("enduniversity");
+                            var executionResult = tempCommand.Execute(tempParams);
+                            this.engine.UserInteraction.AddAction(executionResult);
+
+                            this.engine.PlayerProgress = Player.Enums.PlayerProgress.NonEmployed;
+                        }
                     }
                     break;
             }

@@ -27,7 +27,7 @@ namespace LifeSim.Player.Randomizer.Models
             return tempStorage.ElementAt(GetRandom.Next(0, tempStorage.Count() - 1));
         }
 
-        public string PickUniversities(bool successful = false)
+        public string PickUniversity(bool successful = false)
         {
             var tempStorage = universities.Keys.Where(x => universities[x] == successful);
             return tempStorage.ElementAt(GetRandom.Next(0, tempStorage.Count() - 1));
@@ -72,7 +72,7 @@ namespace LifeSim.Player.Randomizer.Models
                 // bool = Is school prestigious or not
                 {"Princeton University", true},
                 {"Harvard University", true},
-                {"Yale University", false},
+                {"Yale University", true},
                 {"Stanford University", true},
                 {"Georgetown University", true},
                 {"Cornell University", false},

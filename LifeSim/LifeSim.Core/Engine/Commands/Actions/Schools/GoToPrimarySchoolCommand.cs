@@ -25,12 +25,14 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             this.engine.OptionsContainer.UnlockAgeUpCommand(this.engine.PlayerProgress);
 
             this.engine.Player.PrimarySchool = new PrimarySchool(this.engine.EducationInstitutePicker.PickPrimarySchool(this.engine.Player.IsTakingLessons), this.engine.GameTime.Year);
-            this.engine.Player.HasAttendedPrimarySchool = true;
+
+            var friends = this.engine.NumberGenerator.ChooseNumber(minFriends, maxFriends);
+            this.engine.Player.Friends += friends;
 
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("Your parents have put you in a local school near your home.");
             stringBuilder.AppendLine("And now you are on your way to High School.");
-            stringBuilder.AppendLine($"The next day, you've made {this.engine.NumberGenerator.ChooseNumber(minFriends, maxFriends)} new friends.");
+            stringBuilder.AppendLine($"The next day, you've made {friends} new friends.");
             return stringBuilder.ToString();
         }
     }

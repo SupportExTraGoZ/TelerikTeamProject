@@ -11,12 +11,6 @@ namespace LifeSim.Establishments.Education
             StartYear = startYear;
         }
 
-        public string Name
-        {
-            get => base.BuildingName;
-            set => base.BuildingName = value;
-        }
-
         public int StartYear { get; set; }
         public int GraduateYear { get; set; }
     }

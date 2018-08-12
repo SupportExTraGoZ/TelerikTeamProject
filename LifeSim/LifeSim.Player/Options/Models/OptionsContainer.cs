@@ -25,7 +25,12 @@ namespace LifeSim.Player.Options
                 { "6", new CustomTuple("Take additional lessons (takelessons)", "takelessons", PlayerProgress.Kid, true, false, false) },
 
                 { "7", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Teen, false, true, false) },
-                { "8", new CustomTuple("Go To High School (gotohighschool)", "gotohighschool", PlayerProgress.Teen, true, false, false) }
+                { "8", new CustomTuple("Go To High School (gotohighschool)", "gotohighschool", PlayerProgress.Teen, true, false, false) },
+
+                { "9", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.HighSchoolGraduate, false, true, false) },
+                { "10", new CustomTuple("Go To University (gotouniversity)", "gotouniversity", PlayerProgress.HighSchoolGraduate, true, false, false) },
+
+                { "11", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Student, true, true, false) }
             };
         }
 
