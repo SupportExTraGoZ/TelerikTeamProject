@@ -5,6 +5,7 @@ using System.Text;
 using LifeSim.Establishments.Education.PrimarySchool;
 using LifeSim.Establishments.Education.HighSchool;
 using LifeSim.Establishments.Education.University;
+using LifeSim.Establishments.Education.Models.KinderGarten.Models;
 
 namespace LifeSim.Player.Models
 {
@@ -70,6 +71,7 @@ namespace LifeSim.Player.Models
         public DateTime BirthDate { get; set; } = DateTime.Now;
         public Parent Father { get; set; }
         public Parent Mother { get; set; }
+        public KinderGarten KinderGarten { get; set; }
         public PrimarySchool PrimarySchool { get; set; }
         public HighSchool HighSchool { get; set; }
         public University University { get; set; }

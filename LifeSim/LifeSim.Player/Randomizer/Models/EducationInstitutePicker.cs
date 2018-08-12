@@ -9,10 +9,9 @@ namespace LifeSim.Player.Randomizer.Models
     {
         private readonly Random GetRandom = new Random();
 
-        public string PickKinderGarten(bool successful = false)
+        public string PickKinderGarten()
         {
-            var tempStorage = kinderGartens.Keys.Where(x => kinderGartens[x] == successful);
-            return tempStorage.ElementAt(GetRandom.Next(0, tempStorage.Count() - 1));
+            return kinderGartens.ElementAt(GetRandom.Next(0, kinderGartens.Count() - 1));
         }
 
         public string PickPrimarySchool(bool successful = false)
@@ -33,14 +32,13 @@ namespace LifeSim.Player.Randomizer.Models
             return tempStorage.ElementAt(GetRandom.Next(0, tempStorage.Count() - 1));
         }
 
-        private readonly IDictionary<string, bool> kinderGartens = new Dictionary<string, bool>
+        private readonly IList<string> kinderGartens = new List<string>
             {
-                // bool = Is school prestigious or not
-                {"Germantown Friends School",true },
-                {"Princeton Day School",true},
-                {"Collegiate School",false },
-                {"Horace Mann School",false },
-                {"Trinity School",true }
+                "Germantown Friends Garden",
+                "Princeton Day Garden",
+                "Collegiate Garden",
+                "Horace Mann Garden",
+                "Trinity Garden"
             };
 
         private readonly IDictionary<string, bool> primarySchools = new Dictionary<string, bool>

@@ -1,5 +1,6 @@
 ﻿using System;
 using LifeSim.Establishments.Education.HighSchool;
+using LifeSim.Establishments.Education.Models.KinderGarten.Models;
 using LifeSim.Establishments.Education.PrimarySchool;
 using LifeSim.Establishments.Education.University;
 using LifeSim.Player.Enums;
@@ -33,6 +34,7 @@ namespace LifeSim.Player.Contracts
         string GetBirthplace();
         Parent Father { get; set; }
         Parent Mother { get; set; }
+        KinderGarten KinderGarten { get; set; }
         PrimarySchool PrimarySchool { get; set; }
         HighSchool HighSchool { get; set; }
         University University { get; set; }
