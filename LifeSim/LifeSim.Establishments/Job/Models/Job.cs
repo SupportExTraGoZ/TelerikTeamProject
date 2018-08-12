@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using LifeSim.Establishments.AbstractEstablishment.Models;
 using LifeSim.Establishments.Job.Companies;
 using LifeSim.Establishments.Job.Enums;
 
 namespace LifeSim.Establishments.Job
 {
-    public class Job : IJob
+    public class Job : Establishment, IJob
     {
         private ICompany company;
         private double monthSalary;
@@ -14,6 +15,7 @@ namespace LifeSim.Establishments.Job
         private DateTime endDate = new DateTime(0, 0, 0);
 
         public Job(ProfessionType profession, string companyName, double monthSalary, int workHoursPerDay,DateTime startDate,DateTime endDate)
+            :base()
         {
             Profession = profession;
             company = new Company(companyName);
