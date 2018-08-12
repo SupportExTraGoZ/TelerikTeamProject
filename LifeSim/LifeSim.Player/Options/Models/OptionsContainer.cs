@@ -30,7 +30,12 @@ namespace LifeSim.Player.Options
                 { "9", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.HighSchoolGraduate, false, true, false) },
                 { "10", new CustomTuple("Go To University (gotouniversity)", "gotouniversity", PlayerProgress.HighSchoolGraduate, true, false, false) },
 
-                { "11", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Student, true, true, false) }
+                { "11", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Student, true, true, false) },
+
+                { "99", new CustomTuple("Job Names: Software Engineer, Police Officer, Fire Fighter, Scientist, Accountant", "NotForUseJustInfo", PlayerProgress.NonEmployed, true, false, false) },
+                { "12", new CustomTuple("Apply for a Job (applyforjob jobName)", "applyforjob", PlayerProgress.NonEmployed, true, true, false) },
+
+                { "13", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Worker, true, true, false) }
             };
         }
 
@@ -52,6 +57,7 @@ namespace LifeSim.Player.Options
                 }
             }
             else
+            {
                 foreach (var option in options
                          .Where(x => x.Value.playerProgress == playerProgress)
                          .Where(x => x.Value.isUnlocked)
@@ -59,12 +65,15 @@ namespace LifeSim.Player.Options
                 {
                     yield return option.Value.commandKey;
                 }
+            }
         }
 
         public void ChangeCommandStatus(string commandKey, bool isUnlocked, bool canBeUsedManyTimes = false, bool isUsed = false)
         {
             // Bai Grozdan, Edo Challenge
-            this.options.Where(x => x.Value.commandKey == commandKey).ToList().ForEach(x =>
+            this.options.Where(x => x.Value.commandKey == commandKey)
+                .ToList()
+                .ForEach(x =>
             {
                 x.Value.isUnlocked = isUnlocked;
                 x.Value.canBeUsedManyTimes = canBeUsedManyTimes;
@@ -74,10 +83,16 @@ namespace LifeSim.Player.Options
 
         public void UnlockAgeUpCommand(PlayerProgress playerProgress, bool isUnlocked = true, bool canBeUsedManyTimes = true, bool isUsed = false)
         {
-            var tempCommand = this.options.FirstOrDefault(x => x.Value.commandKey == "ageup" && x.Value.playerProgress == playerProgress);
-            tempCommand.Value.isUnlocked = isUnlocked;
-            tempCommand.Value.canBeUsedManyTimes = canBeUsedManyTimes;
-            tempCommand.Value.isUsed = isUsed;
+            // Bai Grozdan, Edo Challenge
+            this.options.Where(x => x.Value.commandKey == "ageup")
+                .Where(x => x.Value.playerProgress == playerProgress)
+                .ToList()
+                .ForEach(x =>
+            {
+                x.Value.isUnlocked = isUnlocked;
+                x.Value.canBeUsedManyTimes = canBeUsedManyTimes;
+                x.Value.isUsed = isUsed;
+            });
         }
     }
 

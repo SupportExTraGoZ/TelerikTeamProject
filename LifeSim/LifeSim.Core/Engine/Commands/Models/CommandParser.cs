@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 
 using LifeSim.Core.Engine.Commands.Contracts;
+using LifeSim.Exceptions.Models;
 
 namespace LifeSim.Core.Engine.Commands.Models
 {
@@ -46,7 +47,7 @@ namespace LifeSim.Core.Engine.Commands.Models
 
             if (commandTypeInfo == null)
             {
-                throw new ArgumentException("The passed command is not found!");
+                throw new CustomException("The passed command is not found!");
             }
 
             return commandTypeInfo;

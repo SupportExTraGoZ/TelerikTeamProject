@@ -100,7 +100,7 @@ namespace LifeSim.Core.Engine.Core.Models
                 // Player Init/Creation
                 this.Player = PlayerFactory.CreatePlayer(questionAnswers[0].Answer.Split(": ")[0], questionAnswers[1].Answer.Split(": ")[0], (GenderType)Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]), (Birthplaces)Enum.Parse(typeof(Birthplaces), questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), FamilyGenerator);
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException e)
             {
                 SupressException("Your answers didn't meet the requirements. Try Again...");
             }
@@ -187,7 +187,7 @@ namespace LifeSim.Core.Engine.Core.Models
                 return false;
             }
             // Check for command access
-            if (!this.OptionsContainer.CurrentStageOptions(PlayerProgress, true).Contains(commandAsString))
+            if (!this.OptionsContainer.CurrentStageOptions(PlayerProgress, true).Contains(commandAsString.Split()[0]))
             {
                 this.UserInteraction.AddAction($"You have no access to that command. ({commandAsString})");
                 return false;

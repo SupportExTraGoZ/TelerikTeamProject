@@ -29,7 +29,7 @@ namespace LifeSim.Core.Engine.Core.UserQuestion.Models
             this.questions.ToList().ForEach(x =>
             {
                 var sendQuestion = this.userInteraction.AskUser(x.Text, x.SameLine);
-                if (!string.IsNullOrEmpty(x.Answer))
+                if (!string.IsNullOrEmpty(sendQuestion))
                     x.Answer = sendQuestion.First().ToString().ToUpper() + sendQuestion.Substring(1);
             });
 

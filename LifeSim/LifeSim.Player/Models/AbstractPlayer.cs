@@ -6,6 +6,7 @@ using LifeSim.Establishments.Education.PrimarySchool;
 using LifeSim.Establishments.Education.HighSchool;
 using LifeSim.Establishments.Education.University;
 using LifeSim.Establishments.Education.Models.KinderGarten.Models;
+using LifeSim.Establishments.Job;
 
 namespace LifeSim.Player.Models
 {
@@ -63,6 +64,7 @@ namespace LifeSim.Player.Models
         public bool IsSuccessfulAtUniversity { get; set; }
         public bool HasAttendedUniversity { get; set; }
         public bool HasChildren { get; set; }
+        public bool HasJob { get; set; }
         // End Of Specifications
 
         public bool IsDead { get; set; } = false;
@@ -75,6 +77,7 @@ namespace LifeSim.Player.Models
         public PrimarySchool PrimarySchool { get; set; }
         public HighSchool HighSchool { get; set; }
         public University University { get; set; }
+        public IJob Job { get; set; }
 
         public string GetBirthplace()
         {

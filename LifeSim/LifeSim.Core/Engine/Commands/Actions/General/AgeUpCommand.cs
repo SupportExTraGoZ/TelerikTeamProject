@@ -31,6 +31,15 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
             // Give the player money, as of parents gifts and etc. during the year...
             player.Money += 250;
 
+            if (player.HasJob)
+            {
+                if (player.Age <= 30)
+                    player.Job.MonthlySalary += 200;
+                else
+                    player.Job.MonthlySalary += 100;
+                player.Money += player.Job.MonthlySalary * 12;
+            }
+
             switch (player.Age)
             {
                 case 1:
@@ -73,6 +82,13 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
 
                             this.engine.PlayerProgress = Player.Enums.PlayerProgress.NonEmployed;
                         }
+                    }
+                    break;
+                case 35:
+                    {
+                        var CEOChance = this.engine.NumberGenerator.RandomChance();
+                        if (CEOChance >= 50)
+                            this.engine.PlayerProgress = Player.Enums.PlayerProgress.CEO;
                     }
                     break;
             }

@@ -18,6 +18,7 @@
     <Folder Include="Engine\Commands\Actions\Schools\" />
     <Folder Include="Engine\Commands\Actions\Lessons\" />
     <Folder Include="Engine\Commands\Actions\General\" />
+    <Folder Include="Engine\Commands\Actions\Job\" />
   </ItemGroup>
 
   <ItemGroup>

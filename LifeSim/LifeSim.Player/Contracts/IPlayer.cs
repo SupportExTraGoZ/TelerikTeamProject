@@ -5,6 +5,7 @@ using LifeSim.Establishments.Education.PrimarySchool;
 using LifeSim.Establishments.Education.University;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Models;
+using LifeSim.Establishments.Job;
 
 namespace LifeSim.Player.Contracts
 {
@@ -25,6 +26,7 @@ namespace LifeSim.Player.Contracts
         bool IsSuccessfulAtUniversity { get; set; }
         bool HasAttendedUniversity { get; set; }
         bool HasChildren { get; set; }
+        bool HasJob { get; set; }
         // End Of Specifications
 
         bool IsDead { get; set; }
@@ -38,5 +40,6 @@ namespace LifeSim.Player.Contracts
         PrimarySchool PrimarySchool { get; set; }
         HighSchool HighSchool { get; set; }
         University University { get; set; }
+        IJob Job { get; set; }
     }
 }

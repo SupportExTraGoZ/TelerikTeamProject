@@ -6,5 +6,6 @@
 
   <ItemGroup>
     <Compile Remove="Education\Enum\EducationType.cs" />
+    <Compile Remove="Job\Companies\Contracts\ICompany.cs" />
   </ItemGroup>
 </Project>
