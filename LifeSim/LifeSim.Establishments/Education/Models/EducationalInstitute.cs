@@ -13,7 +13,15 @@ namespace LifeSim.Establishments.Education
             StartYear = startYear;
         }
 
-        public string Name { get; set; }
+        //there is field buildingName in Establishment class
+        //Im not sure if its good practise the code below..
+        //access the base Property through Name property
+        public string Name
+        {
+            get => base.BuildingName;
+            set => base.BuildingName = value;
+                
+        }
 
         public EducationType EducationType { get; set; }
 
