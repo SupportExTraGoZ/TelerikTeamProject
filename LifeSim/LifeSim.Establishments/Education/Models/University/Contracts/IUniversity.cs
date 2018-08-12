@@ -2,7 +2,7 @@
 
 namespace LifeSim.Establishments.Education.University.Contracts
 {
-    public interface IUniversity : IEducationalInstitute
+    public interface IUniversity 
     {
     }
 }

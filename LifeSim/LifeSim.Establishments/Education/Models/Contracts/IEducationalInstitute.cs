@@ -1,4 +1,5 @@
-﻿using LifeSim.Establishments.Education.Enum;
+﻿using LifeSim.Establishments.AbstractEstablishment.Contracts;
+using LifeSim.Establishments.Education.Enum;
 
 namespace LifeSim.Establishments.Education.Contracts
 {

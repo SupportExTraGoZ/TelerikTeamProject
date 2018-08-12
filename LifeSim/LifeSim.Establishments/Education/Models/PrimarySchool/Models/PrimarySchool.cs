@@ -8,8 +8,9 @@ namespace LifeSim.Establishments.Education.PrimarySchool
     {
         public PrimarySchool(string name, int startYear) : base(name, startYear)
         {
-            this.Name = name;
-            this.StartYear = startYear;
+            EducationType = Enum.EducationType.PrimarySchool;
+            //this.Name = name;
+            //this.StartYear = startYear;
         }
     }
 }
