@@ -15,7 +15,6 @@ namespace LifeSim.Establishments.Education
         {
             get => base.BuildingName;
             set => base.BuildingName = value;
-
         }
 
         public int StartYear { get; set; }
