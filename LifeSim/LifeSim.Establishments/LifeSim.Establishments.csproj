@@ -4,4 +4,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Education\Enum\EducationType.cs" />
+  </ItemGroup>
 </Project>

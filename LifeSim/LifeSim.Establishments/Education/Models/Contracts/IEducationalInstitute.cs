@@ -1,5 +1,4 @@
 ﻿using LifeSim.Establishments.AbstractEstablishment.Contracts;
-using LifeSim.Establishments.Education.Enum;
 
 namespace LifeSim.Establishments.Education.Contracts
 {
@@ -8,7 +7,5 @@ namespace LifeSim.Establishments.Education.Contracts
         int StartYear { get; set; }
 
         int GraduateYear { get; set; }
-
-        EducationType EducationType { get; set; }
     }
 }

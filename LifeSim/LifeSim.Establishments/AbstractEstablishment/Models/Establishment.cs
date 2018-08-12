@@ -5,23 +5,11 @@ namespace LifeSim.Establishments.AbstractEstablishment.Models
 {
     public abstract class Establishment : IEstablishment
     {
-        private string buildingName;
-
-        protected Establishment()
+        protected Establishment(string buildingName)
         {
-
+            this.BuildingName = buildingName;
         }
 
-        public string BuildingName
-        {
-            get => buildingName;
-            set
-            {
-                if (value == null) throw new ArgumentNullException("Building name cannot be null.");
-                if (value.Length == 0) throw new ArgumentException("Building name cannot be empty.");
-
-                buildingName = value;
-            }
-        }
+        public string BuildingName { get; set; }
     }
 }

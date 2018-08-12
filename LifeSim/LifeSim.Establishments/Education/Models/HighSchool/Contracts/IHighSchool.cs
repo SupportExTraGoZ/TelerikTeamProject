@@ -5,6 +5,6 @@ namespace LifeSim.Establishments.Education.HighSchool.Contracts
 {
     public interface IHighSchool
     {
-        //IDictionary<string, bool> HighSchools { get; }
+        // TODO: Add specifics for High School
     }
 }
