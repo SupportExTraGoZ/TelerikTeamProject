@@ -24,7 +24,7 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions
         public void AddAction(string action)
         {
             if (action != null)
-                this.actionLog.Add(action);
+                this.actionLog.Insert(0, action);
         }
 
         public UserInteraction(IConsoleWriter writer, IConsoleReader consoleReader)

@@ -65,6 +65,8 @@ namespace LifeSim.Player.Models
         public bool HasAttendedUniversity { get; set; }
         public bool HasChildren { get; set; }
         public bool HasJob { get; set; }
+        public bool IsCEO { get; set; }
+        public bool IsRetired { get; set; }
         // End Of Specifications
 
         public bool IsDead { get; set; } = false;
@@ -113,7 +115,7 @@ namespace LifeSim.Player.Models
                 stringBuilder.AppendLine($"{this.Mother.FirstName} {this.Mother.LastName} is living at the age of {this.Mother.Age}");
 
             stringBuilder.AppendLine("----- WEALTH -----");
-            stringBuilder.AppendLine($"You have passed away with ${this.Money} in your bank account.");
+            stringBuilder.AppendLine($"You have passed away with ${string.Format("{0:N0}", this.Money)} in your bank account.");
 
             if (this.Money > 0)
                 if (this.HasChildren)
@@ -148,13 +150,23 @@ namespace LifeSim.Player.Models
                 else stringBuilder.AppendLine("You weren't successful in University.");
                 stringBuilder.AppendLine($"You've graduated University at {this.University.BuildingName}, on {this.University.GraduateYear}");
             }
-
             // Was Taking Lessons?
             if (this.IsTakingLessons) stringBuilder.AppendLine("You were taking extra private lessons.");
             else stringBuilder.AppendLine("You weren't taking extra private lessons.");
 
-            stringBuilder.AppendLine("----- INFO -----");
-            stringBuilder.AppendLine($"More to be added...");
+            stringBuilder.AppendLine("----- WORK -----");
+            if (Job != null)
+            {
+                if (IsCEO)
+                    stringBuilder.AppendLine("You've been CEO in your life.");
+                stringBuilder.AppendLine($"You've worked as {this.Job.Profession}.");
+                stringBuilder.AppendLine($"Started Work: {this.Job.StartDate.Year} | Retired: {this.Job.EndDate.Year}.");
+                stringBuilder.AppendLine($"Your maximum salary was ${this.Job.MonthlySalary}.");
+            }
+            else
+            {
+                stringBuilder.AppendLine("You haven't had a job.");
+            }
 
             return stringBuilder.ToString();
         }

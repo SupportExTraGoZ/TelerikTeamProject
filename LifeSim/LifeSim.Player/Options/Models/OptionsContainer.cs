@@ -35,7 +35,11 @@ namespace LifeSim.Player.Options
                 { "99", new CustomTuple("Job Names: Software Engineer, Police Officer, Fire Fighter, Scientist, Accountant", "NotForUseJustInfo", PlayerProgress.NonEmployed, true, false, false) },
                 { "12", new CustomTuple("Apply for a Job (applyforjob jobName)", "applyforjob", PlayerProgress.NonEmployed, true, true, false) },
 
-                { "13", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Worker, true, true, false) }
+                { "13", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Worker, true, true, false) },
+
+                { "14", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.CEO, true, true, false) },
+
+                { "15", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Retired, true, true, false) }
             };
         }
 

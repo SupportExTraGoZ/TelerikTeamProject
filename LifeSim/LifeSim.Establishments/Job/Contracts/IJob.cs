@@ -9,10 +9,10 @@ namespace LifeSim.Establishments.Job
 
         int WorkHoursPerDay { get; set; }
 
-        ProfessionType Profession { get; }
+        ProfessionType Profession { get; set; }
 
-        DateTime StartDate { get; }
+        DateTime StartDate { get; set; }
 
-        DateTime EndDate { get; }
+        DateTime EndDate { get; set; }
     }
 }

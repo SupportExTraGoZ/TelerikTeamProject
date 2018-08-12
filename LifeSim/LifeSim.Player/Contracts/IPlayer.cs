@@ -27,6 +27,8 @@ namespace LifeSim.Player.Contracts
         bool HasAttendedUniversity { get; set; }
         bool HasChildren { get; set; }
         bool HasJob { get; set; }
+        bool IsCEO { get; set; }
+        bool IsRetired { get; set; }
         // End Of Specifications
 
         bool IsDead { get; set; }

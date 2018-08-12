@@ -36,5 +36,6 @@ namespace LifeSim.Core.Engine.Core.Contracts
         PlayerProgress PlayerProgress { get; set; }
 
         DateTime GameTime { get; set; }
+        bool EndTheGame { get; set; }
     }
 }

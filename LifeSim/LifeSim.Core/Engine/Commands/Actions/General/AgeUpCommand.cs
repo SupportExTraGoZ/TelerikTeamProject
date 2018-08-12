@@ -34,10 +34,39 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
             if (player.HasJob)
             {
                 if (player.Age <= 30)
-                    player.Job.MonthlySalary += 200;
+                    player.Job.MonthlySalary += 500;
                 else
-                    player.Job.MonthlySalary += 100;
+                    player.Job.MonthlySalary += 250;
                 player.Money += player.Job.MonthlySalary * 12;
+            }
+
+            if (player.Father.Age > 65)
+            {
+                var deathChance = this.engine.NumberGenerator.RandomChance();
+                if (deathChance >= 50)
+                {
+                    player.Father.IsDead = true;
+                    this.engine.UserInteraction.AddAction($"Your father has passed away at the age of {player.Father.Age}");
+                }
+            }
+            if (player.Mother.Age > 65)
+            {
+                var deathChance = this.engine.NumberGenerator.RandomChance();
+                if (deathChance >= 50)
+                {
+                    player.Mother.IsDead = true;
+                    this.engine.UserInteraction.AddAction($"Your mother has passed away at the age of {player.Mother.Age}");
+                }
+            }
+            if (player.Age > 65)
+            {
+                var deathChance = this.engine.NumberGenerator.RandomChance();
+                if (deathChance >= 50)
+                {
+                    player.IsDead = true;
+                    this.engine.EndTheGame = true;
+                    return $"You've passed away at the age of {player.Age}";
+                }
             }
 
             switch (player.Age)
@@ -88,7 +117,25 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                     {
                         var CEOChance = this.engine.NumberGenerator.RandomChance();
                         if (CEOChance >= 50)
+                        {
                             this.engine.PlayerProgress = Player.Enums.PlayerProgress.CEO;
+                            this.engine.UserInteraction.AddAction("You've became a CEO at your company.");
+                            player.Job.MonthlySalary = 20000;
+                            player.IsCEO = true;
+                            player.Job.EndDate = this.engine.GameTime;
+                        }
+                    }
+                    break;
+                case 55:
+                    {
+                        if (this.engine.PlayerProgress != Player.Enums.PlayerProgress.CEO)
+                        {
+                            this.engine.PlayerProgress = Player.Enums.PlayerProgress.Retired;
+                            player.Job.EndDate = this.engine.GameTime;
+                            player.HasJob = false;
+                            player.IsRetired = true;
+                            this.engine.UserInteraction.AddAction("You've retired from work, enjoy the rest of your life.");
+                        }
                     }
                     break;
             }
