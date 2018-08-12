@@ -100,6 +100,10 @@ namespace LifeSim.Core.Engine.Core.Models
                 // Player Init/Creation
                 this.Player = PlayerFactory.CreatePlayer(questionAnswers[0].Answer.Split(": ")[0], questionAnswers[1].Answer.Split(": ")[0], (GenderType)Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]), (Birthplaces)Enum.Parse(typeof(Birthplaces), questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), FamilyGenerator);
             }
+            catch (NullReferenceException)
+            {
+                SupressException("Your answers didn't meet the requirements. Try Again...");
+            }
             catch (ArgumentException)
             {
                 SupressException("Invalid input data.");
@@ -154,6 +158,7 @@ namespace LifeSim.Core.Engine.Core.Models
                 }
                 catch (Exception ex)
                 {
+                    // Just for now to debug, will be changed later on.
                     //this.UserInteraction.AddAction("An unexpected error has occured and has been logged.");
                     this.UserInteraction.AddAction(ex.Message);
                     this.Logger.GetLogger.Error(ex.Message);

@@ -18,11 +18,20 @@ namespace LifeSim.Core.Engine.Core.UserQuestion.Models
 
         public IList<IQuestion> GetUserAnswers()
         {
-            foreach (var question in this.questions)
+            // Old
+            /*foreach (var question in this.questions)
             {
                 var sendQuestion = this.userInteraction.AskUser(question.Text, question.SameLine);
                 question.Answer = sendQuestion.First().ToString().ToUpper() + sendQuestion.Substring(1);
-            }
+            }*/
+
+            // New & Better - Bai Grozdan
+            this.questions.ToList().ForEach(x =>
+            {
+                var sendQuestion = this.userInteraction.AskUser(x.Text, x.SameLine);
+                if (!string.IsNullOrEmpty(x.Answer))
+                    x.Answer = sendQuestion.First().ToString().ToUpper() + sendQuestion.Substring(1);
+            });
 
             return this.questions;
         }
