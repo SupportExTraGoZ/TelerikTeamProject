@@ -40,7 +40,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                 player.Money += player.Job.MonthlySalary * 12;
             }
 
-            if (player.Father.Age > 65)
+            if (!player.Father.IsDead && player.Father.Age > 65)
             {
                 var deathChance = this.engine.NumberGenerator.RandomChance();
                 if (deathChance >= 50)
@@ -49,7 +49,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                     this.engine.UserInteraction.AddAction($"Your father has passed away at the age of {player.Father.Age}");
                 }
             }
-            if (player.Mother.Age > 65)
+            if (!player.Mother.IsDead && player.Mother.Age > 65)
             {
                 var deathChance = this.engine.NumberGenerator.RandomChance();
                 if (deathChance >= 50)
