@@ -42,8 +42,8 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
 
             if (!player.Father.IsDead && player.Father.Age > 65)
             {
-                var deathChance = engine.NumberGenerator.RandomChance();
-                if (deathChance >= 50)
+                var deathChance = this.engine.NumberGenerator.RandomChance();
+                if (deathChance >= 70)
                 {
                     player.Father.IsDead = true;
                     engine.UserInteraction.AddAction($"Your father has passed away at the age of {player.Father.Age}");
@@ -51,8 +51,8 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
             }
             if (!player.Mother.IsDead && player.Mother.Age > 65)
             {
-                var deathChance = engine.NumberGenerator.RandomChance();
-                if (deathChance >= 50)
+                var deathChance = this.engine.NumberGenerator.RandomChance();
+                if (deathChance >= 70)
                 {
                     player.Mother.IsDead = true;
                     engine.UserInteraction.AddAction($"Your mother has passed away at the age of {player.Mother.Age}");
@@ -60,8 +60,8 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
             }
             if (player.Age > 65)
             {
-                var deathChance = engine.NumberGenerator.RandomChance();
-                if (deathChance >= 50)
+                var deathChance = this.engine.NumberGenerator.RandomChance();
+                if (deathChance >= 70)
                 {
                     player.IsDead = true;
                     engine.EndTheGame = true;
@@ -134,11 +134,13 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                 {
                     if (engine.PlayerProgress != PlayerProgress.CEO)
                     {
-                        engine.PlayerProgress = PlayerProgress.Retired;
-                        player.Job.EndDate = engine.GameTime;
-                        player.HasJob = false;
-                        player.IsRetired = true;
-                        engine.UserInteraction.AddAction("You've retired from work, enjoy the rest of your life.");
+                        if (this.engine.PlayerProgress != Player.Enums.PlayerProgress.CEO)
+                        {
+                            this.engine.PlayerProgress = Player.Enums.PlayerProgress.Retired;
+                            player.Job.EndDate = this.engine.GameTime;
+                            player.IsRetired = true;
+                            this.engine.UserInteraction.AddAction("You've retired from work, enjoy the rest of your life.");
+                        }
                     }
                 }
                     break;

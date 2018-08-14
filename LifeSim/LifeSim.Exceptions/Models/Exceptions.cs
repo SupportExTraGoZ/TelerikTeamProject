@@ -8,5 +8,6 @@
         public const string LastNameTooLong = "Last Name is too long.";
         public const string InvalidBirthplace = "Invalid Birth Place, please select an existing one.";
         public const string InvalidGender = "Invalid Gender, please select an existing one.";
+        public const string NoCommandsAvailable = "No commands available at this stage...";
     }
 }

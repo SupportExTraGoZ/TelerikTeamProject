@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Exceptions", "LifeS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Logger", "LifeSim.Logger\LifeSim.Logger.csproj", "{D49598E9-B885-4AC4-ACA2-3B2DD7A5F22C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Tests", "LifeSim.Tests\LifeSim.Tests.csproj", "{A55BF44B-1C46-4211-AB8F-2944689B4D3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{D49598E9-B885-4AC4-ACA2-3B2DD7A5F22C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D49598E9-B885-4AC4-ACA2-3B2DD7A5F22C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D49598E9-B885-4AC4-ACA2-3B2DD7A5F22C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A55BF44B-1C46-4211-AB8F-2944689B4D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A55BF44B-1C46-4211-AB8F-2944689B4D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A55BF44B-1C46-4211-AB8F-2944689B4D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A55BF44B-1C46-4211-AB8F-2944689B4D3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{DE51433D-43D8-4CCD-A100-3D0B837E64FE} = {E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}
 		{20499D02-8478-4BE1-8B9B-B491F76B7CA2} = {E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}
 		{D49598E9-B885-4AC4-ACA2-3B2DD7A5F22C} = {E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}
+		{A55BF44B-1C46-4211-AB8F-2944689B4D3D} = {E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE917D71-070B-4E13-A545-1FACE75697AF}

@@ -16,10 +16,10 @@ namespace LifeSim.Player.Contracts
         int Age { get; set; }
         int Money { get; set; }
         int Friends { get; set; }
+        bool IsDead { get; set; }
 
         // Specifications
-        bool IsTakingLessons { get; set; }
-
+        bool HasTakenLessons { get; set; }
         bool IsSuccessfulAtPrimarySchool { get; set; }
         bool HasAttendedPrimarySchool { get; set; }
         bool IsSuccessfulAtHighSchool { get; set; }
@@ -27,13 +27,12 @@ namespace LifeSim.Player.Contracts
         bool IsSuccessfulAtUniversity { get; set; }
         bool HasAttendedUniversity { get; set; }
         bool HasChildren { get; set; }
-        bool HasJob { get; set; }
+        bool HasJob { get; }
         bool IsCEO { get; set; }
 
         bool IsRetired { get; set; }
         // End Of Specifications
 
-        bool IsDead { get; set; }
         GenderType Gender { get; set; }
         DateTime BirthDate { get; set; }
         Birthplaces Birthplace { get; set; }
@@ -44,6 +43,7 @@ namespace LifeSim.Player.Contracts
         HighSchool HighSchool { get; set; }
         University University { get; set; }
         IJob Job { get; set; }
+
         string GetBirthplace();
     }
 }

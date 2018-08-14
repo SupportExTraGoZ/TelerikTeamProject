@@ -2,6 +2,8 @@
 using System.Linq;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Options.Contracts;
+using System.Linq;
+using LifeSim.Exceptions.Models;
 
 namespace LifeSim.Player.Options
 {
@@ -34,12 +36,9 @@ namespace LifeSim.Player.Options
                         false, false)
                 },
 
-                {"7", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Teen, false, true, false)},
-                {
-                    "8",
-                    new CustomTuple("Go To High School (gotohighschool)", "gotohighschool", PlayerProgress.Teen, true,
-                        false, false)
-                },
+                { "7", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Teen, false, true, false) },
+                { "8", new CustomTuple("Go To High School (gotohighschool)", "gotohighschool", PlayerProgress.Teen, true, false, false) },
+                { "16", new CustomTuple("Take additional lessons (takelessons)", "takelessons", PlayerProgress.Teen, true, false, false) },
 
                 {
                     "9",
@@ -82,18 +81,19 @@ namespace LifeSim.Player.Options
                     .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed);
 
                 if (!tempOptions.Any())
-                    yield return "No commands available at this stage...";
+                    return new List<string> { Exceptions.Models.Exceptions.NoCommandsAvailable };
 
-                foreach (var option in tempOptions)
-                    yield return option.Value.commandDisplay;
+                return tempOptions.Select(x => x.Value.commandDisplay).ToList();
             }
             else
             {
-                foreach (var option in options
-                    .Where(x => x.Value.playerProgress == playerProgress)
-                    .Where(x => x.Value.isUnlocked)
-                    .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed))
-                    yield return option.Value.commandKey;
+                var temp = options
+                     .Where(x => x.Value.playerProgress == playerProgress)
+                     .Where(x => x.Value.isUnlocked)
+                     .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed)
+                     .Select(option => option.Value.commandKey).ToList();
+
+                return temp;
             }
         }
 

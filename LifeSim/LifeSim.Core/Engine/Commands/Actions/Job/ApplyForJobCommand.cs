@@ -22,7 +22,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
             ProfessionType job;
             try
             {
-                job = (ProfessionType) Enum.Parse(typeof(ProfessionType), parameters[1].Trim(), true);
+                job = (ProfessionType)Enum.Parse(typeof(ProfessionType), parameters[1], true);
             }
             catch (NullReferenceException)
             {
@@ -44,14 +44,20 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
                 {
                     if (player.IsSuccessfulAtUniversity)
                     {
-                        player.Job =
-                            new Establishments.Job.Job(ProfessionType.SoftwareEngineer, 1200, 6, engine.GameTime);
-                        player.HasJob = true;
-                        stringBuilder.AppendLine(
-                            "Few weeks later, you have been accepted to work at the Software Engineering Company.");
-                        stringBuilder.AppendLine(
-                            $"You're now working {player.Job.WorkHoursPerDay} hours per day, for ${player.Job.MonthlySalary} per month.");
-                        engine.PlayerProgress = PlayerProgress.Worker;
+                        if (player.IsSuccessfulAtUniversity)
+                        {
+                            player.Job = new Establishments.Job.Job(ProfessionType.SoftwareEngineer, 1200, 6, this.engine.GameTime);
+                            player.HasJob = true;
+                            stringBuilder.AppendLine("Few weeks later, you have been accepted to work at the Software Engineering Company.");
+                            stringBuilder.AppendLine($"You're now working {player.Job.WorkHoursPerDay} hours per day, for ${player.Job.MonthlySalary} per month.");
+                            this.engine.PlayerProgress = Player.Enums.PlayerProgress.Worker;
+                        }
+                        else
+                        {
+                            stringBuilder.AppendLine("Few weeks later, your receive an answer that...");
+                            stringBuilder.AppendLine("Your application for the Software Engineering Company has been declined.");
+                            stringBuilder.AppendLine("Try looking and applying for another job.");
+                        }
                     }
                     else
                     {
@@ -97,9 +103,20 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
                     }
                     else
                     {
-                        stringBuilder.AppendLine(
-                            "Your application for the Scientific Research Company has been declined.");
-                        stringBuilder.AppendLine("Try looking and applying for another job.");
+                        if (player.IsSuccessfulAtUniversity && player.IsTakingLessons)
+                        {
+                            player.Job = new Establishments.Job.Job(ProfessionType.Scientist, 1800, 8, this.engine.GameTime);
+                            player.HasJob = true;
+                            stringBuilder.AppendLine("Few weeks later, you have been accepted to work at the Scientific Research Company.");
+                            stringBuilder.AppendLine($"You're now working {player.Job.WorkHoursPerDay} hours per day, for ${player.Job.MonthlySalary} per month.");
+                            this.engine.PlayerProgress = Player.Enums.PlayerProgress.Worker;
+                        }
+                        else
+                        {
+                            stringBuilder.AppendLine("Few weeks later, your receive an answer that...");
+                            stringBuilder.AppendLine("Your application for the Scientific Research Company has been declined.");
+                            stringBuilder.AppendLine("Try looking and applying for another job.");
+                        }
                     }
                 }
                     break;

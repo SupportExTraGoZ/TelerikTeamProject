@@ -34,8 +34,7 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions
                 consoleWriter.WriteLine(message);
             else
                 consoleWriter.Write(message);
-            var value = consoleReader.ReadLine();
-            return value;
+            return consoleReader.ReadLine();
         }
     }
 }

@@ -57,8 +57,7 @@ namespace LifeSim.Player.Models
         public int Friends { get; set; }
 
         // Specifications
-        public bool IsTakingLessons { get; set; }
-
+        public bool HasTakenLessons { get; set; }
         public bool IsSuccessfulAtPrimarySchool { get; set; }
         public bool HasAttendedPrimarySchool { get; set; }
         public bool IsSuccessfulAtHighSchool { get; set; }
@@ -66,7 +65,16 @@ namespace LifeSim.Player.Models
         public bool IsSuccessfulAtUniversity { get; set; }
         public bool HasAttendedUniversity { get; set; }
         public bool HasChildren { get; set; }
-        public bool HasJob { get; set; }
+        public bool HasJob
+        {
+            get
+            {
+                if (this.Job == null || (this.Job != null && this.Job.EndDate < this.Job.StartDate))
+                    return false;
+
+                return true;
+            }
+        }
         public bool IsCEO { get; set; }
 
         public bool IsRetired { get; set; }

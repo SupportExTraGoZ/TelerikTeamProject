@@ -6,6 +6,8 @@ namespace LifeSim.Core.Engine.Commands.Contracts
     {
         ICommand ParseCommand(string fullCommand);
 
+        bool ProcessCommand(string commandAsString);
+
         IList<string> ParseParameters(string fullCommand);
     }
 }

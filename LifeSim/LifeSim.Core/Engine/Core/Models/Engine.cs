@@ -145,6 +145,7 @@ namespace LifeSim.Core.Engine.Core.Models
                 // Show User's available options
                 MenuLauncher.PrintMenu(PlayerProgress, OptionsContainer);
 
+
                 if (EndTheGame)
                     break;
 
@@ -155,13 +156,7 @@ namespace LifeSim.Core.Engine.Core.Models
                     if (commandAsString.ToLower() == TerminationCommand.ToLower())
                         break;
 
-                    // TODO: If process command doesn't go thru, show the options again...
-                    /*if (!this.ProcessCommand(commandAsString))
-                    {
-
-                    }*/
-
-                    ProcessCommand(commandAsString);
+                    this.Parser.ProcessCommand(commandAsString);
                 }
                 catch (Exception ex)
                 {
@@ -184,30 +179,6 @@ namespace LifeSim.Core.Engine.Core.Models
 
             Writer.WriteLine(
                 $"Thank you for playing LifeSim Alpha {Assembly.GetExecutingAssembly().GetName().Version}");
-        }
-
-        private bool ProcessCommand(string commandAsString)
-        {
-            if (string.IsNullOrWhiteSpace(commandAsString))
-            {
-                UserInteraction.AddAction("Command cannot be null or empty.");
-                Logger.GetLogger.Info("Client attempted to enter an empty/null command.");
-                return false;
-            }
-            // Check for command access
-            if (!OptionsContainer.CurrentStageOptions(PlayerProgress, true).Contains(commandAsString.Split()[0]))
-            {
-                UserInteraction.AddAction($"You have no access to that command. ({commandAsString})");
-                return false;
-            }
-
-            var command = Parser.ParseCommand(commandAsString);
-            var parameters = Parser.ParseParameters(commandAsString);
-
-            var executionResult = command.Execute(parameters);
-            UserInteraction.AddAction(executionResult);
-
-            return true;
         }
 
         private void SupressException(string message)
