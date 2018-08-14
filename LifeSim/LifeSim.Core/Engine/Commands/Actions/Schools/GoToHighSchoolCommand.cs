@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Text;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.Contracts;
-using System.Text;
 using LifeSim.Establishments.Education.HighSchool;
 
 namespace LifeSim.Core.Engine.Commands.Actions.Schools
@@ -21,19 +20,24 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
         public string Execute(IList<string> parameters)
         {
             // Unlock/Lock Commands
-            this.engine.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
-            this.engine.OptionsContainer.UnlockAgeUpCommand(this.engine.PlayerProgress);
+            engine.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
+            engine.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
 
-            this.engine.Player.HighSchool = new HighSchool(this.engine.EducationInstitutePicker.PickHighSchool(this.engine.Player.IsSuccessfulAtPrimarySchool), this.engine.GameTime.Year);
+            engine.Player.HighSchool =
+                new HighSchool(
+                    engine.EducationInstitutePicker.PickHighSchool(engine.Player.IsSuccessfulAtPrimarySchool),
+                    engine.GameTime.Year);
 
-            var friends = this.engine.NumberGenerator.ChooseNumber(minFriends, maxFriends);
-            this.engine.Player.Friends += friends;
+            var friends = engine.NumberGenerator.ChooseNumber(minFriends, maxFriends);
+            engine.Player.Friends += friends;
 
-            StringBuilder stringBuilder = new StringBuilder();
-            if (this.engine.Player.IsSuccessfulAtPrimarySchool)
-                stringBuilder.AppendLine($"You have been accepted in the prestigious {this.engine.Player.HighSchool.BuildingName}.");
+            var stringBuilder = new StringBuilder();
+            if (engine.Player.IsSuccessfulAtPrimarySchool)
+                stringBuilder.AppendLine(
+                    $"You have been accepted in the prestigious {engine.Player.HighSchool.BuildingName}.");
             else
-                stringBuilder.AppendLine($"You have been accepted in the not so prestigious {this.engine.Player.HighSchool.BuildingName}.");
+                stringBuilder.AppendLine(
+                    $"You have been accepted in the not so prestigious {engine.Player.HighSchool.BuildingName}.");
             stringBuilder.AppendLine($"The next day, you've made {friends} new friends.");
             return stringBuilder.ToString();
         }

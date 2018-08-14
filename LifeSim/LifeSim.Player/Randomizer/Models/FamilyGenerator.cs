@@ -6,13 +6,13 @@ namespace LifeSim.Player.Randomizer.Models
 {
     public class FamilyGenerator : IFamilyGenerator
     {
-        private readonly Random GetRandom = new Random();
-
         private const int minParentAge = 25;
         private const int maxParentAge = 55;
 
         private readonly string[] FatherNames =
             {"John Doesh", "Vasilis Petrovich", "Ivan Kitukovich", "Pedro Lamas", "Gosho Toshov"};
+
+        private readonly Random GetRandom = new Random();
 
         private readonly string[] MotherNames =
             {"Mariya Doesh", "Petranka Petrovich", "Ivanka Kitukovich", "Milla Lamas", "Pesha Toshova"};
@@ -20,15 +20,15 @@ namespace LifeSim.Player.Randomizer.Models
         public string[] ChooseParentNames()
         {
             string fatherName, motherName;
-            int num = GetRandom.Next(0, FatherNames.Length - 1);
+            var num = GetRandom.Next(0, FatherNames.Length - 1);
             fatherName = FatherNames[num];
             motherName = MotherNames[num];
-            return new[] { fatherName, motherName };
+            return new[] {fatherName, motherName};
         }
 
         public Birthplaces ChooseBirthplace()
         {
-            return (Birthplaces)GetRandom.Next(0, 3);
+            return (Birthplaces) GetRandom.Next(0, 3);
         }
 
         public int ChooseAge()

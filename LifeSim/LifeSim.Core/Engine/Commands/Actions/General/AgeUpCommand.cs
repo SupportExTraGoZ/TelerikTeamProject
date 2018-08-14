@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.Contracts;
+using LifeSim.Player.Enums;
 
 namespace LifeSim.Core.Engine.Commands.Actions.General
 {
@@ -17,7 +17,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
         public string Execute(IList<string> parameters)
         {
             // Increase the player's Age & his parent's Age.
-            var player = this.engine.Player;
+            var player = engine.Player;
             if (!player.IsDead)
                 player.Age++;
             if (!player.Father.IsDead)
@@ -26,7 +26,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                 player.Mother.Age++;
 
             // Update GameTime Year
-            this.engine.GameTime = this.engine.GameTime.AddYears(1);
+            engine.GameTime = engine.GameTime.AddYears(1);
 
             // Give the player money, as of parents gifts and etc. during the year...
             player.Money += 250;
@@ -42,105 +42,109 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
 
             if (!player.Father.IsDead && player.Father.Age > 65)
             {
-                var deathChance = this.engine.NumberGenerator.RandomChance();
+                var deathChance = engine.NumberGenerator.RandomChance();
                 if (deathChance >= 50)
                 {
                     player.Father.IsDead = true;
-                    this.engine.UserInteraction.AddAction($"Your father has passed away at the age of {player.Father.Age}");
+                    engine.UserInteraction.AddAction($"Your father has passed away at the age of {player.Father.Age}");
                 }
             }
             if (!player.Mother.IsDead && player.Mother.Age > 65)
             {
-                var deathChance = this.engine.NumberGenerator.RandomChance();
+                var deathChance = engine.NumberGenerator.RandomChance();
                 if (deathChance >= 50)
                 {
                     player.Mother.IsDead = true;
-                    this.engine.UserInteraction.AddAction($"Your mother has passed away at the age of {player.Mother.Age}");
+                    engine.UserInteraction.AddAction($"Your mother has passed away at the age of {player.Mother.Age}");
                 }
             }
             if (player.Age > 65)
             {
-                var deathChance = this.engine.NumberGenerator.RandomChance();
+                var deathChance = engine.NumberGenerator.RandomChance();
                 if (deathChance >= 50)
                 {
                     player.IsDead = true;
-                    this.engine.EndTheGame = true;
+                    engine.EndTheGame = true;
                     return $"You've passed away at the age of {player.Age}";
                 }
+            }
+            if (player.Age > 20)
+            {
+                player.Friends += this.engine.NumberGenerator.ChooseNumber(20, 100);
             }
 
             switch (player.Age)
             {
                 case 1:
-                    this.engine.PlayerProgress = Player.Enums.PlayerProgress.Baby;
+                    engine.PlayerProgress = PlayerProgress.Baby;
                     break;
                 case 7:
-                    this.engine.PlayerProgress = Player.Enums.PlayerProgress.Kid;
+                    engine.PlayerProgress = PlayerProgress.Kid;
                     break;
                 case 14:
-                    {
-                        var tempCommand = this.engine.Parser.ParseCommand("endprimaryschool");
-                        var tempParams = this.engine.Parser.ParseParameters("endprimaryschool");
-                        var executionResult = tempCommand.Execute(tempParams);
-                        this.engine.UserInteraction.AddAction(executionResult);
+                {
+                    var tempCommand = engine.Parser.ParseCommand("endprimaryschool");
+                    var tempParams = engine.Parser.ParseParameters("endprimaryschool");
+                    var executionResult = tempCommand.Execute(tempParams);
+                    engine.UserInteraction.AddAction(executionResult);
 
-                        this.engine.PlayerProgress = Player.Enums.PlayerProgress.Teen;
-                    }
+                    engine.PlayerProgress = PlayerProgress.Teen;
+                }
                     break;
                 case 19:
-                    {
-                        var tempCommand = this.engine.Parser.ParseCommand("endhighschool");
-                        var tempParams = this.engine.Parser.ParseParameters("endhighschool");
-                        var executionResult = tempCommand.Execute(tempParams);
-                        this.engine.UserInteraction.AddAction(executionResult);
+                {
+                    var tempCommand = engine.Parser.ParseCommand("endhighschool");
+                    var tempParams = engine.Parser.ParseParameters("endhighschool");
+                    var executionResult = tempCommand.Execute(tempParams);
+                    engine.UserInteraction.AddAction(executionResult);
 
-                        if (this.engine.Player.IsSuccessfulAtHighSchool)
-                            this.engine.PlayerProgress = Player.Enums.PlayerProgress.HighSchoolGraduate;
-                        else
-                            this.engine.PlayerProgress = Player.Enums.PlayerProgress.NonEmployed;
-                    }
+                    if (engine.Player.IsSuccessfulAtHighSchool)
+                        engine.PlayerProgress = PlayerProgress.HighSchoolGraduate;
+                    else
+                        engine.PlayerProgress = PlayerProgress.NonEmployed;
+                }
                     break;
                 case 24:
+                {
+                    if (engine.PlayerProgress == PlayerProgress.Student)
                     {
-                        if (this.engine.PlayerProgress == Player.Enums.PlayerProgress.Student)
-                        {
-                            var tempCommand = this.engine.Parser.ParseCommand("enduniversity");
-                            var tempParams = this.engine.Parser.ParseParameters("enduniversity");
-                            var executionResult = tempCommand.Execute(tempParams);
-                            this.engine.UserInteraction.AddAction(executionResult);
+                        var tempCommand = engine.Parser.ParseCommand("enduniversity");
+                        var tempParams = engine.Parser.ParseParameters("enduniversity");
+                        var executionResult = tempCommand.Execute(tempParams);
+                        engine.UserInteraction.AddAction(executionResult);
 
-                            this.engine.PlayerProgress = Player.Enums.PlayerProgress.NonEmployed;
-                        }
+                        engine.PlayerProgress = PlayerProgress.NonEmployed;
                     }
+                }
                     break;
                 case 35:
+                {
+                    var CEOChance = engine.NumberGenerator.RandomChance();
+                    if (CEOChance >= 50)
                     {
-                        var CEOChance = this.engine.NumberGenerator.RandomChance();
-                        if (CEOChance >= 50)
-                        {
-                            this.engine.PlayerProgress = Player.Enums.PlayerProgress.CEO;
-                            this.engine.UserInteraction.AddAction("You've became a CEO at your company.");
-                            player.Job.MonthlySalary = 20000;
-                            player.IsCEO = true;
-                            player.Job.EndDate = this.engine.GameTime;
-                        }
+                        engine.PlayerProgress = PlayerProgress.CEO;
+                        engine.UserInteraction.AddAction("You've became a CEO at your company.");
+                        player.Job.MonthlySalary = 20000;
+                        player.IsCEO = true;
+                        player.Job.EndDate = engine.GameTime;
                     }
+                }
                     break;
                 case 55:
+                {
+                    if (engine.PlayerProgress != PlayerProgress.CEO)
                     {
-                        if (this.engine.PlayerProgress != Player.Enums.PlayerProgress.CEO)
-                        {
-                            this.engine.PlayerProgress = Player.Enums.PlayerProgress.Retired;
-                            player.Job.EndDate = this.engine.GameTime;
-                            player.HasJob = false;
-                            player.IsRetired = true;
-                            this.engine.UserInteraction.AddAction("You've retired from work, enjoy the rest of your life.");
-                        }
+                        engine.PlayerProgress = PlayerProgress.Retired;
+                        player.Job.EndDate = engine.GameTime;
+                        player.HasJob = false;
+                        player.IsRetired = true;
+                        engine.UserInteraction.AddAction("You've retired from work, enjoy the rest of your life.");
                     }
+                }
                     break;
             }
 
-            return $"You have grown up and now you are {player.Age} years old.";
+            return $"You have made new friends grown up the following year and now you are {player.Age} years old.";
         }
     }
 }

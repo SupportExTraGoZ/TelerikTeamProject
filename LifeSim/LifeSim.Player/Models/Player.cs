@@ -1,6 +1,5 @@
 ﻿using LifeSim.Player.Enums;
 using LifeSim.Player.Randomizer.Contracts;
-using LifeSim.Player.Contracts;
 
 namespace LifeSim.Player.Models
 {

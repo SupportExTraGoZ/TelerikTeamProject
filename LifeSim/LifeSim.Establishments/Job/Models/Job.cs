@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using LifeSim.Establishments.AbstractEstablishment.Models;
 using LifeSim.Establishments.Job.Enums;
 
 namespace LifeSim.Establishments.Job

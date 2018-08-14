@@ -1,22 +1,20 @@
-﻿using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
+﻿using System;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
+using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
 using LifeSim.Core.Engine.Factories.Contracts;
+using LifeSim.Core.Engine.Menu.Contracts;
+using LifeSim.Logger.Contracts;
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Options.Contracts;
 using LifeSim.Player.Randomizer.Contracts;
-using LifeSim.Logger.Contracts;
-using LifeSim.Core.Engine.Commands.Contracts;
-using LifeSim.Core.Engine.Menu.Contracts;
-using System;
 
 namespace LifeSim.Core.Engine.Core.Contracts
 {
     public interface IEngine
     {
-        void Start();
-
         IConsoleReader Reader { get; set; }
         IConsoleWriter Writer { get; set; }
         IParser Parser { get; set; }
@@ -37,5 +35,6 @@ namespace LifeSim.Core.Engine.Core.Contracts
 
         DateTime GameTime { get; set; }
         bool EndTheGame { get; set; }
+        void Start();
     }
 }

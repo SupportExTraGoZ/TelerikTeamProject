@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Text;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.Contracts;
-using System.Text;
 
 namespace LifeSim.Core.Engine.Commands.Actions.Schools
 {
@@ -17,29 +16,31 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
 
         public string Execute(IList<string> parameters)
         {
-            var examsPercent = this.engine.NumberGenerator.RandomChance();
+            var examsPercent = engine.NumberGenerator.RandomChance();
 
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine($"You have graduated {this.engine.Player.University.BuildingName}.");
-            this.engine.Player.HasAttendedUniversity = true;
+            var stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine($"You have graduated {engine.Player.University.BuildingName}.");
+            engine.Player.HasAttendedUniversity = true;
 
             // Update Graduation Year of High School
-            this.engine.Player.University.GraduateYear = this.engine.GameTime.Year;
+            engine.Player.University.GraduateYear = engine.GameTime.Year;
 
-            if (this.engine.Player.IsTakingLessons)
+            if (engine.Player.IsTakingLessons)
             {
-                stringBuilder.AppendLine($"You've passed your exams with ease, {this.engine.NumberGenerator.ChooseNumber(80, 100)} percent.");
-                this.engine.Player.IsSuccessfulAtUniversity = true;
+                stringBuilder.AppendLine(
+                    $"You've passed your exams with ease, {engine.NumberGenerator.ChooseNumber(80, 100)} percent.");
+                engine.Player.IsSuccessfulAtUniversity = true;
             }
             else if (examsPercent < 50)
             {
-                stringBuilder.AppendLine($"You've struggled with your exams and barely passed them with approximately {examsPercent} percent.");
-                this.engine.Player.IsSuccessfulAtUniversity = false;
+                stringBuilder.AppendLine(
+                    $"You've struggled with your exams and barely passed them with approximately {examsPercent} percent.");
+                engine.Player.IsSuccessfulAtUniversity = false;
             }
             else
             {
                 stringBuilder.AppendLine($"You've passed your exams with approximately {examsPercent} percent.");
-                this.engine.Player.IsSuccessfulAtUniversity = true;
+                engine.Player.IsSuccessfulAtUniversity = true;
             }
             return stringBuilder.ToString();
         }

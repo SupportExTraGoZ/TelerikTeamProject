@@ -3,9 +3,9 @@ using LifeSim.Establishments.Education.HighSchool;
 using LifeSim.Establishments.Education.Models.KinderGarten.Models;
 using LifeSim.Establishments.Education.PrimarySchool;
 using LifeSim.Establishments.Education.University;
+using LifeSim.Establishments.Job;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Models;
-using LifeSim.Establishments.Job;
 
 namespace LifeSim.Player.Contracts
 {
@@ -19,6 +19,7 @@ namespace LifeSim.Player.Contracts
 
         // Specifications
         bool IsTakingLessons { get; set; }
+
         bool IsSuccessfulAtPrimarySchool { get; set; }
         bool HasAttendedPrimarySchool { get; set; }
         bool IsSuccessfulAtHighSchool { get; set; }
@@ -28,6 +29,7 @@ namespace LifeSim.Player.Contracts
         bool HasChildren { get; set; }
         bool HasJob { get; set; }
         bool IsCEO { get; set; }
+
         bool IsRetired { get; set; }
         // End Of Specifications
 
@@ -35,7 +37,6 @@ namespace LifeSim.Player.Contracts
         GenderType Gender { get; set; }
         DateTime BirthDate { get; set; }
         Birthplaces Birthplace { get; set; }
-        string GetBirthplace();
         Parent Father { get; set; }
         Parent Mother { get; set; }
         KinderGarten KinderGarten { get; set; }
@@ -43,5 +44,6 @@ namespace LifeSim.Player.Contracts
         HighSchool HighSchool { get; set; }
         University University { get; set; }
         IJob Job { get; set; }
+        string GetBirthplace();
     }
 }

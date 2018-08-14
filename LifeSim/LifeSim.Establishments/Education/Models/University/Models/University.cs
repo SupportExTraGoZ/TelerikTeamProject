@@ -6,7 +6,6 @@ namespace LifeSim.Establishments.Education.University
     {
         public University(string name, int startYear) : base(name, startYear)
         {
-
         }
     }
 }

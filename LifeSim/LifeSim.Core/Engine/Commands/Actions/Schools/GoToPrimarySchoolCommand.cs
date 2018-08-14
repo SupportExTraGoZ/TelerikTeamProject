@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Text;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.Contracts;
-using System.Text;
 using LifeSim.Establishments.Education.PrimarySchool;
 
 namespace LifeSim.Core.Engine.Commands.Actions.Schools
@@ -21,15 +20,17 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
         public string Execute(IList<string> parameters)
         {
             // Unlock/Lock Commands
-            this.engine.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
-            this.engine.OptionsContainer.UnlockAgeUpCommand(this.engine.PlayerProgress);
+            engine.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
+            engine.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
 
-            this.engine.Player.PrimarySchool = new PrimarySchool(this.engine.EducationInstitutePicker.PickPrimarySchool(this.engine.Player.IsTakingLessons), this.engine.GameTime.Year);
+            engine.Player.PrimarySchool =
+                new PrimarySchool(engine.EducationInstitutePicker.PickPrimarySchool(engine.Player.IsTakingLessons),
+                    engine.GameTime.Year);
 
-            var friends = this.engine.NumberGenerator.ChooseNumber(minFriends, maxFriends);
-            this.engine.Player.Friends += friends;
+            var friends = engine.NumberGenerator.ChooseNumber(minFriends, maxFriends);
+            engine.Player.Friends += friends;
 
-            StringBuilder stringBuilder = new StringBuilder();
+            var stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("Your parents have put you in a local school near your home.");
             stringBuilder.AppendLine("And now you are on your way to High School.");
             stringBuilder.AppendLine($"The next day, you've made {friends} new friends.");

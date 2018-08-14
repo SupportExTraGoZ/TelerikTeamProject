@@ -15,6 +15,5 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Contracts
         void PrintLogo();
 
         void SetCenterCursorPosition(string name);
-
     }
 }

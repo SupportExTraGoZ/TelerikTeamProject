@@ -1,5 +1,4 @@
-﻿using System;
-using LifeSim.Establishments.AbstractEstablishment.Models;
+﻿using LifeSim.Establishments.AbstractEstablishment.Models;
 using LifeSim.Establishments.Education.Contracts;
 
 namespace LifeSim.Establishments.Education

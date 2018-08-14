@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Text;
+using LifeSim.Establishments.Education.HighSchool;
+using LifeSim.Establishments.Education.Models.KinderGarten.Models;
+using LifeSim.Establishments.Education.PrimarySchool;
+using LifeSim.Establishments.Education.University;
+using LifeSim.Establishments.Job;
+using LifeSim.Exceptions.Models;
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
-using System.Text;
-using LifeSim.Establishments.Education.PrimarySchool;
-using LifeSim.Establishments.Education.HighSchool;
-using LifeSim.Establishments.Education.University;
-using LifeSim.Establishments.Education.Models.KinderGarten.Models;
-using LifeSim.Establishments.Job;
 
 namespace LifeSim.Player.Models
 {
@@ -29,9 +30,9 @@ namespace LifeSim.Player.Models
             set
             {
                 if (value.Length < 4)
-                    throw new Exceptions.Models.CustomException(Exceptions.Models.Exceptions.FirstNameTooShort);
+                    throw new CustomException(Exceptions.Models.Exceptions.FirstNameTooShort);
                 if (value.Length > 15)
-                    throw new Exceptions.Models.CustomException(Exceptions.Models.Exceptions.FirstNameTooLong);
+                    throw new CustomException(Exceptions.Models.Exceptions.FirstNameTooLong);
 
                 firstname = value;
             }
@@ -43,9 +44,9 @@ namespace LifeSim.Player.Models
             set
             {
                 if (value.Length < 4)
-                    throw new Exceptions.Models.CustomException(Exceptions.Models.Exceptions.LastNameTooShort);
+                    throw new CustomException(Exceptions.Models.Exceptions.LastNameTooShort);
                 if (value.Length > 15)
-                    throw new Exceptions.Models.CustomException(Exceptions.Models.Exceptions.LastNameTooLong);
+                    throw new CustomException(Exceptions.Models.Exceptions.LastNameTooLong);
 
                 lastname = value;
             }
@@ -57,6 +58,7 @@ namespace LifeSim.Player.Models
 
         // Specifications
         public bool IsTakingLessons { get; set; }
+
         public bool IsSuccessfulAtPrimarySchool { get; set; }
         public bool HasAttendedPrimarySchool { get; set; }
         public bool IsSuccessfulAtHighSchool { get; set; }
@@ -66,6 +68,7 @@ namespace LifeSim.Player.Models
         public bool HasChildren { get; set; }
         public bool HasJob { get; set; }
         public bool IsCEO { get; set; }
+
         public bool IsRetired { get; set; }
         // End Of Specifications
 
@@ -100,58 +103,67 @@ namespace LifeSim.Player.Models
 
         public override string ToString()
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            var stringBuilder = new StringBuilder();
 
-            stringBuilder.AppendLine($"You, {this.FirstName} {this.LastName} have lived up to the age of {this.Age}.");
+            stringBuilder.AppendLine($"You, {FirstName} {LastName} have lived up to the age of {Age}.");
             stringBuilder.AppendLine($"But You passed away during a car accident...");
             stringBuilder.AppendLine($"Parents:");
-            if (this.Father.IsDead)
-                stringBuilder.AppendLine($"{this.Father.FirstName} {this.Father.LastName} has passed away at the age of {this.Father.Age}");
+            if (Father.IsDead)
+                stringBuilder.AppendLine(
+                    $"{Father.FirstName} {Father.LastName} has passed away at the age of {Father.Age}");
             else
-                stringBuilder.AppendLine($"{this.Father.FirstName} {this.Father.LastName} is living at the age of {this.Father.Age}");
-            if (this.Mother.IsDead)
-                stringBuilder.AppendLine($"{this.Mother.FirstName} {this.Mother.LastName} has passed away at the age of {this.Mother.Age}");
+                stringBuilder.AppendLine($"{Father.FirstName} {Father.LastName} is living at the age of {Father.Age}");
+            if (Mother.IsDead)
+                stringBuilder.AppendLine(
+                    $"{Mother.FirstName} {Mother.LastName} has passed away at the age of {Mother.Age}");
             else
-                stringBuilder.AppendLine($"{this.Mother.FirstName} {this.Mother.LastName} is living at the age of {this.Mother.Age}");
+                stringBuilder.AppendLine($"{Mother.FirstName} {Mother.LastName} is living at the age of {Mother.Age}");
 
             stringBuilder.AppendLine("----- WEALTH -----");
-            stringBuilder.AppendLine($"You have passed away with ${string.Format("{0:N0}", this.Money)} in your bank account.");
+            stringBuilder.AppendLine(
+                $"You have passed away with ${string.Format("{0:N0}", Money)} in your bank account.");
 
-            if (this.Money > 0)
-                if (this.HasChildren)
+            if (Money > 0)
+                if (HasChildren)
                     stringBuilder.AppendLine("Your fortune will be passed onto your children...");
                 else
                     stringBuilder.AppendLine("Your fortune will be donated to charities...");
 
             stringBuilder.AppendLine("----- FRIENDS -----");
-            stringBuilder.AppendLine($"You've made {this.Friends} new friends throughout your life.");
+            stringBuilder.AppendLine($"You've made {Friends} new friends throughout your life.");
 
             // Successful Or Not during education period
             // TODO: Add Graduation Period for each educational institute
             stringBuilder.AppendLine("----- EDUCATION -----");
-            if (this.HasAttendedPrimarySchool)
+            if (HasAttendedPrimarySchool)
             {
-                stringBuilder.AppendLine($"You've started Primary School at {this.PrimarySchool.BuildingName}, on {this.PrimarySchool.StartYear}");
-                if (this.IsSuccessfulAtPrimarySchool) stringBuilder.AppendLine("You were successful in Primary School.");
+                stringBuilder.AppendLine(
+                    $"You've started Primary School at {PrimarySchool.BuildingName}, on {PrimarySchool.StartYear}");
+                if (IsSuccessfulAtPrimarySchool) stringBuilder.AppendLine("You were successful in Primary School.");
                 else stringBuilder.AppendLine("You weren't successful in Primary School.");
-                stringBuilder.AppendLine($"You've graduated Primary School at {this.PrimarySchool.BuildingName}, on {this.PrimarySchool.GraduateYear}");
+                stringBuilder.AppendLine(
+                    $"You've graduated Primary School at {PrimarySchool.BuildingName}, on {PrimarySchool.GraduateYear}");
             }
-            if (this.HasAttendedHighSchool)
+            if (HasAttendedHighSchool)
             {
-                stringBuilder.AppendLine($"You've started High School at {this.HighSchool.BuildingName}, on {this.HighSchool.StartYear}");
-                if (this.IsSuccessfulAtHighSchool) stringBuilder.AppendLine("You were successful in High School.");
+                stringBuilder.AppendLine(
+                    $"You've started High School at {HighSchool.BuildingName}, on {HighSchool.StartYear}");
+                if (IsSuccessfulAtHighSchool) stringBuilder.AppendLine("You were successful in High School.");
                 else stringBuilder.AppendLine("You weren't successful in High School.");
-                stringBuilder.AppendLine($"You've graduated High School at {this.HighSchool.BuildingName}, on {this.HighSchool.GraduateYear}");
+                stringBuilder.AppendLine(
+                    $"You've graduated High School at {HighSchool.BuildingName}, on {HighSchool.GraduateYear}");
             }
-            if (this.HasAttendedUniversity)
+            if (HasAttendedUniversity)
             {
-                stringBuilder.AppendLine($"You've started University at {this.University.BuildingName}, on {this.University.StartYear}");
-                if (this.IsSuccessfulAtUniversity) stringBuilder.AppendLine("You were successful in University.");
+                stringBuilder.AppendLine(
+                    $"You've started University at {University.BuildingName}, on {University.StartYear}");
+                if (IsSuccessfulAtUniversity) stringBuilder.AppendLine("You were successful in University.");
                 else stringBuilder.AppendLine("You weren't successful in University.");
-                stringBuilder.AppendLine($"You've graduated University at {this.University.BuildingName}, on {this.University.GraduateYear}");
+                stringBuilder.AppendLine(
+                    $"You've graduated University at {University.BuildingName}, on {University.GraduateYear}");
             }
             // Was Taking Lessons?
-            if (this.IsTakingLessons) stringBuilder.AppendLine("You were taking extra private lessons.");
+            if (IsTakingLessons) stringBuilder.AppendLine("You were taking extra private lessons.");
             else stringBuilder.AppendLine("You weren't taking extra private lessons.");
 
             stringBuilder.AppendLine("----- WORK -----");
@@ -159,9 +171,9 @@ namespace LifeSim.Player.Models
             {
                 if (IsCEO)
                     stringBuilder.AppendLine("You've been CEO in your life.");
-                stringBuilder.AppendLine($"You've worked as {this.Job.Profession}.");
-                stringBuilder.AppendLine($"Started Work: {this.Job.StartDate.Year} | Retired: {this.Job.EndDate.Year}.");
-                stringBuilder.AppendLine($"Your maximum salary was ${this.Job.MonthlySalary}.");
+                stringBuilder.AppendLine($"You've worked as {Job.Profession}.");
+                stringBuilder.AppendLine($"Started Work: {Job.StartDate.Year} | Retired: {Job.EndDate.Year}.");
+                stringBuilder.AppendLine($"Your maximum salary was ${Job.MonthlySalary}.");
             }
             else
             {

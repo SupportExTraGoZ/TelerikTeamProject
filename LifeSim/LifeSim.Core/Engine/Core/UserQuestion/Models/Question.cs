@@ -1,5 +1,4 @@
-﻿using System;
-using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
+﻿using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
 
 namespace LifeSim.Core.Engine.Core.UserQuestion.Models
 {
