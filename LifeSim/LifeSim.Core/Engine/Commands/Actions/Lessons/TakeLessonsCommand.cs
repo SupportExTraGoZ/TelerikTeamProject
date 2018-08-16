@@ -22,7 +22,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Lessons
             engine.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
 
             // Set player's status
-            engine.Player.IsTakingLessons = true;
+            engine.Player.HasTakenLessons = true;
 
             var stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("Your parents signed you up for private lessons before school.");

@@ -171,7 +171,7 @@ namespace LifeSim.Player.Models
                     $"You've graduated University at {University.BuildingName}, on {University.GraduateYear}");
             }
             // Was Taking Lessons?
-            if (IsTakingLessons) stringBuilder.AppendLine("You were taking extra private lessons.");
+            if (this.HasTakenLessons) stringBuilder.AppendLine("You were taking extra private lessons.");
             else stringBuilder.AppendLine("You weren't taking extra private lessons.");
 
             stringBuilder.AppendLine("----- WORK -----");

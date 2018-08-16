@@ -25,7 +25,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             // Update Graduation Year of High School
             engine.Player.HighSchool.GraduateYear = engine.GameTime.Year;
 
-            if (engine.Player.IsTakingLessons)
+            if (engine.Player.HasTakenLessons)
             {
                 stringBuilder.AppendLine(
                     $"You've passed your exams with ease, {engine.NumberGenerator.ChooseNumber(80, 100)} percent.");

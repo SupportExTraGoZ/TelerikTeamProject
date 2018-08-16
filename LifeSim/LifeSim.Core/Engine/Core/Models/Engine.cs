@@ -37,7 +37,7 @@ namespace LifeSim.Core.Engine.Core.Models
             // Menu Display Setup
             Writer = new ConsoleWriter();
             Reader = new ConsoleReader();
-            Parser = new CommandParser();
+            Parser = new CommandParser(this);
             Cleaner = new ConsoleCleaner();
             Logger = new Logger.Models.Logger();
             UserInteraction = new UserInteraction(Writer, Reader);
@@ -101,8 +101,8 @@ namespace LifeSim.Core.Engine.Core.Models
                 // Player Init/Creation
                 Player = PlayerFactory.CreatePlayer(questionAnswers[0].Answer.Split(": ")[0],
                     questionAnswers[1].Answer.Split(": ")[0],
-                    (GenderType) Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]),
-                    (Birthplaces) Enum.Parse(typeof(Birthplaces),
+                    (GenderType)Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]),
+                    (Birthplaces)Enum.Parse(typeof(Birthplaces),
                         questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), FamilyGenerator);
             }
             catch (NullReferenceException)

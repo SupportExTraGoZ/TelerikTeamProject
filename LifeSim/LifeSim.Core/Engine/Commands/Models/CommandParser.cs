@@ -36,7 +36,7 @@ namespace LifeSim.Core.Engine.Commands.Models
             var parameters = this.engine.Parser.ParseParameters(commandAsString);
 
             var executionResult = command.Execute(parameters);
-            this.engine..AddAction(executionResult);
+            this.engine.UserInteraction.AddAction(executionResult);
 
             return true;
         }

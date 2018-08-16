@@ -2,8 +2,6 @@
 using System.Linq;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Options.Contracts;
-using System.Linq;
-using LifeSim.Exceptions.Models;
 
 namespace LifeSim.Player.Options
 {

@@ -13,7 +13,7 @@ namespace LifeSim.Tests
         {
             // Arrange
             var tempPlayer = new Player.Models.Player("Danail", "Grozdanov", Player.Enums.GenderType.Male, Player.Enums.Birthplaces.Miami, new FamilyGenerator());
-            tempPlayer.IsTakingLessons = true;
+            tempPlayer.HasTakenLessons = true;
             tempPlayer.IsSuccessfulAtUniversity = true;
 
             // Act
