@@ -20,9 +20,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Logger", "LifeSim.L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Tests", "LifeSim.Tests\LifeSim.Tests.csproj", "{A55BF44B-1C46-4211-AB8F-2944689B4D3D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LifeSim.Clien", "LifeSim.Clien", "{E5FE70A4-6182-4501-8B7D-BBE6E6E23286}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LifeSim.Client", "LifeSim.Client", "{E5FE70A4-6182-4501-8B7D-BBE6E6E23286}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.IoContainer.CLI", "LifeSim.IoContainer.CLI\LifeSim.IoContainer.CLI.csproj", "{5CCAF4C1-04BD-4C6A-AE64-A210C3CAB03B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.IoContainer.CLI", "LifeSim.IoContainer.CLI\LifeSim.IoContainer.CLI.csproj", "{5CCAF4C1-04BD-4C6A-AE64-A210C3CAB03B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

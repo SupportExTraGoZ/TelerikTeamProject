@@ -1,19 +1,17 @@
-﻿using Autofac;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
+﻿using System.Reflection;
+using Autofac;
+using Module = Autofac.Module;
 
 namespace LifeSim.IoContainer.CLI.InjectionConfig
 {
-    public class AutofacConfig : Autofac.Module
+    public class AutofacConfig : Module
     {
         public IContainer Build()
         {
             var containerBuilder = new ContainerBuilder();
 
-            this.RegisterConvention(containerBuilder);
-            this.RegisterCoreComponents(containerBuilder);
+            RegisterConvention(containerBuilder);
+            RegisterCoreComponents(containerBuilder);
 
             return containerBuilder.Build();
         }
@@ -22,9 +20,9 @@ namespace LifeSim.IoContainer.CLI.InjectionConfig
         {
             var coreAssembly = Assembly.GetExecutingAssembly();
 
-           
+
             builder.RegisterAssemblyTypes(coreAssembly)
-                    .AsImplementedInterfaces();
+                .AsImplementedInterfaces();
         }
 
         private void RegisterCoreComponents(ContainerBuilder builder)
@@ -32,6 +30,5 @@ namespace LifeSim.IoContainer.CLI.InjectionConfig
             //builder.RegisterType<FurnitureManufacturerEngine>().As<IEngine>().SingleInstance();
             // Write the rest of your bindings... (if needed)
         }
-
     }
 }

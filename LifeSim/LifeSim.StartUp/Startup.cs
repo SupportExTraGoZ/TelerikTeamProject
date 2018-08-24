@@ -1,6 +1,4 @@
-﻿using LifeSim.Core.Engine.Core.Models;
-
-namespace LifeSim.Startup
+﻿namespace LifeSim.Startup
 {
     /// <summary>
     ///     Console Client start point of "Life Simulator"

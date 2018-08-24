@@ -20,6 +20,7 @@ namespace LifeSim.Player.Contracts
 
         // Specifications
         bool HasTakenLessons { get; set; }
+
         bool IsSuccessfulAtPrimarySchool { get; set; }
         bool HasAttendedPrimarySchool { get; set; }
         bool IsSuccessfulAtHighSchool { get; set; }

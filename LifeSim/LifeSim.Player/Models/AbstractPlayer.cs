@@ -58,6 +58,7 @@ namespace LifeSim.Player.Models
 
         // Specifications
         public bool HasTakenLessons { get; set; }
+
         public bool IsSuccessfulAtPrimarySchool { get; set; }
         public bool HasAttendedPrimarySchool { get; set; }
         public bool IsSuccessfulAtHighSchool { get; set; }
@@ -65,16 +66,18 @@ namespace LifeSim.Player.Models
         public bool IsSuccessfulAtUniversity { get; set; }
         public bool HasAttendedUniversity { get; set; }
         public bool HasChildren { get; set; }
+
         public bool HasJob
         {
             get
             {
-                if (this.Job == null || (this.Job != null && this.Job.EndDate < this.Job.StartDate))
+                if (Job == null || Job != null && Job.EndDate < Job.StartDate)
                     return false;
 
                 return true;
             }
         }
+
         public bool IsCEO { get; set; }
 
         public bool IsRetired { get; set; }
@@ -171,7 +174,7 @@ namespace LifeSim.Player.Models
                     $"You've graduated University at {University.BuildingName}, on {University.GraduateYear}");
             }
             // Was Taking Lessons?
-            if (this.HasTakenLessons) stringBuilder.AppendLine("You were taking extra private lessons.");
+            if (HasTakenLessons) stringBuilder.AppendLine("You were taking extra private lessons.");
             else stringBuilder.AppendLine("You weren't taking extra private lessons.");
 
             stringBuilder.AppendLine("----- WORK -----");

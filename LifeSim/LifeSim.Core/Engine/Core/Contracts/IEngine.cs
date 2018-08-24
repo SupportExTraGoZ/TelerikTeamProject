@@ -1,22 +1,19 @@
 ﻿using System;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Manager.Contracts;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
 using LifeSim.Core.Engine.Factories.Contracts;
-using LifeSim.Core.Engine.Menu.Contracts;
 using LifeSim.Core.Engine.Menu.Manager.Contracts;
 using LifeSim.Logger.Contracts;
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
-using LifeSim.Player.Options.Contracts;
 using LifeSim.Player.Randomizer.Contracts;
 
 namespace LifeSim.Core.Engine.Core.Contracts
 {
     /// <summary>
-    /// NOTE: THIS is breaking the L in SOLID - Liskov Substitutio
+    ///     NOTE: THIS is breaking the L in SOLID - Liskov Substitutio
     /// </summary>
     public interface IEngine
     {

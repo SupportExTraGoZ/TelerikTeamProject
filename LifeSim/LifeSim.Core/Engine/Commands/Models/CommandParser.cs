@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using LifeSim.Core.Engine.Commands.Contracts;
-using LifeSim.Exceptions.Models;
-using LifeSim.Core.Engine.Core.Contracts;
 using Autofac;
+using LifeSim.Core.Engine.Commands.Contracts;
+using LifeSim.Core.Engine.Core.Contracts;
 
 namespace LifeSim.Core.Engine.Commands.Models
 {
     public class CommandParser : ICommandParser
     {
-        private readonly IEngine engine;
-
         private readonly IComponentContext container;
+        private readonly IEngine engine;
 
         public CommandParser(IEngine engine, IComponentContext container)
         {
@@ -25,32 +21,34 @@ namespace LifeSim.Core.Engine.Commands.Models
         {
             if (string.IsNullOrWhiteSpace(commandAsString))
             {
-                this.engine.ConsoleManager.UserInteraction.AddAction("Command cannot be null or empty.");
-                this.engine.Logger.GetLogger.Info("Client attempted to enter an empty/null command.");
+                engine.ConsoleManager.UserInteraction.AddAction("Command cannot be null or empty.");
+                engine.Logger.GetLogger.Info("Client attempted to enter an empty/null command.");
                 return false;
             }
             // Check for command access
-            if (!this.engine.MenuManager.OptionsContainer.CurrentStageOptions(this.engine.PlayerProgress, true).Contains(commandAsString.Split()[0]))
+            if (!engine.MenuManager.OptionsContainer.CurrentStageOptions(engine.PlayerProgress, true)
+                .Contains(commandAsString.Split()[0]))
             {
-                this.engine.ConsoleManager.UserInteraction.AddAction($"You have no access to that command. ({commandAsString})");
+                engine.ConsoleManager.UserInteraction.AddAction(
+                    $"You have no access to that command. ({commandAsString})");
                 return false;
             }
 
-            var command = this.engine.CommandParser.GetCommand(commandAsString);
-            var parameters = this.engine.CommandParser.ParseParameters(commandAsString);
+            var command = engine.CommandParser.GetCommand(commandAsString);
+            var parameters = engine.CommandParser.ParseParameters(commandAsString);
 
             var executionResult = command.Execute(parameters);
-            this.engine.ConsoleManager.UserInteraction.AddAction(executionResult);
+            engine.ConsoleManager.UserInteraction.AddAction(executionResult);
 
             return true;
         }
 
-       /// <summary>
-       /// Return ICommand - the command 
-       /// </summary>
+        /// <summary>
+        ///     Return ICommand - the command
+        /// </summary>
         public ICommand GetCommand(string fullCommand)
         {
-            return this.container.ResolveNamed<ICommand>(fullCommand.ToLower());
+            return container.ResolveNamed<ICommand>(fullCommand.ToLower());
         }
 
         public IList<string> ParseParameters(string fullCommand)

@@ -1,7 +1,6 @@
-using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LifeSim.Player.Models;
+using LifeSim.Player.Enums;
 using LifeSim.Player.Randomizer.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LifeSim.Tests
 {
@@ -12,7 +11,8 @@ namespace LifeSim.Tests
         public void ApplyForJob_SoftwareEngineer()
         {
             // Arrange
-            var tempPlayer = new Player.Models.Player("Danail", "Grozdanov", Player.Enums.GenderType.Male, Player.Enums.Birthplaces.Miami, new FamilyGenerator());
+            var tempPlayer = new Player.Models.Player("Danail", "Grozdanov", GenderType.Male, Birthplaces.Miami,
+                new FamilyGenerator());
             tempPlayer.HasTakenLessons = true;
             tempPlayer.IsSuccessfulAtUniversity = true;
 

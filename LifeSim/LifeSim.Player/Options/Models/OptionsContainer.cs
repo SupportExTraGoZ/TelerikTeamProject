@@ -34,9 +34,17 @@ namespace LifeSim.Player.Options
                         false, false)
                 },
 
-                { "7", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Teen, false, true, false) },
-                { "8", new CustomTuple("Go To High School (gotohighschool)", "gotohighschool", PlayerProgress.Teen, true, false, false) },
-                { "16", new CustomTuple("Take additional lessons (takelessons)", "takelessons", PlayerProgress.Teen, true, false, false) },
+                {"7", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Teen, false, true, false)},
+                {
+                    "8",
+                    new CustomTuple("Go To High School (gotohighschool)", "gotohighschool", PlayerProgress.Teen, true,
+                        false, false)
+                },
+                {
+                    "16",
+                    new CustomTuple("Take additional lessons (takelessons)", "takelessons", PlayerProgress.Teen, true,
+                        false, false)
+                },
 
                 {
                     "9",
@@ -79,20 +87,17 @@ namespace LifeSim.Player.Options
                     .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed);
 
                 if (!tempOptions.Any())
-                    return new List<string> { Exceptions.Models.Exceptions.NoCommandsAvailable };
+                    return new List<string> {Exceptions.Models.Exceptions.NoCommandsAvailable};
 
                 return tempOptions.Select(x => x.Value.commandDisplay).ToList();
             }
-            else
-            {
-                var temp = options
-                     .Where(x => x.Value.playerProgress == playerProgress)
-                     .Where(x => x.Value.isUnlocked)
-                     .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed)
-                     .Select(option => option.Value.commandKey).ToList();
+            var temp = options
+                .Where(x => x.Value.playerProgress == playerProgress)
+                .Where(x => x.Value.isUnlocked)
+                .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed)
+                .Select(option => option.Value.commandKey).ToList();
 
-                return temp;
-            }
+            return temp;
         }
 
         public void ChangeCommandStatus(string commandKey, bool isUnlocked, bool canBeUsedManyTimes = false,
