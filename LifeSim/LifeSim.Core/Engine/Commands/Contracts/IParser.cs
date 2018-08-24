@@ -2,9 +2,9 @@
 
 namespace LifeSim.Core.Engine.Commands.Contracts
 {
-    public interface IParser
+    public interface ICommandParser
     {
-        ICommand ParseCommand(string fullCommand);
+        ICommand GetCommand(string fullCommand);
 
         bool ProcessCommand(string commandAsString);
 

@@ -83,8 +83,8 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                     break;
                 case 14:
                     {
-                        var tempCommand = engine.Parser.ParseCommand("endprimaryschool");
-                        var tempParams = engine.Parser.ParseParameters("endprimaryschool");
+                        var tempCommand = engine.CommandParser.GetCommand("endprimaryschool");
+                        var tempParams = engine.CommandParser.ParseParameters("endprimaryschool");
                         var executionResult = tempCommand.Execute(tempParams);
                         engine.UserInteraction.AddAction(executionResult);
 
@@ -93,8 +93,8 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                     break;
                 case 19:
                     {
-                        var tempCommand = engine.Parser.ParseCommand("endhighschool");
-                        var tempParams = engine.Parser.ParseParameters("endhighschool");
+                        var tempCommand = engine.CommandParser.GetCommand("endhighschool");
+                        var tempParams = engine.CommandParser.ParseParameters("endhighschool");
                         var executionResult = tempCommand.Execute(tempParams);
                         engine.UserInteraction.AddAction(executionResult);
 
@@ -108,8 +108,8 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                     {
                         if (engine.PlayerProgress == PlayerProgress.Student)
                         {
-                            var tempCommand = engine.Parser.ParseCommand("enduniversity");
-                            var tempParams = engine.Parser.ParseParameters("enduniversity");
+                            var tempCommand = engine.CommandParser.GetCommand("enduniversity");
+                            var tempParams = engine.CommandParser.ParseParameters("enduniversity");
                             var executionResult = tempCommand.Execute(tempParams);
                             engine.UserInteraction.AddAction(executionResult);
 

@@ -13,11 +13,14 @@ using LifeSim.Player.Randomizer.Contracts;
 
 namespace LifeSim.Core.Engine.Core.Contracts
 {
+    /// <summary>
+    /// NOTE: THIS is breaking the L in SOLID - Liskov Substitutio
+    /// </summary>
     public interface IEngine
     {
         IConsoleReader Reader { get; set; }
         IConsoleWriter Writer { get; set; }
-        IParser Parser { get; set; }
+        ICommandParser CommandParser { get; }
         IConsoleCleaner Cleaner { get; set; }
         ILogger Logger { get; set; }
         IFamilyGenerator FamilyGenerator { get; set; }

@@ -29,4 +29,7 @@
   <ItemGroup>
     <Compile Remove="CLI.Module\ConsoleUsings\Functions\ConsoleKeyReader.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+  </ItemGroup>
 </Project>

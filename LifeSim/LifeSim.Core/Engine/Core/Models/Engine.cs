@@ -30,14 +30,16 @@ namespace LifeSim.Core.Engine.Core.Models
     {
         private const string TerminationCommand = "Exit";
         private const int ActionLogNumber = 5;
-        private static IEngine engineInstance;
+        //private static IEngine engineInstance;
 
-        private Engine()
+        private readonly ICommandParser commandParser;
+
+        private Engine(ICommandParser commandParser)
         {
             // Menu Display Setup
             Writer = new ConsoleWriter();
             Reader = new ConsoleReader();
-            Parser = new CommandParser(this);
+            
             Cleaner = new ConsoleCleaner();
             Logger = new Logger.Models.Logger();
             UserInteraction = new UserInteraction(Writer, Reader);
@@ -52,22 +54,24 @@ namespace LifeSim.Core.Engine.Core.Models
             EducationInstitutePicker = new EducationInstitutePicker();
             PlayerFactory = new GamePlayerFactory();
             PlayerProgress = PlayerProgress.NotBorn;
+
+            this.commandParser = commandParser;
         }
 
-        public static IEngine Instance
-        {
-            get
-            {
-                if (engineInstance == null)
-                    engineInstance = new Engine();
+        //public static IEngine Instance
+        //{
+        //    get
+        //    {
+        //        if (engineInstance == null)
+        //            engineInstance = new Engine();
 
-                return engineInstance;
-            }
-        }
+        //        return engineInstance;
+        //    }
+        //}
 
         public IConsoleReader Reader { get; set; }
         public IConsoleWriter Writer { get; set; }
-        public IParser Parser { get; set; }
+        public ICommandParser CommandParser { get; }
         public IConsoleCleaner Cleaner { get; set; }
         public ILogger Logger { get; set; }
         public IFamilyGenerator FamilyGenerator { get; set; }
@@ -156,7 +160,7 @@ namespace LifeSim.Core.Engine.Core.Models
                     if (commandAsString.ToLower() == TerminationCommand.ToLower())
                         break;
 
-                    this.Parser.ProcessCommand(commandAsString);
+                    this.CommandParser.ProcessCommand(commandAsString);
                 }
                 catch (Exception ex)
                 {
