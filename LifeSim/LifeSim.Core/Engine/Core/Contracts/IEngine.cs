@@ -6,6 +6,7 @@ using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
 using LifeSim.Core.Engine.Factories.Contracts;
 using LifeSim.Core.Engine.Menu.Contracts;
+using LifeSim.Core.Engine.Menu.Manager.Contracts;
 using LifeSim.Logger.Contracts;
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
@@ -23,7 +24,6 @@ namespace LifeSim.Core.Engine.Core.Contracts
         //IConsoleWriter Writer { get; set; }
         //IConsoleCleaner Cleaner { get; set; }
         //IUserInteraction UserInteraction { get; set; }
-
         IConsoleManager ConsoleManager { get; }
 
         ICommandParser CommandParser { get; }
@@ -32,8 +32,13 @@ namespace LifeSim.Core.Engine.Core.Contracts
         IFamilyGenerator FamilyGenerator { get; set; }
         INumberGenerator NumberGenerator { get; set; }
         IEducationInstitutePicker EducationInstitutePicker { get; set; }
-        IMenuLauncher MenuLauncher { get; set; }
-        IOptionsContainer OptionsContainer { get; set; }
+
+
+        //IMenuLauncher MenuLauncher { get; set; }
+        //IOptionsContainer OptionsContainer { get; set; }
+        IMenuManager MenuManager { get; }
+
+
         IQuestionAction QuestionAction { get; set; }
         IUserStatus UserStatus { get; set; }
 

@@ -30,7 +30,7 @@ namespace LifeSim.Core.Engine.Commands.Models
                 return false;
             }
             // Check for command access
-            if (!this.engine.OptionsContainer.CurrentStageOptions(this.engine.PlayerProgress, true).Contains(commandAsString.Split()[0]))
+            if (!this.engine.MenuManager.OptionsContainer.CurrentStageOptions(this.engine.PlayerProgress, true).Contains(commandAsString.Split()[0]))
             {
                 this.engine.ConsoleManager.UserInteraction.AddAction($"You have no access to that command. ({commandAsString})");
                 return false;

@@ -20,8 +20,8 @@ namespace LifeSim.Core.Engine.Commands.Actions.Kindergarten
         public string Execute(IList<string> parameters)
         {
             // Unlock/Lock Commands
-            engine.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
-            engine.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
+            engine.MenuManager.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
+            engine.MenuManager.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
 
             engine.Player.KinderGarten =
                 new KinderGarten(engine.EducationInstitutePicker.PickKinderGarten(), engine.GameTime.Year);

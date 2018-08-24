@@ -15,6 +15,7 @@ using LifeSim.Core.Engine.Core.UserStatusDisplay.Models;
 using LifeSim.Core.Engine.Factories;
 using LifeSim.Core.Engine.Factories.Contracts;
 using LifeSim.Core.Engine.Menu.Contracts;
+using LifeSim.Core.Engine.Menu.Manager.Contracts;
 using LifeSim.Core.Engine.Menu.Models;
 using LifeSim.Exceptions.Models;
 using LifeSim.Logger.Contracts;
@@ -35,8 +36,9 @@ namespace LifeSim.Core.Engine.Core.Models
 
         private readonly ICommandParser commandParser;
         private readonly IConsoleManager consoleManager;
+        private readonly IMenuManager menuManager;
 
-        private Engine(ICommandParser commandParser,IConsoleManager consoleManager)
+        private Engine(ICommandParser commandParser,IConsoleManager consoleManager,IMenuManager menuManager)
         {
             // Menu Display Setup
             //Writer = new ConsoleWriter();
@@ -47,15 +49,14 @@ namespace LifeSim.Core.Engine.Core.Models
             //consoleManager with all functionalities from Menu Display
             this.consoleManager = consoleManager;
            
-
+            //MenuLauncher = new MenuLauncher(this.ConsoleManager.Renderer.Writer, this.ConsoleManager.Renderer.Reader);
+            //OptionsContainer = new OptionsContainer();
+            this.menuManager = menuManager;
+            
             Logger = new Logger.Models.Logger();
 
-            MenuLauncher = new MenuLauncher(this.ConsoleManager.Renderer.Writer, this.ConsoleManager.Renderer.Reader);
-            OptionsContainer = new OptionsContainer();
-
             QuestionAction = new QuestionAction(ConstQuestions.Questions, this.ConsoleManager.UserInteraction);
-
-
+            
             FamilyGenerator = new FamilyGenerator();
             NumberGenerator = new NumberGenerator();
             EducationInstitutePicker = new EducationInstitutePicker();
@@ -93,8 +94,12 @@ namespace LifeSim.Core.Engine.Core.Models
         public IFamilyGenerator FamilyGenerator { get; set; }
         public INumberGenerator NumberGenerator { get; set; }
         public IEducationInstitutePicker EducationInstitutePicker { get; set; }
-        public IMenuLauncher MenuLauncher { get; set; }
-        public IOptionsContainer OptionsContainer { get; set; }
+
+
+        //public IMenuLauncher MenuLauncher { get; set; }
+        //public IOptionsContainer OptionsContainer { get; set; }
+        public IMenuManager MenuManager { get; }
+
         public IQuestionAction QuestionAction { get; set; }
         public IUserStatus UserStatus { get; set; }
         public IGamePlayerFactory PlayerFactory { get; set; }
@@ -165,7 +170,7 @@ namespace LifeSim.Core.Engine.Core.Models
                 UserStatus.WriteActionLog(this.ConsoleManager.UserInteraction.ActionLog, ActionLogNumber);
 
                 // Show User's available options
-                MenuLauncher.PrintMenu(PlayerProgress, OptionsContainer);
+                this.MenuManager.MenuLauncher.PrintMenu(PlayerProgress, this.MenuManager.OptionsContainer);
 
 
                 if (EndTheGame)

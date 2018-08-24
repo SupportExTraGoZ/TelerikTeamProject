@@ -20,8 +20,8 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
         public string Execute(IList<string> parameters)
         {
             // Unlock/Lock Commands
-            engine.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
-            engine.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
+            engine.MenuManager.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
+            engine.MenuManager.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
 
             engine.Player.PrimarySchool =
                 new PrimarySchool(engine.EducationInstitutePicker.PickPrimarySchool(engine.Player.HasTakenLessons),
