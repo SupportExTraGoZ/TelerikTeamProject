@@ -6,7 +6,7 @@ using System.Text;
 
 namespace LifeSim.Core.CLI.Module.ConsoleManagement.Renderer.Models
 {
-    public class ConsoleRenderer : IRenderer
+    public class ConsoleRenderer : IConsoleRenderer
     {
         public ConsoleRenderer(IConsoleWriter writer, IConsoleReader reader)
         {

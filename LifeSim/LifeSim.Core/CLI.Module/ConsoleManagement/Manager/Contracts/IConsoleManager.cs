@@ -8,7 +8,7 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Manager.Contracts
 {
     public interface IConsoleManager 
     {
-        IRenderer Renderer { get; }
+        IConsoleRenderer Renderer { get; }
         IConsoleCleaner Cleaner { get; }
         IUserInteraction UserInteraction { get; }
     }
