@@ -46,7 +46,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                 if (deathChance >= 85)
                 {
                     player.Father.IsDead = true;
-                    engine.UserInteraction.AddAction($"Your father has passed away at the age of {player.Father.Age}");
+                    engine.ConsoleManager.UserInteraction.AddAction($"Your father has passed away at the age of {player.Father.Age}");
                 }
             }
             if (!player.Mother.IsDead && player.Mother.Age > 65)
@@ -55,7 +55,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                 if (deathChance >= 85)
                 {
                     player.Mother.IsDead = true;
-                    engine.UserInteraction.AddAction($"Your mother has passed away at the age of {player.Mother.Age}");
+                    engine.ConsoleManager.UserInteraction.AddAction($"Your mother has passed away at the age of {player.Mother.Age}");
                 }
             }
             if (player.Age > 65)
@@ -86,7 +86,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                         var tempCommand = engine.CommandParser.GetCommand("endprimaryschool");
                         var tempParams = engine.CommandParser.ParseParameters("endprimaryschool");
                         var executionResult = tempCommand.Execute(tempParams);
-                        engine.UserInteraction.AddAction(executionResult);
+                        engine.ConsoleManager.UserInteraction.AddAction(executionResult);
 
                         engine.PlayerProgress = PlayerProgress.Teen;
                     }
@@ -96,7 +96,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                         var tempCommand = engine.CommandParser.GetCommand("endhighschool");
                         var tempParams = engine.CommandParser.ParseParameters("endhighschool");
                         var executionResult = tempCommand.Execute(tempParams);
-                        engine.UserInteraction.AddAction(executionResult);
+                        engine.ConsoleManager.UserInteraction.AddAction(executionResult);
 
                         if (engine.Player.IsSuccessfulAtHighSchool)
                             engine.PlayerProgress = PlayerProgress.HighSchoolGraduate;
@@ -111,7 +111,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                             var tempCommand = engine.CommandParser.GetCommand("enduniversity");
                             var tempParams = engine.CommandParser.ParseParameters("enduniversity");
                             var executionResult = tempCommand.Execute(tempParams);
-                            engine.UserInteraction.AddAction(executionResult);
+                            engine.ConsoleManager.UserInteraction.AddAction(executionResult);
 
                             engine.PlayerProgress = PlayerProgress.NonEmployed;
                         }
@@ -123,7 +123,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                         if (CEOChance >= 50)
                         {
                             engine.PlayerProgress = PlayerProgress.CEO;
-                            engine.UserInteraction.AddAction("You've became a CEO at your company.");
+                            engine.ConsoleManager.UserInteraction.AddAction("You've became a CEO at your company.");
                             player.Job.MonthlySalary = 20000;
                             player.IsCEO = true;
                             player.Job.EndDate = engine.GameTime;
@@ -139,7 +139,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                                 this.engine.PlayerProgress = Player.Enums.PlayerProgress.Retired;
                                 player.Job.EndDate = this.engine.GameTime;
                                 player.IsRetired = true;
-                                this.engine.UserInteraction.AddAction("You've retired from work, enjoy the rest of your life.");
+                                this.engine.ConsoleManager.UserInteraction.AddAction("You've retired from work, enjoy the rest of your life.");
                             }
                         }
                     }

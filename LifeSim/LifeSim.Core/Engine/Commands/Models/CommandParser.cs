@@ -25,14 +25,14 @@ namespace LifeSim.Core.Engine.Commands.Models
         {
             if (string.IsNullOrWhiteSpace(commandAsString))
             {
-                this.engine.UserInteraction.AddAction("Command cannot be null or empty.");
+                this.engine.ConsoleManager.UserInteraction.AddAction("Command cannot be null or empty.");
                 this.engine.Logger.GetLogger.Info("Client attempted to enter an empty/null command.");
                 return false;
             }
             // Check for command access
             if (!this.engine.OptionsContainer.CurrentStageOptions(this.engine.PlayerProgress, true).Contains(commandAsString.Split()[0]))
             {
-                this.engine.UserInteraction.AddAction($"You have no access to that command. ({commandAsString})");
+                this.engine.ConsoleManager.UserInteraction.AddAction($"You have no access to that command. ({commandAsString})");
                 return false;
             }
 
@@ -40,7 +40,7 @@ namespace LifeSim.Core.Engine.Commands.Models
             var parameters = this.engine.CommandParser.ParseParameters(commandAsString);
 
             var executionResult = command.Execute(parameters);
-            this.engine.UserInteraction.AddAction(executionResult);
+            this.engine.ConsoleManager.UserInteraction.AddAction(executionResult);
 
             return true;
         }

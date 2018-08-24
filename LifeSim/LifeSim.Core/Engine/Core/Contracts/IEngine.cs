@@ -1,5 +1,6 @@
 ﻿using System;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Manager.Contracts;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
@@ -18,16 +19,20 @@ namespace LifeSim.Core.Engine.Core.Contracts
     /// </summary>
     public interface IEngine
     {
-        IConsoleReader Reader { get; set; }
-        IConsoleWriter Writer { get; set; }
+        //IConsoleReader Reader { get; set; }
+        //IConsoleWriter Writer { get; set; }
+        //IConsoleCleaner Cleaner { get; set; }
+        //IUserInteraction UserInteraction { get; set; }
+
+        IConsoleManager ConsoleManager { get; }
+
         ICommandParser CommandParser { get; }
-        IConsoleCleaner Cleaner { get; set; }
+
         ILogger Logger { get; set; }
         IFamilyGenerator FamilyGenerator { get; set; }
         INumberGenerator NumberGenerator { get; set; }
         IEducationInstitutePicker EducationInstitutePicker { get; set; }
         IMenuLauncher MenuLauncher { get; set; }
-        IUserInteraction UserInteraction { get; set; }
         IOptionsContainer OptionsContainer { get; set; }
         IQuestionAction QuestionAction { get; set; }
         IUserStatus UserStatus { get; set; }

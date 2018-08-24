@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Functions;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Manager.Contracts;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Commands.Models;
 using LifeSim.Core.Engine.Core.Contracts;
@@ -33,25 +34,34 @@ namespace LifeSim.Core.Engine.Core.Models
         //private static IEngine engineInstance;
 
         private readonly ICommandParser commandParser;
+        private readonly IConsoleManager consoleManager;
 
-        private Engine(ICommandParser commandParser)
+        private Engine(ICommandParser commandParser,IConsoleManager consoleManager)
         {
             // Menu Display Setup
-            Writer = new ConsoleWriter();
-            Reader = new ConsoleReader();
-            
-            Cleaner = new ConsoleCleaner();
-            Logger = new Logger.Models.Logger();
-            UserInteraction = new UserInteraction(Writer, Reader);
-            MenuLauncher = new MenuLauncher(Writer, Reader);
-            OptionsContainer = new OptionsContainer();
-            QuestionAction = new QuestionAction(ConstQuestions.Questions, UserInteraction);
-            UserStatus = new UserStatus(Writer);
+            //Writer = new ConsoleWriter();
+            //Reader = new ConsoleReader();
+            //Cleaner = new ConsoleCleaner();
+            //UserInteraction = new UserInteraction(Writer, Reader);
 
-            // Player Creation Setup
+            //consoleManager with all functionalities from Menu Display
+            this.consoleManager = consoleManager;
+           
+
+            Logger = new Logger.Models.Logger();
+
+            MenuLauncher = new MenuLauncher(this.ConsoleManager.Renderer.Writer, this.ConsoleManager.Renderer.Reader);
+            OptionsContainer = new OptionsContainer();
+
+            QuestionAction = new QuestionAction(ConstQuestions.Questions, this.ConsoleManager.UserInteraction);
+
+
             FamilyGenerator = new FamilyGenerator();
             NumberGenerator = new NumberGenerator();
             EducationInstitutePicker = new EducationInstitutePicker();
+
+            // Player Creation Setup
+            UserStatus = new UserStatus(this.ConsoleManager.Renderer.Writer);
             PlayerFactory = new GamePlayerFactory();
             PlayerProgress = PlayerProgress.NotBorn;
 
@@ -69,16 +79,21 @@ namespace LifeSim.Core.Engine.Core.Models
         //    }
         //}
 
-        public IConsoleReader Reader { get; set; }
-        public IConsoleWriter Writer { get; set; }
+        //public IConsoleReader Reader { get; set; }
+        //public IConsoleWriter Writer { get; set; }
+        //public IConsoleCleaner Cleaner { get; set; }
+        //public IUserInteraction UserInteraction { get; set; }
+
+        public IConsoleManager ConsoleManager { get; }
+
         public ICommandParser CommandParser { get; }
-        public IConsoleCleaner Cleaner { get; set; }
+
+
         public ILogger Logger { get; set; }
         public IFamilyGenerator FamilyGenerator { get; set; }
         public INumberGenerator NumberGenerator { get; set; }
         public IEducationInstitutePicker EducationInstitutePicker { get; set; }
         public IMenuLauncher MenuLauncher { get; set; }
-        public IUserInteraction UserInteraction { get; set; }
         public IOptionsContainer OptionsContainer { get; set; }
         public IQuestionAction QuestionAction { get; set; }
         public IUserStatus UserStatus { get; set; }
@@ -92,10 +107,11 @@ namespace LifeSim.Core.Engine.Core.Models
         public void Start()
         {
             // Clear Game Console
-            Cleaner.ClearConsole();
+            this.ConsoleManager.Cleaner.ClearConsole();
 
             // Show Game Logo
-            Writer.PrintLogo();
+            //Writer.PrintLogo();
+            this.ConsoleManager.Renderer.Writer.PrintLogo();
 
             try
             {
@@ -127,24 +143,26 @@ namespace LifeSim.Core.Engine.Core.Models
 
             // Update Player's Progress to NewBorn
             PlayerProgress = PlayerProgress.NewBorn;
-            UserInteraction.AddAction(
+            this.ConsoleManager.UserInteraction.AddAction(
                 $"You are born as {Player.FirstName} {Player.LastName} in {Player.GetBirthplace()}.");
-            UserInteraction.AddAction($"Your Father is {Player.Father.FirstName} {Player.Father.LastName}");
-            UserInteraction.AddAction($"Your Mother is {Player.Mother.FirstName} {Player.Mother.LastName}");
+            this.ConsoleManager.UserInteraction.AddAction($"Your Father is {Player.Father.FirstName} {Player.Father.LastName}");
+            this.ConsoleManager.UserInteraction.AddAction($"Your Mother is {Player.Mother.FirstName} {Player.Mother.LastName}");
 
             // Clears Console
-            Cleaner.ClearConsole();
+            //Cleaner.ClearConsole();
+            this.ConsoleManager.Cleaner.ClearConsole();
+
 
             while (true)
             {
                 // Print Logo
-                Writer.PrintLogo();
+                this.ConsoleManager.Renderer.Writer.PrintLogo();
 
                 // Show User's HUD
                 UserStatus.WriteStatus(Player);
 
                 // Show what the user has done, last X (ActionLogNumber) actions
-                UserStatus.WriteActionLog(UserInteraction.ActionLog, ActionLogNumber);
+                UserStatus.WriteActionLog(this.ConsoleManager.UserInteraction.ActionLog, ActionLogNumber);
 
                 // Show User's available options
                 MenuLauncher.PrintMenu(PlayerProgress, OptionsContainer);
@@ -155,7 +173,7 @@ namespace LifeSim.Core.Engine.Core.Models
 
                 try
                 {
-                    var commandAsString = Reader.ReadLine();
+                    var commandAsString = this.ConsoleManager.Renderer.Reader.ReadLine();
 
                     if (commandAsString.ToLower() == TerminationCommand.ToLower())
                         break;
@@ -165,30 +183,35 @@ namespace LifeSim.Core.Engine.Core.Models
                 catch (Exception ex)
                 {
                     // Just for now to debug, will be changed later on.
-                    UserInteraction.AddAction("An unexpected error has occured and has been logged.");
+                    this.ConsoleManager.UserInteraction.AddAction("An unexpected error has occured and has been logged.");
                     //this.UserInteraction.AddAction(ex.Message);
+
                     Logger.GetLogger.Error(ex.Message);
                 }
 
                 // Clear Console
-                Cleaner.ClearConsole();
+                //Cleaner.ClearConsole();
+                this.ConsoleManager.Cleaner.ClearConsole();
             }
 
             // TODO: Show End Game Screen
-            Cleaner.ClearConsole();
+            //Cleaner.ClearConsole();
+            this.ConsoleManager.Cleaner.ClearConsole();
 
-            Writer.PrintLogo();
+            //Writer.PrintLogo();
+            this.ConsoleManager.Renderer.Writer.PrintLogo();
 
-            Writer.WriteLine(Player.ToString());
+            //Writer.WriteLine(Player.ToString());
+            this.ConsoleManager.Renderer.Writer.WriteLine(Player.ToString());
 
-            Writer.WriteLine(
+            this.ConsoleManager.Renderer.Writer.WriteLine(
                 $"Thank you for playing LifeSim Alpha {Assembly.GetExecutingAssembly().GetName().Version}");
         }
 
         private void SupressException(string message)
         {
-            Writer.WriteLine(message);
-            Writer.WriteLine("Press any key to start again...");
+            this.ConsoleManager.Renderer.Writer.WriteLine(message);
+            this.ConsoleManager.Renderer.Writer.WriteLine("Press any key to start again...");
             Console.ReadKey();
             Start();
         }
