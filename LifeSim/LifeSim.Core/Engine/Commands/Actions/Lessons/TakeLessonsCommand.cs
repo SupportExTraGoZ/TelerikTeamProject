@@ -16,10 +16,13 @@ namespace LifeSim.Core.Engine.Commands.Actions.Lessons
             this.engine = engine;
         }
 
-        public string Execute(IList<string> parameters)
+        public string Name { get; set; }
+        public IList<string> Parameters { get; set; }
+
+        public string Execute()
         {
             // Unlock/Lock Commands
-            engine.MenuManager.OptionsContainer.ChangeCommandStatus(parameters[0], false, false, true);
+            engine.MenuManager.OptionsContainer.ChangeCommandStatus(Parameters[0], false, false, true);
 
             // Set player's status
             engine.Player.HasTakenLessons = true;

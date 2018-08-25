@@ -14,7 +14,11 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
             this.engine = engine;
         }
 
-        public string Execute(IList<string> parameters)
+        public string Name { get; set; }
+
+        public IList<string> Parameters { get; set; }
+
+        public string Execute()
         {
             // Increase the player's Age & his parent's Age.
             var player = engine.Player;
@@ -82,66 +86,51 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                     engine.PlayerProgress = PlayerProgress.Kid;
                     break;
                 case 14:
-                {
-                    var tempCommand = engine.CommandParser.GetCommand("endprimaryschool");
-                    var tempParams = engine.CommandParser.ParseParameters("endprimaryschool");
-                    var executionResult = tempCommand.Execute(tempParams);
-                    engine.ConsoleManager.UserInteraction.AddAction(executionResult);
-
-                    engine.PlayerProgress = PlayerProgress.Teen;
-                }
+                    {
+                        var tempCommand = engine.CommandParser.ProcessCommand("endprimaryschool");
+                        engine.PlayerProgress = PlayerProgress.Teen;
+                    }
                     break;
                 case 19:
-                {
-                    var tempCommand = engine.CommandParser.GetCommand("endhighschool");
-                    var tempParams = engine.CommandParser.ParseParameters("endhighschool");
-                    var executionResult = tempCommand.Execute(tempParams);
-                    engine.ConsoleManager.UserInteraction.AddAction(executionResult);
-
-                    if (engine.Player.IsSuccessfulAtHighSchool)
-                        engine.PlayerProgress = PlayerProgress.HighSchoolGraduate;
-                    else
-                        engine.PlayerProgress = PlayerProgress.NonEmployed;
-                }
+                    {
+                        var tempCommand = engine.CommandParser.ProcessCommand("endhighschool");
+                        engine.PlayerProgress = engine.Player.IsSuccessfulAtHighSchool ? PlayerProgress.HighSchoolGraduate : PlayerProgress.NonEmployed;
+                    }
                     break;
                 case 24:
-                {
-                    if (engine.PlayerProgress == PlayerProgress.Student)
                     {
-                        var tempCommand = engine.CommandParser.GetCommand("enduniversity");
-                        var tempParams = engine.CommandParser.ParseParameters("enduniversity");
-                        var executionResult = tempCommand.Execute(tempParams);
-                        engine.ConsoleManager.UserInteraction.AddAction(executionResult);
-
-                        engine.PlayerProgress = PlayerProgress.NonEmployed;
+                        if (engine.PlayerProgress == PlayerProgress.Student)
+                        {
+                            var tempCommand = engine.CommandParser.ProcessCommand("enduniversity");
+                            engine.PlayerProgress = PlayerProgress.NonEmployed;
+                        }
                     }
-                }
                     break;
                 case 35:
-                {
-                    var CEOChance = engine.Generator.NumberGenerator.RandomChance();
-                    if (CEOChance >= 50)
                     {
-                        engine.PlayerProgress = PlayerProgress.CEO;
-                        engine.ConsoleManager.UserInteraction.AddAction("You've became a CEO at your company.");
-                        player.Job.MonthlySalary = 20000;
-                        player.IsCEO = true;
-                        player.Job.EndDate = engine.GameTime;
+                        var CEOChance = engine.Generator.NumberGenerator.RandomChance();
+                        if (CEOChance >= 50)
+                        {
+                            engine.PlayerProgress = PlayerProgress.CEO;
+                            engine.ConsoleManager.UserInteraction.AddAction("You've became a CEO at your company.");
+                            player.Job.MonthlySalary = 20000;
+                            player.IsCEO = true;
+                            player.Job.EndDate = engine.GameTime;
+                        }
                     }
-                }
                     break;
                 case 55:
-                {
-                    if (engine.PlayerProgress != PlayerProgress.CEO)
+                    {
                         if (engine.PlayerProgress != PlayerProgress.CEO)
-                        {
-                            engine.PlayerProgress = PlayerProgress.Retired;
-                            player.Job.EndDate = engine.GameTime;
-                            player.IsRetired = true;
-                            engine.ConsoleManager.UserInteraction.AddAction(
-                                "You've retired from work, enjoy the rest of your life.");
-                        }
-                }
+                            if (engine.PlayerProgress != PlayerProgress.CEO)
+                            {
+                                engine.PlayerProgress = PlayerProgress.Retired;
+                                player.Job.EndDate = engine.GameTime;
+                                player.IsRetired = true;
+                                engine.ConsoleManager.UserInteraction.AddAction(
+                                    "You've retired from work, enjoy the rest of your life.");
+                            }
+                    }
                     break;
             }
 

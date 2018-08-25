@@ -14,7 +14,10 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             this.engine = engine;
         }
 
-        public string Execute(IList<string> parameters)
+        public string Name { get; set; }
+        public IList<string> Parameters { get; set; }
+
+        public string Execute()
         {
             var examsPercent = engine.Generator.NumberGenerator.RandomChance();
 

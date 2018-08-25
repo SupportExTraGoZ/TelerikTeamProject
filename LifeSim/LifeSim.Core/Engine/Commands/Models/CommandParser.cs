@@ -39,7 +39,10 @@ namespace LifeSim.Core.Engine.Commands.Models
             var command = engine.CommandParser.GetCommand(splitCommand[0]);
             var parameters = engine.CommandParser.ParseParameters(commandAsString);
 
-            var executionResult = command.Execute(parameters);
+            command.Name = commandAsString;
+            command.Parameters = parameters;
+
+            var executionResult = command.Execute();
             engine.ConsoleManager.UserInteraction.AddAction(executionResult);
 
             return true;
@@ -57,8 +60,7 @@ namespace LifeSim.Core.Engine.Commands.Models
         {
             var commandParts = fullCommand.Split(' ').ToList();
 
-            // Manually Removed, take caution
-            //commandParts.RemoveAt(0);
+            commandParts.RemoveAt(0);
 
             return !commandParts.Any() ? new List<string>() : commandParts;
         }

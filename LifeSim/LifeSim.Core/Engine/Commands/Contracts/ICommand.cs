@@ -4,10 +4,10 @@ namespace LifeSim.Core.Engine.Commands.Contracts
 {
     public interface ICommand
     {
-        string Name { get; }
+        string Name { get; set; }
 
-        IList<string> Parameters(string commandParameters);
+        IList<string> Parameters { get; set; }
 
-        string Execute(IList<string> parameters);
+        string Execute();
     }
 }
