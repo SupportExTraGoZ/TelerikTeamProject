@@ -19,6 +19,17 @@ using LifeSim.Player.Options.Models;
 using LifeSim.Player.Randomizer.Contracts;
 using LifeSim.Player.Randomizer.Models;
 using Module = Autofac.Module;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts.Utilities;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Models;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Contracts;
+using LifeSim.Core.Engine.Menu.Models;
+using LifeSim.Core.Engine.Menu.Contracts;
+using LifeSim.Player.Randomizer.Models.Generators;
+using LifeSim.Player.Randomizer.Contracts.Generators;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Constants;
 
 namespace LifeSim.IoContainer.CLI.InjectionConfig
 {
@@ -46,19 +57,31 @@ namespace LifeSim.IoContainer.CLI.InjectionConfig
         private void RegisterCoreComponents(ContainerBuilder builder)
         {
             // Engine
-            builder.RegisterType<Engine>().As<IEngine>().SingleInstance();
+            builder.RegisterType<Engine>().As<IEngine>().PropertiesAutowired().SingleInstance();
 
             // Dependencies
-            builder.RegisterType<CommandParser>().As<ICommandParser>().SingleInstance();
-            builder.RegisterType<ConsoleManager>().As<IConsoleManager>().SingleInstance();
-            builder.RegisterType<MenuManager>().As<IMenuManager>().SingleInstance();
-            builder.RegisterType<Generator>().As<IGenerator>().SingleInstance();
-            builder.RegisterType<Logger.Models.Logger>().As<ILogger>().SingleInstance();
-            builder.RegisterType<UserStatus>().As<IUserStatus>().SingleInstance();
-            builder.RegisterType<GamePlayerFactory>().As<IGamePlayerFactory>().SingleInstance();
+            builder.RegisterType<CommandParser>().As<ICommandParser>().PropertiesAutowired().SingleInstance();
+            builder.RegisterType<ConsoleManager>().As<IConsoleManager>().PropertiesAutowired().SingleInstance();
+            builder.RegisterType<MenuManager>().As<IMenuManager>().PropertiesAutowired().SingleInstance();
+            builder.RegisterType<Generator>().As<IGenerator>().PropertiesAutowired().SingleInstance();
+            builder.RegisterType<Logger.Models.Logger>().As<ILogger>().PropertiesAutowired().SingleInstance();
+            builder.RegisterType<UserStatus>().As<IUserStatus>().PropertiesAutowired().SingleInstance();
+            builder.RegisterType<GamePlayerFactory>().As<IGamePlayerFactory>().PropertiesAutowired().SingleInstance();
 
             // Minor Dependencies
-            //builder.RegisterType<OptionsContainer>().As<IOptionsContainer>().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<OptionsContainer>().As<IOptionsContainer>().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<ConsoleReader>().As<IConsoleReader>().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<ConsoleWriter>().As<IConsoleWriter>().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<ConsoleCleaner>().As<IConsoleCleaner>().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<UserInteraction>().As<IUserInteraction>().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<UserStatus>().As<IUserStatus>().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<ConstQuestions>().AsSelf().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<QuestionAction>().As<IQuestionAction>().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<Question>().As<IQuestion>().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<MenuLauncher>().As<IMenuLauncher>().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<FamilyGenerator>().As<IFamilyGenerator>().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<NumberGenerator>().As<INumberGenerator>().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<EducationInstitutePicker>().As<IEducationInstitutePicker>().SingleInstance().PropertiesAutowired();
         }
 
         private void RegisterAllCommands(ContainerBuilder builder)

@@ -106,7 +106,11 @@ namespace LifeSim.Core.Engine.Core.Models
                     (Birthplaces)Enum.Parse(typeof(Birthplaces),
                         questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), Generator);
             }
-            catch (NullReferenceException)
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            /*catch (NullReferenceException)
             {
                 SupressException("Your answers didn't meet the requirements. Try Again...");
             }
@@ -117,7 +121,7 @@ namespace LifeSim.Core.Engine.Core.Models
             catch (CustomException e)
             {
                 SupressException(e.Message);
-            }
+            }*/
 
             // Update GameTime
             GameTime = DateTime.Now;

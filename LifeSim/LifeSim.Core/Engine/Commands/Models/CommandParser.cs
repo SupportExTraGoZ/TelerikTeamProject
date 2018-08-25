@@ -8,42 +8,42 @@ namespace LifeSim.Core.Engine.Commands.Models
 {
     public class CommandParser : ICommandParser
     {
-        private readonly IComponentContext container;
-        private readonly IEngine engine;
+        private IComponentContext Container { get; set; }
+        private IEngine Engine { get; set; }
 
-        public CommandParser(IEngine engine, IComponentContext container)
+        public CommandParser()
         {
-            this.engine = engine;
-            this.container = container;
+            //this.Engine = engine;
+            //this.Container = container;
         }
 
         public bool ProcessCommand(string commandAsString)
         {
             if (string.IsNullOrWhiteSpace(commandAsString))
             {
-                engine.ConsoleManager.UserInteraction.AddAction("Command cannot be null or empty.");
-                engine.Logger.GetLogger.Info("Client attempted to enter an empty/null command.");
+                Engine.ConsoleManager.UserInteraction.AddAction("Command cannot be null or empty.");
+                Engine.Logger.GetLogger.Info("Client attempted to enter an empty/null command.");
                 return false;
             }
             // Check for command access
-            if (!engine.MenuManager.OptionsContainer.CurrentStageOptions(engine.PlayerProgress, true)
+            if (!Engine.MenuManager.OptionsContainer.CurrentStageOptions(Engine.PlayerProgress, true)
                 .Contains(commandAsString.Split()[0]))
             {
-                engine.ConsoleManager.UserInteraction.AddAction(
+                Engine.ConsoleManager.UserInteraction.AddAction(
                     $"You have no access to that command. ({commandAsString})");
                 return false;
             }
 
             var splitCommand = commandAsString.Split(' ').ToList();
 
-            var command = engine.CommandParser.GetCommand(splitCommand[0]);
-            var parameters = engine.CommandParser.ParseParameters(commandAsString);
+            var command = Engine.CommandParser.GetCommand(splitCommand[0]);
+            var parameters = Engine.CommandParser.ParseParameters(commandAsString);
 
             command.Name = commandAsString;
             command.Parameters = parameters;
 
             var executionResult = command.Execute();
-            engine.ConsoleManager.UserInteraction.AddAction(executionResult);
+            Engine.ConsoleManager.UserInteraction.AddAction(executionResult);
 
             return true;
         }
@@ -53,7 +53,7 @@ namespace LifeSim.Core.Engine.Commands.Models
         /// </summary>
         public ICommand GetCommand(string fullCommand)
         {
-            return container.ResolveNamed<ICommand>(fullCommand.ToLower());
+            return Container.ResolveNamed<ICommand>(fullCommand.ToLower());
         }
 
         public IList<string> ParseParameters(string fullCommand)
