@@ -87,13 +87,13 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                     break;
                 case 14:
                     {
-                        var tempCommand = engine.CommandParser.ProcessCommand("endprimaryschool");
+                        engine.CommandParser.ForceCommand("endprimaryschool");
                         engine.PlayerProgress = PlayerProgress.Teen;
                     }
                     break;
                 case 19:
                     {
-                        var tempCommand = engine.CommandParser.ProcessCommand("endhighschool");
+                        engine.CommandParser.ForceCommand("endhighschool");
                         engine.PlayerProgress = engine.Player.IsSuccessfulAtHighSchool ? PlayerProgress.HighSchoolGraduate : PlayerProgress.NonEmployed;
                     }
                     break;
@@ -101,7 +101,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                     {
                         if (engine.PlayerProgress == PlayerProgress.Student)
                         {
-                            var tempCommand = engine.CommandParser.ProcessCommand("enduniversity");
+                            engine.CommandParser.ForceCommand("enduniversity");
                             engine.PlayerProgress = PlayerProgress.NonEmployed;
                         }
                     }

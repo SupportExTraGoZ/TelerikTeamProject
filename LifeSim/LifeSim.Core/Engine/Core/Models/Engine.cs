@@ -151,7 +151,7 @@ namespace LifeSim.Core.Engine.Core.Models
         private void SupressException(string message)
         {
             ConsoleManager.Writer.WriteLine(message);
-            ConsoleManager.Writer.WriteLine("Prtart again...");
+            ConsoleManager.Writer.WriteLine("Start again...");
             Console.ReadKey();
             Start();
         }

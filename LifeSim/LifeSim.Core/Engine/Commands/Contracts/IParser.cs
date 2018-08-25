@@ -8,6 +8,8 @@ namespace LifeSim.Core.Engine.Commands.Contracts
 
         bool ProcessCommand(string commandAsString);
 
+        void ForceCommand(string commandAsString);
+
         IList<string> ParseParameters(string fullCommand);
     }
 }

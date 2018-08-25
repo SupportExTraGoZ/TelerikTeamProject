@@ -48,6 +48,20 @@ namespace LifeSim.Core.Engine.Commands.Models
             return true;
         }
 
+        public void ForceCommand(string commandAsString)
+        {
+            var splitCommand = commandAsString.Split(' ').ToList();
+
+            var command = Engine.CommandParser.GetCommand(splitCommand[0]);
+            var parameters = Engine.CommandParser.ParseParameters(commandAsString);
+
+            command.Name = commandAsString;
+            command.Parameters = parameters;
+
+            var executionResult = command.Execute();
+            Engine.ConsoleManager.UserInteraction.AddAction(executionResult);
+        }
+
         /// <summary>
         ///     Return ICommand - the command
         /// </summary>
