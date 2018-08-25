@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using LifeSim.Player.Randomizer.Contracts;
+using LifeSim.Player.Randomizer.Contracts.Generators;
 
-namespace LifeSim.Player.Randomizer.Models
+namespace LifeSim.Player.Randomizer.Models.Generators
 {
     public class EducationInstitutePicker : IEducationInstitutePicker
     {

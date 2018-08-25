@@ -22,7 +22,7 @@ namespace LifeSim.Core.Engine.Core.Models
 
         private const int ActionLogNumber = 5;
 
-        private Engine(ICommandParser commandParser, IConsoleManager consoleManager,
+        public Engine(ICommandParser commandParser, IConsoleManager consoleManager,
                        IMenuManager menuManager, IGenerator generator, ILogger logger,
                        IUserStatus userStatus, IGamePlayerFactory playerFactory)
         {
@@ -62,7 +62,6 @@ namespace LifeSim.Core.Engine.Core.Models
         //public IConsoleWriter Writer { get; set; }
         //public IConsoleCleaner Cleaner { get; set; }
         //public IUserInteraction UserInteraction { get; set; }
-
         public IConsoleManager ConsoleManager { get; }
 
         public ICommandParser CommandParser { get; }
@@ -93,7 +92,6 @@ namespace LifeSim.Core.Engine.Core.Models
             ConsoleManager.Cleaner.ClearConsole();
 
             // Show Game Logo
-            //Writer.PrintLogo();
             ConsoleManager.Writer.PrintLogo();
 
             try
@@ -106,7 +104,7 @@ namespace LifeSim.Core.Engine.Core.Models
                     questionAnswers[1].Answer.Split(": ")[0],
                     (GenderType)Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]),
                     (Birthplaces)Enum.Parse(typeof(Birthplaces),
-                        questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), Generator.FamilyGenerator);
+                        questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), Generator);
             }
             catch (NullReferenceException)
             {
@@ -134,7 +132,6 @@ namespace LifeSim.Core.Engine.Core.Models
                 $"Your Mother is {Player.Mother.FirstName} {Player.Mother.LastName}");
 
             // Clears Console
-            //Cleaner.ClearConsole();
             ConsoleManager.Cleaner.ClearConsole();
 
             while (true)
@@ -173,7 +170,6 @@ namespace LifeSim.Core.Engine.Core.Models
                 }
 
                 // Clear Console
-                //Cleaner.ClearConsole();
                 ConsoleManager.Cleaner.ClearConsole();
             }
 

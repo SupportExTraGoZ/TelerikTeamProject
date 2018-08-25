@@ -1,8 +1,9 @@
 ﻿using System;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Randomizer.Contracts;
+using LifeSim.Player.Randomizer.Contracts.Generators;
 
-namespace LifeSim.Player.Randomizer.Models
+namespace LifeSim.Player.Randomizer.Models.Generators
 {
     public class FamilyGenerator : IFamilyGenerator
     {
@@ -23,12 +24,12 @@ namespace LifeSim.Player.Randomizer.Models
             var num = GetRandom.Next(0, FatherNames.Length - 1);
             fatherName = FatherNames[num];
             motherName = MotherNames[num];
-            return new[] {fatherName, motherName};
+            return new[] { fatherName, motherName };
         }
 
         public Birthplaces ChooseBirthplace()
         {
-            return (Birthplaces) GetRandom.Next(0, 3);
+            return (Birthplaces)GetRandom.Next(0, 3);
         }
 
         public int ChooseAge()

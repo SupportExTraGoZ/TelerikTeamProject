@@ -1,7 +1,8 @@
 ﻿using System;
 using LifeSim.Player.Randomizer.Contracts;
+using LifeSim.Player.Randomizer.Contracts.Generators;
 
-namespace LifeSim.Player.Randomizer.Models
+namespace LifeSim.Player.Randomizer.Models.Generators
 {
     public class NumberGenerator : INumberGenerator
     {

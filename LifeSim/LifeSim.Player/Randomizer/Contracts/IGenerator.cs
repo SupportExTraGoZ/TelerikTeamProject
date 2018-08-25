@@ -1,4 +1,6 @@
-﻿namespace LifeSim.Player.Randomizer.Contracts
+﻿using LifeSim.Player.Randomizer.Contracts.Generators;
+
+namespace LifeSim.Player.Randomizer.Contracts
 {
     public interface IGenerator
     {

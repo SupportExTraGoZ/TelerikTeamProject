@@ -1,6 +1,6 @@
 ﻿using LifeSim.Player.Enums;
 
-namespace LifeSim.Player.Randomizer.Contracts
+namespace LifeSim.Player.Randomizer.Contracts.Generators
 {
     public interface IFamilyGenerator
     {

@@ -1,4 +1,8 @@
-﻿namespace LifeSim.Startup
+﻿using LifeSim.IoContainer.CLI.InjectionConfig;
+using LifeSim.Core.Engine.Core.Contracts;
+using Autofac;
+
+namespace LifeSim.Startup
 {
     /// <summary>
     ///     Console Client start point of "Life Simulator"
@@ -10,10 +14,12 @@
         /// </summary>
         public static void Main()
         {
-            //Console.WriteLine("LifeSim is still under development!");
+            var containerConfig = new AutofacConfig();
 
-            //var firstInstance = Engine.Instance;
-            //firstInstance.Start();
+            var container = containerConfig.Build();
+
+            var engine = container.Resolve<IEngine>();
+            engine.Start();
         }
     }
 }

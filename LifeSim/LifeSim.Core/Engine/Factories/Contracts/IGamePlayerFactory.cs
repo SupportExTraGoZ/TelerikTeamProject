@@ -7,6 +7,6 @@ namespace LifeSim.Core.Engine.Factories.Contracts
     public interface IGamePlayerFactory
     {
         IPlayer CreatePlayer(string firstname, string lastname, GenderType gender, Birthplaces birthplace,
-            IFamilyGenerator familyGenerator);
+            IGenerator generator);
     }
 }

@@ -8,9 +8,9 @@ namespace LifeSim.Core.Engine.Factories
     public class GamePlayerFactory : IGamePlayerFactory
     {
         public IPlayer CreatePlayer(string firstname, string lastname, GenderType gender, Birthplaces birthplace,
-            IFamilyGenerator familyGenerator)
+            IGenerator generator)
         {
-            return new Player.Models.Player(firstname, lastname, gender, birthplace, familyGenerator);
+            return new Player.Models.Player(firstname, lastname, gender, birthplace, generator);
         }
     }
 }

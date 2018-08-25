@@ -11,6 +11,8 @@
     <Folder Include="Randomizer\Contracts\" />
     <Folder Include="Options\Contracts\" />
     <Folder Include="Options\Models\Utilities\" />
+    <Folder Include="Randomizer\Models\Generators\" />
+    <Folder Include="Randomizer\Contracts\Generators\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Contracts\IFamily.cs" />

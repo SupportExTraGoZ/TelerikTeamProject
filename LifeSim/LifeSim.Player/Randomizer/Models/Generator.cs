@@ -1,13 +1,11 @@
 ﻿using LifeSim.Player.Randomizer.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using LifeSim.Player.Randomizer.Contracts.Generators;
 
 namespace LifeSim.Player.Randomizer.Models
 {
     public class Generator : IGenerator
     {
-        public Generator(INumberGenerator numberGenerator, IFamilyGenerator familyGenerator,IEducationInstitutePicker educationInstitutePicker)
+        public Generator(INumberGenerator numberGenerator, IFamilyGenerator familyGenerator, IEducationInstitutePicker educationInstitutePicker)
         {
             NumberGenerator = numberGenerator;
             FamilyGenerator = familyGenerator;
