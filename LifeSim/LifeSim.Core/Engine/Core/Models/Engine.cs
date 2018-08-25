@@ -21,12 +21,6 @@ namespace LifeSim.Core.Engine.Core.Models
         private const string TerminationCommand = "Exit";
 
         private const int ActionLogNumber = 5;
-        //private static IEngine engineInstance;
-
-        private readonly ICommandParser commandParser;
-        private readonly IConsoleManager consoleManager;
-        private readonly IMenuManager menuManager;
-        private readonly IGenerator generator;
 
         private Engine(ICommandParser commandParser, IConsoleManager consoleManager,
                        IMenuManager menuManager, IGenerator generator, ILogger logger,
@@ -40,18 +34,18 @@ namespace LifeSim.Core.Engine.Core.Models
             //QuestionAction = new QuestionAction(ConstQuestions.Questions, ConsoleManager.UserInteraction);
 
             //consoleManager with all functionalities from Menu Display
-            this.consoleManager = consoleManager;
+            this.ConsoleManager = consoleManager;
 
             //MenuLauncher = new MenuLauncher(this.ConsoleManager.Writer, this.ConsoleManager.Reader);
             //OptionsContainer = new OptionsContainer();
-            this.menuManager = menuManager;
+            this.MenuManager = menuManager;
 
             Logger = logger;
 
             //FamilyGenerator = new FamilyGenerator();
             //NumberGenerator = new NumberGenerator();
             //EducationInstitutePicker = new EducationInstitutePicker();
-            this.generator = generator;
+            this.Generator = generator;
 
             // Player Creation Setup
             //UserStatus = new UserStatus(ConsoleManager.Writer);
@@ -61,19 +55,8 @@ namespace LifeSim.Core.Engine.Core.Models
 
             PlayerProgress = PlayerProgress.NotBorn;
 
-            this.commandParser = commandParser;
+            this.CommandParser = commandParser;
         }
-
-        //public static IEngine Instance
-        //{
-        //    get
-        //    {
-        //        if (engineInstance == null)
-        //            engineInstance = new Engine();
-
-        //        return engineInstance;
-        //    }
-        //}
 
         //public IConsoleReader Reader { get; set; }
         //public IConsoleWriter Writer { get; set; }
