@@ -16,6 +16,7 @@
     <Folder Include="Engine\Commands\Actions\Lessons\" />
     <Folder Include="Engine\Commands\Actions\General\" />
     <Folder Include="Engine\Commands\Actions\Job\" />
+    <Folder Include="CLI.Module\ConsoleManagement\Contracts\Utilities\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +26,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="CLI.Module\ConsoleUsings\Functions\ConsoleKeyReader.cs" />
+    <Compile Remove="CLI.Module\ConsoleManagement\Renderer\Contracts\IConsoleRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.8.1" />

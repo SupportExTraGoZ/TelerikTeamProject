@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LifeSim.Core.CLI.Module.ConsoleManagement.Contracts
+namespace LifeSim.Core.CLI.Module.ConsoleManagement.Contracts.Utilities
 {
     public interface IUserInteraction
     {

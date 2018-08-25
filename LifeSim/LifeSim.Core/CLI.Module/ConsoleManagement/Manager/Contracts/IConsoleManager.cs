@@ -1,12 +1,13 @@
 ﻿using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts.Utilities;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Contracts;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Renderer.Contracts;
 
 namespace LifeSim.Core.CLI.Module.ConsoleManagement.Manager.Contracts
 {
     public interface IConsoleManager
     {
-        IConsoleRenderer Renderer { get; }
+        IConsoleWriter Writer { get; }
+        IConsoleReader Reader { get; }
         IConsoleCleaner Cleaner { get; }
         IUserInteraction UserInteraction { get; }
         IQuestionAction QuestionAction { get; }
