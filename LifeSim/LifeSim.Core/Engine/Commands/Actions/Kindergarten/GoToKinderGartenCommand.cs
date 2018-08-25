@@ -24,9 +24,9 @@ namespace LifeSim.Core.Engine.Commands.Actions.Kindergarten
             engine.MenuManager.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
 
             engine.Player.KinderGarten =
-                new KinderGarten(engine.EducationInstitutePicker.PickKinderGarten(), engine.GameTime.Year);
+                new KinderGarten(engine.Generator.EducationInstitutePicker.PickKinderGarten(), engine.GameTime.Year);
 
-            var friends = engine.NumberGenerator.ChooseNumber(minFriends, maxFriends);
+            var friends = engine.Generator.NumberGenerator.ChooseNumber(minFriends, maxFriends);
             engine.Player.Friends += friends;
 
             var stringBuilder = new StringBuilder();

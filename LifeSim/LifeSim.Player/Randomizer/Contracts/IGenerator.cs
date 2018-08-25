@@ -2,5 +2,8 @@
 {
     public interface IGenerator
     {
+        INumberGenerator NumberGenerator { get; }
+        IFamilyGenerator FamilyGenerator { get; }
+        IEducationInstitutePicker EducationInstitutePicker { get; }
     }
 }

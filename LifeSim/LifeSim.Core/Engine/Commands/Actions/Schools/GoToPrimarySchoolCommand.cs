@@ -24,10 +24,10 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             engine.MenuManager.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
 
             engine.Player.PrimarySchool =
-                new PrimarySchool(engine.EducationInstitutePicker.PickPrimarySchool(engine.Player.HasTakenLessons),
+                new PrimarySchool(engine.Generator.EducationInstitutePicker.PickPrimarySchool(engine.Player.HasTakenLessons),
                     engine.GameTime.Year);
 
-            var friends = engine.NumberGenerator.ChooseNumber(minFriends, maxFriends);
+            var friends = engine.Generator.NumberGenerator.ChooseNumber(minFriends, maxFriends);
             engine.Player.Friends += friends;
 
             var stringBuilder = new StringBuilder();

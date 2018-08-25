@@ -42,7 +42,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
 
             if (!player.Father.IsDead && player.Father.Age > 65)
             {
-                var deathChance = engine.NumberGenerator.RandomChance();
+                var deathChance = engine.Generator.NumberGenerator.RandomChance();
                 if (deathChance >= 85)
                 {
                     player.Father.IsDead = true;
@@ -52,7 +52,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
             }
             if (!player.Mother.IsDead && player.Mother.Age > 65)
             {
-                var deathChance = engine.NumberGenerator.RandomChance();
+                var deathChance = engine.Generator.NumberGenerator.RandomChance();
                 if (deathChance >= 85)
                 {
                     player.Mother.IsDead = true;
@@ -62,7 +62,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
             }
             if (player.Age > 65)
             {
-                var deathChance = engine.NumberGenerator.RandomChance();
+                var deathChance = engine.Generator.NumberGenerator.RandomChance();
                 if (deathChance >= 85)
                 {
                     player.IsDead = true;
@@ -71,7 +71,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                 }
             }
             if (player.Age > 20)
-                player.Friends += engine.NumberGenerator.ChooseNumber(20, 100);
+                player.Friends += engine.Generator.NumberGenerator.ChooseNumber(20, 100);
 
             switch (player.Age)
             {
@@ -119,7 +119,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                     break;
                 case 35:
                 {
-                    var CEOChance = engine.NumberGenerator.RandomChance();
+                    var CEOChance = engine.Generator.NumberGenerator.RandomChance();
                     if (CEOChance >= 50)
                     {
                         engine.PlayerProgress = PlayerProgress.CEO;

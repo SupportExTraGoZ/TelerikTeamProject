@@ -25,10 +25,10 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
 
             engine.Player.HighSchool =
                 new HighSchool(
-                    engine.EducationInstitutePicker.PickHighSchool(engine.Player.IsSuccessfulAtPrimarySchool),
+                    engine.Generator.EducationInstitutePicker.PickHighSchool(engine.Player.IsSuccessfulAtPrimarySchool),
                     engine.GameTime.Year);
 
-            var friends = engine.NumberGenerator.ChooseNumber(minFriends, maxFriends);
+            var friends = engine.Generator.NumberGenerator.ChooseNumber(minFriends, maxFriends);
             engine.Player.Friends += friends;
 
             var stringBuilder = new StringBuilder();

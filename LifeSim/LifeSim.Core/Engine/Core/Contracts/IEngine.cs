@@ -26,9 +26,11 @@ namespace LifeSim.Core.Engine.Core.Contracts
         ICommandParser CommandParser { get; }
 
         ILogger Logger { get; set; }
-        IFamilyGenerator FamilyGenerator { get; set; }
-        INumberGenerator NumberGenerator { get; set; }
-        IEducationInstitutePicker EducationInstitutePicker { get; set; }
+        
+        //IFamilyGenerator FamilyGenerator { get; set; }
+        //INumberGenerator NumberGenerator { get; set; }
+        //IEducationInstitutePicker EducationInstitutePicker { get; set; }
+        IGenerator Generator { get; }
 
 
         //IMenuLauncher MenuLauncher { get; set; }
@@ -42,6 +44,7 @@ namespace LifeSim.Core.Engine.Core.Contracts
         IGamePlayerFactory PlayerFactory { get; set; }
         IPlayer Player { get; set; }
         PlayerProgress PlayerProgress { get; set; }
+
 
         DateTime GameTime { get; set; }
         bool EndTheGame { get; set; }

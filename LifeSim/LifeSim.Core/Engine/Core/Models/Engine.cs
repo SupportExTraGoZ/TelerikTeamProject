@@ -30,8 +30,10 @@ namespace LifeSim.Core.Engine.Core.Models
         private readonly ICommandParser commandParser;
         private readonly IConsoleManager consoleManager;
         private readonly IMenuManager menuManager;
+        private readonly IGenerator generator;
 
-        private Engine(ICommandParser commandParser, IConsoleManager consoleManager, IMenuManager menuManager)
+        private Engine(ICommandParser commandParser, IConsoleManager consoleManager, 
+                       IMenuManager menuManager, IGenerator generator)
         {
             // Menu Display Setup
             //Writer = new ConsoleWriter();
@@ -50,9 +52,10 @@ namespace LifeSim.Core.Engine.Core.Models
 
             QuestionAction = new QuestionAction(ConstQuestions.Questions, ConsoleManager.UserInteraction);
 
-            FamilyGenerator = new FamilyGenerator();
-            NumberGenerator = new NumberGenerator();
-            EducationInstitutePicker = new EducationInstitutePicker();
+            //FamilyGenerator = new FamilyGenerator();
+            //NumberGenerator = new NumberGenerator();
+            //EducationInstitutePicker = new EducationInstitutePicker();
+            this.generator = generator;
 
             // Player Creation Setup
             UserStatus = new UserStatus(ConsoleManager.Renderer.Writer);
@@ -84,9 +87,11 @@ namespace LifeSim.Core.Engine.Core.Models
 
 
         public ILogger Logger { get; set; }
-        public IFamilyGenerator FamilyGenerator { get; set; }
-        public INumberGenerator NumberGenerator { get; set; }
-        public IEducationInstitutePicker EducationInstitutePicker { get; set; }
+
+        //public IFamilyGenerator FamilyGenerator { get; set; }
+        //public INumberGenerator NumberGenerator { get; set; }
+        //public IEducationInstitutePicker EducationInstitutePicker { get; set; }
+        public IGenerator Generator { get; }
 
 
         //public IMenuLauncher MenuLauncher { get; set; }
@@ -121,7 +126,7 @@ namespace LifeSim.Core.Engine.Core.Models
                     questionAnswers[1].Answer.Split(": ")[0],
                     (GenderType) Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]),
                     (Birthplaces) Enum.Parse(typeof(Birthplaces),
-                        questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), FamilyGenerator);
+                        questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), Generator.FamilyGenerator);
             }
             catch (NullReferenceException)
             {

@@ -1,6 +1,6 @@
 ﻿namespace LifeSim.Player.Randomizer.Contracts
 {
-    public interface IEducationInstitutePicker : IGenerator
+    public interface IEducationInstitutePicker
     {
         string PickKinderGarten();
         string PickPrimarySchool(bool successful = false);

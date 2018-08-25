@@ -16,7 +16,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
 
         public string Execute(IList<string> parameters)
         {
-            var examsPercent = engine.NumberGenerator.RandomChance();
+            var examsPercent = engine.Generator.NumberGenerator.RandomChance();
 
             var stringBuilder = new StringBuilder();
             stringBuilder.AppendLine($"You have graduated {engine.Player.PrimarySchool.BuildingName}.");
@@ -28,7 +28,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             if (engine.Player.HasTakenLessons)
             {
                 stringBuilder.AppendLine(
-                    $"You've passed your exams with ease, {engine.NumberGenerator.ChooseNumber(80, 100)} percent.");
+                    $"You've passed your exams with ease, {engine.Generator.NumberGenerator.ChooseNumber(80, 100)} percent.");
                 engine.Player.IsSuccessfulAtPrimarySchool = true;
             }
             else if (examsPercent < 50)
