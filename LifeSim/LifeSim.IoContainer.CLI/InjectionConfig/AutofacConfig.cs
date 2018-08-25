@@ -7,8 +7,8 @@ using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Commands.Models;
 using LifeSim.Core.Engine.Core.Contracts;
 using LifeSim.Core.Engine.Core.Models;
-using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
-using LifeSim.Core.Engine.Core.UserStatusDisplay.Models;
+using LifeSim.Core.Engine.Core.UserStatus.Contracts;
+using LifeSim.Core.Engine.Core.UserStatus.Models;
 using LifeSim.Core.Engine.Factories;
 using LifeSim.Core.Engine.Factories.Contracts;
 using LifeSim.Core.Engine.Menu.Manager.Contracts;
@@ -58,10 +58,10 @@ namespace LifeSim.IoContainer.CLI.InjectionConfig
         private void RegisterCoreComponents(ContainerBuilder builder)
         {
             // Engine
-            builder.RegisterType<Engine>().As<IEngine>().PropertiesAutowired().SingleInstance();
+            builder.RegisterType<Engine>().As<IEngine>().PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies).SingleInstance();
 
             // Dependencies
-            builder.RegisterType<CommandParser>().As<ICommandParser>().PropertiesAutowired().SingleInstance();
+            builder.RegisterType<CommandParser>().As<ICommandParser>().PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies).SingleInstance();
             builder.RegisterType<ConsoleManager>().As<IConsoleManager>().PropertiesAutowired().SingleInstance();
             builder.RegisterType<MenuManager>().As<IMenuManager>().PropertiesAutowired().SingleInstance();
             builder.RegisterType<Generator>().As<IGenerator>().PropertiesAutowired().SingleInstance();
@@ -86,8 +86,9 @@ namespace LifeSim.IoContainer.CLI.InjectionConfig
 
         private void RegisterAllCommands(ContainerBuilder builder)
         {
-            Assembly.GetExecutingAssembly().DefinedTypes
-                    .Where(x => x.ImplementedInterfaces.Contains(typeof(ICommand)) && !x.IsAbstract && !x.IsInterface)
+            AppDomain.CurrentDomain.GetAssemblies()
+                    .SelectMany(x => x.GetTypes())
+                    .Where(x => typeof(ICommand).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
                     .ToList()
                     .ForEach(x =>
                     {

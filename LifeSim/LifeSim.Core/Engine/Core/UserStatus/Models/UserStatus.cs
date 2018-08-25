@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
-using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
+using LifeSim.Core.Engine.Core.UserStatus.Contracts;
 using LifeSim.Player.Contracts;
 
-namespace LifeSim.Core.Engine.Core.UserStatusDisplay.Models
+namespace LifeSim.Core.Engine.Core.UserStatus.Models
 {
     public class UserStatus : IUserStatus
     {

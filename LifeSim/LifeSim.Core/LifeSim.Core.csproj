@@ -10,7 +10,7 @@
     <Folder Include="Engine\Commands\Actions\" />
     <Folder Include="Engine\Menu\Models\" />
     <Folder Include="Engine\Menu\Contracts\" />
-    <Folder Include="Engine\Core\UserStatusDisplay\Models\" />
+    <Folder Include="Engine\Core\UserStatus\Models\" />
     <Folder Include="Engine\Commands\Actions\Kindergarten\" />
     <Folder Include="Engine\Commands\Actions\Schools\" />
     <Folder Include="Engine\Commands\Actions\Lessons\" />

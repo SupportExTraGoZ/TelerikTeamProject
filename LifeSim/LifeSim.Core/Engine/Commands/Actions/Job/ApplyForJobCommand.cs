@@ -25,7 +25,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
             ProfessionType job;
             try
             {
-                job = (ProfessionType)Enum.Parse(typeof(ProfessionType), Parameters[1], true);
+                job = (ProfessionType)Enum.Parse(typeof(ProfessionType), Parameters[0], true);
             }
             catch (NullReferenceException)
             {
@@ -33,7 +33,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
             }
             catch (ArgumentException)
             {
-                return $"{Parameters[1]} was not found in the Jobs List.";
+                return $"{Parameters[0]} was not found in the Jobs List.";
             }
 
             var player = engine.Player;

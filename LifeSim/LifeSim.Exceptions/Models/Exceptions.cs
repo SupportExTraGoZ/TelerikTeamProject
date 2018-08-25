@@ -1,6 +1,6 @@
 ﻿namespace LifeSim.Exceptions.Models
 {
-    public class Exceptions
+    public static class Exceptions
     {
         public const string FirstNameTooShort = "First Name is too short.";
         public const string LastNameTooShort = "Last Name is too short.";

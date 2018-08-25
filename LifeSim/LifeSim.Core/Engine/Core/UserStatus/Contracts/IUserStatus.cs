@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using LifeSim.Player.Contracts;
 
-namespace LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts
+namespace LifeSim.Core.Engine.Core.UserStatus.Contracts
 {
     public interface IUserStatus
     {

@@ -8,13 +8,13 @@ namespace LifeSim.Core.Engine.Commands.Models
 {
     public class CommandParser : ICommandParser
     {
-        private IComponentContext Container { get; set; }
-        private IEngine Engine { get; set; }
+        private ILifetimeScope Scope;
+        public IEngine Engine { get; set; }
 
-        public CommandParser()
+        public CommandParser(ILifetimeScope scope)
         {
             //this.Engine = engine;
-            //this.Container = container;
+            this.Scope = scope;
         }
 
         public bool ProcessCommand(string commandAsString)
@@ -53,7 +53,7 @@ namespace LifeSim.Core.Engine.Commands.Models
         /// </summary>
         public ICommand GetCommand(string fullCommand)
         {
-            return Container.ResolveNamed<ICommand>(fullCommand.ToLower());
+            return Scope.ResolveNamed<ICommand>(fullCommand.ToLower() + "command");
         }
 
         public IList<string> ParseParameters(string fullCommand)

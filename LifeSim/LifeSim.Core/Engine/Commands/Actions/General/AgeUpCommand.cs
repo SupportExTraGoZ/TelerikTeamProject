@@ -47,7 +47,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
             if (!player.Father.IsDead && player.Father.Age > 65)
             {
                 var deathChance = engine.Generator.NumberGenerator.RandomChance();
-                if (deathChance >= 85)
+                if (deathChance >= 95)
                 {
                     player.Father.IsDead = true;
                     engine.ConsoleManager.UserInteraction.AddAction(
@@ -57,7 +57,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
             if (!player.Mother.IsDead && player.Mother.Age > 65)
             {
                 var deathChance = engine.Generator.NumberGenerator.RandomChance();
-                if (deathChance >= 85)
+                if (deathChance >= 95)
                 {
                     player.Mother.IsDead = true;
                     engine.ConsoleManager.UserInteraction.AddAction(

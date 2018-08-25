@@ -3,9 +3,7 @@ using System.Reflection;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Manager.Contracts;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.Contracts;
-using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
-using LifeSim.Core.Engine.Core.UserStatusDisplay.Models;
-using LifeSim.Core.Engine.Factories;
+using LifeSim.Core.Engine.Core.UserStatus.Contracts;
 using LifeSim.Core.Engine.Factories.Contracts;
 using LifeSim.Core.Engine.Menu.Manager.Contracts;
 using LifeSim.Exceptions.Models;
@@ -13,71 +11,36 @@ using LifeSim.Logger.Contracts;
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Randomizer.Contracts;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Models;
 
 namespace LifeSim.Core.Engine.Core.Models
 {
     public sealed class Engine : IEngine
     {
         private const string TerminationCommand = "Exit";
-
         private const int ActionLogNumber = 5;
 
         public Engine(ICommandParser commandParser, IConsoleManager consoleManager,
                        IMenuManager menuManager, IGenerator generator, ILogger logger,
                        IUserStatus userStatus, IGamePlayerFactory playerFactory)
         {
-            // Menu Display Setup
-            //Writer = new ConsoleWriter();
-            //Reader = new ConsoleReader();
-            //Cleaner = new ConsoleCleaner();
-            //UserInteraction = new UserInteraction(Writer, Reader);
-            //QuestionAction = new QuestionAction(ConstQuestions.Questions, ConsoleManager.UserInteraction);
-
-            //consoleManager with all functionalities from Menu Display
+            // Display Setup
             this.ConsoleManager = consoleManager;
-
-            //MenuLauncher = new MenuLauncher(this.ConsoleManager.Writer, this.ConsoleManager.Reader);
-            //OptionsContainer = new OptionsContainer();
             this.MenuManager = menuManager;
-
-            Logger = logger;
-
-            //FamilyGenerator = new FamilyGenerator();
-            //NumberGenerator = new NumberGenerator();
-            //EducationInstitutePicker = new EducationInstitutePicker();
+            this.CommandParser = commandParser;
+            this.Logger = logger;
             this.Generator = generator;
 
             // Player Creation Setup
-            //UserStatus = new UserStatus(ConsoleManager.Writer);
-            UserStatus = userStatus;
-            //PlayerFactory = new GamePlayerFactory();
-            PlayerFactory = playerFactory;
-
-            PlayerProgress = PlayerProgress.NotBorn;
-
-            this.CommandParser = commandParser;
+            this.UserStatus = userStatus;
+            this.PlayerFactory = playerFactory;
+            this.PlayerProgress = PlayerProgress.NotBorn;
         }
 
-        //public IConsoleReader Reader { get; set; }
-        //public IConsoleWriter Writer { get; set; }
-        //public IConsoleCleaner Cleaner { get; set; }
-        //public IUserInteraction UserInteraction { get; set; }
         public IConsoleManager ConsoleManager { get; }
-
-        public ICommandParser CommandParser { get; }
-
-        public ILogger Logger { get; set; }
-
-        //public IFamilyGenerator FamilyGenerator { get; set; }
-        //public INumberGenerator NumberGenerator { get; set; }
-        //public IEducationInstitutePicker EducationInstitutePicker { get; set; }
-        public IGenerator Generator { get; }
-
-        //public IMenuLauncher MenuLauncher { get; set; }
-        //public IOptionsContainer OptionsContainer { get; set; }
-        //public IQuestionAction QuestionAction { get; set; }
         public IMenuManager MenuManager { get; }
+        public ICommandParser CommandParser { get; }
+        public ILogger Logger { get; set; }
+        public IGenerator Generator { get; }
 
         public IUserStatus UserStatus { get; set; }
         public IGamePlayerFactory PlayerFactory { get; set; }
@@ -107,11 +70,7 @@ namespace LifeSim.Core.Engine.Core.Models
                     (Birthplaces)Enum.Parse(typeof(Birthplaces),
                         questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), Generator);
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            /*catch (NullReferenceException)
+            catch (NullReferenceException)
             {
                 SupressException("Your answers didn't meet the requirements. Try Again...");
             }
@@ -122,7 +81,7 @@ namespace LifeSim.Core.Engine.Core.Models
             catch (CustomException e)
             {
                 SupressException(e.Message);
-            }*/
+            }
 
             // Update GameTime
             GameTime = DateTime.Now;
@@ -178,7 +137,7 @@ namespace LifeSim.Core.Engine.Core.Models
                 ConsoleManager.Cleaner.ClearConsole();
             }
 
-            // TODO: Show End Game Screen
+            // End Game Screen
             ConsoleManager.Cleaner.ClearConsole();
 
             ConsoleManager.Writer.PrintLogo();
@@ -192,7 +151,7 @@ namespace LifeSim.Core.Engine.Core.Models
         private void SupressException(string message)
         {
             ConsoleManager.Writer.WriteLine(message);
-            ConsoleManager.Writer.WriteLine("Press any key to start again...");
+            ConsoleManager.Writer.WriteLine("Prtart again...");
             Console.ReadKey();
             Start();
         }
