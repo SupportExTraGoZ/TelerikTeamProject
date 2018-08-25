@@ -13,6 +13,7 @@ using LifeSim.Logger.Contracts;
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Randomizer.Contracts;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Models;
 
 namespace LifeSim.Core.Engine.Core.Models
 {
@@ -167,8 +168,8 @@ namespace LifeSim.Core.Engine.Core.Models
                 catch (Exception ex)
                 {
                     // Just for now to debug, will be changed later on.
-                    ConsoleManager.UserInteraction.AddAction("An unexpected error has occured and has been logged.");
-                    //this.UserInteraction.AddAction(ex.Message);
+                    //ConsoleManager.UserInteraction.AddAction("An unexpected error has occured and has been logged.");
+                    this.ConsoleManager.UserInteraction.AddAction(ex.Message);
 
                     Logger.GetLogger.Error(ex.Message);
                 }

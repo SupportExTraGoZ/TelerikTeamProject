@@ -4,7 +4,7 @@ using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion
 
 namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Constants
 {
-    public class ConstQuestions
+    public static class ConstQuestions
     {
         private const string firstName = "Enter your First Name: ";
         private const string lastName = "Enter your Last Name: ";

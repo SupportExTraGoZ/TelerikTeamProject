@@ -30,6 +30,7 @@ using LifeSim.Core.Engine.Menu.Contracts;
 using LifeSim.Player.Randomizer.Models.Generators;
 using LifeSim.Player.Randomizer.Contracts.Generators;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Constants;
+using System;
 
 namespace LifeSim.IoContainer.CLI.InjectionConfig
 {
@@ -66,7 +67,7 @@ namespace LifeSim.IoContainer.CLI.InjectionConfig
             builder.RegisterType<Generator>().As<IGenerator>().PropertiesAutowired().SingleInstance();
             builder.RegisterType<Logger.Models.Logger>().As<ILogger>().PropertiesAutowired().SingleInstance();
             builder.RegisterType<UserStatus>().As<IUserStatus>().PropertiesAutowired().SingleInstance();
-            builder.RegisterType<GamePlayerFactory>().As<IGamePlayerFactory>().PropertiesAutowired().SingleInstance();
+            builder.RegisterType<GamePlayerFactory>().As<IGamePlayerFactory>().SingleInstance();
 
             // Minor Dependencies
             builder.RegisterType<OptionsContainer>().As<IOptionsContainer>().SingleInstance().PropertiesAutowired();
@@ -75,7 +76,6 @@ namespace LifeSim.IoContainer.CLI.InjectionConfig
             builder.RegisterType<ConsoleCleaner>().As<IConsoleCleaner>().SingleInstance().PropertiesAutowired();
             builder.RegisterType<UserInteraction>().As<IUserInteraction>().SingleInstance().PropertiesAutowired();
             builder.RegisterType<UserStatus>().As<IUserStatus>().SingleInstance().PropertiesAutowired();
-            builder.RegisterType<ConstQuestions>().AsSelf().SingleInstance().PropertiesAutowired();
             builder.RegisterType<QuestionAction>().As<IQuestionAction>().SingleInstance().PropertiesAutowired();
             builder.RegisterType<Question>().As<IQuestion>().SingleInstance().PropertiesAutowired();
             builder.RegisterType<MenuLauncher>().As<IMenuLauncher>().SingleInstance().PropertiesAutowired();

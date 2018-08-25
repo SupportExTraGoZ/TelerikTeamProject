@@ -3,6 +3,7 @@ using System.Linq;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts.Utilities;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Contracts;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Constants;
 
 namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Models
 {
@@ -11,9 +12,9 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQues
         private readonly IList<IQuestion> questions;
         private readonly IUserInteraction userInteraction;
 
-        public QuestionAction(IList<IQuestion> questions, IUserInteraction userInteraction)
+        public QuestionAction(IUserInteraction userInteraction)
         {
-            this.questions = questions;
+            this.questions = ConstQuestions.Questions;
             this.userInteraction = userInteraction;
         }
 
