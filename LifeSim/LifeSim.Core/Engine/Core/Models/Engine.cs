@@ -13,7 +13,6 @@ using LifeSim.Logger.Contracts;
 using LifeSim.Player.Contracts;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Randomizer.Contracts;
-using LifeSim.Player.Randomizer.Models;
 
 namespace LifeSim.Core.Engine.Core.Models
 {
@@ -29,7 +28,7 @@ namespace LifeSim.Core.Engine.Core.Models
         private readonly IMenuManager menuManager;
         private readonly IGenerator generator;
 
-        private Engine(ICommandParser commandParser, IConsoleManager consoleManager, 
+        private Engine(ICommandParser commandParser, IConsoleManager consoleManager,
                        IMenuManager menuManager, IGenerator generator)
         {
             // Menu Display Setup
@@ -42,7 +41,7 @@ namespace LifeSim.Core.Engine.Core.Models
             //consoleManager with all functionalities from Menu Display
             this.consoleManager = consoleManager;
 
-            //MenuLauncher = new MenuLauncher(this.ConsoleManager.Renderer.Writer, this.ConsoleManager.Renderer.Reader);
+            //MenuLauncher = new MenuLauncher(this.ConsoleManager.Writer, this.ConsoleManager.Reader);
             //OptionsContainer = new OptionsContainer();
             this.menuManager = menuManager;
 
@@ -55,7 +54,7 @@ namespace LifeSim.Core.Engine.Core.Models
             this.generator = generator;
 
             // Player Creation Setup
-            UserStatus = new UserStatus(ConsoleManager.Renderer.Writer);
+            UserStatus = new UserStatus(ConsoleManager.Writer);
             PlayerFactory = new GamePlayerFactory();
             PlayerProgress = PlayerProgress.NotBorn;
 
@@ -111,7 +110,7 @@ namespace LifeSim.Core.Engine.Core.Models
 
             // Show Game Logo
             //Writer.PrintLogo();
-            ConsoleManager.Renderer.Writer.PrintLogo();
+            ConsoleManager.Writer.PrintLogo();
 
             try
             {
@@ -121,8 +120,8 @@ namespace LifeSim.Core.Engine.Core.Models
                 // Player Init/Creation
                 Player = PlayerFactory.CreatePlayer(questionAnswers[0].Answer.Split(": ")[0],
                     questionAnswers[1].Answer.Split(": ")[0],
-                    (GenderType) Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]),
-                    (Birthplaces) Enum.Parse(typeof(Birthplaces),
+                    (GenderType)Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]),
+                    (Birthplaces)Enum.Parse(typeof(Birthplaces),
                         questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), Generator.FamilyGenerator);
             }
             catch (NullReferenceException)
@@ -158,7 +157,7 @@ namespace LifeSim.Core.Engine.Core.Models
             while (true)
             {
                 // Print Logo
-                ConsoleManager.Renderer.Writer.PrintLogo();
+                ConsoleManager.Writer.PrintLogo();
 
                 // Show User's HUD
                 UserStatus.WriteStatus(Player);
@@ -175,7 +174,7 @@ namespace LifeSim.Core.Engine.Core.Models
 
                 try
                 {
-                    var commandAsString = ConsoleManager.Renderer.Reader.ReadLine();
+                    var commandAsString = ConsoleManager.Reader.ReadLine();
 
                     if (commandAsString.ToLower() == TerminationCommand.ToLower())
                         break;
@@ -199,18 +198,18 @@ namespace LifeSim.Core.Engine.Core.Models
             // TODO: Show End Game Screen
             ConsoleManager.Cleaner.ClearConsole();
 
-            ConsoleManager.Renderer.Writer.PrintLogo();
+            ConsoleManager.Writer.PrintLogo();
 
-            ConsoleManager.Renderer.Writer.WriteLine(Player.ToString());
+            ConsoleManager.Writer.WriteLine(Player.ToString());
 
-            ConsoleManager.Renderer.Writer.WriteLine(
+            ConsoleManager.Writer.WriteLine(
                 $"Thank you for playing LifeSim Alpha {Assembly.GetExecutingAssembly().GetName().Version}");
         }
 
         private void SupressException(string message)
         {
-            ConsoleManager.Renderer.Writer.WriteLine(message);
-            ConsoleManager.Renderer.Writer.WriteLine("Press any key to start again...");
+            ConsoleManager.Writer.WriteLine(message);
+            ConsoleManager.Writer.WriteLine("Press any key to start again...");
             Console.ReadKey();
             Start();
         }

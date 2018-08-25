@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts.Utilities;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Contracts;
 
 namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Models
@@ -18,13 +19,6 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQues
 
         public IList<IQuestion> GetUserAnswers()
         {
-            // Old
-            /*foreach (var question in this.questions)
-            {
-                var sendQuestion = this.userInteraction.AskUser(question.Text, question.SameLine);
-                question.Answer = sendQuestion.First().ToString().ToUpper() + sendQuestion.Substring(1);
-            }*/
-
             // New & Better - Bai Grozdan
             questions.ToList().ForEach(x =>
             {

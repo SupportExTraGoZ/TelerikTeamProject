@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts.Utilities;
 
 namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities
 {
