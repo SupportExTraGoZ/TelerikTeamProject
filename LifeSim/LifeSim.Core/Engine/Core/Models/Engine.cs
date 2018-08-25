@@ -29,7 +29,8 @@ namespace LifeSim.Core.Engine.Core.Models
         private readonly IGenerator generator;
 
         private Engine(ICommandParser commandParser, IConsoleManager consoleManager,
-                       IMenuManager menuManager, IGenerator generator)
+                       IMenuManager menuManager, IGenerator generator, ILogger logger,
+                       IUserStatus userStatus, IGamePlayerFactory playerFactory)
         {
             // Menu Display Setup
             //Writer = new ConsoleWriter();
@@ -45,8 +46,7 @@ namespace LifeSim.Core.Engine.Core.Models
             //OptionsContainer = new OptionsContainer();
             this.menuManager = menuManager;
 
-            Logger = new Logger.Models.Logger();
-
+            Logger = logger;
 
             //FamilyGenerator = new FamilyGenerator();
             //NumberGenerator = new NumberGenerator();
@@ -54,8 +54,11 @@ namespace LifeSim.Core.Engine.Core.Models
             this.generator = generator;
 
             // Player Creation Setup
-            UserStatus = new UserStatus(ConsoleManager.Writer);
-            PlayerFactory = new GamePlayerFactory();
+            //UserStatus = new UserStatus(ConsoleManager.Writer);
+            UserStatus = userStatus;
+            //PlayerFactory = new GamePlayerFactory();
+            PlayerFactory = playerFactory;
+
             PlayerProgress = PlayerProgress.NotBorn;
 
             this.commandParser = commandParser;
@@ -81,14 +84,12 @@ namespace LifeSim.Core.Engine.Core.Models
 
         public ICommandParser CommandParser { get; }
 
-
         public ILogger Logger { get; set; }
 
         //public IFamilyGenerator FamilyGenerator { get; set; }
         //public INumberGenerator NumberGenerator { get; set; }
         //public IEducationInstitutePicker EducationInstitutePicker { get; set; }
         public IGenerator Generator { get; }
-
 
         //public IMenuLauncher MenuLauncher { get; set; }
         //public IOptionsContainer OptionsContainer { get; set; }
@@ -153,7 +154,6 @@ namespace LifeSim.Core.Engine.Core.Models
             //Cleaner.ClearConsole();
             ConsoleManager.Cleaner.ClearConsole();
 
-
             while (true)
             {
                 // Print Logo
@@ -167,7 +167,6 @@ namespace LifeSim.Core.Engine.Core.Models
 
                 // Show User's available options
                 MenuManager.MenuLauncher.PrintMenu(PlayerProgress, MenuManager.OptionsContainer);
-
 
                 if (EndTheGame)
                     break;
