@@ -1,7 +1,6 @@
 ﻿using System;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Manager.Contracts;
 using LifeSim.Core.Engine.Commands.Contracts;
-using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
 using LifeSim.Core.Engine.Factories.Contracts;
 using LifeSim.Core.Engine.Menu.Manager.Contracts;
@@ -37,8 +36,8 @@ namespace LifeSim.Core.Engine.Core.Contracts
         //IOptionsContainer OptionsContainer { get; set; }
         IMenuManager MenuManager { get; }
 
+        //IQuestionAction QuestionAction { get; set; }
 
-        IQuestionAction QuestionAction { get; set; }
         IUserStatus UserStatus { get; set; }
 
         IGamePlayerFactory PlayerFactory { get; set; }

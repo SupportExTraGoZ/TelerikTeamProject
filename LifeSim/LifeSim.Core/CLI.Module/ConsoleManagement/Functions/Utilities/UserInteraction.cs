@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
 
-namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions
+namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities
 {
     public class UserInteraction : IUserInteraction
     {

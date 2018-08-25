@@ -1,4 +1,4 @@
-﻿namespace LifeSim.Core.Engine.Core.UserQuestion.Contracts
+﻿namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Contracts
 {
     public interface IQuestion
     {

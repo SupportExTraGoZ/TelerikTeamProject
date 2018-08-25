@@ -1,4 +1,5 @@
 ﻿using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Contracts;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Renderer.Contracts;
 
 namespace LifeSim.Core.CLI.Module.ConsoleManagement.Manager.Contracts
@@ -8,5 +9,6 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Manager.Contracts
         IConsoleRenderer Renderer { get; }
         IConsoleCleaner Cleaner { get; }
         IUserInteraction UserInteraction { get; }
+        IQuestionAction QuestionAction { get; }
     }
 }

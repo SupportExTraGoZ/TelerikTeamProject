@@ -3,9 +3,6 @@ using System.Reflection;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Manager.Contracts;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.Contracts;
-using LifeSim.Core.Engine.Core.UserQuestion.Constants;
-using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
-using LifeSim.Core.Engine.Core.UserQuestion.Models;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Contracts;
 using LifeSim.Core.Engine.Core.UserStatusDisplay.Models;
 using LifeSim.Core.Engine.Factories;
@@ -40,6 +37,7 @@ namespace LifeSim.Core.Engine.Core.Models
             //Reader = new ConsoleReader();
             //Cleaner = new ConsoleCleaner();
             //UserInteraction = new UserInteraction(Writer, Reader);
+            //QuestionAction = new QuestionAction(ConstQuestions.Questions, ConsoleManager.UserInteraction);
 
             //consoleManager with all functionalities from Menu Display
             this.consoleManager = consoleManager;
@@ -50,7 +48,6 @@ namespace LifeSim.Core.Engine.Core.Models
 
             Logger = new Logger.Models.Logger();
 
-            QuestionAction = new QuestionAction(ConstQuestions.Questions, ConsoleManager.UserInteraction);
 
             //FamilyGenerator = new FamilyGenerator();
             //NumberGenerator = new NumberGenerator();
@@ -96,9 +93,9 @@ namespace LifeSim.Core.Engine.Core.Models
 
         //public IMenuLauncher MenuLauncher { get; set; }
         //public IOptionsContainer OptionsContainer { get; set; }
+        //public IQuestionAction QuestionAction { get; set; }
         public IMenuManager MenuManager { get; }
 
-        public IQuestionAction QuestionAction { get; set; }
         public IUserStatus UserStatus { get; set; }
         public IGamePlayerFactory PlayerFactory { get; set; }
         public IPlayer Player { get; set; }
@@ -119,7 +116,7 @@ namespace LifeSim.Core.Engine.Core.Models
             try
             {
                 // Ask Questions
-                var questionAnswers = QuestionAction.GetUserAnswers();
+                var questionAnswers = ConsoleManager.QuestionAction.GetUserAnswers();
 
                 // Player Init/Creation
                 Player = PlayerFactory.CreatePlayer(questionAnswers[0].Answer.Split(": ")[0],

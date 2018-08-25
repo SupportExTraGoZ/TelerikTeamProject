@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
-using LifeSim.Core.Engine.Core.UserQuestion.Contracts;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Contracts;
 
-namespace LifeSim.Core.Engine.Core.UserQuestion.Models
+namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Models
 {
     public class QuestionAction : IQuestionAction
     {

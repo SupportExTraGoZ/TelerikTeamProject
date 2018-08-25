@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LifeSim.Core.Engine.Core.UserQuestion.Contracts
+namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Contracts
 {
     public interface IQuestionAction
     {
