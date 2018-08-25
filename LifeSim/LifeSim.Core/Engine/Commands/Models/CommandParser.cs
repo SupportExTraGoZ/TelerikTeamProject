@@ -34,7 +34,9 @@ namespace LifeSim.Core.Engine.Commands.Models
                 return false;
             }
 
-            var command = engine.CommandParser.GetCommand(commandAsString);
+            var splitCommand = commandAsString.Split(' ').ToList();
+
+            var command = engine.CommandParser.GetCommand(splitCommand[0]);
             var parameters = engine.CommandParser.ParseParameters(commandAsString);
 
             var executionResult = command.Execute(parameters);
