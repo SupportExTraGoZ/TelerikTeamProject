@@ -2,78 +2,79 @@
 using System.Linq;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Options.Contracts;
+using LifeSim.Player.Options.Models.Utilities;
 
-namespace LifeSim.Player.Options
+namespace LifeSim.Player.Options.Models
 {
     public class OptionsContainer : IOptionsContainer
     {
-        private readonly Dictionary<string, CustomTuple> options;
+        private readonly Dictionary<string, OptionsTuple> options;
 
         public OptionsContainer()
         {
-            options = new Dictionary<string, CustomTuple>
+            options = new Dictionary<string, OptionsTuple>
             {
-                {"1", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.NewBorn, true, true, false)},
+                {"1", new OptionsTuple("Age Up (ageup)", "ageup", PlayerProgress.NewBorn, true, true, false)},
 
-                {"2", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Baby, false, true, false)},
+                {"2", new OptionsTuple("Age Up (ageup)", "ageup", PlayerProgress.Baby, false, true, false)},
                 {
                     "3",
-                    new CustomTuple("Go To Kindergarten (gotokindergarten)", "gotokindergarten", PlayerProgress.Baby,
+                    new OptionsTuple("Go To Kindergarten (gotokindergarten)", "gotokindergarten", PlayerProgress.Baby,
                         true, false, false)
                 },
 
-                {"4", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Kid, false, true, false)},
+                {"4", new OptionsTuple("Age Up (ageup)", "ageup", PlayerProgress.Kid, false, true, false)},
                 {
                     "5",
-                    new CustomTuple("Go To Primary School (gotoprimaryschool)", "gotoprimaryschool", PlayerProgress.Kid,
+                    new OptionsTuple("Go To Primary School (gotoprimaryschool)", "gotoprimaryschool", PlayerProgress.Kid,
                         true, false, false)
                 },
                 {
                     "6",
-                    new CustomTuple("Take additional lessons (takelessons)", "takelessons", PlayerProgress.Kid, true,
+                    new OptionsTuple("Take additional lessons (takelessons)", "takelessons", PlayerProgress.Kid, true,
                         false, false)
                 },
 
-                {"7", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Teen, false, true, false)},
+                {"7", new OptionsTuple("Age Up (ageup)", "ageup", PlayerProgress.Teen, false, true, false)},
                 {
                     "8",
-                    new CustomTuple("Go To High School (gotohighschool)", "gotohighschool", PlayerProgress.Teen, true,
+                    new OptionsTuple("Go To High School (gotohighschool)", "gotohighschool", PlayerProgress.Teen, true,
                         false, false)
                 },
                 {
                     "16",
-                    new CustomTuple("Take additional lessons (takelessons)", "takelessons", PlayerProgress.Teen, true,
+                    new OptionsTuple("Take additional lessons (takelessons)", "takelessons", PlayerProgress.Teen, true,
                         false, false)
                 },
 
                 {
                     "9",
-                    new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.HighSchoolGraduate, false, true, false)
+                    new OptionsTuple("Age Up (ageup)", "ageup", PlayerProgress.HighSchoolGraduate, false, true, false)
                 },
                 {
                     "10",
-                    new CustomTuple("Go To University (gotouniversity)", "gotouniversity",
+                    new OptionsTuple("Go To University (gotouniversity)", "gotouniversity",
                         PlayerProgress.HighSchoolGraduate, true, false, false)
                 },
 
-                {"11", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Student, true, true, false)},
+                {"11", new OptionsTuple("Age Up (ageup)", "ageup", PlayerProgress.Student, true, true, false)},
 
                 {
                     "99",
-                    new CustomTuple("Job Names: SoftwareEngineer, PoliceOfficer, FireFighter, Scientist, Accountant",
+                    new OptionsTuple("Job Names: SoftwareEngineer, PoliceOfficer, FireFighter, Scientist, Accountant",
                         "NotForUseJustInfo", PlayerProgress.NonEmployed, true, false, false)
                 },
                 {
                     "12",
-                    new CustomTuple("Apply for a Job (applyforjob jobName)", "applyforjob", PlayerProgress.NonEmployed,
+                    new OptionsTuple("Apply for a Job (applyforjob jobName)", "applyforjob", PlayerProgress.NonEmployed,
                         true, true, false)
                 },
 
-                {"13", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Worker, true, true, false)},
+                {"13", new OptionsTuple("Age Up (ageup)", "ageup", PlayerProgress.Worker, true, true, false)},
 
-                {"14", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.CEO, true, true, false)},
+                {"14", new OptionsTuple("Age Up (ageup)", "ageup", PlayerProgress.CEO, true, true, false)},
 
-                {"15", new CustomTuple("Age Up (ageup)", "ageup", PlayerProgress.Retired, true, true, false)}
+                {"15", new OptionsTuple("Age Up (ageup)", "ageup", PlayerProgress.Retired, true, true, false)}
             };
         }
 
@@ -82,20 +83,20 @@ namespace LifeSim.Player.Options
             if (!returnKey)
             {
                 var tempOptions = options
-                    .Where(x => x.Value.playerProgress == playerProgress)
-                    .Where(x => x.Value.isUnlocked)
-                    .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed);
+                    .Where(x => x.Value.PlayerProgress == playerProgress)
+                    .Where(x => x.Value.IsUnlocked)
+                    .Where(x => x.Value.CanBeUsedManyTimes || !x.Value.IsUsed);
 
                 if (!tempOptions.Any())
-                    return new List<string> {Exceptions.Models.Exceptions.NoCommandsAvailable};
+                    return new List<string> { Exceptions.Models.Exceptions.NoCommandsAvailable };
 
-                return tempOptions.Select(x => x.Value.commandDisplay).ToList();
+                return tempOptions.Select(x => x.Value.CommandDisplay).ToList();
             }
             var temp = options
-                .Where(x => x.Value.playerProgress == playerProgress)
-                .Where(x => x.Value.isUnlocked)
-                .Where(x => x.Value.canBeUsedManyTimes || !x.Value.isUsed)
-                .Select(option => option.Value.commandKey).ToList();
+                .Where(x => x.Value.PlayerProgress == playerProgress)
+                .Where(x => x.Value.IsUnlocked)
+                .Where(x => x.Value.CanBeUsedManyTimes || !x.Value.IsUsed)
+                .Select(option => option.Value.CommandKey).ToList();
 
             return temp;
         }
@@ -104,13 +105,13 @@ namespace LifeSim.Player.Options
             bool isUsed = false)
         {
             // Bai Grozdan, Edo Challenge
-            options.Where(x => x.Value.commandKey == commandKey)
+            options.Where(x => x.Value.CommandKey == commandKey)
                 .ToList()
                 .ForEach(x =>
                 {
-                    x.Value.isUnlocked = isUnlocked;
-                    x.Value.canBeUsedManyTimes = canBeUsedManyTimes;
-                    x.Value.isUsed = isUsed;
+                    x.Value.IsUnlocked = isUnlocked;
+                    x.Value.CanBeUsedManyTimes = canBeUsedManyTimes;
+                    x.Value.IsUsed = isUsed;
                 });
         }
 
@@ -118,33 +119,15 @@ namespace LifeSim.Player.Options
             bool canBeUsedManyTimes = true, bool isUsed = false)
         {
             // Bai Grozdan, Edo Challenge
-            options.Where(x => x.Value.commandKey == "ageup")
-                .Where(x => x.Value.playerProgress == playerProgress)
+            options.Where(x => x.Value.CommandKey == "ageup")
+                .Where(x => x.Value.PlayerProgress == playerProgress)
                 .ToList()
                 .ForEach(x =>
                 {
-                    x.Value.isUnlocked = isUnlocked;
-                    x.Value.canBeUsedManyTimes = canBeUsedManyTimes;
-                    x.Value.isUsed = isUsed;
+                    x.Value.IsUnlocked = isUnlocked;
+                    x.Value.CanBeUsedManyTimes = canBeUsedManyTimes;
+                    x.Value.IsUsed = isUsed;
                 });
-        }
-    }
-
-    internal class CustomTuple
-    {
-        internal string commandDisplay, commandKey;
-        internal bool isUnlocked, canBeUsedManyTimes, isUsed;
-        internal PlayerProgress playerProgress;
-
-        public CustomTuple(string commandDisplay, string commandKey, PlayerProgress playerProgress, bool isUnlocked,
-            bool canBeUsedManyTimes, bool isUsed)
-        {
-            this.commandDisplay = commandDisplay;
-            this.commandKey = commandKey;
-            this.playerProgress = playerProgress;
-            this.isUnlocked = isUnlocked;
-            this.canBeUsedManyTimes = canBeUsedManyTimes;
-            this.isUsed = isUsed;
         }
     }
 }

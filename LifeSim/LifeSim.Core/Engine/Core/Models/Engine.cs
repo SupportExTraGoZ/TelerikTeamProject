@@ -200,13 +200,10 @@ namespace LifeSim.Core.Engine.Core.Models
             }
 
             // TODO: Show End Game Screen
-            //Cleaner.ClearConsole();
             ConsoleManager.Cleaner.ClearConsole();
 
-            //Writer.PrintLogo();
             ConsoleManager.Renderer.Writer.PrintLogo();
 
-            //Writer.WriteLine(Player.ToString());
             ConsoleManager.Renderer.Writer.WriteLine(Player.ToString());
 
             ConsoleManager.Renderer.Writer.WriteLine(

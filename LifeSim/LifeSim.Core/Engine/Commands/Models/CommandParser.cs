@@ -60,10 +60,7 @@ namespace LifeSim.Core.Engine.Commands.Models
             // Manually Removed, take caution
             //commandParts.RemoveAt(0);
 
-            if (commandParts.Count() == 0)
-                return new List<string>();
-
-            return commandParts;
+            return !commandParts.Any() ? new List<string>() : commandParts;
         }
     }
 }

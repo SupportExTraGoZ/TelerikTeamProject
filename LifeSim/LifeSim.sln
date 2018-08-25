@@ -6,23 +6,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LifeSim.CLI", "LifeSim.CLI"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LifeSim", "LifeSim", "{E2FFAC4C-1E6B-42B1-8E91-0CEB9ED16E98}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Establishments", "LifeSim.Establishments\LifeSim.Establishments.csproj", "{D24721B4-68C2-427A-99D9-C9CCEFCE222A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Establishments", "LifeSim.Establishments\LifeSim.Establishments.csproj", "{D24721B4-68C2-427A-99D9-C9CCEFCE222A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Player", "LifeSim.Player\LifeSim.Player.csproj", "{6CC3F442-4AE8-4007-8E91-5DFD88D00176}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Player", "LifeSim.Player\LifeSim.Player.csproj", "{6CC3F442-4AE8-4007-8E91-5DFD88D00176}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Startup", "LifeSim.Startup\LifeSim.Startup.csproj", "{0C64FE24-FB0E-479D-BE46-8D2E9CAFCEA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Startup", "LifeSim.Startup\LifeSim.Startup.csproj", "{0C64FE24-FB0E-479D-BE46-8D2E9CAFCEA6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Core", "LifeSim.Core\LifeSim.Core.csproj", "{DE51433D-43D8-4CCD-A100-3D0B837E64FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Core", "LifeSim.Core\LifeSim.Core.csproj", "{DE51433D-43D8-4CCD-A100-3D0B837E64FE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Exceptions", "LifeSim.Exceptions\LifeSim.Exceptions.csproj", "{20499D02-8478-4BE1-8B9B-B491F76B7CA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Exceptions", "LifeSim.Exceptions\LifeSim.Exceptions.csproj", "{20499D02-8478-4BE1-8B9B-B491F76B7CA2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Logger", "LifeSim.Logger\LifeSim.Logger.csproj", "{D49598E9-B885-4AC4-ACA2-3B2DD7A5F22C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Logger", "LifeSim.Logger\LifeSim.Logger.csproj", "{D49598E9-B885-4AC4-ACA2-3B2DD7A5F22C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.Tests", "LifeSim.Tests\LifeSim.Tests.csproj", "{A55BF44B-1C46-4211-AB8F-2944689B4D3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.Tests", "LifeSim.Tests\LifeSim.Tests.csproj", "{A55BF44B-1C46-4211-AB8F-2944689B4D3D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LifeSim.Client", "LifeSim.Client", "{E5FE70A4-6182-4501-8B7D-BBE6E6E23286}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeSim.IoContainer.CLI", "LifeSim.IoContainer.CLI\LifeSim.IoContainer.CLI.csproj", "{5CCAF4C1-04BD-4C6A-AE64-A210C3CAB03B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeSim.IoContainer.CLI", "LifeSim.IoContainer.CLI\LifeSim.IoContainer.CLI.csproj", "{5CCAF4C1-04BD-4C6A-AE64-A210C3CAB03B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
