@@ -5,7 +5,8 @@ namespace LifeSim.Player.Randomizer.Models
 {
     public class Generator : IGenerator
     {
-        public Generator(INumberGenerator numberGenerator, IFamilyGenerator familyGenerator, IEducationInstitutePicker educationInstitutePicker)
+        public Generator(INumberGenerator numberGenerator, IFamilyGenerator familyGenerator,
+            IEducationInstitutePicker educationInstitutePicker)
         {
             NumberGenerator = numberGenerator;
             FamilyGenerator = familyGenerator;

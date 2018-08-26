@@ -1,6 +1,6 @@
-﻿using LifeSim.IoContainer.CLI.InjectionConfig;
+﻿using Autofac;
 using LifeSim.Core.Engine.Core.Contracts;
-using Autofac;
+using LifeSim.IoContainer.CLI.InjectionConfig;
 
 namespace LifeSim.Startup
 {

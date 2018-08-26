@@ -8,14 +8,17 @@ namespace LifeSim.Core.Engine.Commands.Models
 {
     public class CommandParser : ICommandParser
     {
-        private ILifetimeScope Scope;
-        public IEngine Engine { get; set; }
+        private readonly ILifetimeScope Scope;
 
         public CommandParser(ILifetimeScope scope)
         {
+            // Property Injection on Engine
+            // Allowance for circulating dependency
             //this.Engine = engine;
-            this.Scope = scope;
+            Scope = scope;
         }
+
+        public IEngine Engine { get; set; }
 
         public bool ProcessCommand(string commandAsString)
         {

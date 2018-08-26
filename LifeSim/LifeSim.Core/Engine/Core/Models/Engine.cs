@@ -20,31 +20,31 @@ namespace LifeSim.Core.Engine.Core.Models
         private const int ActionLogNumber = 5;
 
         public Engine(ICommandParser commandParser, IConsoleManager consoleManager,
-                       IMenuManager menuManager, IGenerator generator, ILogger logger,
-                       IUserStatus userStatus, IGamePlayerFactory playerFactory)
+            IMenuManager menuManager, IGenerator generator, ILogger logger,
+            IUserStatus userStatus, IGamePlayerFactory playerFactory)
         {
             // Display Setup
-            this.ConsoleManager = consoleManager;
-            this.MenuManager = menuManager;
-            this.CommandParser = commandParser;
-            this.Logger = logger;
-            this.Generator = generator;
+            ConsoleManager = consoleManager;
+            MenuManager = menuManager;
+            CommandParser = commandParser;
+            Logger = logger;
+            Generator = generator;
 
             // Player Creation Setup
-            this.UserStatus = userStatus;
-            this.PlayerFactory = playerFactory;
-            this.PlayerProgress = PlayerProgress.NotBorn;
+            UserStatus = userStatus;
+            PlayerFactory = playerFactory;
+            PlayerProgress = PlayerProgress.NotBorn;
         }
 
         public IConsoleManager ConsoleManager { get; }
         public IMenuManager MenuManager { get; }
         public ICommandParser CommandParser { get; }
-        public ILogger Logger { get; set; }
+        public ILogger Logger { get; }
         public IGenerator Generator { get; }
 
-        public IUserStatus UserStatus { get; set; }
-        public IGamePlayerFactory PlayerFactory { get; set; }
-        public IPlayer Player { get; set; }
+        public IUserStatus UserStatus { get; }
+        public IGamePlayerFactory PlayerFactory { get; }
+        public IPlayer Player { get; private set; }
         public PlayerProgress PlayerProgress { get; set; }
 
         public DateTime GameTime { get; set; }
@@ -66,8 +66,8 @@ namespace LifeSim.Core.Engine.Core.Models
                 // Player Init/Creation
                 Player = PlayerFactory.CreatePlayer(questionAnswers[0].Answer.Split(": ")[0],
                     questionAnswers[1].Answer.Split(": ")[0],
-                    (GenderType)Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]),
-                    (Birthplaces)Enum.Parse(typeof(Birthplaces),
+                    (GenderType) Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]),
+                    (Birthplaces) Enum.Parse(typeof(Birthplaces),
                         questionAnswers[3].Answer.Split("]")[0].Replace(" ", "")), Generator);
             }
             catch (NullReferenceException)
@@ -119,7 +119,7 @@ namespace LifeSim.Core.Engine.Core.Models
                 {
                     var commandAsString = ConsoleManager.Reader.ReadLine();
 
-                    if (commandAsString.ToLower() == TerminationCommand.ToLower())
+                    if (string.Equals(commandAsString, TerminationCommand, StringComparison.CurrentCultureIgnoreCase))
                         break;
 
                     CommandParser.ProcessCommand(commandAsString);
@@ -128,7 +128,7 @@ namespace LifeSim.Core.Engine.Core.Models
                 {
                     // Just for now to debug, will be changed later on.
                     //ConsoleManager.UserInteraction.AddAction("An unexpected error has occured and has been logged.");
-                    this.ConsoleManager.UserInteraction.AddAction(ex.Message);
+                    ConsoleManager.UserInteraction.AddAction(ex.Message);
 
                     Logger.GetLogger.Error(ex.Message);
                 }

@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts.Utilities;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Contracts;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Constants;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Contracts;
 
 namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Models
 {
@@ -14,7 +13,7 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQues
 
         public QuestionAction(IUserInteraction userInteraction)
         {
-            this.questions = ConstQuestions.Questions;
+            questions = ConstQuestions.Questions;
             this.userInteraction = userInteraction;
         }
 

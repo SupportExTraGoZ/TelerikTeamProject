@@ -28,7 +28,8 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             engine.MenuManager.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
 
             engine.Player.University =
-                new University(engine.Generator.EducationInstitutePicker.PickUniversity(engine.Player.IsSuccessfulAtHighSchool),
+                new University(
+                    engine.Generator.EducationInstitutePicker.PickUniversity(engine.Player.IsSuccessfulAtHighSchool),
                     engine.GameTime.Year);
             engine.PlayerProgress = PlayerProgress.Student;
 

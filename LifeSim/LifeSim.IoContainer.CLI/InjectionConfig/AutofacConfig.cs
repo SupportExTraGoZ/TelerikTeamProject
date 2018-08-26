@@ -1,6 +1,13 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Reflection;
 using Autofac;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts.Utilities;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Contracts;
+using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Models;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Manager.Contracts;
 using LifeSim.Core.CLI.Module.ConsoleManagement.Manager.Models;
 using LifeSim.Core.Engine.Commands.Contracts;
@@ -11,26 +18,18 @@ using LifeSim.Core.Engine.Core.UserStatus.Contracts;
 using LifeSim.Core.Engine.Core.UserStatus.Models;
 using LifeSim.Core.Engine.Factories;
 using LifeSim.Core.Engine.Factories.Contracts;
+using LifeSim.Core.Engine.Menu.Contracts;
 using LifeSim.Core.Engine.Menu.Manager.Contracts;
 using LifeSim.Core.Engine.Menu.Manager.Models;
+using LifeSim.Core.Engine.Menu.Models;
 using LifeSim.Logger.Contracts;
 using LifeSim.Player.Options.Contracts;
 using LifeSim.Player.Options.Models;
 using LifeSim.Player.Randomizer.Contracts;
-using LifeSim.Player.Randomizer.Models;
-using Module = Autofac.Module;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Functions;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Contracts.Utilities;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Models;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Contracts;
-using LifeSim.Core.Engine.Menu.Models;
-using LifeSim.Core.Engine.Menu.Contracts;
-using LifeSim.Player.Randomizer.Models.Generators;
 using LifeSim.Player.Randomizer.Contracts.Generators;
-using LifeSim.Core.CLI.Module.ConsoleManagement.Functions.Utilities.UserQuestion.Constants;
-using System;
+using LifeSim.Player.Randomizer.Models;
+using LifeSim.Player.Randomizer.Models.Generators;
+using Module = Autofac.Module;
 
 namespace LifeSim.IoContainer.CLI.InjectionConfig
 {
@@ -58,10 +57,12 @@ namespace LifeSim.IoContainer.CLI.InjectionConfig
         private void RegisterCoreComponents(ContainerBuilder builder)
         {
             // Engine
-            builder.RegisterType<Engine>().As<IEngine>().PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies).SingleInstance();
+            builder.RegisterType<Engine>().As<IEngine>()
+                .PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies).SingleInstance();
 
             // Dependencies
-            builder.RegisterType<CommandParser>().As<ICommandParser>().PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies).SingleInstance();
+            builder.RegisterType<CommandParser>().As<ICommandParser>()
+                .PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies).SingleInstance();
             builder.RegisterType<ConsoleManager>().As<IConsoleManager>().PropertiesAutowired().SingleInstance();
             builder.RegisterType<MenuManager>().As<IMenuManager>().PropertiesAutowired().SingleInstance();
             builder.RegisterType<Generator>().As<IGenerator>().PropertiesAutowired().SingleInstance();
@@ -81,19 +82,17 @@ namespace LifeSim.IoContainer.CLI.InjectionConfig
             builder.RegisterType<MenuLauncher>().As<IMenuLauncher>().SingleInstance().PropertiesAutowired();
             builder.RegisterType<FamilyGenerator>().As<IFamilyGenerator>().SingleInstance().PropertiesAutowired();
             builder.RegisterType<NumberGenerator>().As<INumberGenerator>().SingleInstance().PropertiesAutowired();
-            builder.RegisterType<EducationInstitutePicker>().As<IEducationInstitutePicker>().SingleInstance().PropertiesAutowired();
+            builder.RegisterType<EducationInstitutePicker>().As<IEducationInstitutePicker>().SingleInstance()
+                .PropertiesAutowired();
         }
 
         private void RegisterAllCommands(ContainerBuilder builder)
         {
             AppDomain.CurrentDomain.GetAssemblies()
-                    .SelectMany(x => x.GetTypes())
-                    .Where(x => typeof(ICommand).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
-                    .ToList()
-                    .ForEach(x =>
-                    {
-                        builder.RegisterType(x).Named<ICommand>(x.Name.ToLower()).SingleInstance();
-                    });
+                .SelectMany(x => x.GetTypes())
+                .Where(x => typeof(ICommand).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+                .ToList()
+                .ForEach(x => { builder.RegisterType(x).Named<ICommand>(x.Name.ToLower()).SingleInstance(); });
         }
     }
 }

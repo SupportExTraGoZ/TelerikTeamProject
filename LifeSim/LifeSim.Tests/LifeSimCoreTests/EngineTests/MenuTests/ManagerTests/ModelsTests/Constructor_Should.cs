@@ -3,7 +3,6 @@ using LifeSim.Core.Engine.Menu.Manager.Models;
 using LifeSim.Player.Options.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System;
 
 namespace LifeSim.Tests.LifeSimCoreTests.EngineTests.MenuTests.ManagerTests.ModelsTests
 {

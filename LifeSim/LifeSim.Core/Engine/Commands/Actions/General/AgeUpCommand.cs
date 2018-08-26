@@ -86,51 +86,53 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                     engine.PlayerProgress = PlayerProgress.Kid;
                     break;
                 case 14:
-                    {
-                        engine.CommandParser.ForceCommand("endprimaryschool");
-                        engine.PlayerProgress = PlayerProgress.Teen;
-                    }
+                {
+                    engine.CommandParser.ForceCommand("endprimaryschool");
+                    engine.PlayerProgress = PlayerProgress.Teen;
+                }
                     break;
                 case 19:
-                    {
-                        engine.CommandParser.ForceCommand("endhighschool");
-                        engine.PlayerProgress = engine.Player.IsSuccessfulAtHighSchool ? PlayerProgress.HighSchoolGraduate : PlayerProgress.NonEmployed;
-                    }
+                {
+                    engine.CommandParser.ForceCommand("endhighschool");
+                    engine.PlayerProgress = engine.Player.IsSuccessfulAtHighSchool
+                        ? PlayerProgress.HighSchoolGraduate
+                        : PlayerProgress.NonEmployed;
+                }
                     break;
                 case 24:
+                {
+                    if (engine.PlayerProgress == PlayerProgress.Student)
                     {
-                        if (engine.PlayerProgress == PlayerProgress.Student)
-                        {
-                            engine.CommandParser.ForceCommand("enduniversity");
-                            engine.PlayerProgress = PlayerProgress.NonEmployed;
-                        }
+                        engine.CommandParser.ForceCommand("enduniversity");
+                        engine.PlayerProgress = PlayerProgress.NonEmployed;
                     }
+                }
                     break;
                 case 35:
+                {
+                    var CEOChance = engine.Generator.NumberGenerator.RandomChance();
+                    if (CEOChance >= 50)
                     {
-                        var CEOChance = engine.Generator.NumberGenerator.RandomChance();
-                        if (CEOChance >= 50)
-                        {
-                            engine.PlayerProgress = PlayerProgress.CEO;
-                            engine.ConsoleManager.UserInteraction.AddAction("You've became a CEO at your company.");
-                            player.Job.MonthlySalary = 20000;
-                            player.IsCEO = true;
-                            player.Job.EndDate = engine.GameTime;
-                        }
+                        engine.PlayerProgress = PlayerProgress.CEO;
+                        engine.ConsoleManager.UserInteraction.AddAction("You've became a CEO at your company.");
+                        player.Job.MonthlySalary = 20000;
+                        player.IsCEO = true;
+                        player.Job.EndDate = engine.GameTime;
                     }
+                }
                     break;
                 case 55:
-                    {
+                {
+                    if (engine.PlayerProgress != PlayerProgress.CEO)
                         if (engine.PlayerProgress != PlayerProgress.CEO)
-                            if (engine.PlayerProgress != PlayerProgress.CEO)
-                            {
-                                engine.PlayerProgress = PlayerProgress.Retired;
-                                player.Job.EndDate = engine.GameTime;
-                                player.IsRetired = true;
-                                engine.ConsoleManager.UserInteraction.AddAction(
-                                    "You've retired from work, enjoy the rest of your life.");
-                            }
-                    }
+                        {
+                            engine.PlayerProgress = PlayerProgress.Retired;
+                            player.Job.EndDate = engine.GameTime;
+                            player.IsRetired = true;
+                            engine.ConsoleManager.UserInteraction.AddAction(
+                                "You've retired from work, enjoy the rest of your life.");
+                        }
+                }
                     break;
             }
 

@@ -26,7 +26,8 @@ namespace LifeSim.Player.Options.Models
                 {"4", new OptionsTuple("Age Up (ageup)", "ageup", PlayerProgress.Kid, false, true, false)},
                 {
                     "5",
-                    new OptionsTuple("Go To Primary School (gotoprimaryschool)", "gotoprimaryschool", PlayerProgress.Kid,
+                    new OptionsTuple("Go To Primary School (gotoprimaryschool)", "gotoprimaryschool",
+                        PlayerProgress.Kid,
                         true, false, false)
                 },
                 {
@@ -88,7 +89,7 @@ namespace LifeSim.Player.Options.Models
                     .Where(x => x.Value.CanBeUsedManyTimes || !x.Value.IsUsed);
 
                 if (!tempOptions.Any())
-                    return new List<string> { Exceptions.Models.Exceptions.NoCommandsAvailable };
+                    return new List<string> {Exceptions.Models.Exceptions.NoCommandsAvailable};
 
                 return tempOptions.Select(x => x.Value.CommandDisplay).ToList();
             }

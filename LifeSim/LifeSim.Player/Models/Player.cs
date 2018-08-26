@@ -12,9 +12,11 @@ namespace LifeSim.Player.Models
             var fatherName = familyNames[0].Split();
             var motherName = familyNames[1].Split();
 
-            Father = new Parent(fatherName[0], fatherName[1], GenderType.Male, generator.FamilyGenerator.ChooseBirthplace(),
+            Father = new Parent(fatherName[0], fatherName[1], GenderType.Male,
+                generator.FamilyGenerator.ChooseBirthplace(),
                 generator.FamilyGenerator.ChooseAge());
-            Mother = new Parent(motherName[0], motherName[1], GenderType.Female, generator.FamilyGenerator.ChooseBirthplace(),
+            Mother = new Parent(motherName[0], motherName[1], GenderType.Female,
+                generator.FamilyGenerator.ChooseBirthplace(),
                 generator.FamilyGenerator.ChooseAge(Father.Age));
         }
     }

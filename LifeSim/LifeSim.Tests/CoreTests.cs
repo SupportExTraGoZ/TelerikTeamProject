@@ -1,5 +1,3 @@
-using LifeSim.Player.Enums;
-using LifeSim.Player.Randomizer.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LifeSim.Tests

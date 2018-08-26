@@ -8,7 +8,7 @@ namespace LifeSim.Core.CLI.Module.ConsoleManagement.Manager.Models
     public class ConsoleManager : IConsoleManager
     {
         public ConsoleManager(IConsoleWriter writer, IConsoleReader reader, IConsoleCleaner cleaner,
-                              IUserInteraction userInteraction, IQuestionAction questionAction)
+            IUserInteraction userInteraction, IQuestionAction questionAction)
         {
             Writer = writer;
             Reader = reader;
