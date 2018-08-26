@@ -3,22 +3,21 @@ using LifeSim.Core.Engine.Menu.Manager.Models;
 using LifeSim.Player.Options.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System;
 
 namespace LifeSim.Tests.LifeSimCoreTests.EngineTests.MenuTests.ManagerTests.ModelsTests
 {
     [TestClass]
-    public class Constructor_Should
+    public class MenuLauncherGetter_Should
     {
         [TestMethod]
-        public void CreateInstance_When_CorrectParametersArePassed()
+        public void ReturTheSameObject_MenuLauncher()
         {
             var menuLauncherMock = new Mock<IMenuLauncher>();
             var optionContainerMock = new Mock<IOptionsContainer>();
 
             var menuManager = new MenuManager(menuLauncherMock.Object, optionContainerMock.Object);
 
-            Assert.IsInstanceOfType(menuManager, typeof(MenuManager));
+            Assert.AreSame(menuLauncherMock.Object, menuManager.MenuLauncher);
         }
     }
 }

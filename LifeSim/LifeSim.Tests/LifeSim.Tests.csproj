@@ -26,6 +26,5 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="LifeSimCoreTests\EngineTests\CoreTests\" />
-    <Folder Include="LifeSimCoreTests\EngineTests\MenuTests\ModelsTests\" />
   </ItemGroup>
 </Project>
