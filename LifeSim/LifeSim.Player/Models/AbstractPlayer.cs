@@ -16,7 +16,7 @@ namespace LifeSim.Player.Models
         private string firstname;
         private string lastname;
 
-        public AbstractPlayer(string firstname, string lastname, GenderType gender, Birthplaces birthplace)
+        protected AbstractPlayer(string firstname, string lastname, GenderType gender, Birthplaces birthplace)
         {
             FirstName = firstname;
             LastName = lastname;
@@ -67,16 +67,7 @@ namespace LifeSim.Player.Models
         public bool HasAttendedUniversity { get; set; }
         public bool HasChildren { get; set; }
 
-        public bool HasJob
-        {
-            get
-            {
-                if (Job == null || Job != null && Job.EndDate < Job.StartDate)
-                    return false;
-
-                return true;
-            }
-        }
+        public bool HasJob => Job != null && (Job == null || Job.EndDate >= Job.StartDate);
 
         public bool IsCEO { get; set; }
 
@@ -119,26 +110,23 @@ namespace LifeSim.Player.Models
             stringBuilder.AppendLine($"You, {FirstName} {LastName} have lived up to the age of {Age}.");
             stringBuilder.AppendLine($"But You passed away during a car accident...");
             stringBuilder.AppendLine($"Parents:");
-            if (Father.IsDead)
-                stringBuilder.AppendLine(
-                    $"{Father.FirstName} {Father.LastName} has passed away at the age of {Father.Age}");
-            else
-                stringBuilder.AppendLine($"{Father.FirstName} {Father.LastName} is living at the age of {Father.Age}");
-            if (Mother.IsDead)
-                stringBuilder.AppendLine(
-                    $"{Mother.FirstName} {Mother.LastName} has passed away at the age of {Mother.Age}");
-            else
-                stringBuilder.AppendLine($"{Mother.FirstName} {Mother.LastName} is living at the age of {Mother.Age}");
+            stringBuilder.AppendLine(
+                Father.IsDead
+                    ? $"{Father.FirstName} {Father.LastName} has passed away at the age of {Father.Age}"
+                    : $"{Father.FirstName} {Father.LastName} is living at the age of {Father.Age}");
+            stringBuilder.AppendLine(
+                Mother.IsDead
+                    ? $"{Mother.FirstName} {Mother.LastName} has passed away at the age of {Mother.Age}"
+                    : $"{Mother.FirstName} {Mother.LastName} is living at the age of {Mother.Age}");
 
             stringBuilder.AppendLine("----- WEALTH -----");
             stringBuilder.AppendLine(
                 $"You have passed away with ${string.Format("{0:N0}", Money)} in your bank account.");
 
             if (Money > 0)
-                if (HasChildren)
-                    stringBuilder.AppendLine("Your fortune will be passed onto your children...");
-                else
-                    stringBuilder.AppendLine("Your fortune will be donated to charities...");
+                stringBuilder.AppendLine(HasChildren
+                    ? "Your fortune will be passed onto your children..."
+                    : "Your fortune will be donated to charities...");
 
             stringBuilder.AppendLine("----- FRIENDS -----");
             stringBuilder.AppendLine($"You've made {Friends} new friends throughout your life.");
@@ -150,8 +138,9 @@ namespace LifeSim.Player.Models
             {
                 stringBuilder.AppendLine(
                     $"You've started Primary School at {PrimarySchool.BuildingName}, on {PrimarySchool.StartYear}");
-                if (IsSuccessfulAtPrimarySchool) stringBuilder.AppendLine("You were successful in Primary School.");
-                else stringBuilder.AppendLine("You weren't successful in Primary School.");
+                stringBuilder.AppendLine(IsSuccessfulAtPrimarySchool
+                    ? "You were successful in Primary School."
+                    : "You weren't successful in Primary School.");
                 stringBuilder.AppendLine(
                     $"You've graduated Primary School at {PrimarySchool.BuildingName}, on {PrimarySchool.GraduateYear}");
             }
@@ -159,8 +148,9 @@ namespace LifeSim.Player.Models
             {
                 stringBuilder.AppendLine(
                     $"You've started High School at {HighSchool.BuildingName}, on {HighSchool.StartYear}");
-                if (IsSuccessfulAtHighSchool) stringBuilder.AppendLine("You were successful in High School.");
-                else stringBuilder.AppendLine("You weren't successful in High School.");
+                stringBuilder.AppendLine(IsSuccessfulAtHighSchool
+                    ? "You were successful in High School."
+                    : "You weren't successful in High School.");
                 stringBuilder.AppendLine(
                     $"You've graduated High School at {HighSchool.BuildingName}, on {HighSchool.GraduateYear}");
             }
@@ -168,14 +158,16 @@ namespace LifeSim.Player.Models
             {
                 stringBuilder.AppendLine(
                     $"You've started University at {University.BuildingName}, on {University.StartYear}");
-                if (IsSuccessfulAtUniversity) stringBuilder.AppendLine("You were successful in University.");
-                else stringBuilder.AppendLine("You weren't successful in University.");
+                stringBuilder.AppendLine(IsSuccessfulAtUniversity
+                    ? "You were successful in University."
+                    : "You weren't successful in University.");
                 stringBuilder.AppendLine(
                     $"You've graduated University at {University.BuildingName}, on {University.GraduateYear}");
             }
             // Was Taking Lessons?
-            if (HasTakenLessons) stringBuilder.AppendLine("You were taking extra private lessons.");
-            else stringBuilder.AppendLine("You weren't taking extra private lessons.");
+            stringBuilder.AppendLine(HasTakenLessons
+                ? "You were taking extra private lessons."
+                : "You weren't taking extra private lessons.");
 
             stringBuilder.AppendLine("----- WORK -----");
             if (Job != null)

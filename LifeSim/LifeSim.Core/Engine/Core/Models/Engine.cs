@@ -72,11 +72,11 @@ namespace LifeSim.Core.Engine.Core.Models
             }
             catch (NullReferenceException)
             {
-                SupressException("Your answers didn't meet the requirements. Try Again...");
+                SupressException(Exceptions.Models.Exceptions.AnswerRequirementsFailed);
             }
             catch (ArgumentException)
             {
-                SupressException("Invalid input data.");
+                SupressException(Exceptions.Models.Exceptions.InvalidInput);
             }
             catch (CustomException e)
             {
@@ -151,7 +151,7 @@ namespace LifeSim.Core.Engine.Core.Models
         private void SupressException(string message)
         {
             ConsoleManager.Writer.WriteLine(message);
-            ConsoleManager.Writer.WriteLine("Start again...");
+            ConsoleManager.Writer.WriteLine(Exceptions.Models.Exceptions.StartAgainException);
             Console.ReadKey();
             Start();
         }
