@@ -7,15 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="LifeSimCoreTests\EngineTests\CoreTests\**" />
-    <Compile Remove="LifeSimCoreTests\EngineTests\FactoryTests\**" />
-    <EmbeddedResource Remove="LifeSimCoreTests\EngineTests\CoreTests\**" />
-    <EmbeddedResource Remove="LifeSimCoreTests\EngineTests\FactoryTests\**" />
-    <None Remove="LifeSimCoreTests\EngineTests\CoreTests\**" />
-    <None Remove="LifeSimCoreTests\EngineTests\FactoryTests\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
     <PackageReference Include="Moq" Version="4.9.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.3.2" />
