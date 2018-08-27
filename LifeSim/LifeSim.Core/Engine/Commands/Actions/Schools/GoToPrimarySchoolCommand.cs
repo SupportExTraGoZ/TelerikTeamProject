@@ -3,7 +3,6 @@ using System.Text;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.Contracts;
 using LifeSim.Core.Engine.Factories.Contracts;
-using LifeSim.Establishments.Education.PrimarySchool;
 
 namespace LifeSim.Core.Engine.Commands.Actions.Schools
 {
@@ -29,9 +28,9 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             engine.MenuManager.OptionsContainer.ChangeCommandStatus(Name, false, false, true);
             engine.MenuManager.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
 
-            this.engine.Player.PrimarySchool = 
-                this.factory.EducationalInstituteFactory.CreatePrimarySchool(engine.Generator.EducationInstitutePicker.
-                PickPrimarySchool(engine.Player.HasTakenLessons),
+            engine.Player.PrimarySchool =
+                factory.EducationalInstituteFactory.CreatePrimarySchool(
+                    engine.Generator.EducationInstitutePicker.PickPrimarySchool(engine.Player.HasTakenLessons),
                     engine.GameTime.Year);
 
             var friends = engine.Generator.NumberGenerator.ChooseNumber(minFriends, maxFriends);

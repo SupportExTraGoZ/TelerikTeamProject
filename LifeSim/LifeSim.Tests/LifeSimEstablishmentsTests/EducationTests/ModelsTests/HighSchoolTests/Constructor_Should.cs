@@ -1,4 +1,4 @@
-﻿using LifeSim.Establishments.Education.HighSchool;
+﻿using LifeSim.Establishments.Education.Models.HighSchool.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.HighSchoolTests
@@ -9,8 +9,8 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Hi
         [TestMethod]
         public void CreateInstance_When_CorrectParamatersArePassed()
         {
-            string name = "Thomas Jefferson";
-            int startYear = 2018;
+            var name = "Thomas Jefferson";
+            var startYear = 2018;
 
             var highSchool = new HighSchool(name, startYear);
 
@@ -21,8 +21,8 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Hi
         [TestMethod]
         public void SetProperName_WhenTheObjectIsConstructed()
         {
-            string name = "Thomas Jefferson";
-            int startYear = 2018;
+            var name = "Thomas Jefferson";
+            var startYear = 2018;
 
             var highSchool = new HighSchool(name, startYear);
 
@@ -32,13 +32,12 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Hi
         [TestMethod]
         public void SetProperStartYear_WhenTheObjectIsConstructed()
         {
-            string name = "Thomas Jefferson";
-            int startYear = 2018;
+            var name = "Thomas Jefferson";
+            var startYear = 2018;
 
             var highSchool = new HighSchool(name, startYear);
 
             Assert.AreEqual(startYear, highSchool.StartYear);
         }
-
     }
 }

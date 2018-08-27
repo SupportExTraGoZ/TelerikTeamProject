@@ -1,4 +1,4 @@
-﻿using LifeSim.Establishments.Education.PrimarySchool;
+﻿using LifeSim.Establishments.Education.Models.PrimarySchool.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.PrimarySchoolTests
@@ -9,8 +9,8 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Pr
         [TestMethod]
         public void CreateInstance_When_CorrectParamatersArePassed()
         {
-            string name = "St. Martin Elementary";
-            int startYear = 2018;
+            var name = "St. Martin Elementary";
+            var startYear = 2018;
 
             var primarySchool = new PrimarySchool(name, startYear);
 
@@ -21,8 +21,8 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Pr
         [TestMethod]
         public void SetProperName_WhenTheObjectIsConstructed()
         {
-            string name = "St. Martin Elementary";
-            int startYear = 2018;
+            var name = "St. Martin Elementary";
+            var startYear = 2018;
 
             var primarySchool = new PrimarySchool(name, startYear);
 
@@ -32,8 +32,8 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Pr
         [TestMethod]
         public void SetProperStartYear_WhenTheObjectIsConstructed()
         {
-            string name = "St. Martin Elementary";
-            int startYear = 2018;
+            var name = "St. Martin Elementary";
+            var startYear = 2018;
 
             var primarySchool = new PrimarySchool(name, startYear);
 

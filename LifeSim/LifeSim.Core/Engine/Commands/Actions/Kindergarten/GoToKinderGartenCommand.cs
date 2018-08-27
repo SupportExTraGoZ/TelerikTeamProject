@@ -3,7 +3,6 @@ using System.Text;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.Contracts;
 using LifeSim.Core.Engine.Factories.Contracts;
-using LifeSim.Establishments.Education.Models.KinderGarten.Models;
 
 namespace LifeSim.Core.Engine.Commands.Actions.Kindergarten
 {
@@ -29,9 +28,10 @@ namespace LifeSim.Core.Engine.Commands.Actions.Kindergarten
             engine.MenuManager.OptionsContainer.ChangeCommandStatus(Name, false, false, true);
             engine.MenuManager.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
 
-            this.engine.Player.KinderGarten =
-                this.factory.EducationalInstituteFactory.CreateKinderGarten(this.engine.Generator.EducationInstitutePicker.PickKinderGarten()
-                ,engine.GameTime.Year);
+            engine.Player.KinderGarten =
+                factory.EducationalInstituteFactory.CreateKinderGarten(
+                    engine.Generator.EducationInstitutePicker.PickKinderGarten()
+                    , engine.GameTime.Year);
 
             var friends = engine.Generator.NumberGenerator.ChooseNumber(minFriends, maxFriends);
             engine.Player.Friends += friends;

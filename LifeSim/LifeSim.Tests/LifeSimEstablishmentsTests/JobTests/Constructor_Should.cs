@@ -1,7 +1,8 @@
-﻿using LifeSim.Establishments.Job;
+﻿using System;
+using LifeSim.Establishments.Job;
 using LifeSim.Establishments.Job.Enums;
+using LifeSim.Establishments.Job.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace LifeSim.Tests.LifeSimEstablishmentsTests.JobTests
 {
@@ -11,10 +12,10 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.JobTests
         [TestMethod]
         public void CreateInstance_When_CorrectParametersArePassed()
         {
-            ProfessionType profession = ProfessionType.SoftwareEngineer;
-            int monthlySalary = 3000;
-            int workHoursPerDay = 8;
-            DateTime startDate = new DateTime(2018, 10, 1);
+            var profession = ProfessionType.SoftwareEngineer;
+            var monthlySalary = 3000;
+            var workHoursPerDay = 8;
+            var startDate = new DateTime(2018, 10, 1);
 
             var job = new Job(profession, monthlySalary, workHoursPerDay, startDate);
 
@@ -25,10 +26,10 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.JobTests
         [TestMethod]
         public void SetProperProfession_WhenTheObjectIsConstructed()
         {
-            ProfessionType profession = ProfessionType.SoftwareEngineer;
-            int monthlySalary = 3000;
-            int workHoursPerDay = 8;
-            DateTime startDate = new DateTime(2018, 10, 1);
+            var profession = ProfessionType.SoftwareEngineer;
+            var monthlySalary = 3000;
+            var workHoursPerDay = 8;
+            var startDate = new DateTime(2018, 10, 1);
 
             var job = new Job(profession, monthlySalary, workHoursPerDay, startDate);
 
@@ -38,10 +39,10 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.JobTests
         [TestMethod]
         public void SetProperMonthlySalary_WhenTheObjectIsConstructed()
         {
-            ProfessionType profession = ProfessionType.SoftwareEngineer;
-            int monthlySalary = 3000;
-            int workHoursPerDay = 8;
-            DateTime startDate = new DateTime(2018, 10, 1);
+            var profession = ProfessionType.SoftwareEngineer;
+            var monthlySalary = 3000;
+            var workHoursPerDay = 8;
+            var startDate = new DateTime(2018, 10, 1);
 
             var job = new Job(profession, monthlySalary, workHoursPerDay, startDate);
 
@@ -51,10 +52,10 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.JobTests
         [TestMethod]
         public void SetProperWorkHoursPerDay_WhenTheObjectIsConstructed()
         {
-            ProfessionType profession = ProfessionType.SoftwareEngineer;
-            int monthlySalary = 3000;
-            int workHoursPerDay = 8;
-            DateTime startDate = new DateTime(2018, 10, 1);
+            var profession = ProfessionType.SoftwareEngineer;
+            var monthlySalary = 3000;
+            var workHoursPerDay = 8;
+            var startDate = new DateTime(2018, 10, 1);
 
             var job = new Job(profession, monthlySalary, workHoursPerDay, startDate);
 
@@ -64,15 +65,14 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.JobTests
         [TestMethod]
         public void SetProperStartDate_WhenTheObjectIsConstructed()
         {
-            ProfessionType profession = ProfessionType.SoftwareEngineer;
-            int monthlySalary = 3000;
-            int workHoursPerDay = 8;
-            DateTime startDate = new DateTime(2018, 10, 1);
+            var profession = ProfessionType.SoftwareEngineer;
+            var monthlySalary = 3000;
+            var workHoursPerDay = 8;
+            var startDate = new DateTime(2018, 10, 1);
 
             var job = new Job(profession, monthlySalary, workHoursPerDay, startDate);
 
             Assert.AreEqual(startDate, job.StartDate);
         }
-
     }
 }

@@ -1,6 +1,6 @@
-﻿using LifeSim.Establishments.Education.PrimarySchool.Contracts;
+﻿using LifeSim.Establishments.Education.Models.PrimarySchool.Contracts;
 
-namespace LifeSim.Establishments.Education.PrimarySchool
+namespace LifeSim.Establishments.Education.Models.PrimarySchool.Models
 {
     public class PrimarySchool : EducationalInstitute, IPrimarySchool
     {

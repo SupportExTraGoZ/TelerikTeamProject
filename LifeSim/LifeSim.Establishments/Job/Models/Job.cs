@@ -1,7 +1,8 @@
 ﻿using System;
+using LifeSim.Establishments.Job.Contracts;
 using LifeSim.Establishments.Job.Enums;
 
-namespace LifeSim.Establishments.Job
+namespace LifeSim.Establishments.Job.Models
 {
     public class Job : IJob
     {

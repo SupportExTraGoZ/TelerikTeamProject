@@ -1,7 +1,9 @@
-﻿using LifeSim.Core.Engine.Factories.Contracts;
+﻿using System;
+using LifeSim.Core.Engine.Factories.Contracts;
 using LifeSim.Establishments.Job;
+using LifeSim.Establishments.Job.Contracts;
 using LifeSim.Establishments.Job.Enums;
-using System;
+using LifeSim.Establishments.Job.Models;
 
 namespace LifeSim.Core.Engine.Factories
 {

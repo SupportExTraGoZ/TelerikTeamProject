@@ -1,4 +1,5 @@
-﻿using LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.EducationalInstituteTests.MockEducationInstitute;
+﻿using LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.EducationalInstituteTests.
+    MockEducationInstitute;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.EducationalInstituteTests
@@ -9,8 +10,8 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Ed
         [TestMethod]
         public void ReturnTheProperValue_WhenGetMethodIsCalled()
         {
-            string name = "Stanford University";
-            int startYear = 2018;
+            var name = "Stanford University";
+            var startYear = 2018;
             var mockEducationalInstitute = new MockEducationalInstitute(name, startYear);
 
             var result = mockEducationalInstitute.StartYear;
@@ -19,4 +20,3 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Ed
         }
     }
 }
-

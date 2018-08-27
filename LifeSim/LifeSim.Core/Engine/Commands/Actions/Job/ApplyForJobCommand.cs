@@ -28,7 +28,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
             ProfessionType job;
             try
             {
-                job = (ProfessionType)Enum.Parse(typeof(ProfessionType), Parameters[0], true);
+                job = (ProfessionType) Enum.Parse(typeof(ProfessionType), Parameters[0], true);
             }
             catch (NullReferenceException)
             {
@@ -47,63 +47,76 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
             switch (job)
             {
                 case ProfessionType.SoftwareEngineer:
+                {
+                    if (player.IsSuccessfulAtUniversity)
                     {
                         if (player.IsSuccessfulAtUniversity)
                         {
-                            if (player.IsSuccessfulAtUniversity)
-                            {
-                                player.Job = this.factory.JobFactory.CreateJob(ProfessionType.SoftwareEngineer,
-                                    1200, 6, engine.GameTime);
+                            player.Job = factory.JobFactory.CreateJob(ProfessionType.SoftwareEngineer,
+                                1200, 6, engine.GameTime);
 
-                                stringBuilder.AppendLine(
-                                    "Few weeks later, you have been accepted to work at the Software Engineering Company.");
-                                stringBuilder.AppendLine(
-                                    $"You're now working {player.Job.WorkHoursPerDay} hours per day, for ${player.Job.MonthlySalary} per month.");
-                                engine.PlayerProgress = PlayerProgress.Worker;
-                            }
-                            else
-                            {
-                                stringBuilder.AppendLine("Few weeks later, your receive an answer that...");
-                                stringBuilder.AppendLine(
-                                    "Your application for the Software Engineering Company has been declined.");
-                                stringBuilder.AppendLine("Try looking and applying for another job.");
-                            }
+                            stringBuilder.AppendLine(
+                                "Few weeks later, you have been accepted to work at the Software Engineering Company.");
+                            stringBuilder.AppendLine(
+                                $"You're now working {player.Job.WorkHoursPerDay} hours per day, for ${player.Job.MonthlySalary} per month.");
+                            engine.PlayerProgress = PlayerProgress.Worker;
                         }
                         else
                         {
+                            stringBuilder.AppendLine("Few weeks later, your receive an answer that...");
                             stringBuilder.AppendLine(
                                 "Your application for the Software Engineering Company has been declined.");
                             stringBuilder.AppendLine("Try looking and applying for another job.");
                         }
                     }
+                    else
+                    {
+                        stringBuilder.AppendLine(
+                            "Your application for the Software Engineering Company has been declined.");
+                        stringBuilder.AppendLine("Try looking and applying for another job.");
+                    }
+                }
                     break;
                 case ProfessionType.PoliceOfficer:
-                    {
-                        player.Job = this.factory.JobFactory.CreateJob(ProfessionType.PoliceOfficer, 1000, 12, engine.GameTime);
+                {
+                    player.Job = factory.JobFactory.CreateJob(ProfessionType.PoliceOfficer, 1000, 12, engine.GameTime);
 
-                        stringBuilder.AppendLine(
-                            "Few weeks later, you have been accepted to work at the local Police Station.");
-                        stringBuilder.AppendLine(
-                            $"You're now working {player.Job.WorkHoursPerDay} hours per day, for ${player.Job.MonthlySalary} per month.");
-                        engine.PlayerProgress = PlayerProgress.Worker;
-                    }
+                    stringBuilder.AppendLine(
+                        "Few weeks later, you have been accepted to work at the local Police Station.");
+                    stringBuilder.AppendLine(
+                        $"You're now working {player.Job.WorkHoursPerDay} hours per day, for ${player.Job.MonthlySalary} per month.");
+                    engine.PlayerProgress = PlayerProgress.Worker;
+                }
                     break;
                 case ProfessionType.Firefighter:
+                {
+                    player.Job = factory.JobFactory.CreateJob(ProfessionType.Firefighter, 1000, 12, engine.GameTime);
+
+                    stringBuilder.AppendLine(
+                        "Few weeks later, you have been accepted to work at the local Fire Station.");
+                    stringBuilder.AppendLine(
+                        $"You're now working {player.Job.WorkHoursPerDay} hours per day, for ${player.Job.MonthlySalary} per month.");
+                    engine.PlayerProgress = PlayerProgress.Worker;
+                }
+                    break;
+                case ProfessionType.Scientist:
+                {
+                    if (player.IsSuccessfulAtUniversity && player.HasTakenLessons)
                     {
-                        player.Job = this.factory.JobFactory.CreateJob(ProfessionType.Firefighter, 1000, 12, engine.GameTime);
+                        player.Job = factory.JobFactory.CreateJob(ProfessionType.Scientist, 1800, 8, engine.GameTime);
 
                         stringBuilder.AppendLine(
-                            "Few weeks later, you have been accepted to work at the local Fire Station.");
+                            "Few weeks later, you have been accepted to work at the Scientific Research Company.");
                         stringBuilder.AppendLine(
                             $"You're now working {player.Job.WorkHoursPerDay} hours per day, for ${player.Job.MonthlySalary} per month.");
                         engine.PlayerProgress = PlayerProgress.Worker;
                     }
-                    break;
-                case ProfessionType.Scientist:
+                    else
                     {
                         if (player.IsSuccessfulAtUniversity && player.HasTakenLessons)
                         {
-                            player.Job = this.factory.JobFactory.CreateJob(ProfessionType.Scientist, 1800, 8, engine.GameTime);
+                            player.Job =
+                                factory.JobFactory.CreateJob(ProfessionType.Scientist, 1800, 8, engine.GameTime);
 
                             stringBuilder.AppendLine(
                                 "Few weeks later, you have been accepted to work at the Scientific Research Company.");
@@ -113,36 +126,24 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
                         }
                         else
                         {
-                            if (player.IsSuccessfulAtUniversity && player.HasTakenLessons)
-                            {
-                                player.Job = this.factory.JobFactory.CreateJob(ProfessionType.Scientist, 1800, 8, engine.GameTime);
-
-                                stringBuilder.AppendLine(
-                                    "Few weeks later, you have been accepted to work at the Scientific Research Company.");
-                                stringBuilder.AppendLine(
-                                    $"You're now working {player.Job.WorkHoursPerDay} hours per day, for ${player.Job.MonthlySalary} per month.");
-                                engine.PlayerProgress = PlayerProgress.Worker;
-                            }
-                            else
-                            {
-                                stringBuilder.AppendLine("Few weeks later, your receive an answer that...");
-                                stringBuilder.AppendLine(
-                                    "Your application for the Scientific Research Company has been declined.");
-                                stringBuilder.AppendLine("Try looking and applying for another job.");
-                            }
+                            stringBuilder.AppendLine("Few weeks later, your receive an answer that...");
+                            stringBuilder.AppendLine(
+                                "Your application for the Scientific Research Company has been declined.");
+                            stringBuilder.AppendLine("Try looking and applying for another job.");
                         }
                     }
+                }
                     break;
                 case ProfessionType.Accountant:
-                    {
-                        player.Job = this.factory.JobFactory.CreateJob(ProfessionType.Accountant, 900, 8, engine.GameTime);
+                {
+                    player.Job = factory.JobFactory.CreateJob(ProfessionType.Accountant, 900, 8, engine.GameTime);
 
-                        stringBuilder.AppendLine(
-                            "Few weeks later, you have been accepted to work as an Accountant in a local Company.");
-                        stringBuilder.AppendLine(
-                            $"You're now working {player.Job.WorkHoursPerDay} hours per day, for ${player.Job.MonthlySalary} per month.");
-                        engine.PlayerProgress = PlayerProgress.Worker;
-                    }
+                    stringBuilder.AppendLine(
+                        "Few weeks later, you have been accepted to work as an Accountant in a local Company.");
+                    stringBuilder.AppendLine(
+                        $"You're now working {player.Job.WorkHoursPerDay} hours per day, for ${player.Job.MonthlySalary} per month.");
+                    engine.PlayerProgress = PlayerProgress.Worker;
+                }
                     break;
             }
             return stringBuilder.ToString();

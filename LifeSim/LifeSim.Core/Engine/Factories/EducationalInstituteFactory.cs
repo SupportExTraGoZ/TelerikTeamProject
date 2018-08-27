@@ -1,12 +1,12 @@
 ﻿using LifeSim.Core.Engine.Factories.Contracts;
-using LifeSim.Establishments.Education.HighSchool;
-using LifeSim.Establishments.Education.HighSchool.Contracts;
+using LifeSim.Establishments.Education.Models.HighSchool.Contracts;
+using LifeSim.Establishments.Education.Models.HighSchool.Models;
 using LifeSim.Establishments.Education.Models.KinderGarten.Contracts;
 using LifeSim.Establishments.Education.Models.KinderGarten.Models;
-using LifeSim.Establishments.Education.PrimarySchool;
-using LifeSim.Establishments.Education.PrimarySchool.Contracts;
-using LifeSim.Establishments.Education.University;
-using LifeSim.Establishments.Education.University.Contracts;
+using LifeSim.Establishments.Education.Models.PrimarySchool.Contracts;
+using LifeSim.Establishments.Education.Models.PrimarySchool.Models;
+using LifeSim.Establishments.Education.Models.University.Contracts;
+using LifeSim.Establishments.Education.Models.University.Models;
 
 namespace LifeSim.Core.Engine.Factories
 {

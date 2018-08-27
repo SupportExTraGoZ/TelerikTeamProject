@@ -1,4 +1,5 @@
-﻿using LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.EducationalInstituteTests.MockEducationInstitute;
+﻿using LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.EducationalInstituteTests.
+    MockEducationInstitute;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.EducationalInstituteTests
@@ -9,36 +10,35 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Ed
         [TestMethod]
         public void CreateInstance_When_CorrectParametersArePassed()
         {
-            string name = "Stanford University";
-            int startYear = 2018;
+            var name = "Stanford University";
+            var startYear = 2018;
 
             var mockEducationalInstitute = new MockEducationalInstitute(name, startYear);
 
             Assert.IsInstanceOfType(mockEducationalInstitute, typeof(MockEducationalInstitute));
             Assert.IsNotNull(mockEducationalInstitute);
         }
-        
+
         [TestMethod]
         public void SetProperName_WhenTheObjectIsConstructed()
         {
-            string name = "Stanford University";
-            int startYear = 2018;
-            
-            var mockEducaitonalInstitute = new MockEducationalInstitute(name,startYear);
+            var name = "Stanford University";
+            var startYear = 2018;
 
-            Assert.AreEqual(name,mockEducaitonalInstitute.BuildingName);
+            var mockEducaitonalInstitute = new MockEducationalInstitute(name, startYear);
+
+            Assert.AreEqual(name, mockEducaitonalInstitute.BuildingName);
         }
 
         [TestMethod]
         public void SetProperStartYear_WhenTheObjectIsConstructed()
         {
-            string name = "Stanford University";
-            int startYear = 2018;
+            var name = "Stanford University";
+            var startYear = 2018;
 
             var mockEducaitonalInstitute = new MockEducationalInstitute(name, startYear);
 
             Assert.AreEqual(startYear, mockEducaitonalInstitute.StartYear);
         }
-
     }
 }

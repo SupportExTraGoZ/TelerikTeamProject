@@ -1,6 +1,6 @@
-﻿using LifeSim.Establishments.Education.HighSchool.Contracts;
+﻿using LifeSim.Establishments.Education.Models.HighSchool.Contracts;
 
-namespace LifeSim.Establishments.Education.HighSchool
+namespace LifeSim.Establishments.Education.Models.HighSchool.Models
 {
     public class HighSchool : EducationalInstitute, IHighSchool
     {

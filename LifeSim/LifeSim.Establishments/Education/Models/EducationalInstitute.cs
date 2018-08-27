@@ -1,7 +1,7 @@
 ﻿using LifeSim.Establishments.AbstractEstablishment.Models;
-using LifeSim.Establishments.Education.Contracts;
+using LifeSim.Establishments.Education.Models.Contracts;
 
-namespace LifeSim.Establishments.Education
+namespace LifeSim.Establishments.Education.Models
 {
     public abstract class EducationalInstitute : Establishment, IEducationalInstitute
     {

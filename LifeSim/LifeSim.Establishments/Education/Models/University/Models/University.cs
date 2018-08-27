@@ -1,6 +1,6 @@
-﻿using LifeSim.Establishments.Education.University.Contracts;
+﻿using LifeSim.Establishments.Education.Models.University.Contracts;
 
-namespace LifeSim.Establishments.Education.University
+namespace LifeSim.Establishments.Education.Models.University.Models
 {
     public class University : EducationalInstitute, IUniversity
     {

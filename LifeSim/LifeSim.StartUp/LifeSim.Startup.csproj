@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LifeSim.Core\LifeSim.Core.csproj" />
-    <ProjectReference Include="..\LifeSim.Player\LifeSim.Player.csproj" />
     <ProjectReference Include="..\LifeSim.IoContainer.CLI\LifeSim.IoContainer.CLI.csproj" />
   </ItemGroup>
 </Project>

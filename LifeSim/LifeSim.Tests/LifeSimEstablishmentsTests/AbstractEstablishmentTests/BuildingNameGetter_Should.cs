@@ -9,7 +9,7 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.AbstractEstablishmentTests
         [TestMethod]
         public void ReturnTheProperValue_WhenGetMethodIsCalled()
         {
-            string buildingName = "Harvard University";
+            var buildingName = "Harvard University";
             var mockEstablishment = new MockEstablishment(buildingName);
 
             var result = mockEstablishment.BuildingName;

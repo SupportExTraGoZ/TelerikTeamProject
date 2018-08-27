@@ -1,8 +1,8 @@
 ﻿using System;
 using LifeSim.Establishments.Job;
 using LifeSim.Establishments.Job.Enums;
+using LifeSim.Establishments.Job.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 
 namespace LifeSim.Tests.LifeSimEstablishmentsTests.JobTests
 {
@@ -12,10 +12,10 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.JobTests
         [TestMethod]
         public void ReturnEqualObject_Profession()
         {
-            ProfessionType profession = ProfessionType.SoftwareEngineer;
-            int monthlySalary = 3000;
-            int workHoursPerDay = 8;
-            DateTime startDate = new DateTime(2018, 10, 1);
+            var profession = ProfessionType.SoftwareEngineer;
+            var monthlySalary = 3000;
+            var workHoursPerDay = 8;
+            var startDate = new DateTime(2018, 10, 1);
 
             var job = new Job(profession, monthlySalary, workHoursPerDay, startDate);
 

@@ -1,4 +1,4 @@
-﻿using LifeSim.Establishments.Education.University;
+﻿using LifeSim.Establishments.Education.Models.University.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.UniversityTests
@@ -9,8 +9,8 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Un
         [TestMethod]
         public void CreateInstance_When_CorrectParamatersArePassed()
         {
-            string name = "Stanford University";
-            int startYear = 2018;
+            var name = "Stanford University";
+            var startYear = 2018;
 
             var university = new University(name, startYear);
 
@@ -21,8 +21,8 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Un
         [TestMethod]
         public void SetProperName_WhenTheObjectIsConstructed()
         {
-            string name = "Stanford University";
-            int startYear = 2018;
+            var name = "Stanford University";
+            var startYear = 2018;
 
             var university = new University(name, startYear);
 
@@ -32,8 +32,8 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Un
         [TestMethod]
         public void SetProperStartYear_WhenTheObjectIsConstructed()
         {
-            string name = "Stanford University";
-            int startYear = 2018;
+            var name = "Stanford University";
+            var startYear = 2018;
 
             var university = new University(name, startYear);
 

@@ -4,9 +4,8 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.AbstractEstablishmentTests.Mo
 {
     public class MockEstablishment : Establishment
     {
-        public MockEstablishment(string buildingName):base(buildingName)
+        public MockEstablishment(string buildingName) : base(buildingName)
         {
-
         }
     }
 }
