@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using Autofac;
@@ -33,6 +34,7 @@ using Module = Autofac.Module;
 
 namespace LifeSim.IoContainer.CLI.InjectionConfig
 {
+    [SuppressMessage("ReSharper", "IdentifierTypo")]
     public class AutofacConfig : Module
     {
         public IContainer Build()

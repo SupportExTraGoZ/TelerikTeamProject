@@ -1,5 +1,4 @@
 ﻿using System;
-using LifeSim.Establishments.Job;
 using LifeSim.Establishments.Job.Contracts;
 using LifeSim.Establishments.Job.Enums;
 

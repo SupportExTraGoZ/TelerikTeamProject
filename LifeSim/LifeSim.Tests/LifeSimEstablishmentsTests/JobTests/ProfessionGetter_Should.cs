@@ -1,5 +1,4 @@
 ﻿using System;
-using LifeSim.Establishments.Job;
 using LifeSim.Establishments.Job.Enums;
 using LifeSim.Establishments.Job.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

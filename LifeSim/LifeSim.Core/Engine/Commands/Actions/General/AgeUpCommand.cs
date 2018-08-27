@@ -54,6 +54,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                         $"Your father has passed away at the age of {player.Father.Age}");
                 }
             }
+
             if (!player.Mother.IsDead && player.Mother.Age > 65)
             {
                 var deathChance = engine.Generator.NumberGenerator.RandomChance();
@@ -64,6 +65,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                         $"Your mother has passed away at the age of {player.Mother.Age}");
                 }
             }
+
             if (player.Age > 65)
             {
                 var deathChance = engine.Generator.NumberGenerator.RandomChance();
@@ -74,6 +76,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.General
                     return $"You've passed away at the age of {player.Age}";
                 }
             }
+
             if (player.Age > 20)
                 player.Friends += engine.Generator.NumberGenerator.ChooseNumber(20, 100);
 

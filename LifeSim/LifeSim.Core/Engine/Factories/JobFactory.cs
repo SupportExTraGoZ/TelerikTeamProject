@@ -1,6 +1,5 @@
 ﻿using System;
 using LifeSim.Core.Engine.Factories.Contracts;
-using LifeSim.Establishments.Job;
 using LifeSim.Establishments.Job.Contracts;
 using LifeSim.Establishments.Job.Enums;
 using LifeSim.Establishments.Job.Models;
