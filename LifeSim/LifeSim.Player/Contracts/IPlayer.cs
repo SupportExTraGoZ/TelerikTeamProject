@@ -1,8 +1,12 @@
 ﻿using System;
 using LifeSim.Establishments.Education.HighSchool;
+using LifeSim.Establishments.Education.HighSchool.Contracts;
+using LifeSim.Establishments.Education.Models.KinderGarten.Contracts;
 using LifeSim.Establishments.Education.Models.KinderGarten.Models;
 using LifeSim.Establishments.Education.PrimarySchool;
+using LifeSim.Establishments.Education.PrimarySchool.Contracts;
 using LifeSim.Establishments.Education.University;
+using LifeSim.Establishments.Education.University.Contracts;
 using LifeSim.Establishments.Job;
 using LifeSim.Player.Enums;
 using LifeSim.Player.Models;
@@ -37,12 +41,12 @@ namespace LifeSim.Player.Contracts
         GenderType Gender { get; set; }
         DateTime BirthDate { get; set; }
         Birthplaces Birthplace { get; set; }
-        Parent Father { get; set; }
-        Parent Mother { get; set; }
-        KinderGarten KinderGarten { get; set; }
-        PrimarySchool PrimarySchool { get; set; }
-        HighSchool HighSchool { get; set; }
-        University University { get; set; }
+        IParent Father { get; set; }
+        IParent Mother { get; set; }
+        IKinderGarten KinderGarten { get; set; }
+        IPrimarySchool PrimarySchool { get; set; }
+        IHighSchool HighSchool { get; set; }
+        IUniversity University { get; set; }
         IJob Job { get; set; }
 
         string GetBirthplace();
