@@ -14,7 +14,6 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Un
 
             var university = new University(name, startYear);
 
-            Assert.IsInstanceOfType(university, typeof(University));
             Assert.IsNotNull(university);
         }
 

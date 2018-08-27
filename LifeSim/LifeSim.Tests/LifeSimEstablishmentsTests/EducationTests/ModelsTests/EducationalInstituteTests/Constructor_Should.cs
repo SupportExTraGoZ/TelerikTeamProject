@@ -15,7 +15,6 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Ed
 
             var mockEducationalInstitute = new MockEducationalInstitute(name, startYear);
 
-            Assert.IsInstanceOfType(mockEducationalInstitute, typeof(MockEducationalInstitute));
             Assert.IsNotNull(mockEducationalInstitute);
         }
 

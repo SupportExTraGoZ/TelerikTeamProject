@@ -14,7 +14,6 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Ki
 
             var kinderGarten = new KinderGarten(name, startYear);
 
-            Assert.IsInstanceOfType(kinderGarten, typeof(KinderGarten));
             Assert.IsNotNull(kinderGarten);
         }
 

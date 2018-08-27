@@ -18,7 +18,6 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.JobTests
 
             var job = new Job(profession, monthlySalary, workHoursPerDay, startDate);
 
-            Assert.IsInstanceOfType(job, typeof(Job));
             Assert.IsNotNull(job);
         }
 

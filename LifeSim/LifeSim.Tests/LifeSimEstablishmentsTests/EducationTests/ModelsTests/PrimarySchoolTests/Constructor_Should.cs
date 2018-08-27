@@ -14,7 +14,6 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Pr
 
             var primarySchool = new PrimarySchool(name, startYear);
 
-            Assert.IsInstanceOfType(primarySchool, typeof(PrimarySchool));
             Assert.IsNotNull(primarySchool);
         }
 
