@@ -1,6 +1,8 @@
-﻿namespace LifeSim.Establishments.Education.University.Contracts
+﻿using LifeSim.Establishments.Education.Contracts;
+
+namespace LifeSim.Establishments.Education.University.Contracts
 {
-    public interface IUniversity
+    public interface IUniversity : IEducationalInstitute
     {
         // TODO: Add specifics for University
     }

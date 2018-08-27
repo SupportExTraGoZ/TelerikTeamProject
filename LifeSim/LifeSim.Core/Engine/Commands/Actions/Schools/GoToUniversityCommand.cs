@@ -2,6 +2,7 @@
 using System.Text;
 using LifeSim.Core.Engine.Commands.Contracts;
 using LifeSim.Core.Engine.Core.Contracts;
+using LifeSim.Core.Engine.Factories.Contracts;
 using LifeSim.Establishments.Education.University;
 using LifeSim.Player.Enums;
 
@@ -12,10 +13,12 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
         private const int minFriends = 50;
         private const int maxFriends = 500;
         private readonly IEngine engine;
+        private readonly IEducationalInstituteFactory factory;
 
-        public GoToUniversityCommand(IEngine engine)
+        public GoToUniversityCommand(IEngine engine, IEducationalInstituteFactory factory)
         {
             this.engine = engine;
+            this.factory = factory;
         }
 
         public string Name { get; set; }
@@ -27,11 +30,12 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             engine.MenuManager.OptionsContainer.ChangeCommandStatus(Name, false, false, true);
             engine.MenuManager.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
 
-            engine.Player.University =
-                new University(
-                    engine.Generator.EducationInstitutePicker.PickUniversity(engine.Player.IsSuccessfulAtHighSchool),
+            this.engine.Player.University =
+                this.factory.CreateUniversity(engine.Generator.EducationInstitutePicker.
+                PickUniversity(engine.Player.IsSuccessfulAtHighSchool),
                     engine.GameTime.Year);
-            engine.PlayerProgress = PlayerProgress.Student;
+
+            this.engine.PlayerProgress = PlayerProgress.Student;
 
             var friends = engine.Generator.NumberGenerator.ChooseNumber(minFriends, maxFriends);
             engine.Player.Friends += friends;

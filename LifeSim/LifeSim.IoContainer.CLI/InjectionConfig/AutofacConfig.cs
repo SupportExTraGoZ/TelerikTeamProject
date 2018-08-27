@@ -84,6 +84,9 @@ namespace LifeSim.IoContainer.CLI.InjectionConfig
             builder.RegisterType<NumberGenerator>().As<INumberGenerator>().SingleInstance().PropertiesAutowired();
             builder.RegisterType<EducationInstitutePicker>().As<IEducationInstitutePicker>().SingleInstance()
                 .PropertiesAutowired();
+            builder.RegisterType<EducationalInstituteFactory>().As<IEducationalInstituteFactory>().SingleInstance();
+            builder.RegisterType<JobFactory>().As<IJobFactory>().SingleInstance();
+
         }
 
         private void RegisterAllCommands(ContainerBuilder builder)
