@@ -4,7 +4,6 @@ using LifeSim.Establishments.Education.Models.HighSchool.Contracts;
 using LifeSim.Establishments.Education.Models.KinderGarten.Contracts;
 using LifeSim.Establishments.Education.Models.PrimarySchool.Contracts;
 using LifeSim.Establishments.Education.Models.University.Contracts;
-using LifeSim.Establishments.Job;
 using LifeSim.Establishments.Job.Contracts;
 using LifeSim.Exceptions.Models;
 using LifeSim.Player.Contracts;
@@ -109,8 +108,8 @@ namespace LifeSim.Player.Models
             var stringBuilder = new StringBuilder();
 
             stringBuilder.AppendLine($"You, {FirstName} {LastName} have lived up to the age of {Age}.");
-            stringBuilder.AppendLine($"But You passed away during a car accident...");
-            stringBuilder.AppendLine($"Parents:");
+            stringBuilder.AppendLine("But You passed away during a car accident...");
+            stringBuilder.AppendLine("Parents:");
             stringBuilder.AppendLine(
                 Father.IsDead
                     ? $"{Father.FirstName} {Father.LastName} has passed away at the age of {Father.Age}"
@@ -145,6 +144,7 @@ namespace LifeSim.Player.Models
                 stringBuilder.AppendLine(
                     $"You've graduated Primary School at {PrimarySchool.BuildingName}, on {PrimarySchool.GraduateYear}");
             }
+
             if (HasAttendedHighSchool)
             {
                 stringBuilder.AppendLine(
@@ -155,6 +155,7 @@ namespace LifeSim.Player.Models
                 stringBuilder.AppendLine(
                     $"You've graduated High School at {HighSchool.BuildingName}, on {HighSchool.GraduateYear}");
             }
+
             if (HasAttendedUniversity)
             {
                 stringBuilder.AppendLine(
@@ -165,6 +166,7 @@ namespace LifeSim.Player.Models
                 stringBuilder.AppendLine(
                     $"You've graduated University at {University.BuildingName}, on {University.GraduateYear}");
             }
+
             // Was Taking Lessons?
             stringBuilder.AppendLine(HasTakenLessons
                 ? "You were taking extra private lessons."

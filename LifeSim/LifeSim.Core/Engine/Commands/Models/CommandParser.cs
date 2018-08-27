@@ -28,6 +28,7 @@ namespace LifeSim.Core.Engine.Commands.Models
                 Engine.Logger.GetLogger.Info("Client attempted to enter an empty/null command.");
                 return false;
             }
+
             // Check for command access
             if (!Engine.MenuManager.OptionsContainer.CurrentStageOptions(Engine.PlayerProgress, true)
                 .Contains(commandAsString.Split()[0]))

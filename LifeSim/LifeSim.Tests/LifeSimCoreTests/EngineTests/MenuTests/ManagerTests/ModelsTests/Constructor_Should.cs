@@ -17,7 +17,7 @@ namespace LifeSim.Tests.LifeSimCoreTests.EngineTests.MenuTests.ManagerTests.Mode
 
             var menuManager = new MenuManager(menuLauncherMock.Object, optionContainerMock.Object);
 
-            Assert.IsInstanceOfType(menuManager, typeof(MenuManager));
+            Assert.IsNotNull(menuManager);
         }
     }
 }

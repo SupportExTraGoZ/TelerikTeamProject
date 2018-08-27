@@ -3,7 +3,6 @@ using LifeSim.Establishments.Education.Models.HighSchool.Contracts;
 using LifeSim.Establishments.Education.Models.KinderGarten.Contracts;
 using LifeSim.Establishments.Education.Models.PrimarySchool.Contracts;
 using LifeSim.Establishments.Education.Models.University.Contracts;
-using LifeSim.Establishments.Job;
 using LifeSim.Establishments.Job.Contracts;
 using LifeSim.Player.Enums;
 

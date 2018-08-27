@@ -45,6 +45,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
                 stringBuilder.AppendLine($"You've passed your exams with approximately {examsPercent} percent.");
                 engine.Player.IsSuccessfulAtHighSchool = true;
             }
+
             return stringBuilder.ToString();
         }
     }

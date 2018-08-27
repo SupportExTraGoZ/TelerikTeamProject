@@ -93,6 +93,7 @@ namespace LifeSim.Player.Options.Models
 
                 return tempOptions.Select(x => x.Value.CommandDisplay).ToList();
             }
+
             var temp = options
                 .Where(x => x.Value.PlayerProgress == playerProgress)
                 .Where(x => x.Value.IsUnlocked)

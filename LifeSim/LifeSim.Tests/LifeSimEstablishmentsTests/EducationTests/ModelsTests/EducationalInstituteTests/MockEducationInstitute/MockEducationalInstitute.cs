@@ -1,5 +1,4 @@
-﻿using LifeSim.Establishments.Education;
-using LifeSim.Establishments.Education.Models;
+﻿using LifeSim.Establishments.Education.Models;
 
 namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.EducationalInstituteTests.
     MockEducationInstitute

@@ -146,6 +146,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
                 }
                     break;
             }
+
             return stringBuilder.ToString();
         }
     }
