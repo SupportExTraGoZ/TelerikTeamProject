@@ -14,7 +14,6 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.EducationTests.ModelsTests.Hi
 
             var highSchool = new HighSchool(name, startYear);
 
-            Assert.IsInstanceOfType(highSchool, typeof(HighSchool));
             Assert.IsNotNull(highSchool);
         }
 

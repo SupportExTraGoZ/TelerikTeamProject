@@ -13,7 +13,6 @@ namespace LifeSim.Tests.LifeSimEstablishmentsTests.AbstractEstablishmentTests
 
             var mockEstablishment = new MockEstablishment(buildingName);
 
-            Assert.IsInstanceOfType(mockEstablishment, typeof(MockEstablishment));
             Assert.IsNotNull(mockEstablishment);
         }
 
