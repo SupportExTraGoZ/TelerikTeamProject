@@ -13,9 +13,9 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
         private const int minFriends = 50;
         private const int maxFriends = 500;
         private readonly IEngine engine;
-        private readonly IEducationalInstituteFactory factory;
+        private readonly IGameFactory factory;
 
-        public GoToUniversityCommand(IEngine engine, IEducationalInstituteFactory factory)
+        public GoToUniversityCommand(IEngine engine, IGameFactory factory)
         {
             this.engine = engine;
             this.factory = factory;
@@ -31,7 +31,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             engine.MenuManager.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
 
             this.engine.Player.University =
-                this.factory.CreateUniversity(engine.Generator.EducationInstitutePicker.
+                this.factory.EducationalInstituteFactory.CreateUniversity(engine.Generator.EducationInstitutePicker.
                 PickUniversity(engine.Player.IsSuccessfulAtHighSchool),
                     engine.GameTime.Year);
 

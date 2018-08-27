@@ -20,7 +20,7 @@ namespace LifeSim.Core.Engine.Core.Contracts
         IGenerator Generator { get; }
 
         IUserStatus UserStatus { get; }
-        IGamePlayerFactory PlayerFactory { get; }
+        IGameFactory GameFactory { get; }
         IPlayer Player { get; }
         PlayerProgress PlayerProgress { get; set; }
 

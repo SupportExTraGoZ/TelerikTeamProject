@@ -21,7 +21,7 @@ namespace LifeSim.Core.Engine.Core.Models
 
         public Engine(ICommandParser commandParser, IConsoleManager consoleManager,
             IMenuManager menuManager, IGenerator generator, ILogger logger,
-            IUserStatus userStatus, IGamePlayerFactory playerFactory)
+            IUserStatus userStatus, IGameFactory gameFactory)
         {
             // Display Setup
             ConsoleManager = consoleManager;
@@ -32,7 +32,7 @@ namespace LifeSim.Core.Engine.Core.Models
 
             // Player Creation Setup
             UserStatus = userStatus;
-            PlayerFactory = playerFactory;
+            GameFactory = gameFactory;
             PlayerProgress = PlayerProgress.NotBorn;
         }
 
@@ -43,7 +43,7 @@ namespace LifeSim.Core.Engine.Core.Models
         public IGenerator Generator { get; }
 
         public IUserStatus UserStatus { get; }
-        public IGamePlayerFactory PlayerFactory { get; }
+        public IGameFactory GameFactory { get; }
         public IPlayer Player { get; private set; }
         public PlayerProgress PlayerProgress { get; set; }
 
@@ -64,7 +64,7 @@ namespace LifeSim.Core.Engine.Core.Models
                 var questionAnswers = ConsoleManager.QuestionAction.GetUserAnswers();
 
                 // Player Init/Creation
-                Player = PlayerFactory.CreatePlayer(questionAnswers[0].Answer.Split(": ")[0],
+                Player = GameFactory.PlayerFactory.CreatePlayer(questionAnswers[0].Answer.Split(": ")[0],
                     questionAnswers[1].Answer.Split(": ")[0],
                     (GenderType) Enum.Parse(typeof(GenderType), questionAnswers[2].Answer.Split(": ")[0]),
                     (Birthplaces) Enum.Parse(typeof(Birthplaces),

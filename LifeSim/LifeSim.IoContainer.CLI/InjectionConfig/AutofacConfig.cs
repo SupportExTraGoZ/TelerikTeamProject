@@ -68,7 +68,7 @@ namespace LifeSim.IoContainer.CLI.InjectionConfig
             builder.RegisterType<Generator>().As<IGenerator>().PropertiesAutowired().SingleInstance();
             builder.RegisterType<Logger.Models.Logger>().As<ILogger>().PropertiesAutowired().SingleInstance();
             builder.RegisterType<UserStatus>().As<IUserStatus>().PropertiesAutowired().SingleInstance();
-            builder.RegisterType<GamePlayerFactory>().As<IGamePlayerFactory>().SingleInstance();
+            builder.RegisterType<GameFactory>().As<IGameFactory>().SingleInstance();
 
             // Minor Dependencies
             builder.RegisterType<OptionsContainer>().As<IOptionsContainer>().SingleInstance().PropertiesAutowired();
@@ -84,9 +84,9 @@ namespace LifeSim.IoContainer.CLI.InjectionConfig
             builder.RegisterType<NumberGenerator>().As<INumberGenerator>().SingleInstance().PropertiesAutowired();
             builder.RegisterType<EducationInstitutePicker>().As<IEducationInstitutePicker>().SingleInstance()
                 .PropertiesAutowired();
+            builder.RegisterType<PlayerFactory>().As<IPlayerFactory>().SingleInstance();
             builder.RegisterType<EducationalInstituteFactory>().As<IEducationalInstituteFactory>().SingleInstance();
             builder.RegisterType<JobFactory>().As<IJobFactory>().SingleInstance();
-
         }
 
         private void RegisterAllCommands(ContainerBuilder builder)

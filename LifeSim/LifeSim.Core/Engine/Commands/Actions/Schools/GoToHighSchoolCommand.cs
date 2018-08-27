@@ -12,9 +12,9 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
         private const int minFriends = 50;
         private const int maxFriends = 500;
         private readonly IEngine engine;
-        private readonly IEducationalInstituteFactory factory;
+        private readonly IGameFactory factory;
 
-        public GoToHighSchoolCommand(IEngine engine, IEducationalInstituteFactory factory)
+        public GoToHighSchoolCommand(IEngine engine, IGameFactory factory)
         {
             this.engine = engine;
             this.factory = factory;
@@ -30,7 +30,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Schools
             engine.MenuManager.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
 
             this.engine.Player.HighSchool =
-                this.factory.CreateHighSchool(engine.Generator.EducationInstitutePicker.
+                this.factory.EducationalInstituteFactory.CreateHighSchool(engine.Generator.EducationInstitutePicker.
                 PickHighSchool(engine.Player.IsSuccessfulAtPrimarySchool),
                     engine.GameTime.Year);
 

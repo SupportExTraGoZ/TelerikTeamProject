@@ -12,9 +12,9 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
     public class ApplyForJobCommand : ICommand
     {
         private readonly IEngine engine;
-        private readonly IJobFactory factory;
+        private readonly IGameFactory factory;
 
-        public ApplyForJobCommand(IEngine engine, IJobFactory factory)
+        public ApplyForJobCommand(IEngine engine, IGameFactory factory)
         {
             this.engine = engine;
             this.factory = factory;
@@ -52,7 +52,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
                         {
                             if (player.IsSuccessfulAtUniversity)
                             {
-                                player.Job = this.factory.CreateJob(ProfessionType.SoftwareEngineer,
+                                player.Job = this.factory.JobFactory.CreateJob(ProfessionType.SoftwareEngineer,
                                     1200, 6, engine.GameTime);
 
                                 stringBuilder.AppendLine(
@@ -79,7 +79,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
                     break;
                 case ProfessionType.PoliceOfficer:
                     {
-                        player.Job = this.factory.CreateJob(ProfessionType.PoliceOfficer, 1000, 12, engine.GameTime);
+                        player.Job = this.factory.JobFactory.CreateJob(ProfessionType.PoliceOfficer, 1000, 12, engine.GameTime);
 
                         stringBuilder.AppendLine(
                             "Few weeks later, you have been accepted to work at the local Police Station.");
@@ -90,7 +90,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
                     break;
                 case ProfessionType.Firefighter:
                     {
-                        player.Job = this.factory.CreateJob(ProfessionType.Firefighter, 1000, 12, engine.GameTime);
+                        player.Job = this.factory.JobFactory.CreateJob(ProfessionType.Firefighter, 1000, 12, engine.GameTime);
 
                         stringBuilder.AppendLine(
                             "Few weeks later, you have been accepted to work at the local Fire Station.");
@@ -103,7 +103,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
                     {
                         if (player.IsSuccessfulAtUniversity && player.HasTakenLessons)
                         {
-                            player.Job = this.factory.CreateJob(ProfessionType.Scientist, 1800, 8, engine.GameTime);
+                            player.Job = this.factory.JobFactory.CreateJob(ProfessionType.Scientist, 1800, 8, engine.GameTime);
 
                             stringBuilder.AppendLine(
                                 "Few weeks later, you have been accepted to work at the Scientific Research Company.");
@@ -115,7 +115,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
                         {
                             if (player.IsSuccessfulAtUniversity && player.HasTakenLessons)
                             {
-                                player.Job = this.factory.CreateJob(ProfessionType.Scientist, 1800, 8, engine.GameTime);
+                                player.Job = this.factory.JobFactory.CreateJob(ProfessionType.Scientist, 1800, 8, engine.GameTime);
 
                                 stringBuilder.AppendLine(
                                     "Few weeks later, you have been accepted to work at the Scientific Research Company.");
@@ -135,7 +135,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Job
                     break;
                 case ProfessionType.Accountant:
                     {
-                        player.Job = this.factory.CreateJob(ProfessionType.Accountant, 900, 8, engine.GameTime);
+                        player.Job = this.factory.JobFactory.CreateJob(ProfessionType.Accountant, 900, 8, engine.GameTime);
 
                         stringBuilder.AppendLine(
                             "Few weeks later, you have been accepted to work as an Accountant in a local Company.");

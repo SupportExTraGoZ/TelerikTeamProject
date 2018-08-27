@@ -12,9 +12,9 @@ namespace LifeSim.Core.Engine.Commands.Actions.Kindergarten
         private const int minFriends = 5;
         private const int maxFriends = 15;
         private readonly IEngine engine;
-        private readonly IEducationalInstituteFactory factory;
+        private readonly IGameFactory factory;
 
-        public GoToKinderGartenCommand(IEngine engine, IEducationalInstituteFactory factory)
+        public GoToKinderGartenCommand(IEngine engine, IGameFactory factory)
         {
             this.engine = engine;
             this.factory = factory;
@@ -30,7 +30,7 @@ namespace LifeSim.Core.Engine.Commands.Actions.Kindergarten
             engine.MenuManager.OptionsContainer.UnlockAgeUpCommand(engine.PlayerProgress);
 
             this.engine.Player.KinderGarten =
-                this.factory.CreateKinderGarten(this.engine.Generator.EducationInstitutePicker.PickKinderGarten()
+                this.factory.EducationalInstituteFactory.CreateKinderGarten(this.engine.Generator.EducationInstitutePicker.PickKinderGarten()
                 ,engine.GameTime.Year);
 
             var friends = engine.Generator.NumberGenerator.ChooseNumber(minFriends, maxFriends);
