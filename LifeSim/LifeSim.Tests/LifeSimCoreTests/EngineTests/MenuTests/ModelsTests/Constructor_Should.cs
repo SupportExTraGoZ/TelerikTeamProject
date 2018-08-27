@@ -16,7 +16,7 @@ namespace LifeSim.Tests.LifeSimCoreTests.EngineTests.MenuTests.ModelsTests
 
             var menuLauncher = new MenuLauncher(writerMock.Object, readerMock.Object);
 
-            Assert.IsInstanceOfType(menuLauncher, typeof(MenuLauncher));
+            Assert.IsNotNull(menuLauncher);
         }
     }
 }
