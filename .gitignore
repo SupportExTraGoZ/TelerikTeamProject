@@ -337,3 +337,14 @@ ASALocalRun/
 .Trashes
 ehthumbs.db
 Thumbs.db
+LifeSim/.vscode/launch.json
+LifeSim/.vscode/tasks.json
+LifeSim/.vscode/solution-explorer/class.cs-template
+LifeSim/.vscode/solution-explorer/class.ts-template
+LifeSim/.vscode/solution-explorer/class.vb-template
+LifeSim/.vscode/solution-explorer/default.ts-template
+LifeSim/.vscode/solution-explorer/enum.cs-template
+LifeSim/.vscode/solution-explorer/interface.cs-template
+LifeSim/.vscode/solution-explorer/interface.ts-template
+LifeSim/.vscode/solution-explorer/template-list.json
+LifeSim/.vscode/solution-explorer/template-parameters.js
