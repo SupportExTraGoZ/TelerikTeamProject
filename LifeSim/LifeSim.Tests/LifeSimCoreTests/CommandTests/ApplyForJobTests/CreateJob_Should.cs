@@ -34,7 +34,7 @@ namespace LifeSim.Tests.LifeSimCoreTests.CommandTests.ApplyForJobTests
             // Act
             var command = new ApplyForJobCommand(engineMock.Object, gameFactoryMock.Object)
             {
-                Parameters = new List<string> {ProfessionType.PoliceOfficer.ToString()}
+                Parameters = new List<string> { ProfessionType.PoliceOfficer.ToString() }
             };
             var commandExecute = command.Execute();
 

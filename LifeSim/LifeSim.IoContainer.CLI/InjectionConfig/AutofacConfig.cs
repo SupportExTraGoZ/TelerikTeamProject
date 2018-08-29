@@ -41,7 +41,7 @@ namespace LifeSim.IoContainer.CLI.InjectionConfig
         {
             var containerBuilder = new ContainerBuilder();
 
-            RegisterConvention(containerBuilder);
+            // RegisterConvention(containerBuilder);
             RegisterCoreComponents(containerBuilder);
             RegisterAllCommands(containerBuilder);
 
